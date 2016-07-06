@@ -1,3 +1,6 @@
+# Below ignore temporary files craeated by vim. Usually ending with ~.
+*~
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

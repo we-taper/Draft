@@ -1,0 +1,491 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+\usepackage{float}  % For H in figures
+\usepackage{amsmath, amssymb} % For math
+\usepackage{mathtools} % dcases*, see https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics#The_cases_environment
+\numberwithin{equation}{subsection} % have the enumeration go to the subsection level.
+									% See:https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
+\usepackage{graphicx}   % need for figures
+\usepackage{cite} % For bibligraphy
+\usepackage{fancyref} % For lazy reference \fref
+\usepackage{hyperref} % For hyperlink everything.
+\usepackage{CJKutf8} % For Chinese characters
+%\usepackage{ dsfont } % For double struck fonts
+\usepackage{braket} 
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+
+\usepackage{amsthm}
+\newtheorem{defi}{Definition}[section]
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\theoremstyle{definition}
+\newtheorem{ex}{Example}[section]
+
+
+\title{Topological Insulators and Topological Superconductors}
+\date{\today}
+\author{we.taper}
+\begin{document}
+\maketitle
+\abstract{
+    This is a draft.
+}
+\tableofcontents
+
+\section{Lectures on the Frontiers of Physics}
+\textbf{Given by professor of physics in SUSTC}
+    \subsection{By JQ. He.}
+    \textbf{Thermal electrics}
+
+    \subsection{By Lang. Chen}
+    \label{sec:c.l}
+    Grow thin films.
+    \begin{itemize}
+	\item Rheed-Assited PLD/MBE. (Ray as an exmination).
+	\item 
+	orbital contral of electrons -> 
+	orbitronics -> Control of Spin orbital coupling.
+	\item
+	Multiferroics -> multiple order parameters, and the interaction
+	between them. E.g. $BiFeO_3$.
+	\item
+	Ferrotorodicity: Spontaneous Toroidal Momennt. Time and spacial
+	symmetries simultaneous broken.
+	\item
+	What is a iridates $Ir_2(X)O_4$, (e.g. $Sr_2RuO_4$) 
+	exactly in theoretical physics?
+	\item
+	$H_2S$: 200K superconductor?
+	\item
+	The Double Exchange effect of oxygem -> Half-metal, phase transition.
+    \end{itemize}
+
+    \subsection{By Alan}
+    \textbf{Photocatalysis}: $TiO_2$. Hongkong has $TiO_2$ spurred on
+    the keys.
+
+    \subsection{By Li, Huang}
+    \begin{itemize}
+            \item Computational Physics
+            \item Surface Dynamics
+            \item Structural factor from 2D to 3D.
+            \item Finding Order Amid the Chaos. amorphous -> spatially
+                    resolved distributed function.
+            \item ?: What is genetically algorithm.
+    \end{itemize}
+    \textbf{Computational and theoretical studies of Surface dynamics}
+    
+    \begin{itemize}
+            \item Surface atoms is immersed in a very different environment
+                    compared with the bulk atoms.
+            \item First-principle calculations
+            \item DFT + LDA -> Conser equation
+            \item Plane wave basis + Ultrasoft pseudopotentials to solve the
+                    Conser equation
+            \item Continumm method ?
+    \end{itemize}
+
+    \subsection{By Junfen, Liu}
+    \begin{itemize}
+            \item electronic transport in mesoscopic systems:
+            \item Spintronics
+            \item Graphene eletronics
+            \item Superconductors etc.
+    \end{itemize}
+    \textbf{Quantum wire conductiing}
+    The conduction channel in quantum wire is quantized, with discrete value
+    of conductance.
+    \begin{itemize}
+            \item $\lambda_F$ Fermi wavelength
+            \item $L_m$ Momuntum relaxation length <-- impurities.
+            \item $L_\phi$ Phase relaxation length <-- memory of phase,
+                    related to energy $\omega = E/\hbar$.
+            \item $L$ Sample length
+    \end{itemize}
+    \begin{itemize}
+            \item Ballistic transport: $L << L_m$ No scattering.
+            \item Diffusive $L>L_m$, scattering, reduced transmission.
+            \item Localization $L_m<<L<<L_\phi$ -> Prof. Haizhou Lu.
+            \item Classical. (Omitted)
+    \end{itemize}
+    \textbf{Conductance}
+    No back-scattering $$ G = \frac{I}{V} = \frac{2e^2}{h}$$
+    Landauer formula $G = \frac{2e^2}{h}\cdot T$, $T$ is some coefficient
+    accounting for the back scattering, perhaps the transmission
+    probability.
+    In reality, $G=\sum_{\text{Different channels}}G_i$, 
+
+    We can turn the $G$ into resisivity: 
+    $$\text{Resistance}= \frac{h}{2e^2} + \frac{h}{2*e^2}\frac{R}{T}$$
+    $R+T=1$
+
+    \paragraph{Resonate Transmission} (Omitted)
+
+    \paragraph{Spintronics} Use the extra freedom of Spin. 
+    
+    Spin field eletroncis: Datta and Das, Appl. Phys. Lett. 56, 665(1990)
+
+    GMR: 2007 Nobel prize in Physics.
+    
+    Hall Effect (Omitted)
+    Spin Hall Effect: S. murakami, et.al. Science 301 1348(2004);
+    
+
+    J. Sinova et.al. Phys.Rev.Lett. 92, 126603 (2004). (Omitted)
+    
+    \paragraph{Graphene} Carrier -> Relativistic Dirac fermions.
+    \textbf{Klein Paradox} 
+
+    \paragraph{Josephson Junction} A phase difference could conduct
+    electricity in Superconductors.
+    
+
+
+    \subsection{By Haizhou, Lu}
+    \paragraph{Quantum Anomalous Hall Effect}
+    Requires strong magnetic field: $\approx 10$ Tesla.
+
+    Anomalous Hall Effect: Without magnetic field. $R_H = R_0 B+ R_A M$
+    where $M$ is the magnetic susceptibility.
+    Two-factors: SO coupling. Spin-dependent Hall Effect.
+    
+    An excellent illustrations is found in \cite{Arxiv-Xiao}:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{pics/1}
+        \caption{Illustration}
+        \label{fig:Xiao Illustration}
+    \end{figure}
+
+    \subsection{By Kedong Wang}
+    Tunneling current $I\propto V e^{-2kz}$, where 
+    $k = \frac{\sqrt{2m\phi}}{\hbar}$, $\phi$ is the Work function.
+    $I$ is very sensitive to the distance $z$.
+    
+    \paragraph{Work function} $\phi$ characterize the obstruction
+    that prevents electron from escaping the sample.
+
+\section{Problems in Bernevig's Topological ...}
+
+    \subsection{Chapter 2}
+    \paragraph{Non-Abelian Berry Transport}
+    Derive Berry curvature to the adiabatic transport of a degenerate
+    multiplet of states separated by a gap from the excited states.
+    (Cautious about rotation within degenerate states).
+
+    Answer: $\gamma_{mn}(t) = i \int_0^t \braket{m(R(t'))|\frac{d}{dt'}|n(R(t'))}dt'$
+
+    Approach:
+    Assuming that the those degenerate states are labeled by $1\cdots N$. 
+    Thus we have naturally:
+	\begin{align}
+            H\phi &=i\hbar\frac{\partial}{\partial t}\phi\text{,  }
+        \phi = \sum_n A_n \psi_n
+    \end{align}
+    
+    Then we have:
+    \begin{align}
+    H \sum_n A_n \psi_n &=i\hbar\frac{\partial }{\partial t}
+	  	\sum_n A_n(t) \psi_n(R(t)) \nonumber\\
+	\sum_n E A_n \psi_n&=i\hbar\sum_n
+		\left(
+		\frac{\partial A_n(t)}{\partial t}\psi_n(R(t))+
+		A_n(t)\frac{\partial \psi_n(R(t))}{\partial t}
+		\right) \nonumber\\
+	E A_m &=i\hbar
+		\frac{\partial A_m(t)}{\partial t}
+		+\sum_n A_n(t)\braket{m|\frac{\partial }{\partial t}|n}
+    \end{align}
+    Put in another form:
+    $$
+    \sum_n \left(\delta^n_m E
+        - \braket{m| \frac{\partial}{\partial t}|n} \right) A_n
+        =
+    i\hbar \frac{\partial A_m(t)}{\partial t}
+    $$
+    In matrix form:
+    \begin{align}
+            (E - P) \mathbf{A} = i\hbar \dot{\mathbf{A}}
+    \end{align}
+    where:
+    \begin{align}
+        E &= \left(
+        \begin{array}{ccc}
+         \cdots   &     &   \\
+              & E &   \\
+             &    & \text{...} \\
+        \end{array}
+        \right) \\
+        P &= (P^m_n) = \left(
+        \braket{m| \frac{\partial}{\partial t}|n}\right)\\
+        A &= \left(\begin{array}{c}
+            A_1(t) \\
+            A_2(t) \\
+            \cdots \\
+        \end{array}\right)
+    \end{align}
+    
+    Note that $\braket{n| \frac{\partial}{\partial t}|m}^* \neq
+    \braket{m| \frac{\partial}{\partial t} |n}$, thus $P$ may not be
+    Hermitian.Ergo $E-P$ is Hermitian. So it is diagonalizable.
+
+    Notice that
+    \begin{align}
+            0= \frac{\partial}{\partial t} \braket{m|n} &=
+        \braket{\frac{\partial}{\partial t}m|n} +
+        \braket{m|\frac{\partial}{\partial t}n} &&(\text{any }m,n)
+    \end{align}
+    temporary mathematica code:
+
+% In[8]:=DSolve[{y1'[x]+y2'[x]==x,y1'[x]-y2'[x]==0},
+%         {y1[x], y2[x]}, x]
+% In[9]:= DSolve[{e1*A1[t]==A1'[t]+A1[t]*m1+A2[t]*m2, 
+% e1*A2[t]==A2'[t]+A1[t]*m1+A2[t]*m2},{A1[t],A2[t]},t]
+% In[10]:=DSolve[{e1*A1[t]==A1'[t]+A1[t]*m1},{A1[t]},t]
+    
+
+\section{Miscellnaneous Notes}
+    \subsection{Super conductor}
+    Mean-field approach to deal with a four operator diagonalization.
+    
+    Suppose we have: $D^*C^* CD$, then let $\delta = CD - \braket{CD} =
+    CD - avg$. Then if we assume $\braket{CD}\neq 0$, and $\delta \approx 0$. Then we have:
+    
+    	$$ \delta^2 \approx 0 $$
+    i.e.:
+    
+    \begin{align}
+    	( (CD)^* - avg ) ( CD - avg ) = 0\\
+    	D^*C^*CD = avg*(CD+D^*C^*) - avg^2
+    \end{align}
+    Hence a four operator is reduced into a few of two operators.
+    Such method could be naturally extended to treat the operator
+    $\sum_{i,j} D^*_i C^*_i C_j D_j$.
+    
+    A copper pair has the energy of:
+    $$\Delta = \braket{C_{k \uparrow}C_{-k \downarrow} }$$
+    
+    To resist the flow of current carried by Copper Pair, is equivlant to destroying a pair of Copper Pair:
+    $$ \braket{C_{k \uparrow}C_{-k \downarrow} } \longrightarrow C_{k \uparrow}C_{-k \downarrow}$$
+    
+    This will require an additional enegy of $2\Delta$.
+    
+    The exact meaning of "equivalent to" is as follows:
+    \begin{align}
+        & \text{break a copper pair} \longrightarrow 
+        \text{scatter two electrons consecutively} 
+        \nonumber\\ & \longrightarrow 
+        \text{create two electron-hole mixed type quasi-particle} \longrightarrow 2\Delta \nonumber
+    \end{align}
+
+    \subsection{Why 0/0 is undefined?}
+    If we suppose
+    $$ \frac{0}{0}= \triangle $$
+    Consider the following derivation:
+    \begin{align}
+	    \frac{0}{0} \cdot 1 &= \triangle \cdot 1 = \triangle \\
+	    0 \cdot \frac{1}{0} &= \triangle\\
+	    \Rightarrow \triangle &= 0
+    \end{align}
+    This is already bad enough. And we are forced to define $\frac{1}{0}$.
+    Let $\frac{1}{0} = \square$, which literally means $1=0\cdot \square = 0$.
+    This is disastrous.
+
+    Alternatively, we could let
+    \begin{enumerate}
+	    \item Let $\frac{1}{0}$ be undefined.
+	    \item Or let $\frac{1}{0} =
+		    \infty$.
+	    \item Or, let $\frac{a}{b}\cdot c= a\cdot \frac{c}{b}$ be not 
+		    true when $b=0$.
+    \end{enumerate}
+    The third idea is disastrous for algebraic manipulation. \footnote{
+    Or more speicifically, it is a disaster for field theory.
+    }
+    The first idea is not good. Since defining $\frac{1}{0}=\infty$ turns
+    out to be very useful in both mathematics and physics. Actully, in
+    physics it is common practice to set $\frac{a}{0}=\pm\infty$ for
+    any nonzero number $a$, where the sign of $\infty$ is determined by 
+    the sign of $a$.
+    The second idea is okey. But then we are faced with a serious problem.
+    We have to define $\triangle \equiv 0 \cdot \infty$
+
+    $\triangle \cdot 2 = \triangle$, What will be of $\triangle + 1$?
+
+    \subsection{Preface of BSCS}
+        \label{sec:Preface_of_Bosonization_and_Strongly 
+        Correlated_Systems}
+    BSCS: see \cite{BSCS}.
+    Parallism between theories in condensed matter physics and those in
+    particle physics.
+    \begin{itemize}
+            \item Anderson-Higgs Phenomenon (Paritcle), Meissner effect
+                    (C.M.P.)
+            \item 'inflation' in Cosmology, first order phase transition
+            \item 'cosmic strings', magnetic field vortex lines in type
+                    II superconductors
+            \item Hadron-meson interaction, Ginzburg-Landau theory of
+                    superfluid $He^3$.
+    \end{itemize}
+    Same ideas on different space-time scales, different hierachical
+    'layers'.
+    Strong parallism: \textbf{strongly correlated low dimensional system}
+
+    E.g.:
+
+    The problem of formation and structure of heavy particles - hadrons and mesons. The corresponding fine structure constant $\alpha_G\approx 1$.
+
+    Approaches:
+    \begin{enumerate}
+            \item Exact solutions
+            \item Reformulate complicated interacting models in such a way
+                    that they become weekly interacting. -> Bosonization.
+                    
+                    Spin $1/2$ anisotropic Hisenberg chain $\approx$
+                    Model of interacting
+
+                    fermions.
+                    (Jordan and Wigner, 1928)
+    \end{enumerate}
+    Bosonization: transformation from fermions to a scalar massless bosonic
+    field.
+
+
+    \subsection{System of Differential Equations}
+    This is a small note of \cite{DETA}.
+
+    pp. 266.
+
+    \begin{defi}
+        $\mathbf{x(t)}$ is a vector whose elements are $x_i(t)$.
+        $ \frac{d}{d t}$ acts on vector $\mathbf{x}$ element-wise.
+        $\dot{\mathbf{x}}$ is abbrevation for $\frac{d}{d t}\mathbf{x}$
+    \end{defi}
+    
+    pp. 291.
+
+    \begin{thm}[Existence-uniqueness theorem]
+        There exists one, and only one, solution of the initial-value
+        problem
+
+        \begin{align}
+            \dot{\mathbf{x}}=\mathbf{A}\mathbf{x}\text{, }&
+                \mathbf{x}(t_0) = \mathbf{x}^0 = 
+                \left(
+                \begin{array}{c}
+		            x^0_1\\
+                    x^0_2\\
+                    \cdots
+                \end{array} 
+                    \right)
+        \end{align}
+        
+        Moreover, this solution exists for $-\infty\langle t\langle \infty$.
+    \end{thm}
+    \begin{remark}
+        By this, any non-trivial solution $\mathbf{x}(t)\neq 0$ at any
+        time $t$. Also notice that the elements of $\mathbf{A}$ are just
+        numbers.
+    \end{remark}
+    
+    \begin{thm}
+        The dimension of the space $\mathbf{V}$ of all solutions of the
+        homogeneous linear system of differential equations:
+        \begin{align}
+            \frac{d\mathbf{x}}{dt}=\mathbf{Ax}
+        \end{align}
+        is $n$, i.e. the dimension of vector $\mathbf{x}$.
+    \end{thm} 
+    \subsection{ODE by Arnold}
+    sec. 14
+    \begin{defi}
+        \begin{align}
+            \label{eq:e^A}
+            e^A &= I + A + \frac{A^2}{2!} + \frac{A^3}{3!}\\
+            \text{or}& \nonumber \\
+            e^A &= \lim_{n\to \infty}(I+\frac{A}{n})^n
+        \end{align}
+        where $I$ is the identity matrix.
+    \end{defi}
+    Equivalance of the two definition will be addressed in the Theorem on
+    pp. 165.
+
+    Important theorems:
+    \begin{thm}[pp. 158]
+        The series $e^A$ converges for any $A$ uniformly on each set
+        $X=\{A:||A||\leq a\}$, $a\in \mathbb{R}$.
+    \end{thm}
+    \begin{thm}[pp. 160]
+        $$e^{At} = H^t$$
+        where $H^t$ is the translation operator which sends every polynomial
+        $p(x)$ into $p(x+t)$.
+    \end{thm}
+    \begin{thm}[pp. 163]
+        $$\frac{d}{dt} e^{tA} = Ae^{tA}$$
+    \end{thm}
+    \begin{thm}[Fundamental Theorem of the Theory of Linear Equations with
+        Constant Coefficients]
+        The solution of:
+        \begin{align}
+            \label{eq:fund_thm_of_linear_eqs_const_coef}
+            \dot{\mathbf{x}} = A\mathbf{x}
+        \end{align}
+        with initial condition $\phi(0) = \mathbf{x}_0$ is
+        \begin{align}
+            \mathbf{\phi}(t) = e^{tA}\mathbf{x}_0
+        \end{align}
+    \end{thm}
+    
+    Practically solution to
+    $$ \dot{\mathbf{x}} = A\mathbf{x}$$
+    (pp. 173, Sec 17)
+    (Assuming $A$ is diagonalizable.)
+    \begin{itemize}
+        \item Find the eigenvectors $\xi_1,\cdots ,\xi_n$ and eigenvalues
+            $\lambda_1,\cdots ,\lambda_n$. Use them as basis.
+        \item Expand the initial condition in the new basis.
+            \begin{align}
+                \mathbf{x}_0=\sum_{k=1}^{n} C_k\xi_k
+            \end{align}
+        \item Then $\phi(t) = \sum_{k=1}^n C_k e^{\lambda_k t}\xi_k$
+    \end{itemize}
+    \subsection{Appearance of Gauge Structure in Simple Dynamical Systems}
+    
+    \begin{align}
+        0=(\eta_b,\dot{\eta_a}) = (\eta_b,\dot{U}_{ac}\psi) +
+            (\eta_b,U_{ac}\dot{\psi}_c
+    \end{align}
+\section{Anchor}
+% This is just an anchor for seperating thebibliography from above contents.
+\begin{thebibliography}{1}
+	\bibitem{Sakurai} Sakurai, J. J. Modern Quantum Mechanics, Addison Wesley.
+	\bibitem{BSCS} Bosonization and Strongly Correlated Systems. Cambridge.
+
+        \href{http://www.cambridge.org/us/academic/subjects/physics/condensed-matter-physics-nanoscience-and-mesoscopic-physics/bosonization-and-strongly-correlated-systems}{Cambridge Press Link}
+
+    \bibitem{DETA} Martin Braun. Differential Equations and Their
+    Applications. 4ed. Springer.
+    \bibitem{Arxiv-Xiao} \url{http://arxiv.org/abs/1508.07106v1}
+\end{thebibliography}
+\section{License}
+The entire content of this work (including the source code
+for TeX files and the generated PDF documents) by 
+Hongxiang Chen (nicknamed we.taper, or just Taper) is
+licensed under a 
+\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative 
+Commons Attribution-NonCommercial-ShareAlike 4.0 International 
+License}. Permissions beyond the scope of this 
+license may be available at \url{mailto:we.taper[at]gmail[dot]com}.
+
+\end{document}
