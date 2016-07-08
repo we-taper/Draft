@@ -1,3 +1,6 @@
+# Ignore the draft math files.
+math.html
+
 # Below ignore temporary files craeated by vim. Usually ending with ~.
 *~
 

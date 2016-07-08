@@ -1,0 +1,160 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+\usepackage{float}  % For H in figures
+\usepackage{amsmath, amssymb} % For math
+\usepackage{mathtools} % dcases*, see https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics#The_cases_environment
+\numberwithin{equation}{subsection} % have the enumeration go to the subsection level.
+									% See:https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
+\usepackage{graphicx}   % need for figures
+\usepackage{cite} % For bibligraphy
+\usepackage{fancyref} % For lazy reference \fref
+\usepackage{hyperref} % For hyperlink everything.
+\usepackage{CJKutf8} % For Chinese characters
+%\usepackage{ dsfont } % For double struck fonts
+\usepackage{braket} 
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+
+\usepackage{amsthm}
+\newtheorem{defi}{Definition}[section]
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\theoremstyle{definition}
+\newtheorem{ex}{Example}[section]
+
+\title{Photosynthesis Course Note}
+\date{\today}
+\author{we.taper}
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section{8th, July}
+\label{sec:8th_July}
+\paragraph{pp.2 of PPT}
+In the last lecture, the \textit{master equation} for density matrix
+\footnote{Reference not found.}
+could lead to problematic result. As the density matrix propagates
+as described by the master equation, the eigenvalues for it might
+involved into negative values. This is because the added terms
+are not rigorously derived, but just an approximation.
+
+\textbf{Digression}:  PRE 65 056120, something about entanglement between
+oscillators.
+
+\paragraph{pp.3 of PPT}
+\textbf{Lindblad equations} This equation ensures that the
+density matrix $\rho \geq 0$ (i.e. having all positive
+eigenvalues). However, this operator sometimes breaks down
+the symmetries of the system. That is, a system started with
+translation symmetry at $t_0$ might not have translation
+symmetry at $t > t_0$.
+
+An Example for Lindblad equation:
+
+Considering the case of a harmonic oscillator.
+$$ H = w_0 a^\dagger a $$
+If we add interaction of oscillator and other excitons:
+$$ A^\dagger A (a^\dagger + a) = \text{extra} + \text{bath}$$
+Then $A^\dagger A$ is $V_m$ in ppt.
+
+
+\paragraph{Digression} Two Spin system. One way to judge
+whether the two particles are entangled or not, is to do partial
+transpose: transposing only part of the density
+matrix corresponding to only one particle of the system.
+
+\paragraph{Energy Transfer}
+
+\textbf{Note}: This section's materail could be found in
+\textit{Excitonic energy transfer in light-harvesting complexes 
+in purple bacteria. JChemPhys\_136\_245104.pdf}
+
+% TODO what is exciton?
+\paragraph{pp.5 of PPT}
+Exciton transport process. External
+influence to the system includes trapping, decaying and disspation.
+
+The $k_t$ characterizes the trapping rate. And $k_d$ characterizes
+the decay rate.
+
+\paragraph{pp.6 of PPT}
+Life time $\tau_n = \int_0^\infty \rho(t)_n dt$, where
+$\rho_n \equiv \rho_{nn}$. We hope the $\braket{t} = \sum \tau_n$
+to be small, because the shorter an exciton is fixed on a state,
+the more random the system is and the more likely that the exciton
+is trapped.
+
+Quantum yeild $q= \text{On PPT} 
+            = \frac{\text{trapped}}{\text{trapp} + \text{died}}$.
+
+\paragraph{pp.8 of PPT}
+Showcase of calculating the $\rho(t)$ using the Haken-Strobl model
+A simple Ring.
+% TODO try to calculate the example.
+
+\paragraph{pp.9 of PPT}
+Complex models with more and more elements in the ring. 
+
+\paragraph{pp.10 of PPT}
+\footnote{Could be found on \textit{Efficient energy transfer in 
+light-harvesting systems. Cao and Silbey et al New J Phys (2010)}}
+The 16 sites ring shows that there is always 
+a peek in the opposite site(See upper-left plot). This is
+because there is always
+two channels of equal length for it to get to the opposite side.
+
+\paragraph{pp.11 of PPT}
+A two ring case, with 8 sites on each ring. The initial configuration
+is evenly excited in the left ring. The right ring comprised of
+trapping sites.
+
+\paragraph{pp.12 of PPT}
+Another two ring case, with a change in the right ring's number
+of trapping sites. It shows that a asymmetric design would somehow
+imporve the efficiency, since the right side plot has a maximum region.
+
+\paragraph{pp.15 of PPT}
+
+Start with a reduced single-electron density matrix. Consider an
+external interruption caused by Laser, and apply the 
+\textit{Principle of the nearsightedness of equilibrium systems} to
+reduce the computation difficulties. This principle is related 
+R.P.A. in condensed matter physics.
+
+\textbf{Caution:} I am quite confused by the following content,
+from pp.16 to the end of PPT. Erogo the
+following notes are note well organized. It is advised that one should
+look at the original paper
+\paragraph{pp.16 of PPT}
+\footnote{
+\url{http://journals.aps.org/pre/pdf/10.1103/PhysRevE.69.032902}} 
+instead.
+
+% TODO unclear picture about this slide.
+Calculating the absorption spectrum, with the result that only one level
+is acceptable.
+$A\propto amplitude$ characterize the behavior of laser input. 
+$M_{mn}:$ the angle between oscillation angles.
+
+\paragraph{pp.17 of PPT}
+Changing the bahavior of lasers could result (in generally) more
+different acceptable levels. However, the laser configuration
+is not practical.
+
+\paragraph{pp.19 of PPT}
+Using Frankel-Exciton Model and find very good fit, balabala.
+% TODO transition dipole, dimerization.
+
+\end{document}

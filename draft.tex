@@ -33,7 +33,7 @@
 \newtheorem{ex}{Example}[section]
 
 
-\title{Topological Insulators and Topological Superconductors}
+\title{Draft}
 \date{\today}
 \author{we.taper}
 \begin{document}
@@ -176,6 +176,36 @@
     \paragraph{Work function} $\phi$ characterize the obstruction
     that prevents electron from escaping the sample.
 
+    \subsection{By Mingyuan Hunag}
+    Too boring.
+    
+    \subsection{By Wenkang Wong}
+    \paragraph{Non-clone Theorem} We can easily see that there is no universal
+    copy operators in Quantum Mechanics.
+
+    \begin{proof}
+    We proove it by contradiction. Let $U$ be the copy operator. By definition,
+    we have
+    $$   U \ket{\psi}\ket{0} = \ket{\psi}\ket{\psi}$$
+    For any $\ket{\psi}$.
+    Then, let try copying the state $\ket{\psi} = \ket{0} + \ket{1}$. We have
+    \begin{align*}
+        (\ket{0}+\ket{1})(\ket{0}+\ket{1}) &= U (\ket{0}+\ket{1})\ket{0} \\
+        &= U (\ket{0}\ket{0} + \ket{1}\ket{0} ) \\
+        &= \ket{0}\ket{0} + \ket{1}\ket{1} \\
+    \end{align*}
+    This is a contradiction.
+    \end{proof}
+    \begin{remark}
+        We assume that the copyer is universal. This might seems to be too
+        strong. However, if we assume that the copyer only
+        works for certain states $\ket{\phi}$, then with the knowledge
+        of these certain states, we could in principle create an exact copy
+        of these states. This copy ,in the sense of another instance of the
+        same object, of original state should not be considered to be an
+        copied version of the original state.
+    \end{remark}
+    
 \section{Problems in Bernevig's Topological ...}
 
     \subsection{Chapter 2}
@@ -466,6 +496,66 @@
         0=(\eta_b,\dot{\eta_a}) = (\eta_b,\dot{U}_{ac}\psi) +
             (\eta_b,U_{ac}\dot{\psi}_c
     \end{align}
+    \subsection{Quantum Statistical Mechanics}
+    \label{sec:Quantum Statistical Mechanics}
+    \begin{defi}[Time Evolution Operator]
+        The time evolution operator $U(t,t_0)$ is defined such that
+        \begin{align}
+            \label{eq:def_time_evo_op}
+            \ket{\Psi(t)} = U(t,t_0) \ket{\Psi(t_0)}
+        \end{align}
+    \end{defi}
+    It satisfy the relationship:
+    \begin{align}
+        \label{eq:def_time_evo_op 2}
+        i\hbar \partial_t U(t,t_0)= \mathcal{H} U(t,t_0)
+    \end{align}
+    This is obvious when substituting $U(t,t_0)$ into the Schrodinger 
+    Equations.
+    
+    \paragraph{Quantum Macrostates}
+    Macrostates of the system depend on only a few the thermodynamic
+    functions. We can form an ensemble of a large number $\mathcal{N}$ of
+    microstates $\{\psi_\alpha\}$, corresponding too a given macrostates.
+    The different microstates occur with probability $p_\alpha$.
+    When wen no longer have exact knowledge of the microstate of a
+    system the system is said to be in a \textit{mixed state}.
+    The ensemble average of the quantum mechanical expectation
+    value is given by:
+    \begin{align}
+        \label{eq:quantum_macrostates_ensemble_avg}
+        \bar{\braket{O}} &= 
+            \sum_\alpha p_\alpha \braket{\psi_\alpha|O|\psi_\alpha}
+            = \sum_{\alpha,m,n} p_\alpha
+                \braket{\psi_\alpha|m}\braket{m|O|n}\braket{n|\psi_\alpha}
+                \nonumber\\
+            &= \sum_{m,n} \braket{n|\rho|m}\braket{m|O|n}
+                = \text{tr}(\rho O)
+    \end{align}
+    where we have introduced the density matrix:
+    \begin{defi}[Density Matrix]
+        The density matrix $\rho(t)$ is defined as
+        \begin{align}
+            \label{eq:density_matrix_def}
+        \braket{n|\rho(t)|m} \equiv
+        \sum_\alpha p_\alpha \braket{n|\psi_\alpha} \braket{\psi_\alpha|m}
+        \end{align}
+        or
+        \begin{align}
+            \label{eq:density_matrix_def_2}
+            \rho(t) \equiv \sum_\alpha p_\alpha
+                \ket{\psi_\alpha}\bra{\psi_\alpha}
+        \end{align}
+    \end{defi}
+    Density matrix is denoted by $\rho(t)$ by analogy of the notation for
+    P.D.F, since $\rho$ often represents density.
+    
+    Density matrix satisfies several good properties:
+    \begin{itemize}
+        \item Normalized
+        \item Hermiticity
+        \item Positivity. For any $\Phi$, $\braket{\Phi|\rho|\Phi} \geq 0$.
+    \end{itemize}
 \section{Anchor}
 % This is just an anchor for seperating thebibliography from above contents.
 \begin{thebibliography}{1}
@@ -477,6 +567,7 @@
     \bibitem{DETA} Martin Braun. Differential Equations and Their
     Applications. 4ed. Springer.
     \bibitem{Arxiv-Xiao} \url{http://arxiv.org/abs/1508.07106v1}
+    \bibitem{Kardar} M. Kardar. Statistical Physics of Particles (2007)
 \end{thebibliography}
 \section{License}
 The entire content of this work (including the source code
