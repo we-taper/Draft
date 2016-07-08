@@ -33,3 +33,8 @@ This is intended for storing my drafts of my works. It is messy and will never b
 Notes taken when I am attending the course *An Introduction to Light Harvesting in Bacteria and Plants*.
 
 * Useful (anit)Commutative relationships
+
+* feynman diagram
+
+Notes for studying Feynman diagram. Currently stopped at defining
+Green function.
