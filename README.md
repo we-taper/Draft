@@ -28,9 +28,16 @@ This is intended for storing my drafts of my works. It is messy and will never b
     * Some notes on solving systems of ODE equations.
     * notes on *Quantum Statistical Mechanics*.
 
+    * The Mathematical Theory of Communication
+
+    This is Shannon's landmarking paper on Information Theory.
+    I read only a part of it to try to grasp the connotation 
+    of the trendy phrase **information entropy**.
+
 * Photosynthesis Course Note
 
-Notes taken when I am attending the course *An Introduction to Light Harvesting in Bacteria and Plants*.
+Notes taken when I am attending the course *An Introduction to 
+Light Harvesting in Bacteria and Plants*.
 
 * Useful (anit)Commutative relationships
 
@@ -38,3 +45,4 @@ Notes taken when I am attending the course *An Introduction to Light Harvesting 
 
 Notes for studying Feynman diagram. Currently stopped at defining
 Green function.
+
