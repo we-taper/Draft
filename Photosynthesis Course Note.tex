@@ -40,121 +40,162 @@
 
 \tableofcontents
 
-\section{8th, July}
-\label{sec:8th_July}
+\abstract{
+    This is a note of the course \textit{An Introduction
+    to Light Harvesting in Bacteria and Plants}. The course is more
+    of a academic than of a pedagodic nature: ideas and
+    methods are only mentioned, with reference to the published paper
+    available in the corresponding PDF page.
+    Therefore, this note aims to provide a guidance to read the PDFs.
+    Note that the page numbers in this note are the page numbers of
+    each individual PDFs, not necessarily the page numbers displayed
+    on the bottom-right corner inside the PDFs.
+}
+\section{June 29th}
+\label{sec:June_29th}
+
+In this lecture, the teacher presents backgroud for light-harvesting
+mechanism in biology systems:
+\begin{itemize}
+    \item \textbf{pp.1 to 9 of PPT} 
+        General backgroud to Biophysics.
+    \item \textbf{pp.10 to 18 of PPT}
+        Review of several mechanisms of light harvesting in different 
+        species.
+    \item \textbf{pp.19 to 20 of PPT}
+        The central topics of this course
+        \begin{itemize}
+            \item The natrual of exciton in biological ligth harvesting 
+                system.
+                Is it of Frenkel (short-ranged) of Wannier (long-ranged) type?
+            \item The transfer mechanism. (pp.20) It was mentioned that
+                the transfer is much more efficient than predicted
+                by a classical diffusion model.
+            \item How is active self-regulation archieved. (pp.20)
+        \end{itemize}
+\end{itemize}
+%\paragraph{pp.21 of PPT} Omitted.
+% TODO what is point of this slide?
+Then after a review of Quantum Mechanics (\textbf{pp. 22 to 32} )\footnote{
+    Interestingly, the teacher mentioned Bohmian Mechanics, an alternative
+    model of Quantum Mechanics that features determinism and nonlocality.
+    A comprehensive discussion of this model could be found here:
+    \url{http://plato.stanford.edu/entries/qm-bohm/}
+}, the teacher illustrated a model to calculate
+the excitation energy of a dimer.(\textbf{pp.33 to 36})
+Note that here it is expected that only one of the
+dimer is excited, becuase this energetically eaiser to achieve.
+Note also that the
+symble "$\dagger$" denotes neither conjugation nor creation operator,
+but simply a label for an excited state's wavefunction. 
+
+Afterwards, the result on \textbf{page 36} expressed the excitation energy 
+as a function of
+transition dipole moment and the speration length of two molecules.
+
+\section{July 1th}
+\label{sec:July_1th}
+\paragraph{pp.1 of PPT} It begins with a review of two modes of excitons
+in organic biology.
 \paragraph{pp.2 of PPT}
-In the last lecture, the \textit{master equation} for density matrix
+\section{July 8th}
+\label{sec:July_8th}
+In the previous lecture, the \textit{master equation} for density matrix
 \footnote{Reference not found.}
-could lead to problematic result. As the density matrix propagates
+could lead to problematic result. When the density matrix propagates
 as described by the master equation, the eigenvalues for it might
-involved into negative values. This is because the added terms
-are not rigorously derived, but just an approximation.
-
-\textbf{Digression}:  PRE 65 056120, something about entanglement between
-oscillators.
-
-\paragraph{pp.3 of PPT}
-\textbf{Lindblad equations} This equation ensures that the
+evolve into comprising negative values. This is because the added terms
+are not rigorously derived, but just an approximation. On \textbf{page 2} the
+teacher mentioned a specific case.\footnote{
+    Digression: in the article PRE 65 056120, we can find
+    something about the entanglement between two oscillators.
+}
+Therefore, one introduces the \textbf{Lindblad equations}
+(\textbf{pp.3}). This equation ensures that the 
 density matrix $\rho \geq 0$ (i.e. having all positive
 eigenvalues). However, this operator sometimes breaks down
 the symmetries of the system. That is, a system started with
 translation symmetry at $t_0$ might not have translation
 symmetry at $t > t_0$.
 
-An Example for Lindblad equation:
+The teacher wrote an example for the $V_m$ term on ppt on blackboard:
 
 Considering the case of a harmonic oscillator.
 $$ H = w_0 a^\dagger a $$
-If we add interaction of oscillator and other excitons:
-$$ A^\dagger A (a^\dagger + a) = \text{extra} + \text{bath}$$
+If we add an interaction between the oscillator and other excitons:
+$$ A^\dagger A (a^\dagger + a) = \text{extra} \otimes \text{bath}$$
 Then $A^\dagger A$ is $V_m$ in ppt.
 
 
-\paragraph{Digression} Two Spin system. One way to judge
+\paragraph{Digression} In two Spin system. One way to judge
 whether the two particles are entangled or not, is to do partial
 transpose: transposing only part of the density
 matrix corresponding to only one particle of the system.
+% TODO and then?
 
-\paragraph{Energy Transfer}
-
-\textbf{Note}: This section's materail could be found in
+Next, the author provided a specific model of energy transfer.
+\footnote{
+\textbf{Note}: This section's material could be found in
 \textit{Excitonic energy transfer in light-harvesting complexes 
 in purple bacteria. JChemPhys\_136\_245104.pdf}
+}
 
 % TODO what is exciton?
-\paragraph{pp.5 of PPT}
-Exciton transport process. External
-influence to the system includes trapping, decaying and disspation.
-
-The $k_t$ characterizes the trapping rate. And $k_d$ characterizes
+\paragraph{pp.5} shows diagramatically the exciton transport process.
+External influence to the system includes trapping, decaying and disspation.
+Here $k_t$ characterizes the trapping rate. And $k_d$ characterizes
 the decay rate.
 
-\paragraph{pp.6 of PPT}
-Life time $\tau_n = \int_0^\infty \rho(t)_n dt$, where
-$\rho_n \equiv \rho_{nn}$. We hope the $\braket{t} = \sum \tau_n$
-to be small, because the shorter an exciton is fixed on a state,
+\paragraph{pp.6 of PPT} explains some notations.
+Here $\tau_n$ characterize the life time 
+of exciton in on state $n$. \footnote{ Here
+$\rho_n \equiv \rho_{nn}$.} We hope that the total life time
+$\braket{t} = \sum \tau_n$
+is small, because the shorter an exciton is fixed on a state,
 the more random the system is and the more likely that the exciton
 is trapped.
 
-Quantum yeild $q= \text{On PPT} 
-            = \frac{\text{trapped}}{\text{trapp} + \text{died}}$.
+Following are a series of toycases that has been calculated.
 
-\paragraph{pp.8 of PPT}
-Showcase of calculating the $\rho(t)$ using the Haken-Strobl model
-A simple Ring.
+\paragraph{pp.8 to 9} are the $\rho(t)$ for these simple cases.
 % TODO try to calculate the example.
-
-\paragraph{pp.9 of PPT}
-Complex models with more and more elements in the ring. 
 
 \paragraph{pp.10 of PPT}
 \footnote{Could be found on \textit{Efficient energy transfer in 
 light-harvesting systems. Cao and Silbey et al New J Phys (2010)}}
-The 16 sites ring shows that there is always 
-a peek in the opposite site(See upper-left plot). This is
+This ring with 16 sites shows that there is always 
+a peek Max population in the opposite site(See upper-right plot). This is
 because there is always
-two channels of equal length for it to get to the opposite side.
+two channels of equal length for excitons to get to the opposite site.
 
-\paragraph{pp.11 of PPT}
-A two ring case, with 8 sites on each ring. The initial configuration
-is evenly excited in the left ring. The right ring comprised of
-trapping sites.
+\paragraph{pp.11 of PPT} is 
+a two ring case, with 8 sites on each ring. The initial configuration
+is that excitons are evenly excited in the left ring. 
+The right ring comprised of trapping sites.
 
-\paragraph{pp.12 of PPT}
-Another two ring case, with a change in the right ring's number
+\paragraph{pp.12 of PPT} is 
+another two ring case, with a change in the right ring's number
 of trapping sites. It shows that a asymmetric design would somehow
-imporve the efficiency, since the right side plot has a maximum region.
-
-\paragraph{pp.15 of PPT}
-
-Start with a reduced single-electron density matrix. Consider an
-external interruption caused by Laser, and apply the 
-\textit{Principle of the nearsightedness of equilibrium systems} to
-reduce the computation difficulties. This principle is related 
-R.P.A. in condensed matter physics.
+imporve the efficiency, since the plot on the right has a maximum region
+while the left one has none. The next slide shows similar result.
 
 \textbf{Caution:} I am quite confused by the following content,
 from pp.16 to the end of PPT. Erogo the
 following notes are note well organized. It is advised that one should
-look at the original paper
-\paragraph{pp.16 of PPT}
-\footnote{
-\url{http://journals.aps.org/pre/pdf/10.1103/PhysRevE.69.032902}} 
-instead.
+look at the original literature instead.
 
-% TODO unclear picture about this slide.
-Calculating the absorption spectrum, with the result that only one level
-is acceptable.
-$A\propto amplitude$ characterize the behavior of laser input. 
-$M_{mn}:$ the angle between oscillation angles.
+\paragraph{pp.15 to 16} shows a more advanced calculation of excited
+states.
+
+\paragraph{pp.16 of PPT} Calculating the absorption spectrum, 
+showing that only one level is acceptable.
 
 \paragraph{pp.17 of PPT}
-Changing the bahavior of lasers could result (in generally) more
-different acceptable levels. However, the laser configuration
-is not practical.
+Changing the configuration of laser could result (in generally) more
+acceptable levels. However, these laser configurations are not practically
+achievable.
 
 \paragraph{pp.19 of PPT}
 Using Frankel-Exciton Model and find very good fit, balabala.
-% TODO transition dipole, dimerization.
 
 \end{document}
