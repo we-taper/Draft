@@ -510,7 +510,7 @@
     It satisfy the relationship:
     \begin{align}
         \label{eq:def_time_evo_op 2}
-        i\hbar \partial_t U(t,t_0)= \mathcal{H} U(t,t_0)
+        i\hbar \partial_t U(t,t_0)= H U(t,t_0)
     \end{align}
     This is obvious when substituting $U(t,t_0)$ into the Schrodinger 
     Equations.
@@ -558,6 +558,13 @@
         \item Hermiticity
         \item Positivity. For any $\Phi$, $\braket{\Phi|\rho|\Phi} \geq 0$.
     \end{itemize}
+    The time evolution of density matrix, directly obtained from Schrodinger's
+    equation, is
+    \begin{align}
+        \label{eq:quantum_macrostates:density_matrix:evolution}
+        i\hbar \frac{\partial}{\partial t}\rho = [H,\rho]
+    \end{align}
+
     \subsection{The Mathematical Theory of Communication}
     \label{sec:The_Mathematical_Theory_of_Communication}
     \subsubsection{Introduction}
@@ -726,6 +733,122 @@
 
     % TODO having trouble understanding the Theorem 4 on page 55.
 
+\section{Quantum Field Theory}
+\label{sec:Quantum_Field_Theory}
+    \subsection{Relatvistic Quantum Mechanics}
+    \label{sec:Relatvistic_Quantum_Mechanics}
+    
+    \subsubsection{2.1 Quantum Mechanics}
+    \label{sec:2.1_Quantum_Mechanics}
+    This part sumarize the axioms of quantum mechanics. (Omitted)
+    However, one class of important but seldom mentioned operator,
+    the antilinear operators and the antiunitary operators are not
+    discussed here but postponed to the next part.
+
+    \subsubsection{2.2 Symmetries}
+    \label{sec:2.2_Symmetries}
+    This part discribe some important theorems concerning the symmetries
+    in quantum mechanics.
+
+    Firstly, symmetries in quantum mechanics some times requires the use
+    of antilinear and antiunitary operators.
+
+    \paragraph{Antilinear and Antiunitary}
+    Antilinear operators: $U (\lambda A + \upsilon B)
+                            = \lambda^* UA + \upsilon^* UB$.
+
+    Antiunitary: $ (U \phi, U \psi) = (\psi, \phi) = (\phi,\psi)^*$
+
+    The adjoint operator of an antilinear operator requires special
+    attention:
+    $$ (\phi, A^\dagger\psi) = (A\phi, \psi)^*$$
+    (The usual definition will become troublesome since the LHS will
+    be antilinear in $\phi$, whereas the RHS is linear.)
+
+    Thankfully, the criterion for unitarity or antiunitarity is the same:
+    $$U^\dagger = U^{-1}$$
+    
+    An important example is those symmetries which can be infinitesimally
+    close to identity. In the vincinity of unity, it is:
+    $$ U =1+i\epsilon t $$
+    where $t$ is Hermitian and linear.
+    % TODO why is it Hermitian?
+
+    \paragraph{Symmetry Group and its Representation} The set of all
+    symmetries transformations obviously can have a group structure.
+    By giving each symmetry transformation a unitary or antiunitary
+    operator, a representation of such group is obtained. However,
+    such a representation can be projective (projective as in
+    projective geometry, or $\mathbb{CP}^n$), since operators acts
+    on ket spaces, which is already projective (within a freedom of
+    phase). 
+
+    If the phase is taken into consideration, it is found that this
+    phase is independent of the ket that the operator acts on:
+    \begin{align}
+        \label{eq:2.2_symmetries_projective_phase}
+        U(T_1 T_2) \Psi = e^{i\phi} U(T_1) U(T_2) \Psi
+    \end{align}
+    Here $U(T_1)$/$U(T_2)$ is the operator corresponding to the symmetry
+    transformation $T_1$/$T_2$. $\phi$ is the phase, depends only
+    on $T_1 T_2$.
+
+    Howver, there is one exception to this rule. It exists when the
+    state $\Psi$ is not the linear some of some other wave functions.
+    That is, we can not express $\Psi$ as $\sum_i \lambda_i \psi_i$.
+    This seems incomprehesible to me.
+    % TODO Understand this!
+    There are some link on page 53
+    between the structure of Lie group associated
+    with this symmetry and whether the representation can be projective.
+    \footnote{Though not state, it can be infered that a representation
+    can be made not-projective by a good choice of $U(T)$, so that
+    $\phi \equiv 0$ in \fref{eq:2.2_symmetries_projective_phase} }
+
+    \paragraph{Connected Lie group} is of special importance in physics.
+    However, the books description obfuscate the mathematical description
+    of this structure. I will update this note later to remedy such
+    % TODO update this part.
+    discussion. The message I understand is that the representation is
+    tightly bound to the Lie algebra. An important example is that when
+    $$ U(T(\theta)) \approx 1 + i \theta^a t_a $$
+    $$ [t_b,t_c] = 0$$
+    then
+    $$ U(T(\theta)) = \exp(it_a \theta^a) $$
+
+    \subsubsection{2.3 Quantum Lorentz Transformations}
+    \label{sec:2.3_Quantum_Lorentz_Transformations}
+    \textbf{Note}: although the title suggests "quantum", this part is
+    mostly classical.
+
+    Starting with the invariance of interval:
+    \begin{align}
+        \label{eq:2.3_Quantum_Lorentz_Transformations invariance_of_interval}
+        \eta_{\mu\nu}dx'^\mu dx'^\nu = \eta_{\mu\nu}dx^\mu dx^\nu
+    \end{align}
+    or equivalently % TODO why equivalently?
+    \begin{align}
+        \label{eq:2.3_Quantum_Lorentz_Transformations invariance_of_interval 2}
+        \eta_{\mu\nu} \frac{\partial x'^\mu}{\partial x^\rho}
+            \frac{\partial x'^\nu}{\partial x^\sigma}
+            =
+        \eta_{\rho\sigma}
+    \end{align}
+    It claims that any coordinate transformation satisfying 
+    \ref{eq:2.3_Quantum_Lorentz_Transformations invariance_of_interval 2}
+    must be linear.
+
+    Such linear Lorentz transformations satisfy:
+    \begin{align}
+        T(\bar{\Lambda},\bar{a})T(\Lambda,a) = 
+            T(\bar{\Lambda}\Lambda, \bar{\Lambda}a+\bar{a})
+    \end{align}
+    where $\bar{\Lambda}+\bar{a}$ and $\Lambda+a$ are two such 
+    transformations.
+
+    The $\Lambda$ and $\Lambda^{-1}$ can be determined by several 
+    equations that relate it with $\eta_{\mu\nu}$. Note that:
+    $$ \Lambda^{\rho}_{ \nu} \neq \Lambda^{ \rho}_\nu$$
 \section{Anchor}
 % This is just an anchor for seperating thebibliography from above contents.
 \begin{thebibliography}{1}

@@ -102,18 +102,20 @@ Begin with a review of two modes of excitons in organic system
 \textbf{pp.1}, this
 lecture proceeds to explain in detail the dipole interaction potential
 (\textbf{pp.2 to 3})
-$V_{uv}$ mentioned in previous lecture. \textbf{Page 4} digresses on
+$V_{uv}$ mentioned in previous lecture. \textbf{Page 4 to 5} digresses on
 the difference between the transition dipole moment and the
-permanent dipole moment. The picture shows the transition dipole
+permanent dipole moment. On page 4, the picture shows the transition dipole
 moment for a Bacteriacholorophyll (the photosynthetic pigments that 
 occur in various phototrophic bacteria). The right side plot illustrates
-the absorption spectra for Bacteriacholorophyll.
+the absorption spectra for Bacteriacholorophyll. Page 5 originally
+contains an animated display, which is lost in this PDF file, although
+the content is not important.
 \textbf{Page 6 and 7} also digresses on eletronic momenta and oscillator
 strength. 
 
 The following slide comes back to the excitation energy. It states two
-forms of dimer: the J aggregation ( \textbf{pp.9 to 10}, and the H
-aggregation ( \textbf{pp.11}). The accessible energy level for absorption
+forms of dimer: the J aggregation (\textbf{pp.9 to 10}), and the H
+aggregation (\textbf{pp.11}). The accessible energy level for absorption
 is determined by conservation of moment. As the result, the J aggregated
 dimer absorbs less energy than the monomer case, and a red shift will be
 observed when comparing the absorption spectra. The case of H aggregation
@@ -224,6 +226,142 @@ achievable.
 Using Frankel-Exciton Model and find very good fit, balabala.
 
 
+\section{July 13th}
+\label{sec:July_13th}
+
+In this lecture, we start with a review of simple harmonic
+oscillators in quantum mechanics (\textbf{pp.1 to 8}).
+Then turn to the introduction of Glauber coherent states.
+
+\paragraph{Glauber Coherent States} (defined on \textbf{pp.9})
+is the eigenstate of the annilation 
+operator:
+    \begin{align}
+        A \ket{\alpha} = a \ket{\alpha}
+    \end{align}
+These states maintain their coherence usually longer those number
+eigenstates. There are other features of the Glauber coherent state,
+mentioned in \textbf{pp.9 to 10}.
+
+The next few deductions will give us a very physical picture of Glauber
+coherent states. First, express Glauber coherent state as a linear
+combination of number eigenstates (\textbf{pp.11 to 14}). 
+(It is also found that different coherent states are note 
+orthogonal (\textbf{pp.15}). Also, the overlap of
+two coherent state decays expoentially as the difference 
+of the eigenvalues $|\alpha-\beta|$.
+
+\textbf{Digression}: usualy, the coherent state representation is
+much more numerical efficient in computer simulation
+than the number representation.
+
+Next, we explore several interesting properties of these coherent
+states:
+\begin{itemize}
+    \item \textbf{Expectations}
+        (\textbf{pp.16 to 17}) It is found that 
+        $\braket{X}=\sqrt{2}\lambda \text{Re}(\alpha)$,
+        and $\braket{P} = \frac{\sqrt{2}\hbar}{\lambda} \text{Im}(\alpha)$. Or:
+        $\alpha$ is related to $\braket{\alpha|X|\alpha}$
+        and $\braket{\alpha|P|\alpha}$. Hence a real $\alpha$ means the state
+        $\ket{\alpha}$ is a static state with $\braket{P}=0$. Moreover, this 
+        state
+        is the lowest energy eigenstate of a simple harmonic oscillator with
+        the origin shifted from $0$ to $\alpha$. 
+        % todo substantiate this point!
+    \item \textbf{Variance}
+        (\textbf{pp.18 to 20})
+        It is also found that the variance 
+        $(\Delta X)^2 = \frac{\lambda^2}{2}$,
+        this is exactly the same as the variance of the gound state of simple
+        harmonic oscillator.
+        And $(\Delta P)^2 = \frac{\hbar^2}{2\lambda^2}$. 
+        From the two expression,
+        we see that any coherent states have the same minimal uncertainty:
+        $\Delta X \cdot \Delta P = \frac{\hbar}{2}$.
+    \item \textbf{Time Evolution}
+        (\textbf{pp.21})
+        Using the energy eigenstate of simple harmonic oscillator, we can find 
+        the time evolution of coherent state as 
+        $\alpha(t) = e^{-i\omega t} \alpha_0$. It shows that $\alpha$ is really
+        like a \textit{classical oscillator} and the norm $|\alpha|^2$ is conserved. 
+        This is so cool!
+\end{itemize}
+
+The next slide (\textbf{pp.22}) summarizes the classical feature of Glauber coherent state.
+
+Then we turn to its application in biophysics.
+\paragraph{Polaron dynamics in LH1/LH2} We first introduces polaron
+(\textbf{pp.24 to 25}). The \textbf{polaron model}: Polaron
+is short for polarized electron. In a polarized crystal, an moving electron
+will deform the lattice. Then polaron is the electron and those deformed
+part put it together. This seems quite like the copper pair picture in
+BCS theory. In the light-harvesting system, since only a very small
+amount of light is captured, the exciton concentration is low. And we can
+use the polaron picture for electrons.
+
+Next we write out the Hamiltonian for the LH1/2. (\textbf{pp.26})
+The phonon $H_{ph}$ term 
+contains 16 phonons for 16 pigments in LH1. The exciton term $H_{ex}$
+assumes that the interaction is only nearst neighbour interaction.
+The exciton-phonon interaction $H_{\text{ex-ph}}$ is essentially
+the usual electron-phonon interaction term in solid state physics.
+\section{July 15}
+\label{sec:July_15}
+
+% $q$ represent the phonon vibration. Since $\Omega(Q) = \Omega(0) = 
+% \frac{\partial}{\partial q}q + ...$, the linear-diagonal coupling
+% is just the first.
+% $\gamma_{mn}^l$, $\gamma_0$ is the energy for the phonon on the same
+% site. 
+Here we first introduces a new term in the Hamiltonian, 
+$H_{\text{ex-ph}}^{\text{off-diagonal}}$.
+
+Taking a linear approximation of the phonon band. We will find
+a Hunag-Rhys factor $S$ in $\sum_q g_q^2 \omega_q = S\omega_0$.
+
+We will use a time-dependent variational calculation. Then
+we introduces a Davydov ansatz. Note that
+\begin{align*}
+    e^{A+B} = e^A e^B e^{\frac{1}{2}[A,B]}
+\end{align*}
+% todo check this
+And using this relationship, it could be found that the $\ket{\beta}$
+is actually a Glauber coherent state.
+
+note that the Davydov ansatz is not translational invariant. 
+
+Next we project the Davydov ansatz into bloch states, and get
+the Toyozawa's ansatz. This Toyozawa ansatz has a central
+position. Using thise, we get the energy band.
+
+Explain for the energy band.
+% todo level repulsion
+
+Shows a Holstein polaron's phase diagram. Outside the thin region,
+there is always a unique solution (global minimum for the variational
+parameters). Below the region, large polaron. Above, small polaron.
+% todo what is a large polaron.
+Inside the solid region, there will be two solutions coexisting.
+The the solution obatined depeands on the initial configuration.
+The physical picture is that, changing the value of $J$ and $g$,
+the size of polaron will change sharply when one transverse the
+dashed line.
+
+Shows some variational parameters calculated. The strange wedge
+in the picture, is the mode of $q=0$ mode ($\beta_{q=0} = g$). It is
+called the Goldston mode, decoupled from the system. This explains
+that the constant value inside these plots, when $q=0$.
+
+When we calculate the off-diagonal coupling. There will be two
+wedges
+
+Then freqency plot. The labels are $(J,g,\phi)$, where $\phi$
+is the off-diagonal strength.
+
+Another approach, called the Munn-Silbey Method,
+in which one first do a strange transformation
+and 
 \section{License}
 The entire content of this work (including the source code
 for TeX files and the generated PDF documents) by 

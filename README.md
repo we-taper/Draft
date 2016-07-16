@@ -14,35 +14,39 @@ This is intended for storing my drafts of my works. It is messy and will never b
 
     This is a general purpose draft. It contains currently:
 
-    * Notes of *Lectures on the Frontiers of Physics*, a course
+    * Notes of **Lectures on the Frontiers of Physics**, a course
     designed for professors to introduce their own fields.
 
-    * Problems in Bernevig’s Topological .... This is a draft for
+    * Problems in **Bernevig’s Topological** .... This is a draft for
     my solution to that.
 
-    * Some notes about superconductors. Written when I am preparing
+    * Some notes about **superconductors**. Written when I am preparing
     for the *Solid State Theory*'s final exam.
-    * Why 0/0 is undefined? My opinion
-    * Preface of BSCS. My notes about the preface of a book. It is
+    * Why **0/0** is undefined? My opinion
+    * Preface of **BSCS**. My notes about the preface of a book. It is
     very interesting.
-    * Some notes on solving systems of ODE equations.
-    * notes on *Quantum Statistical Mechanics*.
+    * Some notes on solving systems of **ODE equations**.
+    * notes on **Quantum Statistical Mechanics**.
 
     * The Mathematical Theory of Communication
 
-    This is Shannon's landmarking paper on Information Theory.
-    I read only a part of it to try to grasp the connotation 
-    of the trendy phrase **information entropy**.
+	    This is **Shannon**'s landmarking paper on Information Theory.
+    	I read only a part of it to try to grasp the connotation 
+	    of the trendy phrase **information entropy**.
 
-* Photosynthesis Course Note
+    * Quantum Field Theory
+
+        Notes for the book *The Quantum Theory of Fields* by Weinberg.
+
+* **Photosynthesis** Course Note
 
 Notes taken when I am attending the course *An Introduction to 
 Light Harvesting in Bacteria and Plants*.
 
-* Useful (anit)Commutative relationships
+* Useful **(anit)Commutative relationships**
 
-* feynman diagram
+* **feynman diagram**
 
-Notes for studying Feynman diagram. Currently stopped at defining
-Green function.
+	Notes for studying Feynman diagram. Currently stopped at defining
+	Green function.
 
