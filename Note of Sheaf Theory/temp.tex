@@ -1,0 +1,704 @@
+\documentclass{article}
+
+\usepackage{float}  % For H in figures
+\usepackage{amsmath, amssymb} % For math
+\usepackage{mathtools} % dcases*, see https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics#The_cases_environment
+\numberwithin{equation}{subsection} % have the enumeration go to the subsection level.
+									% See:https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
+\usepackage{graphicx}   % need for figures
+\usepackage{cite} % For bibligraphy
+\usepackage{fancyref} % For lazy reference \fref
+\usepackage{hyperref} % For hyperlink everything.
+\usepackage{CJKutf8} % For Chinese characters
+%\usepackage{ dsfont } % For double struck fonts
+% For theorems. https://en.wikibooks.org/wiki/LaTeX/Theorems
+\usepackage{amsthm}
+\newtheorem{defi}{Definition}[section]
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\theoremstyle{definition}
+\newtheorem{ex}{Example}[section]
+
+\usepackage[all]{xy} % For diagrams: https://en.wikibooks.org/wiki/LaTeX/Xy-pic
+\usepackage{CJKutf8}
+
+\title{Sheaf Cohomology}
+\date{\today}
+\author{
+\begin{CJK}{UTF8}{gbsn}
+	陈鸿翔，吴獬，金鹏荣，石一凡
+\end{CJK}
+}
+\begin{document}
+
+\maketitle
+\abstract{
+	Sheaf theory is a powerful tool developed in the 40's of last century and widely used in the area of algebraic geometry and complex geometry . By sheaves and cohomology of sheaves, we can express clearly the obstructions to the problems of going from local solutions to global solutions. This small essay is intended to give a brief outline to the basic sheaf theory presented in the book \cite{voisin}.
+}
+\tableofcontents
+
+% \section{Definitions and Examples}
+% \begin{defi}
+% 	A \textbf{pre-sheaf} $ \mathcal{F} $ of abelian groups on a topological space $ M $ consists of an abelian group $ \Gamma(U, \mathcal{F}) = \mathcal{F} $
+% 	for every open set $ U\in M $ and a group homomorphism $r^V_U: \mathcal{F}(V)\rightarrow \mathcal{F}(F)$ for any two open sets $U,V$ such that $U\in V$. The map $r$ should satisfy the following relations:
+% 	\begin{enumerate}
+% 		\item $r^U_U=id_{ \mathcal{F}(U) }$.
+% 		\item For open subsets $U \subset V \subset W$, one has 
+% 			$r^V_U \circ r^W_V = r^W_V$
+% 	\end{enumerate}
+% \end{defi}
+%  The defition of sheaf is to add the following two conditions to the above:
+% \begin{defi}
+% 	let $\{U_i\}$ be an open covering of $M$. Let $ \mathcal{F}$ be a presheaf on $M$, then $ \mathcal{F}$ is called a \textbf{sheaf} if and only if it satisfies the following condition:
+% 	\begin{enumerate}
+% 		\item If $f,g\in \mathcal{F}(M)$ with $r^M_{U_i}(f) = r^M_{U_i}(g)$ for all $i$, then $f=g$.
+% 		\item If $f_i\in \mathcal{F}(U_i)$ for all $i$ such that $r^M_{U_i\cap U_j}(f_i)=r^M_{U_i\cap U_j}(f_j)$ for any $j$, then there exists an element $f \in \mathcal{F}(M)$ such that $r^M_{U_i} = f_i$ for all $i$.
+% 	\end{enumerate}
+% \end{defi}
+% 
+% The morphism of presheaf is:
+% \begin{defi}
+% 	Let $ \mathcal{F} $ and $ \mathcal{G}$ be two presheaves, a \textbf{presheaf homomorphism} $\phi :\mathcal{F}\to \mathcal{G}$ is given by group homomorphisms $\phi _U: \mathcal{F}(U)\to \mathcal{G} (U)$ such that the following diagram commutes:
+% 	$$ \xymatrix{
+% 	\mathcal{F}(V) \ar[r]^{\phi_V}\ar[d]^{r^{ \mathcal{F}}} & \mathcal{G}(V) \ar[d]^{r^{ \mathcal{G}}} \\
+% 	\mathcal{F}(U) \ar[r]^{\phi_U} & \mathcal{G}(V)
+% 	}
+% 	$$
+% 	
+% 	A \textbf{sheaf homomorphism} is given by a presheaf homomorphism of the underlying presheaves.
+% \end{defi}
+
+% \begin{defi}
+%     Let $ \mathcal{A}$ be a sheaf of rings over $X$. A \textbf{sheaf of $ \mathcal{A}$-modules }over $X$ is a sheaf $\mathcal{F}$ such
+%     that each $\mathcal{F}(U)$ is equipped with the structure of an
+%     $ \mathcal{A}(U)-module$ compatible with its group structure. The
+%     restriction map are morphisms of $ \mathcal{A}(U)-modules$, where $\mathcal{F}(V)$ is equipped with the structure of an $ \mathcal{A}(U)-modules$ via the restriction morphism
+%     $$ \mathcal{A}(U) \to \mathcal{A}(V) $$
+% \end{defi}
+
+% ------------------------------------------------------------------------
+\section{Sheafification}
+For every presheaf $ \mathcal{F}$ one can always form a sheaf associated to it. This sheaf is unique up to an sheaf isomorphism. The procedure is presented below. Throughout this section, $X$ is our topological space.
+
+\begin{defi}
+	The sheaf $\prod\mathcal{F}$ of a presheaf $\mathcal{F}$ is defined as the sheaf that gives, for any open set $U \subset X$ 
+	$$
+	\Pi(U) = \prod\nolimits_{x \in U} \mathcal{F}_x.
+	$$
+	The restriction map is obvious and the abelian group
+	structure is point-wise. This obvious constitutes
+	a sheaf.
+\end{defi}
+
+\begin{defi}
+	The sheaf \textbf{associated} with a presheaf $ \mathcal{F}$, denoted
+	by $\mathcal{F^+}$, called the \text{\textbf{sheafification}} of $\mathcal{F}$, is the sheaf such that,
+	$$
+	\mathcal{F}^{+}(U)
+	=
+	\{
+	(s_u) \in \prod\nolimits_{u \in U} \mathcal{F}_u
+	\text{ such that }(*)
+	\}
+	$$
+	where $(*)$ is the property:
+	\begin{itemize}
+		\item[$(*)$] For every $x \in U$, there exists an open neighbourhood
+		$x \in V \subset U$, and a section $t \in \mathcal{F}(V)$
+		such that for all $y \in V$ we have $s(y) = t_y$.
+	\end{itemize}
+\end{defi}
+
+$\mathcal{F^+}$ is clearly a subset of $\mathcal{\prod F}$. It becomes a sheaf because it naturally inherts the sheaf structure of $\mathcal{\prod F}$, and its definition allows us to look at a section only locally. These meanings are best illustrate in the following example.
+\begin{ex}
+	Let $ \mathbb{R}$ denotes the pre-sheaf of constant real-valued functions. It is not a sheaf because the any sections $f,g$ of $ \mathbb{R}$ on disjoint sets $U,V$ agrees on their intersectin, the empty set. Yet they can not be glued. But the sheafification of it is the sheaf of locally constant functions. In the new sheaf $f,g$ can be glued freely because we only need to look at them locally.
+\end{ex}
+
+
+The sheaf $\mathcal{F^+}$ is better than the crude idea $\prod \mathcal{F}$ because of the following lemmata:
+\begin{lemma}
+	\label{lemma:f_x=f+_x}
+	$\mathcal{F}_x \cong \mathcal{F}_x^+$
+\end{lemma}
+\begin{proof}
+	Observe that an element of $(\prod \mathcal{F})_x$ is 
+	characterized by being the same in some local region. 
+	An element of $\mathcal{F}_x^+$ is the same as
+	some $t\in \mathcal{F}(V)$ or possibly another $t'\in \mathcal{F}(V')$
+	. Such an ambiguity is removed by $t\sim t'$ in $\mathcal{F}_x$.
+\end{proof}
+
+% Tag 0080 of Stacks Project.
+%\marginpar{Uniqueness is not proved!}
+\begin{lemma}
+	\label{lemma:f_f+_factor}
+	Let $\mathcal{F}$ be a presheaf and $\mathcal{G}$ be a sheaf. Any map $\phi:\mathcal{F}\to \mathcal{G}$ factors uniquely as $\mathcal{F}\to \mathcal{F}^+\to \mathcal{G}$.
+\end{lemma}
+\begin{proof}
+	We first construct a diagram:
+	$$\xymatrix{
+	\mathcal{F} \ar[r]^{f_1}\ar[d]^{\phi} & \mathcal{F^+} \ar[d]^{j}\ar[r]^{f_2} & \prod(\mathcal{F}) \ar[d]^{f_3}\\
+	\mathcal{G} \ar[r]^{f_4} & \mathcal{G^+} \ar[r]^{f_5} & \prod( \mathcal{G})
+	}$$
+	The maps ${f_2}$ and ${f_3}$ are inclusions. ${f_3}$ is the map induced by
+	$\phi_x$. $j$ is the map defined by ${f_2}$ and ${f_3}$ and ${f_5}$, with the
+	inverse of ${f_5}$ defined by projection. ${f_1}$ and ${f_4}$ are naturally defined. Notice that by lemma \ref{lemma:iso_of_x} and lemma
+	\ref{lemma:f_x=f+_x}, we have $ \mathcal{G} = \mathcal{G^+}$. Hence
+	${f_4}$ is actually an isomorphism. To prove that $j$ is the
+	required map, we need to show that the left part of the
+	above diagram commutes. This is obvious if we careful tract the image
+	of a section $s\in \mathcal{F}(U)$, and notice the fact
+	$(\phi_U(s))_x= \phi_x(s_x)$.
+\end{proof}
+\textbf{Note}: There are other means of sheafification, which can be found in lemma 4.4 of \cite{voisin}. The above lemma ensures that all such sheafifications are equivalent.  
+
+\section{Morphisms of sheaves}
+
+\begin{lemma}
+\label{lemma:iso_of_x}
+    Let $\phi: \mathcal{F} \to \mathcal{G} $ be a sheaf homomorphism. Then $\phi$ is a isomorphism
+    if and only if for any $x\in X$, we have $\phi _x:\mathcal{F}_x\to 
+    \mathcal{G}_x$ is an 
+    isomorphism.
+\end{lemma}
+\begin{proof}
+    The necessity is clear.
+
+    Conversely, if $\phi_x$ is an isomorphism for all $x\in X$, $U\subset X$ is open. We proof,
+    
+    $\phi_U: \mathcal{F}(U)\to \mathcal{G}(U)$ is injective: For $s\in \mathcal{F}(U)$, if $\phi_U(s)=0$. Then $\left(\phi _U(s)\right)_x=\phi _x\left(s_x\right)=0$, i.e. $s_x=0$. Hence $s=0$ by the uniqueness of gluing. Thus the kernal is $0$ and the map is injective.
+
+    $\phi_U: \mathcal{F}(U)\to \mathcal{G}(U)$ is surjective: For $t\in \mathcal{G}(U)$, we can use the representative elements of $t_x$ to find an open covering $\{U_i\}$ of $U$ and $s_i\in F(U_i)$ such that $\phi(s_i) = t|_{U_i}$. Then $\phi(s_i)_{U_i\cap U_j}
+    - \phi(s_j)_{U_i\cap U_j} = 0$. By injective we have $s_i|_{U_i\cap U_j}
+    = s_j|_{U_i\cap U_j}$, hence $s_i$ can be glued into $s\in F(U)$, whose
+    image is clearly $t$. So $\phi_U$ is surjective.
+\end{proof}
+
+% Def 4.10 of \ref{voisin}
+\begin{defi}
+	Let $\phi :\mathcal{F}\to \mathcal{G}$ be a morphism of sheaves. Then $\phi$ is injective (resp. surjective) if for every $x\in X$, the morphism $\phi_x$ is injective (resp. surjective).
+\end{defi}
+\begin{remark}
+	This definition of injectivity is compatible with lemma \ref{lemma:iso_of_x}. However, a sheaf morphism $\phi$ being surjective, does not guarantee that the induced morphism $\phi_U$ is surjective, as can be seen in the proof of lemma \ref{lemma:iso_of_x}.
+\end{remark}
+
+% lemma 4.11 of \ref{voisin}
+\begin{lemma}
+    Let $\phi :\mathcal{F}\to \mathcal{G}$ be a sheaf morphism. Then the presheaf
+    $$U\mapsto \text{Ker}\left(\phi _U:\mathcal{F}(U)\to \mathcal{G}(U)\right)$$
+    is a sheaf, written $Ker(\phi)$. $Ker(\phi)=0$ if and only if $\phi$ is injective.
+\end{lemma}
+\begin{proof}
+	That $Ker(\phi)$ is a sheaf has already been proved in class.
+
+	The sufficiency for the second assumption is already proved in the
+	proof of lemma \ref{lemma:iso_of_x}. The necessity for the second assumption follows from the observation that $\phi _x\left(s_x\right)=\left(\phi _U(s)\right)_x$.
+\end{proof}
+
+On the other hand, the image presheaf $Im(\phi)$ is not necessarily a sheaf. Usualy one has to deal with its sheafification, as in the following lemma.
+\begin{lemma}
+    Let $\phi :\mathcal{F}\to \mathcal{G}$ be a morphism of sheaves, then the sheaf associated to the presheaf
+    $$U\mapsto \text{Im}\left(\phi _U:\mathcal{F}(U)\to \mathcal{G}(U)\right)$$
+    also written as $Im(\phi)$, is equal to $ \mathcal{G}$ if and only if $\phi$ is surjective.
+\end{lemma}
+\begin{proof}
+	The necessity is obvious by lemma \ref{lemma:f_x=f+_x} 
+	and lemma \ref{lemma:iso_of_x}.
+
+	Conversely, if $\phi$ is surjective, By lemma \ref{lemma:f_f+_factor},
+	there is a unique map $j:Im(\phi) \to \mathcal{G}$.
+	Since $j$ is already injective
+	on the presheaf, $j$ is injective. Now since $\phi_x$ is
+	surjective, $j_x$ is surjective. If $s$ is a section of 
+	$ \mathcal{G}$ on $U$, there
+	thus exists a covering of $U$ by open sets $V$ , and sections $t_V$ of 
+	$Im(\phi)$, such that
+	$j(t_V) = s|_V$ . As $j$ is injective, the $t_V$ coincide on the
+	intersections, so there
+	exists a section $t$ of $Im(\phi)$ such that $t_V=t_U$ . Then
+	$s=j(t)$ and
+	$$j:Im(\phi)(U)\to \mathcal{G}(U)$$
+	is surjective. Therefore $j$ is an isomorphism. 
+\end{proof}
+
+% ------------------------------------------------------------------------
+\section{Resolution}
+
+\begin{defi}
+A resolution of a sheaf $\mathcal{F}$ is a complex $0\to \mathcal{F}^0 \to \mathcal{F}^1 \to \dots$ together with a homomorphism $\mathcal{F} \to \mathcal{F}^0$ such that
+\[
+0\longrightarrow \mathcal{F}\longrightarrow \mathcal{F}^0\longrightarrow \mathcal{F}^1\longrightarrow \mathcal{F}^2\longrightarrow \cdots
+\]
+is an exact complex of sheaves.
+\end{defi}
+
+\paragraph{The \v{C}ech resolution}
+Let $\mathcal{F}$ be a sheaf over X, and let $U_i$, $i\in \mathbb{N}$ be a countable covering by open
+sets of X. For each finite set $I \subset N$, set
+\[
+U_I=\bigcap_{i\in I}U_i.
+\]
+If $V\overset{j}{\to}X$is the inclusion of an open set, then whenever G is a sheaf over V,
+we define the sheaf $j_\ast \mathcal G$ by the formula
+\[
+j_\ast \mathcal G(U)=\mathcal G(V\bigcap U).
+\]
+We also introduce the sheaf $j_\ast \mathcal F$, sometimes written $\mathcal F_V$; it is called the restriction
+of $\mathcal F$ to V. To an open set $U \subset V$, this sheaf associates $\mathcal F(U)$. For every
+open set $U_I$ of X, let $j_I$ be the inclusion of $U_I$ in X, and let
+\[
+\mathcal F_I := j_{I_\ast}\mathcal F_{U_I}.
+\]
+We then define
+\[
+\mathcal F^k =\bigoplus \limits_{|I|=k+1}\mathcal F_I
+\]
+and $d : \mathcal F^k \to \mathcal F^{k+1}$ by the formula
+\[
+(d\sigma)_{j_0,\dots,j_{k+1}}=\sum \limits_ i (-1)^i \sigma_{j_0,\dots,\check{j}_i,\dots,j_{k+1}|U\bigcap U_{j_0,\dots,j_{k+1}}},j_0,<\dots<j_{k+1}
+\]
+which is valid for $\sigma=(\sigma _I)$,$\sigma _I\in \mathcal F_I(U)=\mathcal F(U \bigcap U_I)$.We easily check
+that $d \circ d = 0$. Let us also define $j : \mathcal F \to \mathcal F^0$ by $j(\sigma)_i = \sigma_{|U\bigcap U_i}$ for $\sigma \in \mathcal F(U)$.
+
+\begin{prop}
+	The complex
+	\begin{align}
+	\label{eq1}
+		0 \to \mathcal F^0 \overset{d}{\to} \mathcal F^1 \overset{d}{\to} \cdots \overset{d}{\to} \mathcal F^n \overset{d}{\to} \mathcal F^{n+1} \cdots
+	\end{align}
+	is a resolution of $\mathcal F$.
+\end{prop}
+We call this resolution the \v{C}ech resolution of $\mathcal F$ associated to the covering $U_i$
+of X. The functorial nature of this resolution renders it very useful.
+\begin{proof} 
+	The injectivity of $j$ is due to the property of uniqueness of the sections
+	of $F$ having given restriction to the $U_i$. The fact that Im $j$ can be identified with
+	the kernel of $d$ on $\mathcal F^0$ is exactly equivalent to the fact that sections of $F$ on
+	$U \bigcap U_i$ which coincide on the intersections glue together to form a section of
+	$\mathcal F$ on $U$. The exactness in general can be checked stalk by stalk, as follows. Let
+	$x \in X$, and let $i$ be such that $x \in U_i$. We then define
+	\[
+	\delta : \mathcal F^k_x \to \mathcal F^{k-1}_x 
+	\]
+	for $k \ge 1$ by the following formula. An element $\sigma \in \mathcal F^k_x$ is represented by a
+	series of germs $\sigma _I \in \mathcal F(V_I \bigcap U_I)$ for $|I|= k + 1$, where $V_I$ is an open set
+	containing $x$ which we can assume is contained in $U_i$. We then define $\delta \sigma$ by
+	\begin{align}
+	\label{eq2}
+	(\delta \sigma)_{i_0,\dots,i_{k-1}}=\epsilon \sigma_{i,i_0,\dots,i_{k-1}}, i_0<\dots<i_{k-1}
+	\end{align}
+	where $\epsilon$ is the signature of the permutation reordering
+	the set 
+
+	\noindent
+	$\{i,i_0,\dots,i_{k-1}\}$.
+	We use the convention that $\sigma_{i,i_0,\dots,i_{k-1}}=0$ if $i\in \{i,i_0,\dots,i_{k-1}\}$. To see that equation \ref{eq2} makes sense, we need to see that the right-hand term defines a germ of a section
+	of $j_{i_0,\dots,i_{k-1}\ast}\mathcal F$ on the neighbourhood of $x$. But as each $V_I$ is contained in $U_i$,
+	we have $V_{i,i_0,\dots,i_{k-1}}\bigcap U_{i_0,\dots,i_{k-1}}=V_{i,i_0,\dots,i_{k-1}}\bigcap U_{i,i_0,\dots,i_{k-1}}$, so that $\sigma_{i,i_0,\dots,i_{k-1}}$ can be seen as a section of $j_{i_0,\dots,i_{k-1}\ast}\mathcal F$ on $V_{i,i_0,\dots,i_{k-1}}$. We immediately check that
+	$d\circ \delta + \delta \circ d=Id$ on $\mathcal F^k_x$ for $k \ge 1$. This implies the exactness of the complex
+	\ref{eq1} at the point $x$.
+\end{proof}
+
+\paragraph{de Rham resolution}
+    
+Let $X$ be a $ \mathcal{C}^{\infty}$ differentiable manifold.
+$ \mathcal{A}^k$ be the sheaf of $ \mathcal{C}^{\infty}$ differential
+forms, i.e. the sheaf of sections of the bundle $\Omega^k_{X,\mathbb{R}}$. 
+The exterior differential $d$ is a morphism of sheaves $ \mathcal{A}^k$.
+Notice that the constant sheaf $ \mathbb{R}$ is natually included in
+$ \mathcal{A}^0$, and the kernal of $d:\mathcal{A}^0\to \mathcal{A}^1$
+consist precisely of the locally constant functions. Thus we have the
+following theorem:
+
+\begin{prop}
+    The complex
+    $$ 0\to \mathcal{A}^0\to \mathcal{A}^1\to \text{...}\to \mathcal{A}^n\to 0$$
+    where $n=\text{dim}X$ is a resolution of the constant sheaf $ \mathbb{R}$.
+\end{prop}
+
+\paragraph{The Dolbeault resolution}
+
+Let $X$ be a complex manifold and $E\to X$ be a holomorphic vector bundle.
+Let $ \mathcal{E}$ be the associated sheaf of free $ \mathcal{O}_X$-module.
+Let $ \mathcal{A}^{0,q}(E)$ be the sheaf of $ \mathcal{C}^{\infty}$ sections
+of $\Omega^{p,q} \otimes E$. Then the $\bar{\partial}$ operator defines
+morphisms $ \mathcal{A}^{0,q}\to \mathcal{A}^{0,q}$. Note that the kernal
+$ \bar{\partial} :\mathcal{A}^{0,0}\to \mathcal{A}^{0,1}$
+is $ \mathcal{E}$. Note also that by $\bar{\partial}$-Poinc\`{a}re lemma,
+sections in above is $\bar{\partial}$-closed if and only if it is
+$\bar{\partial}$-exact. Hence we have
+
+\begin{prop}
+    The complex
+    $$ 0\to \mathcal{A}^{0,0}(E)\to \mathcal{A}^{0,1}(E)\to \text{...}\to \mathcal{A}^{0,n}(E)\to 0 $$
+    where $n=\text{dim}_{ \mathbb{C}} X$ is a resolution of the sheaf $ \mathcal{E}$.
+\end{prop}
+
+\section{Abelian Categories}
+
+\begin{defi}
+    An abelian category $\mathcal{C}$ is a category satisfying the following
+    conditions:
+\end{defi}
+
+\begin{itemize}
+	\item
+	For every pair of objects $A, B$ of $\mathcal{C}$ , Hom$(A, B)$
+	is an abelian group, and the composition of morphisms
+	$$ \text{Hom} (A, B) \times \text{Hom} (B, C) \to \text{Hom} (A, C) $$
+	is bilinear for these abelian groupstructures.
+
+	\item
+	Every morphism $\phi : A\to B$ admits a kernel and a cokernel;
+	the kernel of
+	$\phi$ is an object $\mathcal{C}$ written Ker$\phi$, 
+	equipped with a morphism $\chi: C \to A$, such
+	that for every object $M$ of $\mathcal{C}$, left composition with $\chi$
+	induces an isomorphism
+	$$\text{Hom}(M,C)\cong \{\psi\in\text{Hom}(M,A)|\phi\circ\psi = 0\}. $$
+	Diagramatically:
+	$\xymatrix{
+	A \ar[r]^\phi & B \\
+	\text{Ker}\phi=C \ar[u]^\chi & M \ar[l]\ar[ul]^\psi
+	}$
+	
+	Similarly, the cokernel of $\phi$ is an object $D$, written Coker$\phi$,
+	equipped with a
+	morphism $\chi:B\to D$, such that for every object M of C, right composition
+	with $\chi$ induces an isomorphism
+	$$\text{Hom}(D,M)\cong \{\psi\in \text{Hom}(B,M)|\psi\circ\phi=0\}$$
+	Diagramatically:
+	$\xymatrix{
+	A \ar[d]^\phi 			& M \\
+	B \ar[ur]^\psi 	& D=\text{Coker}\phi \ar[l]^\chi \ar[u]
+	}$
+
+	\item
+	A morphism $\phi: A\to B$ is said to be \textbf{injective} if $\text{Hom}(\text{Ker}\phi,A) = \{0\}$.
+	\item
+	The image of a morphism $\phi$ can be defined as the cokernel of
+	its kernel or as the kernel of its cokernel. ( \textit{image} in
+	the sense of isomorphism.)
+	
+	\item
+	Direct sums exist; the direct sum $A\otimes B$ is such that for
+	every object $M$ of $\mathcal{C}$, we have
+	$$ \text{Hom}(M,A\otimes B)=\text{Hom}(M,A)\otimes \text{Hom}(M,B)$$
+	$$ \text{Hom}(A\otimes B,M)=\text{Hom}(A,M)\otimes \text{Hom}(B,M)$$
+\end{itemize}
+
+The standard examples of abelian categories are the category of abelian groups
+and their morphisms, and the category of modules over a given ring. If $X$ is
+a topological space, the category of sheaves of abelian groups or sheaves of
+$\mathcal{A}$-modules, where $\mathcal{A}$ is a sheaf of rings over $X$, 
+is also abelian
+
+\begin{ex}
+Let $X$ be a topological space. The functor $\Gamma$ from the category
+of sheaves of abelian groups over $X$ to the category of abelian groups, which to
+a sheaf $F$ of abelian groups over $X$ associates the group of its global sections
+$\mathcal F(X)$, is left-exact.
+\end{ex}
+Let $A, B,C$ be three objects of $\mathcal{C}$ , and let $\phi : A \to B,\psi : B \to C$ be morphisms.
+
+
+\begin{defi}
+	We say that the sequence
+	\[
+	0 \to A \overset{\phi}{\to} B\overset{\psi}{\to} C \to 0
+	\]
+	is a short exact sequence if $A \overset{\phi}{\to} B$ is isomorphic to the kernel of $\psi$ and
+	$B\overset{\psi}{\to} C$ is isomorphic to the cokernel of $\phi$. 
+\end{defi}
+\textbf{Note}:The kernel Ker $\psi$ of $\psi$ is an object
+of $\mathcal C$ equipped with a morphism $\chi:Ker \psi \to B$. The isomorphism above is an
+isomorphism $i : A \cong Ker \psi$ such that $\chi \circ i =\phi$. The analogous notion holds
+for the cokernel, i.e.
+$$ A \overset{i}{\cong} \text{Ker}\psi \overset{\chi}{\to} B.$$
+
+\begin{defi}
+	An object $I$ of an abelian category is called injective if for
+	every injective morphism $A\overset{j}{\to}B$ and for every morphism $\phi : A \to I$, there
+	exists a morphism $\psi : B \to I$ such that $\psi \circ j =\phi$.
+\end{defi}
+$$ \xymatrix{
+	A\ar[d]^\phi \ar[r]^j & B\ar[dl]^\psi \\
+	I
+}$$
+\begin{ex}
+	The injective objects in the category of abelian groups are the divisible groups $G$,
+	i.e. those such that for every $g \in G$ and every $n \in \mathbb N^\ast$, there exists $g' \in G$ such
+that $ng' = g$.
+\end{ex}
+%\marginpar{Question!}
+% Def 4.24, pp.97 of \ref{voisin}
+\begin{defi}
+	The degree $i$ cohomology of a complex $(M^\cdot,d_M)$ is the object
+	$$ H^i(M^\cdot):= \text{Coker}\left(d^{i-1}_M: M^{i-1}\to 
+	\text{Ker}d^i_M \right)$$
+\end{defi}
+
+% P 97 of \ref{voisin}
+\begin{defi}
+	A homotopy $H$ between two morphisms of complexes $\phi^\cdot:(M^\cdot,d_M)\to(N^\cdot,d_N)$ and $\psi^\cdot:(M^\cdot,d_M)\to(N^\cdot,d_N)$ is a collection of morphisms
+	\[
+	H^\cdot:M^\cdot \to N^{\cdot -1}
+	\]
+	satisfying
+	\begin{align}
+	\label{eq4.6}
+	H^{i+1}\circ d^i_M+d^{i-1}_N\circ H^i=\phi^i-\psi^i, \forall i\ge 0.
+	\end{align}
+\end{defi}
+
+If there exists a homotopy between two morphisms of complexes $\phi^\cdot:(M^\cdot,d_M)\to(N^\cdot,d_N)$ and $\psi^\cdot:(M^\cdot,d_M)\to(N^\cdot,d_N)$, then the induced morphisms
+$H^i(\phi^\cdot)$ and $H^i(\psi^\cdot)$ are equal. Indeed, relation \ref{eq4.6} shows that $\phi^i \to \psi^i : Ker d^i_M \to N^i$ factors through $d^{i-1}_N$, and thus induces 0 in Hom(Ker $d^i_M$,Coker $d^{i-1}_N$).
+
+\begin{defi}
+    A complex $M^i, i\geq 0$ is called a resolution of an object $A$ of 
+    $\mathcal{C}$ if $\text{Im }d^i = \text{Ker }d^{i+1}$, and there exist an 
+    injective morphism $j:A\to M^0$ such that $j:A\to M^0$ is isomorphic to
+    $\text{Ker }d^0$.
+\end{defi}
+
+\begin{defi}
+    An abelian category $\mathcal{C}$  has sufficently many injective objects
+    if every object $A$ of $\mathcal{C}$  admits an injective morphism
+    $j:A\to I$, where $I$ is injective.
+\end{defi}
+
+\begin{lemma}
+    If $\mathcal{C}$ has sufficently many injective objects, then every
+    object of $\mathcal{C}$ admits an injective resolution, i.e. a
+    resolution $I^\cdot$ by a complex all of whose objects are injective
+    objects.
+\end{lemma}
+\begin{proof}
+	See Lemma 4.26 of book \cite{voisin}.
+\end{proof}
+
+\begin{prop}
+	Let $I^\cdot$, $A\overset{i}{\to} I^0$, and $J^\cdot$, 
+	$B\overset{j}{\to}J^0$ be resolutions of $A,B$ respectively,
+	and let $\phi:A\to B$ be a morphism. Then if the second
+	resolution is injective, there exists a morphism of complexes
+	$\phi^\cdot : I^\cdot \to J^\cdot$ satisfying
+	$\phi^0 \circ i=j\circ \phi$. Moreover, if we have two
+	such morphisms $\phi^\cdot$ and $\psi^\cdot$, there exists
+	a homotopy $H^\cdot$ between $\phi^\cdot$ and $\psi^\cdot$.
+\end{prop}
+Diagramatically:
+$$ \xymatrix{
+A \ar[r]^i\ar[d]^\phi	& I^0\ar[r]^i\ar[d]^{\phi^0} & I^1 \ar[r]\ar[d] &...\\
+	B \ar[r]^j 	& J^0\ar[r]^j 	& J^1 \ar[r] &...\\
+}$$
+\begin{proof}
+	See Proposition 4.27 of book \cite{voisin}.
+\end{proof}
+
+In particular, appying this proposition to the case where $I^\cdot$ and
+$J^\cdot$ are two injective resolution of $A$, we obtain morphism
+$\phi^\cdot: I^\cdot \to J^\cdot$ and $\psi^\cdot: J^\cdot \to I^\cdot$ 
+such that $\psi^\cdot\circ \phi^\cdot$ and $\phi^\cdot\circ \psi^\cdot$
+are morphisms of complexes (from $I^\cdot$ to itself and from $J^\cdot$
+to itself respectively), which are both homotopic to the identity.
+We then say that $\phi^\cdot$ is a homotopy equivalence. Thus, we see that
+an injective resolution is unique up to homotopy equivalence.
+
+\section{Derived functors}
+Let $\mathcal{C}$  and $\mathcal{C'}$  be two abelian categories, and let
+$F$ be a left-exact functor from $\mathcal{C}$ 
+to $\mathcal{C'}$ . Assume that $\mathcal{C}$  has sufficiently many injective objects.
+
+\begin{thm}
+	For every object $M$ of $\mathcal{C}$, there exist objects 
+	$R^i F(M)$, $i\geq 0$ in $\mathcal{C'}$, determined up to isomorphism
+	, satisfying the following conditions
+	\begin{itemize}
+		\item We have $R^0 F(M) = F(M)$.
+		\item For every short exact sequence
+			$$ 0\to A\overset{\phi}{\to} B\overset{\psi}{\to}
+			C \to 0$$
+		in $\mathcal{C}$ , we can construct a long exact sequence
+		(i.e. an exact complex) in $\mathcal{C'}$:
+		$$ 0\to F(A) \overset{\phi}{\to} F(B) \overset{\psi}{\to}
+		F(C) \to R^1 F(A) \to R^1 F(B) \to R^1F(C) \to \cdots.$$
+		\item
+		For every injective object $I$ of $\mathcal{C}$, we
+		have $R^iF(I)=0$, $i>0$.
+	\end{itemize}
+\end{thm}
+\begin{proof}
+	See Theorem 4.28 of book \cite{voisin}.
+\end{proof}
+
+\begin{lemma}
+    If
+    $$ 0\to A \overset{\phi}{\to} B \overset{\psi}{\to} C\to 0 $$
+    is a short exact sequence in $\mathcal{C}$ , then there exist injective
+    resolutions $I^\cdot$, $J^\cdot$, $K^\cdot$ of $A,B,C$ respectively,
+    and an exact sequence of complexes
+    $$ 0\to I^\cdot \overset{\phi^\cdot}{\to} J^\cdot \overset{\psi^\cdot}{\to} 
+    K^\cdot\to 0$$
+    with $\phi^0 \circ i = j\circ \phi$, $\psi^0\circ j=k\circ\psi$.
+\end{lemma}
+\begin{proof}
+	See Lemma 4.29 of book \cite{voisin}.
+\end{proof}
+
+%P101 prop 4.30
+\begin{prop}
+If $\phi:A\to B$ is a morphism in $\mathcal{C}$ , and $I^.$, $J^.$ are injective resolutions of A and B respectively, then there exists a canonical morphism induced by $\phi$,
+$$R^iF(\phi):R^iF(A)\to R^iF(B)$$
+where the derived objects are computed using the chosen resolutions.
+\end{prop}
+\begin{proof}
+	See Proposition 4.30 of book \cite{voisin}.
+\end{proof}
+In practice, injective resolutions are difficult to manipulate. The following
+result shows how to replace injective resolutions by resolutions satisfying a
+weaker condition.
+
+\begin{defi}[F-acyclic object]
+We say that an object $M$ of $\mathcal{C}$ is acyclic for the functor F (or F-acyclic) if we have $R^iF(M)=0$ for all $i>0$.
+\end{defi}
+
+\begin{prop}
+	Let $M^.$, $i: A\to M^0$ be a resolution of A, where the $M^i$ are acyclic for the functor F. Then $R^i F(A)$ is equal to the cohomology $H^i(F(M^.))$ of the complex $F(M^.)$ .
+\end{prop}
+\begin{proof}
+	See Proposition 4.32 of book \cite{voisin}.
+\end{proof}
+\section{Sheaf cohomology}
+ From now on, we consider the category of sheaves of abelian groups over a topological space $X$, and the functor $\Gamma$ of “global sections” which to $\mathcal{F}$ associates$\Gamma (X,\mathcal{F})=\mathcal{F}(X)$, with values in the category of abelian groups.
+
+\begin{lemma}
+The category of sheaves of abelian groups has sufficiently many injective objects.
+\end{lemma}
+\begin{proof}
+	See section 4.3 of book \cite{voisin}.
+\end{proof}
+
+\begin{defi}[flasque sheaf]
+A sheaf $\mathcal{F}$ is said to be flasque if for every pair of open sets $V\subset U$ , the restriction map $\rho _{UV} : \mathcal{F}(U) \to \mathcal{F}(V)$ is surjective.
+\end{defi}
+
+\begin{prop}
+Flasque sheaves are acyclic for the functor $\Gamma$ .
+\end{prop}
+\begin{proof}
+	See Proposition 4.34 of book \cite{voisin}.
+\end{proof}
+\begin{lemma}[Godement resolution]
+The Godement resolution of $\mathcal{F}$ is constructed by considering the inclusion of $\mathcal{F}$ into the sheaf $\mathcal{F}_{God}$
+
+$$ U\mapsto \mathcal{F}_{God}(U)=\bigoplus_{x\in U} \mathcal{F}_x$$
+where the sum is actually the infinite direct product. This sheaf is obviously flasque. We then inject the quotient $\mathcal{F}_{God} /F$ into the flasque sheaf $(\mathcal{F}_{God}/\mathcal{F})_{God}$ , and so on.
+\end{lemma}
+
+\begin{proof}
+	See page 103 of book \cite{voisin}.
+\end{proof}
+\begin{defi}[fine sheaf]
+A fine sheaf $\mathcal{F}$ over $X$ is a sheaf of $\mathcal{A}$-modules, where $\mathcal{A}$ is a sheaf of rings over $X$ satisfying the property:
+For every open cover $U_i$
+,$i\in I$ of $X$ , there exists a partition of unity $f_i$
+,$i\in I$ , $\Sigma f_i=1$ (where the sum is locally finite), subordinate to this covering.
+\end{defi}
+
+\begin{prop}
+	If $\mathcal{F}$ is a fine sheaf , we have $H^i(X,\mathcal{F})=0$ , $\forall i>0$.
+\end{prop}
+\begin{proof}
+	See Proposition 4.36 of book \cite{voisin}.
+\end{proof}
+
+\begin{coro}
+Let $X$ be a $\mathcal{C}^{\infty}$ manifold. Then
+$$H^k(X,\mathbb{R})=Ker(d:A^k(X)\to A^{k+1}(X))/Im(d:A^{k-1}(X)\to A^k(X))$$
+where $A^i(X)$ is the real vector space of differential forms of degree i. A similar statement holds for the complex cohomology.
+\end{coro}
+\begin{proof}
+	See Corollary 4.37 of book \cite{voisin}.
+\end{proof}
+
+\begin{coro}
+Let $E$ be a holomorphic vector bundle over a complex manifold $X$, and let $\mathcal{E}$ be the sheaf of holomorphic sections of $E$. Then
+$$H^q(X,\mathcal{E})=Ker(\bar{\partial}:A^{0,q}(E)\to A^{0,q+1}(E))/Im(\bar{\partial}:A^{0,q-1}(E)\to A^{0,q}(E))$$
+\end{coro}
+\begin{proof}
+	See Corollary 4.38 of book \cite{voisin}.
+\end{proof}
+
+\begin{coro}
+If $E$ is as above , we have $H^q(X,E)=0$ for $q>n=dim X$.
+\end{coro}
+\begin{proof}
+	See Corollary 4.39 of book \cite{voisin}.
+\end{proof}
+We will now introduce the \v{C}ech cohomology, which is extremely useful in 
+practice, since it gives a uniform way of computing cohomology groups, unlike
+the de Rham type resolutions, which specifically concern constant sheaves over
+manifolds. Let $\mathcal{F}$  be a sheaf of abelian groups over a topological space $X$. Let $U=(U_i)_{i\in \mathbb{N}}$ be a countable ordered open covering of X.
+
+\begin{defi}
+Define $\check{H}^q(\mathcal{U} ,\mathcal{F})$ to be the qth cohomology group of the complex of global sections
+$$C^q(\mathcal{U} ,\mathcal{F})=\bigoplus_{|I|=q+1} \mathcal{F}(U_I)$$
+of the $\check{C}ech$ complex associated to the covering $\mathcal{U}$.
+\end{defi}
+
+\begin{thm}
+If the open sets $U_I=\bigcap_{i\in I} U_i$ satisfy $H^q(U_I,\mathcal{F})=0$ for all $q>0$, then
+$$H^q(X,\mathcal{F})=\check{H}^q(\mathcal{U},\mathcal{F}) , \forall q\ge 0$$
+\end{thm}
+\begin{proof}
+	See Theorem 4.41 of book \cite{voisin}.
+\end{proof}
+
+\begin{thm}
+If X is separable, then by passage to the direct limit, the morphisms
+$$\check{H}^q(\mathcal{U},\mathcal{F})\to H^q(X,\mathcal{F})$$
+induce an isomorphism
+$$\underset{  \overset{\to}{\mathcal{U}}   }{lim}\check{H}^q(\mathcal{U},\mathcal{F})\cong H^q(X,\mathcal{F})$$
+\end{thm}
+\begin{proof}
+	See Theorem 4.44 of book \cite{voisin}.
+\end{proof}
+% ------------------------------------------------------------------------
+% \section{unknown}
+% 
+% \begin{thm}
+% If the open sets $U_I=\bigcap \limits_{i\in I}U_i$ satisfies $H^q(U_I,\mathcal{F})=0$,for all $q>0$,then $H^q(X,\mathcal{F})=\check{H}^q(\{U_i\},\mathcal{F}) ~\forall q\ge 0$.
+% 
+% \end{thm} 
+% 
+% 
+% \begin{defi}
+% A double complex in an abelian category A is given by a collection of objects $K^{p,q}(p,q)\in \mathbb{Z}^2$,together with morphisms(called differentials)$D_1:K^{p,q} \rightarrow K^{p,q+1}$,$D_2:K^{p,q} \rightarrow K^{p,q+1}$ satisfying the relations $D_1\circ D_1=0,D_2\circ D_2=0,D_1\circ D_2=D_2\circ D_1$.
+% \end{defi}
+% 
+% Suppose the double complex $K$ satisfies the following finiteness condition: $\exists p_0,q_0\in \mathbb{Z}$ such that $K^{p,q}=0$ for $p\ge p_0$ or $q\ge q_0$.We then construct the following complex:
+% $K^n=\bigoplus \limits_{p+q=n}K^{p,q},D=D_1+(-1)^p D_2$ over $K^{p,q}\subset K^n$.
+% The finiteness condition ensures that the direct sum is finite. There is an element of arbitrariness in the choice of the signs of the differential $D$. The sign $(-1)^p$ is placed here in order to ensure that $D\circ D=0$ . There is a variation on this construction,in the case where the differentials $D_i$ anticommute instead of commuting:we then set
+% $D=D_1+D_2$.
+% 
+% 
+% \begin{defi}
+% The complex $(K^\bullet,D)$ is the simple complex associated to the double complex$(K^{\bullet,\bullet},D_1,D_2)$
+% \end{defi}
+% 
+% \begin{proof}
+%     Take a flasque resolution $I^\bullet$ of $\mathbb{F}$. For each $I^l(l\ge 0)$,we can consider the Cech resolution $I^{l,\bullet}$ of $I^l$ associated to the covering $\{U_i\}$. By the functoriality of the Cech resolution,the $I^{\bullet,\bullet}$ form a double complex. Moreover,the $I^{l,\bullet}$ are acyclic,since we have $I^{l,k}=\bigoplus \limits{|J|=k+1}j_{J_\ast}(I_{U_J}^l)$ ,so that $I^{l,k}$ is flasque,and thus acyclic (Flaque sheaves are acyclic for the functor $\Gamma$ ).
+% \end{proof}
+
+\begin{thebibliography}{1}
+	\bibitem{voisin} C. Voisin. Hodge Theory and Complex Algebraic
+	Geometry I, Cambridge University Press.
+	\bibitem{huybrechts} Daniel Huybrechts. Complex Geometry - An
+	Introduction, Springer.
+\end{thebibliography}
+
+\end{document}
