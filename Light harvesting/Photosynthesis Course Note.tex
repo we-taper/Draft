@@ -130,8 +130,8 @@ system. Then it proceeds to review some concepts in quantum statistical
 mechanics ( \textbf{page 2 to 21}). Since we are quite familar with this
 subject, it will be omitted from this note. The last page mentioned an
 important equation for the evolvement of density matrix in an open system,
-called the "master equation".
-% TODO reference required!
+called the "master equation".\footnote{Suggested reading: 
+PhysRevA.62.033821}
 
 \section{July 8th Fri}
 \label{sec:July_8th}
@@ -268,7 +268,7 @@ states:
         state
         is the lowest energy eigenstate of a simple harmonic oscillator with
         the origin shifted from $0$ to $\alpha$. 
-        % todo substantiate this point!
+        % TODO substantiate this point!
     \item \textbf{Variance}
         (\textbf{pp.18 to 20})
         It is also found that the variance 
@@ -306,7 +306,7 @@ contains 16 phonons for 16 pigments in LH1. The exciton term $H_{ex}$
 assumes that the interaction is only nearst neighbour interaction.
 The exciton-phonon interaction $H_{\text{ex-ph}}$ is essentially
 the usual electron-phonon interaction term in solid state physics.
-\section{July 15, Friday}
+\section{July 15th, Friday}
 \label{sec:July_15}
 
 \textbf{Note}: In general, the difficulty in assimilation of ideas is
@@ -326,7 +326,7 @@ Note that
 \begin{align*}
     e^{A+B} = e^A e^B e^{\frac{1}{2}[A,B]}
 \end{align*}
-% todo check this
+% TODO check this
 And using this relationship, it could be found that the $\ket{\beta}$
 is actually a Glauber coherent state.
 
@@ -336,9 +336,6 @@ Note also that the Davydov ansatz is not translational invariant.
 the Toyozawa's ansatz. This Toyozawa ansatz has a central
 position. Using this, we get the energy band.
 
-Explain for the energy band.
-% todo level repulsion
-
 \textbf{pp.10 }shows a Holstein polaron's phase diagram. 
 \footnote{Could be found in pdf file "nonlocal.pdf".}
 The region enclosed by the pointed solid line is of particular
@@ -346,7 +343,7 @@ interests. Outside this thin region,
 there is always a unique solution (global minimum for the variational
 parameters). 
 % Below the region, large polaron. Above, small polaron.
-% todo what is a large polaron.
+% TODO what is a large polaron.
 Outside the region, there will be two solutions coexisting.
 The the solution obatined depeands on the initial configuration.
 The physical picture is that, changing the value of $J$ and $g$,
@@ -368,11 +365,33 @@ that the constant value inside these plots, when $q=0$.
 % TODO reference not found
 There will be two regions enclosed by solid line.
 
-The remaining slides re not be included in this note,
-since they follow the pattern of applying models developed
-by condensed matter physicsists and showing the result.
-Detailed results could be found in the papers provided by
-the teacher.
+The remaining slides are not included in this note,
+because I felt sleepy at that moment. Thankfully the
+attached papers have all the interesting information.
+\section{July 20th, Wed}
+\label{sec:July_20th_Wed}
+In this lecture, the author first explains that the $q=0$ mode is
+de-coupled into a simple Hamiltonian. Then he uses the time-dependent
+variation method developed by Dirac, Frenkel and McLachlan. This method
+solves the equation:
+\begin{align}
+    \label{eq:}
+    \braket{\delta \Psi| i\hbar \dot{\Psi} - H\Psi} = 0
+\end{align}
+with the constraint of $\Psi$ being normalized.
+
+It is also established (by McLachlan) that minimize the following
+value:
+\begin{align}
+    \label{eq:July_20th_Wed}
+    ||i\dot{\Psi}-H\Psi||
+\end{align}
+is an alternative option.
+
+Next we introduces three different Ansatzes: $D_1$ (\textbf{pp.3})
+$D_2$ and $\tilda{D}$ (\textbf{pp.4}). The $D_1$ ansatz is most
+numerical demanding. It accouts for the difference of phonons in
+different site of the 
 \section{License}
 The entire content of this work (including the source code
 for TeX files and the generated PDF documents) by 

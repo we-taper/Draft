@@ -38,6 +38,10 @@ This is intended for storing my drafts of my works. It is messy and will never b
 
         Notes for the book *The Quantum Theory of Fields* by Weinberg.
 
+    * Quantum Field Theory in a Nutshell
+
+        Notes for the book *Quantum Field Theory in a Nutshell* by A. Zee.
+
 * **Photosynthesis** Course Note
 
 Notes taken when I am attending the course *An Introduction to 

@@ -15,7 +15,7 @@
 \usepackage{graphicx}   % need for figures
 \usepackage{cite} % For bibligraphy
 \usepackage{fancyref} % For lazy reference \fref
-\usepackage{hyperref} % For hyperlink everything.
+\usepackage[unicode]{hyperref} % For hyperlink everything.
 \usepackage{CJKutf8} % For Chinese characters
 %\usepackage{ dsfont } % For double struck fonts
 \usepackage{braket} 
@@ -289,6 +289,317 @@
 % e1*A2[t]==A2'[t]+A1[t]*m1+A2[t]*m2},{A1[t],A2[t]},t]
 % In[10]:=DSolve[{e1*A1[t]==A1'[t]+A1[t]*m1},{A1[t]},t]
     
+
+\section{Quantum Field Theory}
+\label{sec:Quantum_Field_Theory}
+    \subsection{Relatvistic Quantum Mechanics}
+    \label{sec:Relatvistic_Quantum_Mechanics}
+
+    \subsubsection{2.1 Quantum Mechanics}
+    \label{sec:2.1_Quantum_Mechanics}
+    This part sumarize the axioms of quantum mechanics. (Omitted)
+    However, one class of important but seldom mentioned operator,
+    the antilinear operators and the antiunitary operators are not
+    discussed here but postponed to the next part.
+
+    \subsubsection{2.2 Symmetries}
+    \label{sec:2.2_Symmetries}
+    This part discribe some important theorems concerning the symmetries
+    in quantum mechanics.
+
+    Firstly, symmetries in quantum mechanics some times requires the use
+    of antilinear and antiunitary operators.
+
+    \paragraph{Antilinear and Antiunitary}
+    Antilinear operators: $U (\lambda A + \upsilon B)
+                            = \lambda^* UA + \upsilon^* UB$.
+
+    Antiunitary: $ (U \phi, U \psi) = (\psi, \phi) = (\phi,\psi)^*$
+
+    The adjoint operator of an antilinear operator requires special
+    attention:
+    $$ (\phi, A^\dagger\psi) = (A\phi, \psi)^*$$
+    (The usual definition will become troublesome since the LHS will
+    be antilinear in $\phi$, whereas the RHS is linear.)
+
+    Thankfully, the criterion for unitarity or antiunitarity is the same:
+    $$U^\dagger = U^{-1}$$
+    
+    An important example is those symmetries which can be infinitesimally
+    close to identity. In the vincinity of unity, it is:
+    $$ U =1+i\epsilon t $$
+    where $t$ is Hermitian and linear.
+    % TODO why is it Hermitian?
+
+    \paragraph{Symmetry Group and its Representation} The set of all
+    symmetries transformations obviously can have a group structure.
+    By giving each symmetry transformation a unitary or antiunitary
+    operator, a representation of such group is obtained. However,
+    such a representation can be projective (projective as in
+    projective geometry, or $\mathbb{CP}^n$), since operators acts
+    on ket spaces, which is already projective (within a freedom of
+    phase). 
+
+    If the phase is taken into consideration, it is found that this
+    phase is independent of the ket that the operator acts on:
+    \begin{align}
+        \label{eq:2.2_symmetries_projective_phase}
+        U(T_1 T_2) \Psi = e^{i\phi} U(T_1) U(T_2) \Psi
+    \end{align}
+    Here $U(T_1)$/$U(T_2)$ is the operator corresponding to the symmetry
+    transformation $T_1$/$T_2$. $\phi$ is the phase, depends only
+    on $T_1 T_2$.
+
+    Howver, there is one exception to this rule. It exists when the
+    state $\Psi$ is not the linear some of some other wave functions.
+    That is, we can not express $\Psi$ as $\sum_i \lambda_i \psi_i$.
+    This seems incomprehesible to me.
+    % TODO Understand this!
+    There are some link on page 53
+    between the structure of Lie group associated
+    with this symmetry and whether the representation can be projective.
+    \footnote{Though not state, it can be infered that a representation
+    can be made not-projective by a good choice of $U(T)$, so that
+    $\phi \equiv 0$ in \fref{eq:2.2_symmetries_projective_phase} }
+
+    \paragraph{Connected Lie group} is of special importance in physics.
+    However, the books description obfuscate the mathematical description
+    of this structure. I will update this note later to remedy such
+    % TODO update this part.
+    discussion. The message I understand is that the representation is
+    tightly bound to the Lie algebra. An important example is that when
+    $$ U(T(\theta)) \approx 1 + i \theta^a t_a $$
+    $$ [t_b,t_c] = 0$$
+    then
+    $$ U(T(\theta)) = \exp(it_a \theta^a) $$
+
+    \subsubsection{2.3 Quantum Lorentz Transformations}
+    \label{sec:2.3_Quantum_Lorentz_Transformations}
+    \textbf{Note}: although the title suggests "quantum", this part is
+    mostly classical.
+
+    Starting with the invariance of interval:
+    \begin{align}
+        \label{eq:2.3_Quantum_Lorentz_Transformations invariance_of_interval}
+        \eta_{\mu\nu}dx'^\mu dx'^\nu = \eta_{\mu\nu}dx^\mu dx^\nu
+    \end{align}
+    or equivalently % TODO why equivalently?
+    \begin{align}
+        \label{eq:2.3_Quantum_Lorentz_Transformations invariance_of_interval 2}
+        \eta_{\mu\nu} \frac{\partial x'^\mu}{\partial x^\rho}
+            \frac{\partial x'^\nu}{\partial x^\sigma}
+            =
+        \eta_{\rho\sigma}
+    \end{align}
+    It claims that any coordinate transformation satisfying 
+    \ref{eq:2.3_Quantum_Lorentz_Transformations invariance_of_interval 2}
+    must be linear.
+
+    Such linear Lorentz transformations satisfy:
+    \begin{align}
+        T(\bar{\Lambda},\bar{a})T(\Lambda,a) = 
+            T(\bar{\Lambda}\Lambda, \bar{\Lambda}a+\bar{a})
+    \end{align}
+    where $\bar{\Lambda}+\bar{a}$ and $\Lambda+a$ are two such 
+    transformations.
+
+    The $\Lambda$ and $\Lambda^{-1}$ can be determined by several 
+    equations that relate it with $\eta_{\mu\nu}$. 
+    
+    Note that:
+    \[ \Lambda\indices{^\rho_\nu} \neq \Lambda\indices{_\nu^\rho} \]
+    And:
+    \begin{equation}
+        \label{eq:2.3_Quantum_Lorentz_Transformations transformation_matrix}
+        (\Lambda^{-1})\indices{^\rho_\nu} = 
+            \Lambda\indices{_\nu^\rho} = 
+            \eta_{\nu\mu}\eta^{\rho\sigma} \Lambda\indices{^\mu_\sigma}
+    \end{equation}
+
+    The only part about quantum mechanics here, is that the operators
+    corresponding to the Lorentz transformations, have the property that:
+    \begin{equation}
+        U(\bar\Lambda,\bar{a})U(\Lambda, a) = 
+            U(\bar\Lambda\Lambda, \bar\Lambda a + \bar{a})
+    \end{equation}
+    where $a$ represents the translation.
+    
+    The group of Lorentz transformations is very important. There is:
+        %\text{sssssss} & B
+    \[
+        \xymatrix{ 
+        \text{Poincar\'e Group}  \\
+        \text{Homogeneous Lorentz group} \ar@{^{(}->}[u] \\
+        \text{proper orthochronous Lorentz group}\ar@{^{(}->}[u]
+        }
+    \]
+    The important \textit{proper orthochronous Lorentz group} consists
+    of those $\Lambda$ with $\det \Lambda = 1$ and 
+    $\Lambda\indices{^0_0} \geq 1$.
+    
+    We have also $ \mathscr{P}$, the space inversion matrix. And
+    \(\mathscr{T}\), the time-reversal matrix. The definition for
+    both can be easily written.
+
+    A important rule is that all homogeneous Lorentz transformations can
+    are generated by 
+    \(\{\text{proper orthochronous}, \mathscr{P}, \mathscr{T} \}\).
+    However this property is not proved
+
+    \paragraph{Digression about tensor notation} It seems that phsysicists
+    have not settled down on their notation for tensors. Weinberg using
+    the notation $\Lambda\indices{^\nu_\mu} \equiv \Lambda(e^\nu,e_\mu)$,
+    so it acts on $(v,w)$, where $v$ is a cotangent vector and $w$ is a
+    tangent vector. I see that this notation helps to distinguish the
+    type of arguments. This is unnecessary, since the upper and lower
+    indices already fulfill this function. Another benefit is that it
+    conveies the process of lowering of raising a index. 
+    
+    However, this idea that each slot in tensor indices are distinct
+    and can be lowered and raised seperatly, is not even mentioned
+    in some modern mathematical physics book.
+
+    Helpful link:
+    \href{http://physics.stackexchange.com/questions/158309/convention-of-tensor-indices}{Convention of tensor indices in Phy.SE}, and 
+    \href{http://physics.stackexchange.com/questions/237270/working-with-indices-of-tensors-in-special-relativity?noredirect=1&lq=1}{Working with indices of tensors in special relativity in Phy.SE}.
+
+    \subsubsection{2.4 The Poincar\'{e} Algebra}
+    \label{sec:2.4_The_Poincare_Algebra}
+    \textbf{I am lost in this part.} The general idea seems to develop, in a 
+    infinitesimal sense, the property of a Lorentz transformation.
+    For a infinitesimal Lorentz transformation:
+    \begin{align}
+        U(1+\omega, \epsilon) = 
+            1+ \frac{1}{2} i\omega_{\rho\sigma}J^{\rho\sigma}
+            -i\epsilon_\rho P^\rho + \cdots
+    \end{align}
+    where $J$ and $P$ are independent of the infinitesimal value
+    $\omega$ and $\epsilon$.
+
+    Later $P$ is identified as the energy-momentum operator (with
+    $P^0$ being the energy operator), and $J^{23}$, $J^{31}$,
+    \(J^{12}\) are identified with the angular momentum operator.
+    However, the reason for this identification is not provided. 
+    % TODO why P is energy momentum, and J is angular momentum
+
+    Later, it was eatablished that $J$ and $P$ satisfy:
+    \begin{align}
+        i[J^{\mu\nu},J^{\rho\sigma}] &=
+            \eta^{\nu\rho}J^{\mu\sigma} - \eta^{\mu\rho}J^{\nu\sigma}
+            -\eta^{\sigma\mu}J^{\rho\nu} + \eta^{\sigma\nu}J^{\rho\mu}
+        \\
+        i[P^\mu,J^{\rho\sigma} &=
+            \eta^{\mu\rho}P^\sigma - \eta^{\mu\sigma}P^{\rho}
+        \\
+        [P^\mu,P^\rho] &= 0
+    \end{align}
+    This is called the \textit{Lie Algebra} of the Poincar\'{e}
+    group.
+    The relation \([P^\mu,P^\rho] = 0\) is particular interesting.
+
+    With this, the finite translation and a rotation by angle
+    $\theta$ are expressed as:
+    \begin{align}
+        U(1,a) = \exp(-iP^\mu a_\mu) \\
+        U(\theta,0) = \exp(i \mathbf{J}\cdot \theta)
+    \end{align}
+
+    This part ends with a discussion on the low-velocity limit
+    of the Lie Algebra obtained above, i.e. the Galilean algebra.
+    
+    \subsection{Note}
+    \label{sec:Note}
+    I will now change to another book: Q.F.T. in a Nutshell by A. Zee.
+
+\section{Quantum Field Theory in a Nutshell}
+\label{sec:Quantum_Field_Theory_in_a_Nutshell}
+    \subsection{Part I: Motivition and Foundations}
+    \label{sec:QFT_in_a_Nutshell.Part_I}
+        \subsubsection{I:2 Path Integral Formulation of Quantum Physics}
+        \label{sec:QFT_in_a_Nutshell_Part_I.2}
+        Here the path integral formulation of quantum mechanics is introduced.
+        The intuition comes from a limiting case of the traditional double 
+        slit electron interference experiment. (\textbf{pp.7 to 10}) Then 
+        it calculates the transition probability $\braket{q_F|e^{-iHT}|q_I}$
+        by divide it into a infinite of steps:
+        \begin{align}
+            \braket{q_F|e^{-iHT}|q_I} = \lim_{N\to \infty}
+            \braket{q_F|e^{iH\delta t}e^{iH\delta t}\cdots e^{iH\delta t}|q_I}
+            (\text{with }N\delta t = T)
+        \end{align}
+
+        For illustration, it calculates this value when 
+        $H=\frac{\hat{p}^2}{2m}$. The result is that:
+        \begin{align*}
+            \braket{q_F|e^{-iHT}|q_I} = \int Dq(t) 
+                e^{i\int_0^T dt \frac{1}{2}m \dot{q}^2 }
+        \end{align*}
+
+        where:
+        \begin{align}
+            \int Dq(t) \equiv \lim_{N\to \infty} 
+            \left( \frac{-im}{2\pi \delta t}\right)^{N/2}
+            \left( \prod_{k=1}^{N-1} \int dq_k \right)
+        \end{align}
+        It notes that when $H=\hat{p}^2/2m + V(\hat{q})$, the final result
+        would have been:
+        \begin{align}
+            \label{eq:QFT_in_a_Nutshell_Part_I.2.TransProbability}
+            \braket{q_F|e^{-iHT}|q_I} &= \int Dq(t) 
+                e^{i\int_0^T dt \frac{1}{2}m \dot{q}^2 - V(q)}
+                \nonumber \\
+                &= e^{i \int_0^T dt L(\dot{q}, q)}
+        \end{align}
+        where $L$ is the Lagrangian of the system.
+
+        The value \(\braket{0|e^{-iHT}|0}\) is denoted $Z$. This part
+        mentions that one often effect a change of coordinate
+        $t \to -it$, called \textit{Wick rotation}, to obtain:
+        \begin{align}
+            Z = \int Dq(t) e^{-\int_0^T dt H(\dot{q},q)}
+        \end{align}
+        where $H$ is the Hamiltonian of the system.
+        The mathematical rigorious aspect is often ignored.
+
+        It also discuss how this formulation could explain the classical
+        limit of quantum mechanics, i.e. classical mechanics, in a
+        very direct manner. This is related to the saddle point
+        approximation to the integral 
+        \ref{eq:QFT_in_a_Nutshell_Part_I.2.TransProbability}.
+
+        \paragraph{Unclear point}
+        Why is $\int dq \ket{q}\bra{q} = 1$ while $\int \frac{p}{2\pi}
+        \ket{p}\bra{p} = 1$. What does it mean by saying
+        "to see that the normalization is correct" (pp. 10 and 11).
+
+        \paragraph{Corresponding pages in draft} pp. 1 to 3.
+
+\section{Miscellnaneous Math}
+\label{sec:Miscellnaneous_Math}
+\subsection{\texorpdfstring{$\int_0^\infty \frac{\sin(x)}{x}$}{}}
+From \href{http://math.stackexchange.com/questions/5248/solving-the-integral-int-0-infty-frac-sinxx-dx-frac-pi2}{Math.SE}. By Aryabhata (http://math.stackexchange.com/users/1102/aryabhata).
+
+I believe this can also be solved using double integrals.
+
+It is possible (if I remember correctly) to justify switching the order of integration to give the equality:
+
+$$\int_{0}^{\infty} \Bigg(\int_{0}^{\infty} e^{-xy} \sin x \,dy \Bigg)\, dx = \int_{0}^{\infty} \Bigg(\int_{0}^{\infty} e^{-xy} \sin x \,dx \Bigg)\,dy$$
+Notice that
+$$\int_{0}^{\infty} e^{-xy} \sin x\,dy = \frac{\sin x}{x}$$
+
+This leads us to
+
+$$\int_{0}^{\infty} \Big(\frac{\sin x}{x} \Big) \,dx = \int_{0}^{\infty} \Bigg(\int_{0}^{\infty} e^{-xy} \sin x \,dx \Bigg)\,dy$$
+Now the right hand side can be found easily, using integration by parts.
+
+\begin{align*}
+I &= \int e^{-xy} \sin x \,dx = -e^{-xy}{\cos x} - y \int e^{-xy} \cos x \, dx\\
+&= -e^{-xy}{\cos x} - y \Big(e^{-xy}\sin x + y \int e^{-xy} \sin x \,dx \Big)\\
+&= \frac{-ye^{-xy}\sin x - e^{-xy}\cos x}{1+y^2}.
+\end{align*}
+Thus $$\int_{0}^{\infty} e^{-xy} \sin x \,dx = \frac{1}{1+y^2}$$
+Thus $$\int_{0}^{\infty} \Big(\frac{\sin x}{x} \Big) \,dx = \int_{0}^{\infty}\frac{1}{1+y^2}\,dy = \frac{\pi}{2}.$$
+
 
 \section{Miscellnaneous Notes}
     \subsection{Super conductor}
@@ -735,179 +1046,6 @@
     thermaldynamics}.
 
     % TODO having trouble understanding the Theorem 4 on page 55.
-
-\section{Quantum Field Theory}
-\label{sec:Quantum_Field_Theory}
-    \subsection{Relatvistic Quantum Mechanics}
-    \label{sec:Relatvistic_Quantum_Mechanics}
-    
-    \subsubsection{2.1 Quantum Mechanics}
-    \label{sec:2.1_Quantum_Mechanics}
-    This part sumarize the axioms of quantum mechanics. (Omitted)
-    However, one class of important but seldom mentioned operator,
-    the antilinear operators and the antiunitary operators are not
-    discussed here but postponed to the next part.
-
-    \subsubsection{2.2 Symmetries}
-    \label{sec:2.2_Symmetries}
-    This part discribe some important theorems concerning the symmetries
-    in quantum mechanics.
-
-    Firstly, symmetries in quantum mechanics some times requires the use
-    of antilinear and antiunitary operators.
-
-    \paragraph{Antilinear and Antiunitary}
-    Antilinear operators: $U (\lambda A + \upsilon B)
-                            = \lambda^* UA + \upsilon^* UB$.
-
-    Antiunitary: $ (U \phi, U \psi) = (\psi, \phi) = (\phi,\psi)^*$
-
-    The adjoint operator of an antilinear operator requires special
-    attention:
-    $$ (\phi, A^\dagger\psi) = (A\phi, \psi)^*$$
-    (The usual definition will become troublesome since the LHS will
-    be antilinear in $\phi$, whereas the RHS is linear.)
-
-    Thankfully, the criterion for unitarity or antiunitarity is the same:
-    $$U^\dagger = U^{-1}$$
-    
-    An important example is those symmetries which can be infinitesimally
-    close to identity. In the vincinity of unity, it is:
-    $$ U =1+i\epsilon t $$
-    where $t$ is Hermitian and linear.
-    % TODO why is it Hermitian?
-
-    \paragraph{Symmetry Group and its Representation} The set of all
-    symmetries transformations obviously can have a group structure.
-    By giving each symmetry transformation a unitary or antiunitary
-    operator, a representation of such group is obtained. However,
-    such a representation can be projective (projective as in
-    projective geometry, or $\mathbb{CP}^n$), since operators acts
-    on ket spaces, which is already projective (within a freedom of
-    phase). 
-
-    If the phase is taken into consideration, it is found that this
-    phase is independent of the ket that the operator acts on:
-    \begin{align}
-        \label{eq:2.2_symmetries_projective_phase}
-        U(T_1 T_2) \Psi = e^{i\phi} U(T_1) U(T_2) \Psi
-    \end{align}
-    Here $U(T_1)$/$U(T_2)$ is the operator corresponding to the symmetry
-    transformation $T_1$/$T_2$. $\phi$ is the phase, depends only
-    on $T_1 T_2$.
-
-    Howver, there is one exception to this rule. It exists when the
-    state $\Psi$ is not the linear some of some other wave functions.
-    That is, we can not express $\Psi$ as $\sum_i \lambda_i \psi_i$.
-    This seems incomprehesible to me.
-    % TODO Understand this!
-    There are some link on page 53
-    between the structure of Lie group associated
-    with this symmetry and whether the representation can be projective.
-    \footnote{Though not state, it can be infered that a representation
-    can be made not-projective by a good choice of $U(T)$, so that
-    $\phi \equiv 0$ in \fref{eq:2.2_symmetries_projective_phase} }
-
-    \paragraph{Connected Lie group} is of special importance in physics.
-    However, the books description obfuscate the mathematical description
-    of this structure. I will update this note later to remedy such
-    % TODO update this part.
-    discussion. The message I understand is that the representation is
-    tightly bound to the Lie algebra. An important example is that when
-    $$ U(T(\theta)) \approx 1 + i \theta^a t_a $$
-    $$ [t_b,t_c] = 0$$
-    then
-    $$ U(T(\theta)) = \exp(it_a \theta^a) $$
-
-    \subsubsection{2.3 Quantum Lorentz Transformations}
-    \label{sec:2.3_Quantum_Lorentz_Transformations}
-    \textbf{Note}: although the title suggests "quantum", this part is
-    mostly classical.
-
-    Starting with the invariance of interval:
-    \begin{align}
-        \label{eq:2.3_Quantum_Lorentz_Transformations invariance_of_interval}
-        \eta_{\mu\nu}dx'^\mu dx'^\nu = \eta_{\mu\nu}dx^\mu dx^\nu
-    \end{align}
-    or equivalently % TODO why equivalently?
-    \begin{align}
-        \label{eq:2.3_Quantum_Lorentz_Transformations invariance_of_interval 2}
-        \eta_{\mu\nu} \frac{\partial x'^\mu}{\partial x^\rho}
-            \frac{\partial x'^\nu}{\partial x^\sigma}
-            =
-        \eta_{\rho\sigma}
-    \end{align}
-    It claims that any coordinate transformation satisfying 
-    \ref{eq:2.3_Quantum_Lorentz_Transformations invariance_of_interval 2}
-    must be linear.
-
-    Such linear Lorentz transformations satisfy:
-    \begin{align}
-        T(\bar{\Lambda},\bar{a})T(\Lambda,a) = 
-            T(\bar{\Lambda}\Lambda, \bar{\Lambda}a+\bar{a})
-    \end{align}
-    where $\bar{\Lambda}+\bar{a}$ and $\Lambda+a$ are two such 
-    transformations.
-
-    The $\Lambda$ and $\Lambda^{-1}$ can be determined by several 
-    equations that relate it with $\eta_{\mu\nu}$. 
-    
-    Note that:
-    \[ \Lambda\indices{^\rho_\nu} \neq \Lambda\indices{_\nu^\rho} \]
-    And:
-    \begin{equation}
-        \label{eq:2.3_Quantum_Lorentz_Transformations transformation_matrix}
-        (\Lambda^{-1})\indices{^\rho_\nu} = 
-            \Lambda\indices{_\nu^\rho} = 
-            \eta_{\nu\mu}\eta^{\rho\sigma} \Lambda\indices{^\mu_\sigma}
-    \end{equation}
-
-    The only part about quantum mechanics here, is that the operators
-    corresponding to the Lorentz transformations, have the property that:
-    \begin{equation}
-        U(\bar\Lambda,\bar{a})U(\Lambda, a) = 
-            U(\bar\Lambda\Lambda, \bar\Lambda a + \bar{a})
-    \end{equation}
-    where $a$ represents the translation.
-    
-    The group of Lorentz transformations is very important. There is:
-        %\text{sssssss} & B
-    \[
-        \xymatrix{ 
-        \text{Poincar\'e Group}  \\
-        \text{Homogeneous Lorentz group} \ar@{^{(}->}[u] \\
-        \text{proper orthochronous Lorentz group}\ar@{^{(}->}[u]
-        }
-    \]
-    The important \textit{proper orthochronous Lorentz group} consists
-    of those $\Lambda$ with $\det \Lambda = 1$ and 
-    $\Lambda\indices{^0_0} \geq 1$.
-    
-    We have also $ \mathscr{P}$, the space inversion matrix. And
-    \(\mathscr{T}\), the time-reversal matrix. The definition for
-    both can be easily written.
-
-    A important rule is that all homogeneous Lorentz transformations can
-    are generated by 
-    \(\{\text{proper orthochronous}, \mathscr{P}, \mathscr{T} \}\).
-    However this property is not proved
-
-    \paragraph{Digression about tensor notation} It seems that phsysicists
-    have not settled down on their notation for tensors. Weinberg using
-    the notation $\Lambda\indices{^\nu_\mu} \equiv \Lambda(e^\nu,e_\mu)$,
-    so it acts on $(v,w)$, where $v$ is a cotangent vector and $w$ is a
-    tangent vector. I see that this notation helps to distinguish the
-    type of arguments. This is unnecessary, since the upper and lower
-    indices already fulfill this function. Another benefit is that it
-    conveies the process of lowering of raising a index. 
-    
-    However, this idea that each slot in tensor indices are distinct
-    and can be lowered and raised seperatly, is not even mentioned
-    in some modern mathematical physics book.
-
-    Helpful link:
-    \href{http://physics.stackexchange.com/questions/158309/convention-of-tensor-indices}{Convention of tensor indices in Phy.SE}, and 
-    \href{http://physics.stackexchange.com/questions/237270/working-with-indices-of-tensors-in-special-relativity?noredirect=1&lq=1}{Working with indices of tensors in special relativity in Phy.SE}.
 
 \section{Anchor}
 % This is just an anchor for seperating thebibliography from above contents.
