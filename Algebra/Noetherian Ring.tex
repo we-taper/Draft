@@ -1,0 +1,170 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+\usepackage{float}  % For H in figures
+\usepackage{amsmath, amssymb} % For math
+\usepackage{mathtools} % dcases*, see https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics#The_cases_environment
+\numberwithin{equation}{subsection} % have the enumeration go to the subsection level.
+									% See:https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
+\usepackage{graphicx}   % need for figures
+\usepackage{cite} % For bibligraphy
+\usepackage{fancyref} % For lazy reference \fref
+\usepackage[unicode]{hyperref} % For hyperlink everything.
+\usepackage{braket} 
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+
+\usepackage{amsthm}
+\newtheorem{defi}{Definition}[section]
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\theoremstyle{definition}
+\newtheorem{ex}{Example}[section]
+
+\usepackage[all]{xy} % For drawing category diagrams
+\usepackage{mathrsfs}
+\usepackage{nomencl} % For a index of symbols.
+\makenomenclature % For a index of symbols.
+\title{Noetherian Ring}
+\date{\today}
+\author{we.taper}
+\begin{document}
+\maketitle
+\abstract{
+    About Noetherian Ring.
+}
+\tableofcontents
+
+\section{Module}
+\label{sec:Module}
+(\textbf{pp.117 to 118 of \cite{lang}})
+\begin{defi}[Module]
+    \nomenclature{$M$ Module}{A left module\nomrefpage.}
+Let $A$: ring. $M$ is a nomen left $A$-module if and only if 
+\begin{enumerate}
+    \item $M$ is an abelian group, usually written additively.
+    \item there exists an operation of $A$ on $M$, written as a
+        multiplicative monoid, such that, for any $a,b\in A$, any
+        $x,y \in M$, we have:
+        \begin{align}
+            (a+b) x = ax + bx\\
+            a(x+y) = ax + ay
+        \end{align}
+\end{enumerate}
+\end{defi}
+
+By definition of an operation, we have $1x = x$. Also, it can be easily
+derived that $a(-x) = -ax$, and $0x=0$.
+
+\begin{ex}{Examples of modules}
+    \begin{enumerate}
+        \item $A$ is a module over itself.
+        \item Any commutative group is a $\mathbb{Z}$-module.
+        \item Any left ideal of $A$ is a module over $A$, i.e. a left
+            $A$-module.
+        \item A vector space $V$ over $K$, is basically a $K$-module,
+            with the additional structure of $K$ being a field.
+        \item Let $V$ be a vector space. 
+            Let $R$ be the ring of all linear maps of $V$ into itself.
+            Then $V$ is also a module over $R$.
+    \end{enumerate}
+\end{ex}
+
+\begin{defi}[Submodule]
+\nomenclature{Submodule}{\nomrefpage.}
+    A submodule $M$ is an additive subgroup such that 
+    $AN\subset N$
+\end{defi}
+
+\begin{defi}[factor module]
+\nomenclature{factor module}{\nomrefpage.}
+    Let $M$ be an $A$-module, and $N$ a submodule. 
+    A factor module $M/N$ is the factor group $M/N$ (for the
+    additive group structure) equipped with a module structure.
+    The action of $A$ on $M/N$ is defined by $a(x+N) = ax+N$.
+    This is well defined, since if $y$ is in the same coset as
+    $x$, then $ay$ is in the same coset as $ax$.
+\end{defi}
+(\textbf{pp.119 of \cite{lang}})
+
+\section{Noetherian}
+\label{sec:Noetherian}
+\begin{defi}[Noetherian Module]
+    \nomenclature{Noetherian Module}{\nomrefpage.}
+    Let $A$: a ring. $M$: a left $A$-module. $M$ is called Noetherian
+    if $M$ satisfies any of the following conditions:
+    \begin{enumerate}
+        \item Every submodule of $M$ is finitely generated.
+        \item Every ascending sequences of submodules of $M$
+            \[ M_1 \subset M_2 \subset \cdots \]
+            such that $M_i \neq M_{i+1}$, is fininte.
+        \item Every non-empty set $S$ of submodules of $M$ has a maximal
+            element.
+    \end{enumerate}
+\end{defi}
+
+The equivalence of the above conditions are proved in page 413 to 414 of 
+\cite{lang}.
+
+\begin{defi}[Noetherian Ring]
+\nomenclature{Noetherian Ring}{\nomrefpage.}
+    A ring $A$ is Noetherian if and only if it is Noetherian when
+    viewed as a left module over itself.
+\end{defi}
+(\textbf{pp.415 of \cite{lang}})
+
+The structure of being Noetherian is consistent between a module
+and its submodules, factor modules, in the sense of the 
+following two propositions.
+
+\begin{prop}
+    Let $M$ be a Noetherian $A$-module, then every submodule and
+    every factor module of $M$ is Noetherian.
+\end{prop}
+(\textbf{pp.414 of \cite{lang}})
+
+\begin{prop}
+    Let $M$ be a module, $N$ be a submodule. If $N$ and $M/N$ are
+    Noetherian, then $M$ is Noetherian.
+\end{prop}
+(\textbf{pp.414 of \cite{lang}})
+
+The above statements could be summarized by saying that, given an
+exact sequence:
+\begin{align*}
+    \xymatrix{
+    0\ar[r] & M'\ar[r]^f & M\ar[r]^g & M''\ar[r] & 0
+    }
+\end{align*}
+$M$ is Noetherian if and only if $M'$ and $M''$ are Noetherian.
+This could be seen by two immediate fact of an exact sequence:
+\[
+    M'\cong \text{Im}f, \text{ } M/\text{Ker}g \cong M''
+\]
+\printnomenclature
+
+\section{Anchor}
+% This is just an anchor for seperating thebibliography from above contents.
+\begin{thebibliography}{1}
+    \bibitem{lang} S. Lang. Algebra. 3rd. Springer.
+\end{thebibliography}
+\section{License}
+The entire content of this work (including the source code
+for TeX files and the generated PDF documents) by 
+Hongxiang Chen (nicknamed we.taper, or just Taper) is
+licensed under a 
+\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative 
+Commons Attribution-NonCommercial-ShareAlike 4.0 International 
+License}. Permissions beyond the scope of this 
+license may be available at \url{mailto:we.taper[at]gmail[dot]com}.
+
+\end{document}

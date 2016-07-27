@@ -38,9 +38,6 @@ This is intended for storing my drafts of my works. It is messy and will never b
 
         Notes for the book *The Quantum Theory of Fields* by Weinberg.
 
-    * Quantum Field Theory in a Nutshell
-
-        Notes for the book *Quantum Field Theory in a Nutshell* by A. Zee.
 
 * **Photosynthesis** Course Note
 
@@ -58,3 +55,13 @@ Light Harvesting in Bacteria and Plants*.
 
     Notes taken to understand sheaf cohomology. (Scattered and
     incomplete.)
+
+* Algebra
+	* Noetherian Ring
+
+		Introduces **Noetherian module** and Noetherian ring. 
+		From S.Lang's Algebra.
+
+* Quantum Field Theory in a Nutshell
+
+    Notes for the book *Quantum Field Theory in a Nutshell* by A. Zee.

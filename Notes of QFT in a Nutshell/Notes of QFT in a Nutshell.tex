@@ -1,0 +1,202 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{book}
+
+\usepackage{float}  % For H in figures
+\usepackage{amsmath, amssymb} % For math
+\usepackage{mathtools} % dcases*, see https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics#The_cases_environment
+\numberwithin{equation}{subsection} % have the enumeration go to the subsection level.
+% See:https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
+\usepackage{graphicx}   % need for figures
+\usepackage{cite} % For bibligraphy
+\usepackage{fancyref} % For lazy reference \fref
+\usepackage[unicode]{hyperref} % For hyperlink everything.
+\usepackage{CJKutf8} % For Chinese characters
+%\usepackage{ dsfont } % For double struck fonts
+\usepackage{braket} 
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+
+\usepackage{amsthm}
+\newtheorem{defi}{Definition}[section]
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\theoremstyle{definition}
+\newtheorem{ex}{Example}[section]
+
+\usepackage{tensor}  % For tensor indices
+\usepackage[all]{xy} % For drawing category diagrams
+\usepackage{mathrsfs}
+
+\title{Notes of Quantum Field Theory in a Nutshell}
+\date{\today}
+\author{we.taper}
+\begin{document}
+	\maketitle
+	\tableofcontents
+
+\chapter{Part I: Motivation and Foundations}
+\label{sec:QFT_in_a_Nutshell.Part_I}
+\section{I:2 Path Integral Formulation of Quantum Physics}
+\label{sec:QFT_in_a_Nutshell_Part_I.2}
+Here the path integral formulation of quantum mechanics is introduced.
+The intuition comes from a limiting case of the traditional double 
+slit electron interference experiment. (\textbf{pp.7 to 10}) Then 
+it calculates the transition probability $\braket{q_F|e^{-iHT}|q_I}$
+by divide it into a infinite of steps:
+\begin{align}
+    \braket{q_F|e^{-iHT}|q_I} = \lim_{N\to \infty}
+    \braket{q_F|e^{iH\delta t}e^{iH\delta t}\cdots e^{iH\delta t}|q_I}
+    (\text{with }N\delta t = T)
+\end{align}
+
+For illustration, it calculates this value when 
+$H=\frac{\hat{p}^2}{2m}$. The result is that:
+\begin{align*}
+    \braket{q_F|e^{-iHT}|q_I} = \int Dq(t) 
+        e^{i\int_0^T dt \frac{1}{2}m \dot{q}^2 }
+\end{align*}
+
+where:
+\begin{align}
+    \int Dq(t) \equiv \lim_{N\to \infty} 
+    \left( \frac{-im}{2\pi \delta t}\right)^{N/2}
+    \left( \prod_{k=1}^{N-1} \int dq_k \right)
+\end{align}
+It notes that when $H=\hat{p}^2/2m + V(\hat{q})$, the final result
+would have been:
+\begin{align}
+    \label{eq:QFT_in_a_Nutshell_Part_I.2.TransProbability}
+    \braket{q_F|e^{-iHT}|q_I} &= \int Dq(t) 
+        e^{i\int_0^T dt \frac{1}{2}m \dot{q}^2 - V(q)}
+        \nonumber \\
+        &=\int Dq(t) e^{i \int_0^T dt L(\dot{q}, q)}
+\end{align}
+where $L$ is the Lagrangian of the system.
+
+Often, the value we need to calculate is $\braket{F|e^{-iHT}|I}$.
+Using $\int \ket{q}\bra{q} dq=1$, we have:
+\begin{align}
+    \braket{F|e^{-iHT}|I} = \int dq_F \int dq_I
+        \braket{F|q_F} \braket{q_F|e^{-iHT}|q_I}\braket{q_I|I}
+\end{align}
+
+The value \(\braket{0|e^{-iHT}|0}\) is denoted $Z$. This part
+mentions that one often effect a change of coordinate
+$t \to -it$, called \textit{Wick rotation}, to obtain:
+\begin{align}
+    Z = \int Dq(t) e^{-\int_0^T dt H(\dot{q},q)}
+\end{align}
+where $H$ is the Hamiltonian of the system.
+The mathematical rigorous aspect is often ignored.
+
+It also discuss how this formulation could explain the classical
+limit of quantum mechanics, i.e. classical mechanics, in a
+very direct manner. This is related to the saddle point
+approximation to the integral 
+\ref{eq:QFT_in_a_Nutshell_Part_I.2.TransProbability}.
+
+\textbf{Unclear point}
+Why is $\int dq \ket{q}\bra{q} = 1$ while $\int \frac{p}{2\pi}
+\ket{p}\bra{p} = 1$. What does it mean by saying
+"to see that the normalization is correct" (pp. 10 and 11).
+Why is effecting the Wick rotation is "somewhat rigorous"?
+
+\textbf{Corresponding pages in draft} pp. 1 to 3.
+
+    \subsection{Appendix 1 - Dirac Delta function and
+        \texorpdfstring{$\varepsilon$}{} as infinitesimal
+        small value}
+
+    Here the Dirac Delta function is defined as the limit of another
+    function $d_K(x)$. Since:
+    \begin{align}
+        d_K(x) \equiv \int_{-K/2}^{K/2} \frac{dk}{2\pi} e^{ikx} = 
+            \frac{1}{\pi x}\sin\frac{Kx}{2}\\
+        \int_{-\infty}^{\infty} dx\text{ } d_K(x) = 1
+    \end{align}
+    Hence we de fine $\delta(x) = \lim_{K\to \infty}d_K(x)$.
+    Other important formula include:
+    \begin{align}
+        \delta(x) = \int_{-\infty}^{\infty} \frac{dk}{2\pi}e^{ikx} \\
+        \frac{1}{x+i\varepsilon} = \mathcal{P}\frac{1}{x}-i\pi \delta(x)\\
+        \delta(x) = \frac{1}{\pi}\frac{\varepsilon}{x^2+\varepsilon^2}
+    \end{align}
+    Here $\varepsilon$ is a infinitesimal value. $\mathcal{P}$ denotes the
+    principal value integral, defined by:
+    \begin{align}
+        \int dx \mathcal{P}\frac{1}{x}f(x) = \lim_{\varepsilon\to 0}
+            \int dx \frac{x}{x^2+\varepsilon^2}f(x)
+    \end{align}
+    \subsection{Appendix 2 - Wick theorem in Gaussian 
+    Integral}
+
+    This part introduces some very important formulae, listed 
+    below:
+
+    (It is very important that $A$ is a real symmetric matrix.)
+    
+    \begin{align}
+        &\int_{-\infty}^{+\infty} dx
+            e^{-\frac{1}{2}ax^2+Jx} =
+            \left(\frac{2\pi}{a}\right)^{\frac{1}{2}}
+            e^{\frac{J^2}{2a}} 
+        \\
+        &\int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} \cdots
+        \int_{-\infty}^{+\infty} dx_1 dx_2 \cdots dx_N
+            e^{-\frac{1}{2} x^T A x + J^T x} =
+            \left( \frac{(2\pi)^N}{\text{det}A} \right)^{\frac{1}{2}}
+            e^{\frac{1}{2}J^T A^{-1}J}
+        \\
+        &\braket{x_i x_j \cdots x_k x_l}
+        \equiv
+            \frac{
+                \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}\cdots
+                \int_{-\infty}^{+\infty} dx_1 dx_2\cdots dx_N
+                e^{-\frac{1}{2}x^T Ax} x_i x_j \cdots x_k x_l}
+                {
+                \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}\cdots
+                \int_{-\infty}^{+\infty} dx_1 dx_2\cdots dx_N
+                e^{-\frac{1}{2}x^T Ax} }
+            \nonumber \\
+        &= \sum_{\text{Wick}} 
+            (A^{-1})_{ab}\cdots(A^{-1})_{cd}
+    \end{align}
+    For exmaple:
+    \begin{align*}
+        &\braket{x^{2n}} \equiv 
+            \frac{\int_{-\infty}^{+\infty}dx
+            e^{-\frac{1}{2}ax^2} x^{2n}}
+            {\int_{-\infty}^{\infty} dx e^{-\frac{1}{2}ax^2}
+            }
+        = \frac{1}{a^n}(2n-1)!! \\
+        &\braket{x_ix_jx_kx_l} = 
+        (A^{-1})_{ij}(A^{-1})_{kl}+(A^{-1})_{ik}(A^{-1})_{jl}
+        +(A^{-1})_{il}(A^{-1})_{jk}
+    \end{align*}
+    \textbf{Corresponding pages in draft} pp. 4 to 6.
+    
+\begin{thebibliography}{1}
+	\bibitem{zee} A. Zee. Quantum Field Theory in a Nutshell
+		2ed. PUP.
+\end{thebibliography}
+
+\section{License}
+The entire content of this work (including the source code
+for TeX files and the generated PDF documents) by 
+Hongxiang Chen (nicknamed we.taper, or just Taper) is
+licensed under a 
+\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative 
+	Commons Attribution-NonCommercial-ShareAlike 4.0 International 
+	License}. Permissions beyond the scope of this 
+license may be available at \url{mailto:we.taper[at]gmail[dot]com}.
+
+\end{document}

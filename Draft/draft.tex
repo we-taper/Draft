@@ -511,73 +511,12 @@
     \label{sec:Note}
     I will now change to another book: Q.F.T. in a Nutshell by A. Zee.
 
-\section{Quantum Field Theory in a Nutshell}
-\label{sec:Quantum_Field_Theory_in_a_Nutshell}
-    \subsection{Part I: Motivition and Foundations}
-    \label{sec:QFT_in_a_Nutshell.Part_I}
-        \subsubsection{I:2 Path Integral Formulation of Quantum Physics}
-        \label{sec:QFT_in_a_Nutshell_Part_I.2}
-        Here the path integral formulation of quantum mechanics is introduced.
-        The intuition comes from a limiting case of the traditional double 
-        slit electron interference experiment. (\textbf{pp.7 to 10}) Then 
-        it calculates the transition probability $\braket{q_F|e^{-iHT}|q_I}$
-        by divide it into a infinite of steps:
-        \begin{align}
-            \braket{q_F|e^{-iHT}|q_I} = \lim_{N\to \infty}
-            \braket{q_F|e^{iH\delta t}e^{iH\delta t}\cdots e^{iH\delta t}|q_I}
-            (\text{with }N\delta t = T)
-        \end{align}
-
-        For illustration, it calculates this value when 
-        $H=\frac{\hat{p}^2}{2m}$. The result is that:
-        \begin{align*}
-            \braket{q_F|e^{-iHT}|q_I} = \int Dq(t) 
-                e^{i\int_0^T dt \frac{1}{2}m \dot{q}^2 }
-        \end{align*}
-
-        where:
-        \begin{align}
-            \int Dq(t) \equiv \lim_{N\to \infty} 
-            \left( \frac{-im}{2\pi \delta t}\right)^{N/2}
-            \left( \prod_{k=1}^{N-1} \int dq_k \right)
-        \end{align}
-        It notes that when $H=\hat{p}^2/2m + V(\hat{q})$, the final result
-        would have been:
-        \begin{align}
-            \label{eq:QFT_in_a_Nutshell_Part_I.2.TransProbability}
-            \braket{q_F|e^{-iHT}|q_I} &= \int Dq(t) 
-                e^{i\int_0^T dt \frac{1}{2}m \dot{q}^2 - V(q)}
-                \nonumber \\
-                &= e^{i \int_0^T dt L(\dot{q}, q)}
-        \end{align}
-        where $L$ is the Lagrangian of the system.
-
-        The value \(\braket{0|e^{-iHT}|0}\) is denoted $Z$. This part
-        mentions that one often effect a change of coordinate
-        $t \to -it$, called \textit{Wick rotation}, to obtain:
-        \begin{align}
-            Z = \int Dq(t) e^{-\int_0^T dt H(\dot{q},q)}
-        \end{align}
-        where $H$ is the Hamiltonian of the system.
-        The mathematical rigorious aspect is often ignored.
-
-        It also discuss how this formulation could explain the classical
-        limit of quantum mechanics, i.e. classical mechanics, in a
-        very direct manner. This is related to the saddle point
-        approximation to the integral 
-        \ref{eq:QFT_in_a_Nutshell_Part_I.2.TransProbability}.
-
-        \paragraph{Unclear point}
-        Why is $\int dq \ket{q}\bra{q} = 1$ while $\int \frac{p}{2\pi}
-        \ket{p}\bra{p} = 1$. What does it mean by saying
-        "to see that the normalization is correct" (pp. 10 and 11).
-
-        \paragraph{Corresponding pages in draft} pp. 1 to 3.
 
 \section{Miscellnaneous Math}
 \label{sec:Miscellnaneous_Math}
 \subsection{\texorpdfstring{$\int_0^\infty \frac{\sin(x)}{x}$}{}}
-From \href{http://math.stackexchange.com/questions/5248/solving-the-integral-int-0-infty-frac-sinxx-dx-frac-pi2}{Math.SE}. By Aryabhata (http://math.stackexchange.com/users/1102/aryabhata).
+From \href{http://math.stackexchange.com/questions/5248/solving-the-integral-int-0-infty-frac-sinxx-dx-frac-pi2}{Math.SE}. 
+By \href{http://math.stackexchange.com/users/1102/aryabhata}{Aryabhata}.
 
 I believe this can also be solved using double integrals.
 
