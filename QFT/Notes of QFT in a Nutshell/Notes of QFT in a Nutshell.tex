@@ -145,16 +145,17 @@ Why is effecting the Wick rotation is "somewhat rigorous"?
     (It is very important that $A$ is a real symmetric matrix.)
     
     \begin{align}
-        &\int_{-\infty}^{+\infty} dx
-            e^{-\frac{1}{2}ax^2+Jx} =
-            \left(\frac{2\pi}{a}\right)^{\frac{1}{2}}
-            e^{\frac{J^2}{2a}} 
-        \\
         &\int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} \cdots
         \int_{-\infty}^{+\infty} dx_1 dx_2 \cdots dx_N
             e^{-\frac{1}{2} x^T A x + J^T x} =
             \left( \frac{(2\pi)^N}{\text{det}A} \right)^{\frac{1}{2}}
             e^{\frac{1}{2}J^T A^{-1}J}
+   		\label{eq:QFT_in_a_Nutshell_Part_I.2.appdx1.1}
+		\\
+        &\int_{-\infty}^{+\infty} dx
+        e^{-\frac{1}{2}ax^2+Jx} =
+        \left(\frac{2\pi}{a}\right)^{\frac{1}{2}}
+        e^{\frac{J^2}{2a}} 
         \\
         &\braket{x_i x_j \cdots x_k x_l}
         \equiv
@@ -170,7 +171,7 @@ Why is effecting the Wick rotation is "somewhat rigorous"?
         &= \sum_{\text{Wick}} 
             (A^{-1})_{ab}\cdots(A^{-1})_{cd}
     \end{align}
-    For exmaple:
+    For example:
     \begin{align*}
         &\braket{x^{2n}} \equiv 
             \frac{\int_{-\infty}^{+\infty}dx
@@ -184,12 +185,194 @@ Why is effecting the Wick rotation is "somewhat rigorous"?
     \end{align*}
     \textbf{Corresponding pages in draft} pp. 4 to 6.
     
+\section{I:3 From Mattress to Field}
+\label{sec:QFT_in_a_Nutshell_Part_I.3}
+\paragraph{Note} After reading this section and several comments online,
+I realize that this book put more emphasize on physical
+intuition than on mathematical rigor. To illustrate this point, I
+quote a sentence from A. Zee's homepage at UCSB, which comes from
+a review of this book (QFT in a Nutshell):
+
+\begin{quote}
+    "It is often deeper to know why something is true rather than to have a proof that it is true."
+\end{quote}
+
+By above reason, I gave up tracking the calculations done in this
+book.
+
+\paragraph{Mattress in continuum limit} It start with taking the
+limit of lattice spacing $l\to 0$, aiming to write down the field
+equation from the mattress perspective. The process is transparant
+and neatly summarized in the "promotion table" on page 19:
+
+\begin{center}
+\begin{tabular}{| c | c |}
+    \hline
+    function  & $q\to \phi$  \\
+    \hline
+    atom position  & \(a\to x\)  \\
+    \hline
+    dynamic function  & \(q_a(t) \to \phi(t,\mathbf{x})=\phi(x)\)  \\
+    \hline
+    summation  & \(\sum_a \to \int d^D x\)  \\
+    \hline
+\end{tabular}
+\end{center}
+
+In detail, $\sum_a \frac{1}{2} m_a\dot{q}_a^2$ becomes 
+$\int d^2x \frac{1}{2} \sigma (\partial \phi/\partial t)^2$.,
+$\sum_{ab} k_{ab} \frac{1}{2} (q_a-q_b)^2$ becomes
+$\int d^2x \rho( \frac{\partial^2 \phi}{\partial x^2}
+    + \frac{\partial^2 \phi}{\partial y^2})$, and
+
+\begin{align}
+    S(q) &\to S(\phi) \equiv \int_0^T dt \int d^2x \mathcal{L}(\phi)
+    \nonumber \\
+    &= \int_0^T dt \int d^2x \frac{1}{2}
+    \left\lbrace \sigma ( \frac{\partial \phi}{\partial t})^2
+    -\rho \left[ ( \frac{\partial \phi}{\partial x})^2 +
+        \frac{\partial \phi}{\partial x})^2 \right]
+    -\tau\phi^2 -\xi\phi^4 +\cdots \right\rbrace
+\end{align}
+
+% TODO why not odd terms
+Then he notes about the Landau-Ginzburg view:
+
+\begin{quote}
+    we start with the desired symmetry, say Lorentz invariance if we
+    want to do particle physics, decide on the fields we want by 
+    specifying how they transform
+    under the symmetry (in this case we decided on a scalar field 
+    $\phi$), and then write down
+    the action involving no more than two time derivatives 
+    (because we don’t know how to
+    quantize actions with more than two time derivatives)
+\end{quote}
+
+Also it is customary to write $d = D + 1$ and speak of a 
+$(D + 1)$-dimensional spacetime. When $D=0$, quantum
+field theory reduces to normal quantum mechanics,
+which deal with only a point (in the mattress
+sense, we have only one particle).
+
+Then he also notes that the Lagrangian can only have the form
+$\mathcal{L}=\frac{1}{2}(\partial\phi)^2-V(\phi)$.\footnote{
+    in a footnote, he also mentions a possible additional
+    term $U(\phi)(\partial \phi)^2$. It is related to a
+    particle whose mass depends on position. This will be
+considered later}.
+
+The classical limit of this formulation can be obtained by
+method similar to previous section. A saddle point approximation
+to the integral:
+\begin{align}
+    Z = \int D\phi e^{i/\hbar \int d^4x \mathcal{L}(phi)}
+\end{align}
+will find the classical field equation:
+\begin{align}
+    \label{eq:QFT_in_a_Nutshell_Part_I.3.classicalFieldEq}
+    \partial_\mu \frac{\delta \mathcal{L}}{\delta(\partial_\mu\phi)}
+    -\frac{\delta\mathcal{L}}{\delta\phi} =0
+\end{align}
+
+\textbf{Corresponding pages in draft} pp. 7 to 8.
+
+\paragraph{Vacuum and Response}
+
+It is said that the vacuum in quantum field theory is a
+stormy sea of quantum fluctuations.
+
+Then, it discuss a process, very similar to the idea in linear
+response theory in condensed matter physics. The idea is to
+set up a source and a sink in which particles are created and
+annihilated. It correspondes to adding a term $sum_a J_a(t)q_a$ to
+the potential, or in the continuum limit, a term $\int d^DxJ(x)\phi(x)$.
+
+\paragraph{Free field theory}
+
+Here he centers at the the Lagrangian
+\begin{align}
+    \mathcal{L}(\phi)=\frac{1}{2}\left( (\partial\phi)^2-m^2\phi^2\right)
+\end{align}
+The corresponding theory is called the \textbf{free} or 
+\textbf{Guassian theory}. Using 
+% TODO why is it called free
+\ref{eq:QFT_in_a_Nutshell_Part_I.3.classicalFieldEq}, one can easily
+obtain the Klein-Gorden equation:
+\begin{align}
+    (\partial^2+m^2)\phi=0
+\end{align}
+The plain wave solution is of the form:
+\begin{align}
+    \omega^2=\vec{k}^2+m^2
+\end{align}
+He notes that by transfer back to the SI unit, one will
+recognize above equations the same as the $E=mc^2$ identity.
+
+Next, we evaluate the disturbed case of free field theory:
+\begin{align}
+    Z = \int D\phi e^{i\int d^4x \left( \frac{1}{2} 
+        [(\partial\phi)^2-m^2\phi^2]+J\phi \right)
+        }
+\end{align}
+The integration is rather lengthy. It involves a trick called
+"to imagine discretizing spacetime". In my opinion, such a trick
+is to the best, a fancy intuition. There maybe mathematical proof,
+but is neglected by the author. However, the result is surprisingly
+rich in intuition and analogy. It start with the discretized
+analogy with \eqref{eq:QFT_in_a_Nutshell_Part_I.2.appdx1.1}. One
+is gradually lead to believe that the result of:
+\begin{align}
+    Z = \int D\phi e^{ i\int d^4x 
+        \left(-\frac{1}{2}(\partial^2+m^2)\phi+J\phi \right)}
+\end{align}
+is:
+\begin{align}
+    Z(J) = \mathcal{C}e^{-(i/2) \int\int d^4xd^4y J(x)D(x-y)J(y)}
+\end{align}
+where $\mathcal{C}$ is just some factor which will proven to be
+unimportant. $D(x-y)$ is the solution of:
+\begin{align}
+    \label{eq:QFT_in_a_Nutshell_Part_I.3.2}
+    -(\partial^2+m^2)D(x-y)=\delta^{(4)}(x-y)
+\end{align}
+
+The following is devoted to the function $D(x)$.
+
+One check by direct substitution that:
+\begin{align}
+    D(x-y) = \int \frac{d^4k}{(2\pi)^4} 
+        \frac{e^{ik(x-y)}}{k^2-m^2+i\varepsilon}
+\end{align}
+is the solution to \ref{eq:QFT_in_a_Nutshell_Part_I.3.2}.
+
+Then the author tries to explain how to evaluate $D(x)$, which
+I fail to reproduce. The final result is equation (23) on page 
+24. He notes that
+\begin{quote}
+    Physically, $D(x)$ describes the amplitude for a disturbance 
+    in the field to propagate from the origin to $x$. 
+\end{quote}
+In different region of spacetime, the value of $D(x)$ varies greatly.
+When $x$ is in timelink region, $D(x)$ is the superposition of
+plane waves, while the phase is opposite between $x^0=t<0$ and
+$x^0=t>0$. When $x$ is in the spacelike region, the $D(x)$ exhibits
+a strange behavior that the particle can leak outside lightcone,
+over a distance of order $m^{-1}$. This is consistent with the
+Heisenberg's uncertainty principle.
+
+\textbf{Corresponding pages in draft} pp. 9 to 11.
+
+\textbf{Unclear points}: I cannot follow all the calculation for 
+$D(x)$, because my result is different from the book's. Also, the
+physics picture about $D(x)$ on page 24, is badly reasoned. The
+argument is tenuous, in my opinion.
+\chapter{Bibliography}
 \begin{thebibliography}{1}
 	\bibitem{zee} A. Zee. Quantum Field Theory in a Nutshell
 		2ed. PUP.
 \end{thebibliography}
-
-\section{License}
+\chapter{License}
 The entire content of this work (including the source code
 for TeX files and the generated PDF documents) by 
 Hongxiang Chen (nicknamed we.taper, or just Taper) is
@@ -198,5 +381,6 @@ licensed under a
 	Commons Attribution-NonCommercial-ShareAlike 4.0 International 
 	License}. Permissions beyond the scope of this 
 license may be available at \url{mailto:we.taper[at]gmail[dot]com}.
+
 
 \end{document}
