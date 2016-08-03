@@ -46,6 +46,9 @@ math.html
 *.alg
 *.loa
 
+## Files produced by latex package "nomenclature"
+*.nls
+
 # achemso
 acs-*.bib
 

@@ -1,0 +1,804 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{book}
+
+\usepackage{float}  % For H in figures
+\usepackage{amsmath} % For math
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\numberwithin{equation}{subsection} % have the enumeration go to the subsection level.
+									% See:https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
+\usepackage{graphicx}   % need for figures
+\usepackage{cite} % need for bibligraphy.
+\usepackage[unicode]{hyperref}  % make every cite a link
+\usepackage{CJKutf8} % For Chinese characters
+\usepackage{fancyref} % For easy adding figure,equation etc in reference. Use \fref or \Fref instead of \ref
+\usepackage{braket} %http://tex.stackexchange.com/questions/214728/braket-notation-in-latex
+
+% Following is for theorems etc environments
+% http://tex.stackexchange.com/questions/45817/theorem-definition-lemma-problem-numbering && https://en.wikibooks.org/wiki/LaTeX/Theorems
+\usepackage{amsthm}
+\newtheorem{defi}{Definition}[section]
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\theoremstyle{definition}
+\newtheorem{ex}{Example}[section]
+
+\usepackage{xcolor} %For colourful math:http://tex.stackexchange.com/questions/21598/how-to-color-math-symbols
+
+\title{Complex Geometry - Index of Notations and ideas}
+\date{\today}
+\author{Taper}
+
+
+\begin{document}
+
+
+\maketitle
+\tableofcontents
+
+\part{Indices of Notation}
+
+\chapter{Book}
+\section{1. Local Theory}
+    \subsection{1.1 Holomorphic Functions of Several Variables}
+    \label{sec:1.1_book}
+    \textbf{Note}: the content covered by this seciton is geared for accompanying my personal notes of lecture 1.
+    
+    \textcolor{blue}{holomorphic}: pp.1. pp4. Def 1.1.1. pp.10(Def.1.1.8).
+    
+    \textcolor{blue}{Cauchy-Riemann equations}: pp.2
+    
+    \textcolor{blue}{$\frac{\partial}{\partial z}$,$\frac{\partial}{\partial \bar{z}}$}:
+    $\frac{\partial}{\partial z}:= \frac{1}{2}
+            (\frac{\partial}{\partial x} 
+            -i \frac{\partial}{\partial y})
+            $
+    ,
+    $\frac{\partial}{\partial \bar{z}}:= \frac{1}{2}
+    (\frac{\partial}{\partial x} 
+    + i \frac{\partial}{\partial y})
+    $
+    
+    
+    \textcolor{blue}{Maximum principle}: pp.3.
+    
+    \textcolor{blue}{Identity theorem}: pp.3.
+    
+    \textcolor{blue}{Riemann extension theorem}: pp.3. pp.9 (Prop. 1.1.7).
+    
+    \textcolor{blue}{Riemann mapping theorem}: pp.3.
+    
+    \textcolor{blue}{Liouville theorem}: pp.4.
+    
+    \textcolor{blue}{Residue theorem}: pp.4.
+    
+    \textcolor{blue}{polydiscs $B_\epsilon(\omega)$}: $\{z| |z_i-\omega_i| <\epsilon\} $.  pp.4.
+    
+    \textcolor{blue}{Hartogs' theorem}: Prop. 1.1.4. pp.6.
+    
+    \textcolor{blue}{Weierstrass preparation theorem (WPT)}:
+    Prop. 1.1.6. pp.8.
+    
+    \textcolor{blue}{Weierstrass polynomial}: Def. 1.1.5. pp.7.
+    
+    \textcolor{blue}{$Z(f)$}: zero set of $f$. pp.9.
+    
+    \textcolor{blue}{biholomorphic}: pp.10.
+    
+    \textcolor{blue}{(complex) Jacobian, regular, regular value}: Def. 1.1.9. pp.10.
+    
+    \textcolor{blue}{IFT. Inverse function theorem}: Prop 1.1.10 pp.11.
+    
+    \textcolor{blue}{IFT. Implicit function theorem}: Prop 1.1.11. pp.10.
+    
+    \textcolor{blue}{$\mathcal{O}_{\mathbb{C}^n}$}:
+    sheaf of holomorphic functions on $\mathbb{C}^n$. Def. 1.1.14. pp.14.
+    
+    \textcolor{blue}{$\mathcal{O}_{\mathbb{C}^n,z}$}: Def. 1.1.14. pp.14.
+    
+    \textcolor{blue}{$\mathcal{O}^*_{\mathbb{C}^n,0}$}:
+    units of $\mathcal{O}_{\mathbb{C}^n,0}$. pp.14.
+    
+    \textcolor{blue}{UFD, unique factorization domain, irreducible}: 
+    Def. 1.1.16. pp.14.
+    
+    \textcolor{blue}{Gauss Lemma}: pp.14.
+    
+    \textcolor{blue}{Weierstrass division theorem}: Prop. 1.1.17. pp.15.
+    
+    \textcolor{blue}{germ of set}: (\textbf{pp.18})
+
+    \textcolor{blue}{$Z(f)$}: germ of zero set of $f$. (\textbf{pp.18})
+
+    \textcolor{blue}{analytic germ}: $Z(f_1,\cdots,f_k)$. (\textbf{pp.18})
+
+    \textcolor{blue}{analytic subset}: locally are zero sets. (\textbf{pp.18})
+
+    \textcolor{blue}{$I(X)$}: the set of all $f\in
+    \mathcal{O}_{\mathbb{C}^n,0}$ with $X\subset Z(f)$. (\textbf{pp.18})
+    % TODO bookmark
+    \subsection{1.2 Complex and Hermitian Structures}
+    \textcolor{blue}{almost complex structure, $I$}: $I^2=-\text{id}$.
+    (\textbf{pp.25})
+
+    \textcolor{blue}{$V^{1,0}$ and $V^{0,1}$}: the $\pm i$ eigenspaces 
+    of $I$.
+    (\textbf{pp.25})
+
+    \textcolor{blue}{$\bigwedge^{p,q} V$}:=
+    $\bigwedge^p V^{1,0}\oplus_{\mathbb{C}}\bigwedge^q V^{0,1}$.
+    (\textbf{pp.27})
+
+    \textcolor{blue}{$\prod^k,\prod^{p,q}$}: natural projections.
+    (\textbf{pp.28})
+    
+    \textcolor{blue}{$\mathbf{I}$}:=$\sum_{p,q}i^{p-q}\cdot\prod^{q,p}$.
+    (\textbf{pp.28})
+
+    \textcolor{blue}{compatible}:an almost complex structure $I$ is
+    compatible with the scalar product $<,>$, if $<I(v),I(w)>=<v,w>$.
+    (\textbf{pp.28})
+
+    \textcolor{blue}{Conformal equivalence}(between scalar product):
+    (\textbf{pp.29})
+
+    \textcolor{blue}{fundamental form, $\omega$}:=$<I\text{( )},()>.$
+    (\textbf{pp.29})
+    $$\omega=\frac{i}{2}\sum_i z^i\wedge\bar{z}^i=\sum_i x^i\wedge y^i.$$
+    \quad(Local calculation could be found on \textbf{pp.31})
+
+    \textcolor{blue}{hermitian form $(,)$}:=$<,>-i\cdot\omega$.
+    (\textbf{pp.30})
+\section{2.Complex Manifolds}
+
+    \subsection{2.1 Complex and Hermitian Structures}
+    \textcolor{blue}{almost complex structure}: (\textbf{pp.25})
+	\subsection{2.2 Holomorphic Vector Bundles}
+
+    \textcolor{blue}{$\tau_X$}: holomorphic tangent bundle of a complex manifold $X$ (Def 2.2.14 at pp. 71).
+    
+    \textcolor{blue}{$\varOmega_X$, $\varOmega^p_X$}: holomorphic cotangent bundle and holomorphic $p$-forms. (Def 2.2.14 at pp. 71)
+    
+    \textcolor{blue}{$K_X$}:=det($\varOmega_X$) = $\varOmega_X^n$, the canonical bundle of $X$. (Def 2.2.14 at pp. 71)
+
+    \subsection{2.6 Differential Calculus on Complex Manifolds}
+
+    \textcolor{blue}{$\wedge^k_{\mathbb{C}}X$}:=$\wedge^k(T_{\mathbb{C}}X)^*$. (Def 2.6.7 at pp. 105)
+    
+    \textcolor{blue}{$\wedge^{p,q}X$}:=$\wedge^p(T^{1,0}X)^*
+                        \bigoplus_{\mathbb{C}}\wedge^q(T^{0,1}X)^*$. (Def 2.6.7 at pp. 105)
+
+    \textcolor{blue}{$\mathcal{A}^k_{X,\mathbb{C}}$,$\mathcal{A}^{p,q}_X$}: sheaves of section of the above correspond items. (Def 2.6.7 at pp. 105)
+    
+    \textcolor{blue}{$\mathcal{A}^{p,q}(E)$}: the sheaf of $p,q$-forms with values in $E$, a complex vector bundle. (Def 2.6.22 at pp.109). Note that in particular, $\mathcal{A}^0(E)$ is the sheaf of sections of $E$.
+
+	\subsection{Appendix B: Sheaf Cohomology}
+	
+	\begin{itemize}
+		\item
+		\textcolor{blue}{pre-sheaf}: Def B.0.19, pp. 287.
+		
+		\item
+		\textcolor{blue}{$\mathcal{C^0_M}$}: the pre-sheaf of continuous functions on $M$. Example B.0.20, pp. 287.
+		
+		\item
+		\textcolor{blue}{sheaf}: Def B.0.21, at pp.288.
+		
+		\item
+		\textcolor{blue}{\underline{$\mathbb{R}$},\underline{$\mathbb{Z}$}}: constant sheaves, Sometimes written simply as \textcolor{blue}{$\mathbb{R}$}, \textcolor{blue}{$\mathbb{Z}$} respectively. pp. 288.
+		\item
+		\textcolor{blue}{$\mathcal{E}$}: actually a $\mathcal{C}^0_M$-modules. Sometimes identified as $E$. pp.288.
+		\item
+		\textcolor{blue}{(pre)-sheaf homomorphism}: Def B.0.23.  pp.288.
+		\item
+		\textcolor{blue}{Ker($\phi$),Im($\phi$),Coker($\phi$)}: as pre-sheaves in pp.288. sheaves in pp.289, Def B.0.26.
+		\item
+		\textcolor{blue}{injective, surjective of sheaf-homomorphism}:pp.289.
+		\item
+		\textcolor{blue}{complex, exact complex}: Def B.0.27. pp.289
+		\item
+		\textcolor{blue}{text}:
+		\item
+		\textcolor{blue}{text}:
+		\item
+		\textcolor{blue}{text}:
+		\item
+		\textcolor{blue}{text}:
+		\item
+		\textcolor{blue}{text}:
+		\item
+		\textcolor{blue}{text}:
+		\item
+		\textcolor{blue}{text}:
+		\item
+		\textcolor{blue}{text}:
+		\item
+		\textcolor{blue}{text}:
+		\item
+		\textcolor{blue}{text}:
+		\item
+		\textcolor{blue}{text}:
+		\item
+		\textcolor{blue}{text}:
+		\item
+		\textcolor{blue}{text}:
+		\item
+		\textcolor{blue}{text}:
+		\item
+		\textcolor{blue}{text}:
+		\item
+		\textcolor{blue}{text}:
+		\item
+		\textcolor{blue}{text}:	
+	\end{itemize}
+
+
+\chapter{My lecture Notes}
+
+\section{Lecture 2016 Lecture 1}
+The first few lectures are not well noted, hence I delegate the task of recording the theorems and notations to the book's correspoding section:\fref{sec:1.1_book}.
+
+\section{Lecture 4 (20160307) Complex Manifold}
+
+\textbf{Note}: we use abbrevation \textit{mnfd} for \textit{manifold}.
+
+pp. A:
+    \begin{itemize}
+        \item \textcolor{blue}{Holomorphic Atlas}
+        \item \textcolor{blue}{Holmorphic chart}
+        \item \textcolor{blue}{Complex mnfd}
+    \end{itemize}
+
+pp. B:
+    \begin{itemize}
+        \item \textcolor{blue}{Holomorphic function}
+        \item \textcolor{blue}{$\mathcal{O}_X$}: sheaf of holomorhic functions on a complex mnfd $X$.
+    \end{itemize}
+pp. C:
+    \begin{itemize}
+        \item \textcolor{blue}{Hartdogs' theorem}: on complex mnfd.
+        \item \textcolor{blue}{Holomorphic functions on complex mnfd}:
+    \end{itemize}
+pp. D:
+    \begin{itemize}
+        \item \textcolor{blue}{Complex Lie group}
+        \item \textcolor{blue}{Complex Projective Space, $\mathbb{CP}^n$, or just $\mathbb{P}^n$}.
+    \end{itemize}
+pp. E:
+    \begin{itemize}
+        \item \textcolor{blue}{Topology in $\mathbb{P}^n$}
+        \item \textcolor{blue}{Mnfd structure on $\mathbb{P}^n$, atlas, and the \textbf{canonical covering}}
+    \end{itemize}
+pp. F
+    \begin{itemize}
+        \item Grassmannian mnfd.
+    \end{itemize}
+
+\section{Lecture 5 Submanifolds (20160308)}
+
+pp. A:
+    \begin{itemize}
+        \item Affine Hypersurface (actually this is not quite different from the usual $\mathbb{C}^n$.)
+    \end{itemize}
+	
+Part 2. \textbf{Sheaf Theory}
+
+pp. A:
+	\begin{itemize}
+		\item pre-sheaf
+		\item $\mathcal{O}_X(U)$
+		\item $\mathcal{O}^*_X(U)$
+	\end{itemize}
+pp. B:
+	\begin{itemize}
+		\item $C^{\infty}$
+		\item $\mathbb{\underline{Z}}$, sometimes simply denoted as $\mathbb{Z}$: sheaf of localy constant $\mathbb{Z}$-valued functions.
+		\item Sheaf
+	\end{itemize}
+pp. D:
+	\begin{itemize}
+		\item sheaf-morphisms
+	\end{itemize}
+pp. E:
+	\begin{itemize}
+		\item Section
+		\item Ker($\phi$) - sheaf of kernals.
+	\end{itemize}
+pp. F:
+	\begin{itemize}
+		\item Im($\phi$) is a presheaf, but not a sheaf.
+		\item Im($\phi$): the sheafification of Im($\phi$) above. Note that we use the same notation to denote both.
+	\end{itemize}
+	
+\section{Lecture 6 Sheaf \& Cohomology (20160315)} pp. A:
+    \begin{itemize}
+        \item Stalk $\mathcal{F}_x$.
+        \item germ
+        \item Directed partial order set
+        \item Directed System
+    \end{itemize}
+pp. B:
+    \begin{itemize}
+        \item Directed limit
+    \end{itemize}
+pp. C:
+\begin{itemize}
+    \item Exact Complex/ Exact Sequence.
+    \item Exponential sequence \textit{(mentioned under the definition of exact sequence)}.
+    \item
+\end{itemize}
+pp. D:
+\begin{itemize}
+    \item Čech cohomology
+\end{itemize}
+pp. E:
+\begin{itemize}
+    \item q-cochain
+    \item coboundary operator. $\delta$.
+    \item $Z^p(U,\mathcal{F})$ = Ker.
+    \item $B^p(U,\mathcal{F})$ = Im.
+    \item $\check{H}^p(U,\mathcal{F})$ = $\frac{Ker}{Im}$.
+\end{itemize}
+
+    \subsection{Notes of \v{C}ech Cohomology with Coeficients in a Sheaf}
+    pp.1:
+    \begin{itemize}
+        \item q-simplex $\sigma$.
+        \item support $|\sigma|$.
+        \item q-cocain
+        \item $C^q(U,\mathcal{F})$
+        \item Coboundary Operator $\delta$.
+    \end{itemize}
+    pp.2,3,4:
+    \begin{itemize}
+        \item Cochain Complex
+        \item Čech cohomology
+        \item cocycle
+        \item cochain
+        \item $\check{H}^p(U,\mathcal{F}),Z^p(U,\mathcal{F}),B^p(U,\mathbb{F})$.
+        \item $\check{H}^0(\{u_i\},\mathcal{F})$ = $\mathcal{F}(X)$.
+    \end{itemize}
+	
+\section{Lecture 7 Vector Bundle (20160321)}
+pp.1,2:
+\begin{itemize}
+    \item Vector Bundle
+    \item Trivializing covering, $\{(U_i,\tau_i)\}$.
+    \item trivializing maps, trivializes.
+    \item VB-equivalent of trivializing maps.
+    \item E: total space, X: base space.
+\end{itemize}
+pp. 3,5:
+\begin{itemize}
+    \item transition maps.
+    \item fibre.
+    \item $\mathcal{O}(-1)$
+    \item cocycle condition.
+    \item $\mathcal{T}_X$, Holomorphic tangent bundle.
+\end{itemize}
+pp. 8:
+\begin{itemize}
+    \item s: section of a holomorphic vector bundle.
+    \item $\mathcal{E}$: sheaf of sections of holomorphic vector bundle. $\mathcal{E}(U)$.
+\end{itemize}
+	
+\section{Lecture 8 Almost Complex Structures (20160322)}
+pp. 1,2:
+\begin{itemize}
+    \item $I$: Almost Complex Structure. $I^2=-1$. Sometime $J$ is used in place of $I$.
+    \item $V_{\mathbb{C}}$ := $V\otimes \mathbb{C}$.
+    \item $I_\mathbb{C}$: $I$ extending to $V_{\mathbb{C}}$. Usually abbreviated simply as $I$.
+    \item $V^{1,0}$:= ker$(I+i)$.
+    \item $V^{0,1}$:= ker$(I-i)$.
+\end{itemize}
+	
+\section{Lecture 9 Exterior Algebra on Complex Manifold (20160329)}
+
+pp.1,2:
+\begin{itemize}
+    \item $V^*$: dual of $V$.
+    \item $\{dx^i,dy^i\}$.
+    \item $J^*$: $J$ extending to dual space.
+    \item $dz^i,d\bar{z}^i$.
+\end{itemize}
+pp. 3:
+\begin{itemize}
+    \item $S^k(V)$, $\Lambda^k(V)$.
+    \item $s$ and $a$, symmetrization and anti-symmetrization of a tensor.
+    \item $\Lambda^* V$.
+\end{itemize}
+pp. 4:
+\begin{itemize}
+    \item $\Lambda^n T^*_{\mathcal{C}}X$.
+    \item $\Lambda^* T^*_{\mathcal{C}}X$.
+    \item $\Lambda^{p,q} T^*_{\mathcal{C}}X$.
+\end{itemize}
+pp. 5,6:
+\begin{itemize}
+    \item $\mathcal{A}$: sheaf of section of cotangent bundle.
+    \item $\mathcal{A}^n(U)$, $\mathcal{A}^{p,q}(U)$.
+    \item $\Lambda$ on $\mathcal{A}$.
+    \item $d$: de Rham differential.
+    \item $\partial, \bar{\partial}$.
+\end{itemize}
+	
+\section{Lecture 10 Debeault Cohomology (20160406)}
+
+pp. 1:
+\begin{itemize}
+    \item $\mathcal{H}^{p,q}(X)$.
+    \item $f^*$: pull-back. Various defintion from pp.1 to pp.4.
+\end{itemize}
+pp. 5,6,7:
+\begin{itemize}
+    \item $\mathcal{A}^{p,q}(U,E):=\Gamma(U,\Lambda^{p,q}T_{\mathbb{C}}^* X \otimes E)$.
+    \item $\bar{\partial}_E$
+    \item $\mathcal{H}^{p,q}(X,E)$.
+    \item $\bar{\partial}$-Poincaré lemma in one variable.
+\end{itemize}
+	
+\section{Lecture 11 (20160412)}
+pp.1,2,3: 
+\begin{itemize}
+    \item $\bar{\partial}$-Poincaré lemma in n-dimension
+    \item $\Omega_X^p$: holomorphic p-forms. On pp.2.
+    \item $\check{H}^q(X,\Omega^p)\text{(Čech)}\cong \mathcal{H}_{\bar{\partial}}^{p,q}(X)$(Dolbeault). On pp.3.
+\end{itemize}
+pp. 6,7:
+\begin{itemize}
+    \item Analytic Subvarity.
+    \item Analytic Hybersurface.
+    \item Cousin's Problem.
+\end{itemize}
+	
+\section{Lecture 12 Hermitian Structure on Manifold  Manifold (20160418)}
+pp. 1,2,3:
+\begin{itemize}
+    \item $I$ compatible with $<-,->$.
+    \item $\omega$: Fundamental form associated with $<,>$ and $I$. $\omega(v,w):= <I(v),w>$.
+    \item Conformal Equivalence.
+    \item $<,>$: Hermitian Inner Product.
+\end{itemize}
+pp. 4:
+\begin{itemize}
+    \item $( , )$: s.t. $(v,w):=<v,w>-i\omega(v,w) = <v,w> - i <I(v),w>$
+\end{itemize}
+pp. 5:
+\begin{itemize}
+    \item $<,>_{\mathbb{C}}$ be s.t.$<v\otimes \alpha, w\otimes \beta>:= \alpha \bar{\beta} <v,w>$.
+\end{itemize}
+pp. 6:
+\begin{itemize}
+    \item $\frac{1}{2}(,) = <,>_{\mathbb{C}} \arrowvert_{V^{1,0}}$
+\end{itemize}
+pp. 7,8:
+\begin{itemize}
+    \item Local computations: $z_i$,$h_{ij}$,
+    \item $\omega = (...dx^i...dy^i)$
+    \item $\omega$, Fundamental form on Riemannian Mnfd.
+    \item Kähler mnfd: $d\omega \equiv 0$.
+\end{itemize}
+	
+\section{Lecture 13 Kähler Manifold (20160419)}
+pp.1:
+\begin{itemize}
+    \item Local computation: $\omega = (...dz^i...d\bar{z}^i)$
+\end{itemize}
+pp.4:
+\begin{itemize}
+    \item Fubini-Study Metric on $\mathbb{CP}^n$.
+\end{itemize}
+
+\section{Lecture 14 Hodge Theory (20160425)}
+pp.1:
+\begin{itemize}
+    \item $<,>$ on $\Lambda^k V$
+    \item vol: volumn element.
+    \item $*$: Hodge Star Operator.
+\end{itemize}
+pp.4:
+\begin{itemize}
+    \item $L$: Lefschetz Operator
+    \item $\Lambda$: adjoint of $L$. $\Lambda = *^{-1}\circ L\circ *$.
+\end{itemize}
+pp.5 :
+\begin{itemize}
+    \item $*,L,\Lambda$ on Kähler mnfd.
+    \item $d^*:= (-1)^{m*(k+1)+1}*\circ d\circ*$, adjoint of $d$. On a Kähler mnfd, $d^*= -*\circ d\circ*$
+    \item $\Delta:=d^*\circ d + d\circ d^*$.
+\end{itemize}
+pp. 6:
+\begin{itemize}
+    \item $\bar{\partial}^*, \partial^*$: Similar to the above for $d$.
+    \item $\Delta_\partial, \Delta_{\bar{\partial}}$: Similar to the above for $d$.
+\end{itemize}
+	
+\section{Lecture 15 Hodge Theory on Manifold (20160426)}
+pp.1:
+\begin{itemize}
+    \item $(,)$ on $\mathcal{A}^*(X)$. $(\alpha,\beta):=\int_X g_\mathbb{C}(\alpha,\beta) vol$
+\end{itemize}
+pp.3:
+\begin{itemize}
+    \item $\mathcal{H}^k(X,g)$: d-harmonic forms. Sometimes we replace $\mathcal{H}$ with $\mathscr{H}$ for harmonic forms, so is for symbols below.
+    \item $\mathcal{H}^k_{\bar{\partial}}(X,g)$: $\bar{\partial}$-harmonic forms. 
+    (Be careful to distinguish this with Dolbeault Cohomology groups).
+    \item $\mathcal{H}^k_{\partial}(X,g)$: $\partial$-harmonic forms.
+\end{itemize}
+pp. 5:
+\begin{itemize}
+    \item $\mathcal{H}^k_d(X,g) \cong \mathcal{H}^{2n-k}_d(X,g)$, Poincar\'{e} duality
+    \item $\mathcal{H}^{p,q}_{\bar{\partial}}(X,g) \cong 
+    \left( \mathcal{H}^{n-p,n-q}_{\bar{\partial}}(X,g)\right)^*$, both are harmonic forms, called Serre Duality. 
+\end{itemize}
+pp. 6,7:
+\begin{itemize}
+    \item 
+    $\mathcal{A}^{p,q} = 
+    \bar{\partial}\mathcal{A}^{p,q-1}(X)\oplus
+    \bar{\partial}^* \mathcal{A}^{p,q+1}(X) \oplus
+    \mathcal{H}^{p,q}_{\bar{\partial}}(X,g)$:
+    
+     Hodge decomposition
+
+    \item $\mathcal{H}^{p,q}_{\bar{\partial}}
+        \text{(harmonic forms)}
+        \cong
+        \mathcal{H}^{p,q}_{\bar{\partial}}(X)
+        \text{(Dolbeault Cohomology group)}$
+    \item $\mathcal{H}^{p,q}_{d}
+        \text{(harmonic forms)}
+        \cong
+        \mathcal{H}^{p,q}_{dR}(X)
+        \text{(de Rham Cohomology group)}$
+\end{itemize}
+pp. 8:
+\begin{itemize}
+    \item A lot of isomorphisms between \textit{de Rham}, \textit{Dolbeault} and \textit{harmonic forms}.
+\end{itemize}
+
+\section{Lecture 16 Harmonic forms on K\"{a}hler Manifold (20160503)}
+
+pp.1:
+\begin{itemize}
+    \item $\Delta_\partial = \Delta_{\bar{\partial}} = 
+        \frac{1}{2}\Delta_d$, for K\"{a}hler mnfd.
+\end{itemize}
+
+\section{Lecture 17 Hermitian Vector Bundle (20160510)}
+pp.1,3:
+\begin{itemize}
+    \item Hermitian Vector Bundle. pp.1
+    \item Antilinear map. pp.3.
+    \item Hermitian Inner Product on $\mathcal{A}^{p,q}(X,E)$. pp.4
+    \item $\bar{*}_E$ Hodge Operator on Hermitian vector bundle. pp.5.
+    \item $\bar{\partial}_E^*$
+\end{itemize}
+pp. 8:
+\begin{itemize}
+    \item Kadaira-Serre Duality.
+\end{itemize}
+
+\section{Lecture 18 Connection (20160516)}
+\begin{itemize}
+    \item $\bigtriangledown$: connection. pp.1.
+    \item Trivial connections. pp.2
+    \item $\mathcal{A}^1(M,End(E)):=\Gamma(M,\Lambda^1 M\otimes End(E))$. pp.3. Also, one may find how elements in this sheaf act on $\mathcal{A}^0(M)$ on pp.173, inside proof of proposition 4.2.3.
+    \item $s\in \mathcal{A}^0(E)$ is Parrallel/flat/constant $\Leftrightarrow \Delta(s) = 0$. pp.4.
+    \item $\Delta = d+A$. pp.4.
+    \item $\Delta$ be compatible with hermitian structure on $E$. pp.5.
+    \item $\Delta$ be compatible with holomorphic vector bundle. pp.6.
+    \item $A=\bar{H}^{-1} \partial H$. Chern connection. pp.6.
+\end{itemize}
+
+\section{Lecture 19 Holomorphic Connection \& Curvature(20160517)}
+\begin{itemize}
+    \item Holomorphic Connecction. pp.1.
+    \item $At(E)$: Atiyah class of $E$. pp.2.
+    \item $\Delta^k$. pp.4.
+    \item $F_\Delta$: curvature associated with $\Delta$. pp.5.
+    \item $F_\Delta = dA + A\wedge A$: Cartan structure equation. pp.6.
+    \item First Chern class of complex line bundle.
+\end{itemize}
+
+\section{Lecture 20 Divisors \& (Holomorphic) Line Bundles (20160524)}
+\begin{itemize}
+    \item Analytic Subvariety. pp.1.
+    \item Regular/Smooth Point. pp.1.
+    \item Singular Point. pp.2.
+    \item Irreducible analytic subvariety. pp.2.
+    \item $dim(Y)$: dimension of analytic subvariety. pp.2. Also pp.4.
+    \item Affine algebraic varieties. pp.3.
+    \item Projective algebraic varieties. pp.3.
+    \item Hypersurface. pp.4.
+    \item Divisor, $Div(X)$:=group of all divisors. pp.5.
+    \item Effective divisor. pp.6.
+    \item $Ord_Y(f)$: order of function. pp.6. Also pp.8.
+    \item Meromorphic function on complex mnfd.
+    \item $(f)$: divisor given by a global meromorphic function.
+    \item Principal divisor. pp.8.
+\end{itemize}
+
+\section{Lecture 21 Divisors \& (Holomorphic) Line Bundles  (20160530)}
+\begin{itemize}
+    \item $H^0(X,K^*_X/\mathcal{O}^*_X) \cong Div(X)$. pp.1.
+    \item $Pic(X)$: Picard group, all holomorphic line bundles. pp.3.
+    \item $Pic(X) \cong \check{H}^1(X,\mathcal{O}^*_X)$. pp.3.
+    \item $\mathcal{O}(D)$: line bundle given by divisor $D$. pp.5.
+    \item Linear equivalent of divisors.
+    \item $*$: used only in this section to denoted the map:
+    $$\left( Div(X)/Pic(X) \right) \hookrightarrow Pic(X)$$
+    pp.6.
+    \item $Z(s)$: divisor constructed from nonzero section $s\in H^0(X,L)$ for a line bundle $L$.
+\end{itemize}
+
+\section{Lecture 22 Divisors \& (Holomorphic) Line Bundles (20160606)}
+\begin{itemize}
+    \item Base point of a line bundle. pp.4.
+    \item $Bs(L)$:= set of all base points of line bundle $L$. pp.4.
+    \item $\mathcal{O}(1), \mathcal{O}(k)$. pp.6.
+\end{itemize}
+
+
+\part{Indices of Results}
+
+{Theorems, Remarks, etc.}
+\chapter{Local Theory}
+\label{chap:Local Theory}
+
+\section{1.1 Holomorphic Functions of Several Variables}
+\label{sec:book_1.1}
+
+\begin{prop}
+    The local ring $\mathcal{O}_{\mathbb{C}^n,0}$ is a UFD.
+\end{prop}
+(\textbf{pp.14 of \cite{book}})
+
+\begin{prop}{Weierstrass division theorem}
+    Let $f\in \mathcal{O}_{\mathbb{C}^n,0}$ and $g\in
+    \mathcal{O}_{\mathbb{C}^{n-1},0}[z_1]$ be a Weierstrass
+    polynomial of degree $d$. Then there exist $r\in
+    \mathcal{O}_{\mathbb{C}^{n-1},0}[z_1]$ of degree $<d$
+    and $h\in \mathcal{O}_{\mathbb{C}^n,0}$ such that $f=g\cdot h+r$.
+    The functions $h$ and $r$ are uniquely determined.
+\end{prop}
+(\textbf{pp.15 of \cite{book}})
+
+\begin{prop}
+    The local UFT $\mathcal{O}_{\mathbb{C}^n,0}$ is Noetherian.
+\end{prop}
+(\textbf{pp.16 of \cite{book}})
+
+\begin{coro}
+    Let $g\in \mathcal{O}_{\mathbb{C}^n,0}$ be an irreducible function.
+    If $f\in\mathcal{O}_{\mathbb{C}^n,0}$ vanishes on $Z(g)$, then
+    $g$ divides $f$.
+\end{coro}
+(\textbf{pp.16 of \cite{book}})
+
+\begin{lemma}
+    For any germ $X\subset \mathbb{C}^n$ the set $I(X)\subset
+    \mathcal{O}_{\mathbb{C}^n,0}$ is an ideal.
+    If $(A)\subset \mathcal{O}_{\mathbb{C}^n,0}$ denotes the ideal
+    generated by the subset $A\subset \mathcal{O}_{\mathbb{C}^n,0}$,
+    then $Z(A)=Z((A))$ and $Z(A)$ is analytic.
+\end{lemma}
+(\textbf{pp.18 of \cite{book}})
+
+\begin{lemma}
+    If $X_1\subset X_2$, then $I(X_2)\subset I(X_1)$. If $I_1\subset I_2$,
+    then $Z(I_2)\subset Z(I_1)4$. For any analytic germ $X$ one has
+    $Z(I(X))=X$. For any ideal $I\subset \mathcal{O}_{\mathbb{C}^n,0}$,
+    one has $I\subset I(Z(I))$.
+\end{lemma}
+(\textbf{pp.18 of \cite{book}})
+% TODO bookmark this chapter stops at page 18.
+
+\section{1.2 Complex and Hermitian Structures}
+\begin{lemma}
+    If $I$ is an almost complex structure on a real vector space $V$,
+    then $V$ admits in a natural way the structure of a complex vector
+    space
+\end{lemma}
+(\textbf{pp.25 of \cite{book}})
+
+\begin{remark}
+    An almost complex structure can only exist on an even dimensional
+    real vector space.
+\end{remark}
+
+\begin{coro}
+    Any almost complex structure on $V$ induces a natural orientation
+    on $V$.
+\end{coro}
+(\textbf{pp.25 of \cite{book}})
+
+\begin{lemma}
+    Let $V$ be a real vector space endowed with an almost complex
+    structure $I$. Then
+    $$ V_{\mathbb{C}} = V^{1,0}\oplus V^{0,1}$$
+    Complex conjugation on $V_{\mathbb{C}}$ induces an $\mathbb{R}$-linear
+    isomorphism $V^{1,0}\cong V^{0,1}$.
+\end{lemma}
+(\textbf{pp.26 of \cite{book}})
+
+\begin{remark}
+    Two almost complex structures on $V_{\mathbb{C}}$: $I$ and $i$,
+    coincide on the subspace $V^{1,0}$ but differ by a sign on
+    $V^{0,1}$.
+\end{remark}
+
+\begin{lemma}
+    Let $V$ be a real vector space endowed with an almost complex
+    structure $I$. Then the dual space 
+    $V^*=\text{Hom}_{\mathbb{R}}(V,\mathbb{R})$ has a natural almost
+    complex structure given by $I(f)(v)=f(I(v))$. The induced 
+    decomposition on 
+    $(V^*)_{\mathbb{C}}=\text{Hom}_{\mathbb{R}}(V,\mathbb{C})
+    = (V_{\mathbb{C}})^*$ is given by
+    $$ (V^*)^{1,0} = \{f\in \text{Hom}_{\mathbb{R}}(V,\mathbb{C}) |
+        f(I(v)) = i f(v) \} = (V^{1,0})^*$$
+    $$ (V^*)^{0,1} = \{f\in \text{Hom}_{\mathbb{R}}(V,\mathbb{C}) |
+        f(I(v)) = -i f(v) \} = (V^{0,1})^*$$
+    Also note that $(V^*)^{1,0} = 
+        \text{Hom}_{\mathbb{C}}((V,I),\mathbb{C})$.
+\end{lemma}
+
+\begin{prop}
+    For a real vector space $V$ endowed with an almost complex
+    structure $I$, one has:
+    \begin{enumerate}
+        \item $\bigwedge^{p,q}V$ is in a canonical way a subsapce
+            of $\bigwedge^{p+q} V_{\mathbb{C}}$.
+        \item $\bigwedge^k V_{\mathbb{C}}
+            = \bigoplus_{p+q=k}\bigwedge^{p,q}V$.
+        \item Complex conjugation on $\bigwedge^* V_{\mathbb{C}}$ defines
+            a ($\mathbb{C}$-linear) isomorphism
+            $\bigwedge^{p,q}V\cong \bigwedge^{q,p}V$, i.e.
+            $\bar{\bigwedge^{p,q}V}=\bigwedge^{q,p}V$.
+        \item The exterior prodoct is of bidegree $(0,0)$.
+    \end{enumerate}
+\end{prop}
+(\textbf{pp.27 of \cite{book}})
+\begin{remark}{Local calculation of $V^{1,0}$,$(V^*)^{1,0}$}
+    $$z_i=\frac{1}{2}(x_i-y_i)\text{, }\bar{z}_i=\frac{1}{2}(x_i+iy_i)$$
+    $$z^i=x^i+iy^i\text{, }\bar{z}^i=x^i-iy^i$$
+    $$I(z_i)=i z_i\text{, }I(z^i)=i z^i$$
+\end{remark}
+(\textbf{pp.27 to 28 of \cite{book}})
+
+\begin{lemma}
+    For any $m\leq \text{dim}_{\mathbb{C}}V^{1,0}$, one has
+    $$(-2i)^m (z_1\wedge\bar{z}_1)\wedge\cdots\wedge(z_m\wedge\bar{z}_m)=
+        (x_1\wedge y_1)\wedge\cdots\wedge(x_m\wedge y_m).$$
+    For $m=\text{dim}_\mathbb{C} V^{1,0}$, this defines a positive
+    oriented volume form for the natural orientation of $V$.
+
+    Also
+    $$\left(\frac{i}{2}\right)^m
+      (z^1\wedge\bar{z}^1)\wedge\cdots\wedge(z^m\wedge\bar{z}^m)=
+      (x^1\wedge y^1)\wedge\cdots\wedge(x^m\wedge y^m).$$
+\end{lemma}
+
+\begin{thebibliography}{1}
+	\bibitem{book} Complex Geometry
+\end{thebibliography}
+\part{License}
+The entire content of this work (including the source code
+for TeX files and the generated PDF documents) by 
+Hongxiang Chen (nicknamed we.taper, or just Taper) is
+licensed under a 
+\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative 
+Commons Attribution-NonCommercial-ShareAlike 4.0 International 
+License}. Permissions beyond the scope of this 
+license may be available at \url{mailto:we.taper[at]gmail[dot]com}.
+\end{document}
