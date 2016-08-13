@@ -45,7 +45,7 @@
 
 \chapter{Part I: Motivation and Foundations}
 \label{sec:QFT_in_a_Nutshell.Part_I}
-\section{I:2 Path Integral Formulation of Quantum Physics}
+\section{I.2 Path Integral Formulation of Quantum Physics}
 \label{sec:QFT_in_a_Nutshell_Part_I.2}
 Here the path integral formulation of quantum mechanics is introduced.
 The intuition comes from a limiting case of the traditional double 
@@ -185,7 +185,7 @@ Why is effecting the Wick rotation is "somewhat rigorous"?
     \end{align*}
     \textbf{Corresponding pages in draft} pp. 4 to 6.
     
-\section{I:3 From Mattress to Field}
+\section{I.3 From Mattress to Field}
 \label{sec:QFT_in_a_Nutshell_Part_I.3}
 \paragraph{Note} After reading this section and several comments online,
 I realize that this book put more emphasize on physical
@@ -328,6 +328,7 @@ is gradually lead to believe that the result of:
 \end{align}
 is:
 \begin{align}
+    \label{eq:QFT_in_a_Nutshell_Part_I.3.3}
     Z(J) = \mathcal{C}e^{-(i/2) \int\int d^4xd^4y J(x)D(x-y)J(y)}
 \end{align}
 where $\mathcal{C}$ is just some factor which will proven to be
@@ -339,16 +340,39 @@ unimportant. $D(x-y)$ is the solution of:
 
 The following is devoted to the function $D(x)$.
 
-One check by direct substitution that:
+One checks by direct substitution that:
 \begin{align}
     D(x-y) = \int \frac{d^4k}{(2\pi)^4} 
         \frac{e^{ik(x-y)}}{k^2-m^2+i\varepsilon}
 \end{align}
 is the solution to \ref{eq:QFT_in_a_Nutshell_Part_I.3.2}.
 
+We also denote the exponent in \ref{eq:QFT_in_a_Nutshell_Part_I.3.3}
+as $W(J)$. So:
+\begin{align}
+    \label{eq:}
+    W(J) = -\frac{1}{2} \int\int d^4x d^4y J(x)D(x-y)J(y) \\
+    Z= \mathcal{C}e^{iW(J)}
+\end{align}
+
+\paragraph{Free propagator}
+
+The function $D(x)$ is also called a propagator. It "plays an 
+essential role in quantum field theory. As the inverse of a
+differential operator it is clearly closely related to the Green’s
+function you encountered in a course on electromagnetism".
+
 Then the author tries to explain how to evaluate $D(x)$, which
 I fail to reproduce. The final result is equation (23) on page 
-24. He notes that
+24:
+\begin{align}
+    D(x)= -i\int \frac{d^3k}{(2\pi)^3 2\omega_k}
+    \left( e^{-i(w_k t-\vec{k}\cdot\vec{x})} \theta(x^0)
+        + e^{i(w_k t-\vec{k}\cdot\vec{x})} \theta(-x^0)
+    \right)
+\end{align}
+
+He notes that
 \begin{quote}
     Physically, $D(x)$ describes the amplitude for a disturbance 
     in the field to propagate from the origin to $x$. 
@@ -368,9 +392,60 @@ $D(x)$, because my result is different from the book's. Also, the
 physics picture about $D(x)$ on page 24, is badly reasoned. The
 argument is tenuous, in my opinion.
 
-\subsection{yeoajsdkfj}
-\label{sec:yeoajsdkfj}
+\section{I.4 From Field to Particle to Force}
+\label{sec:I.4 From Field to Particle to Force}
 
+\textbf{Note}: discussion in this section is based on the \textit{free
+field theory}.
+
+\paragraph{From field to particle}
+
+With the Fourier transformation, several physical properties
+could be extrated from $W(J)$. The Fourier transformed $W(J)$ is:
+\begin{align}
+    W(J) = -\frac{1}{2}\int \frac{d^4}{(2\pi)^4}J(k)^*
+        \frac{1}{k^2-m^2+i\epsilon}J(k)
+\end{align}
+If separating $J$ into $J(x)=J_1(x)+J_2(x)$, then naturally, the
+Fourier transformed calculation will include terms of the form:
+$J^*_1J_1,J^*_1J_2,J^*_2J_1,J^*_2J_2$. We see that the denominator
+in $W(J)$ contains $k^2-m^2$. Somehow the author wants to argue that
+the term $J^*_2J_1$ describes the influence of a particle of mass $m$
+propagating from the source $1$ to the sink $2$. But his language is loose.
+
+This part also introduces the jargon \textit{on mass shell} and the
+language of "virtual particles" moving in $k$-space.
+
+\paragraph{From particle to force}
+With two delta source $J_a(x)=\delta^(3)(\vec{x}-\vec{x}_a)$, one can
+describe two massive lumps setting on $\vec{x}_1$ and $\vec{x}_2$ and
+not moving at all. These two lumps, coupled with the free field $\phi$,
+will attract each other. To show the attraction, the author calculates
+explicitly the $W(J)$, and identifies $iW(J) \equiv -iET$ (the
+identification is substantiate by $e^{-iET} = Z = e^{iW(J)}$).
+Finally, it shows:
+\begin{align}
+    E= -\frac{1}{4\pi r}e^{-mr}
+\end{align}
+This is actually the Yukawa model for the attraction between nucleons
+in the atomic nucleus. A plot is in due:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pics/Yukawa-potential.pdf}
+    \caption{Plot of Yukawa potential $-\frac{e^{-r}}{4 \pi  r}$}
+\end{figure}
+
+It shows us several information:
+\begin{itemize}
+    \item In the long distance, the potential drops off over the
+        distance scale of $1/m$.
+    \item In the short range, the force is $1/r^2$.
+    \item The energy gets smaller when the two sources come closer.
+        It tends to $-\infty$ as $r\to 0$.
+\end{itemize}
+
+\paragraph{Origin of force}
+% TODO stops here.
 \chapter{Bibliography}
 \begin{thebibliography}{1}
 	\bibitem{zee} A. Zee. Quantum Field Theory in a Nutshell
