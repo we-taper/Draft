@@ -104,7 +104,7 @@ very direct manner. This is related to the saddle point
 approximation to the integral 
 \ref{eq:QFT_in_a_Nutshell_Part_I.2.TransProbability}.
 
-\textbf{Unclear point}
+\paragraph{Unclear point}
 Why is $\int dq \ket{q}\bra{q} = 1$ while $\int \frac{p}{2\pi}
 \ket{p}\bra{p} = 1$. What does it mean by saying
 "to see that the normalization is correct" (pp. 10 and 11).
@@ -387,7 +387,7 @@ Heisenberg's uncertainty principle.
 
 \textbf{Corresponding pages in draft} pp. 9 to 11.
 
-\textbf{Unclear points}: I cannot follow all the calculation for 
+\paragraph{Unclear points}: I cannot follow all the calculation for 
 $D(x)$, because my result is different from the book's. Also, the
 physics picture about $D(x)$ on page 24, is badly reasoned. The
 argument is tenuous, in my opinion.
@@ -417,12 +417,16 @@ This part also introduces the jargon \textit{on mass shell} and the
 language of "virtual particles" moving in $k$-space.
 
 \paragraph{From particle to force}
-With two delta source $J_a(x)=\delta^(3)(\vec{x}-\vec{x}_a)$, one can
+With two delta source $J_a(x)=\delta^{(3)}(\vec{x}-\vec{x}_a)$, one can
 describe two massive lumps setting on $\vec{x}_1$ and $\vec{x}_2$ and
 not moving at all. These two lumps, coupled with the free field $\phi$,
 will attract each other. To show the attraction, the author calculates
-explicitly the $W(J)$, and identifies $iW(J) \equiv -iET$ (the
-identification is substantiate by $e^{-iET} = Z = e^{iW(J)}$).
+explicitly the $W(J)$\footnote{
+    Specifically, he calculates the $J^*_1J_2$ and $J^*_2J_1$ terms,
+    ignoring the $J^*_1J_1$ and $J^*_2J_2$ terms, because the latter
+    appears in $W(J)$ regardless of the existance of the other particle.
+}, and identifies $iW(J) \equiv -iET$ (the
+identification is substantiate by $\braket{0|e^{-iET}|0} = Z = e^{iW(J)}$).
 Finally, it shows:
 \begin{align}
     E= -\frac{1}{4\pi r}e^{-mr}
@@ -445,7 +449,41 @@ It shows us several information:
 \end{itemize}
 
 \paragraph{Origin of force}
-% TODO stops here.
+The energy calculated above, and the previous \textit{sink and source}
+interpretation, lead us to believe that force is the result of an
+exchange of particles.
+
+\paragraph{Connected versus disconnected}
+Here the author notes the Feynman's heuristic language to discribe
+the integral related to $J(x)D(x-y)J(y)$ as a graph:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{pics/J(x)D(x-y)J(y).png}
+    \caption{$J(x)D(x-y)J(y)$}
+\end{figure}
+It also introduces the concept of connectedness or disconnectedness
+in the graph (omitted here).
+
+\paragraph{Unclear Points} Marked in the text.
+
+\section{I.5 Coulomb an Newton: Repulsion and Attraction}
+This section tries to replicate the previous section's procedure to
+produce a repulsive force. It starts with the Maxwell's Lagrangian for
+electromagnetism $\mathcal{L}=-\frac{1}{4} F_{\mu\nu}F^{\mu\nu}$.
+However, the authors adds an additional mass term and let the mass
+$m\to 0$ in the end. This is declared to be avoiding the complication of
+gauge invariance. The result is surprisingly simple. We have:
+\begin{align}
+    D_{\nu\lambda}(k)&=\frac{-g_{\nu\lambda}+k_\nu k_\lambda/m^2}
+        {k^2-m^2}
+    \nonumber\\
+    W(J)&=\frac{1}{2} \int \frac{d^4k}{(2\pi)^4}
+        J^\mu (k)^* \frac{1}{k^2-m^2+i\epsilon} J_\mu(k)
+    \nonumber\\
+    E&=\frac{1}{4\pi r}e^{-mr} 
+\end{align}
+
+This clearly represent the idea of repulsive Coulomb force.
 \chapter{Bibliography}
 \begin{thebibliography}{1}
 	\bibitem{zee} A. Zee. Quantum Field Theory in a Nutshell
