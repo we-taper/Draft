@@ -36,6 +36,9 @@
 \usepackage[all]{xy} % For drawing category diagrams
 \usepackage{mathrsfs}
 
+\usepackage{nomencl} % For a index of symbols.
+\makenomenclature % For a index of symbols.
+
 \title{Notes of Quantum Field Theory in a Nutshell}
 \date{\today}
 \author{we.taper}
@@ -71,6 +74,7 @@ where:
     \left( \frac{-im}{2\pi \delta t}\right)^{N/2}
     \left( \prod_{k=1}^{N-1} \int dq_k \right)
 \end{align}
+\nomenclature{$\int Dq(t)$}{\nomrefpage}
 It notes that when $H=\hat{p}^2/2m + V(\hat{q})$, the final result
 would have been:
 \begin{align}
@@ -89,8 +93,13 @@ Using $\int \ket{q}\bra{q} dq=1$, we have:
         \braket{F|q_F} \braket{q_F|e^{-iHT}|q_I}\braket{q_I|I}
 \end{align}
 
-The value \(\braket{0|e^{-iHT}|0}\) is denoted $Z$. This part
-mentions that one often effect a change of coordinate
+We define:
+\begin{align}
+    Z\equiv \braket{0|e^{-iHT}|0}
+\end{align}
+\nomenclature{$Z$}{\nomrefpage}
+
+This part mentions that one often effect a change of coordinate
 $t \to -it$, called \textit{Wick rotation}, to obtain:
 \begin{align}
     Z = \int Dq(t) e^{-\int_0^T dt H(\dot{q},q)}
@@ -200,7 +209,15 @@ a review of this book (QFT in a Nutshell):
 By above reason, I gave up tracking the calculations done in this
 book.
 
-\paragraph{Mattress in continuum limit} It start with taking the
+
+\paragraph{Mattress in continuum limit} 
+
+\footnote{
+    \textbf{Note}: Here and afterwards, the author suppresses the factor 
+    $\braket{0|q_f} \braket{q_I|0}$.
+}
+
+It start with taking the
 limit of lattice spacing $l\to 0$, aiming to write down the field
 equation from the mattress perspective. The process is transparant
 and neatly summarized in the "promotion table" on page 19:
@@ -249,8 +266,9 @@ Then he notes about the Landau-Ginzburg view:
 \end{quote}
 
 Also it is customary to write $d = D + 1$ and speak of a 
-$(D + 1)$-dimensional spacetime. When $D=0$, quantum
-field theory reduces to normal quantum mechanics,
+$(D + 1)$-dimensional spacetime
+\nomenclature{$(D + 1)$-dimensional spacetime}{\nomrefpage}. 
+When $D=0$, quantum field theory reduces to normal quantum mechanics,
 which deal with only a point (in the mattress
 sense, we have only one particle).
 
@@ -276,7 +294,7 @@ will find the classical field equation:
 
 \textbf{Corresponding pages in draft} pp. 7 to 8.
 
-\paragraph{Vacuum and Response}
+\paragraph{Vacuum and (Linear) Response}
 
 It is said that the vacuum in quantum field theory is a
 stormy sea of quantum fluctuations.
@@ -300,7 +318,9 @@ obtain the Klein-Gorden equation:
 \begin{align}
     (\partial^2+m^2)\phi=0
 \end{align}
-The plain wave solution is of the form:
+The plain wave solution 
+    $\phi(\vec{x},t)=e^{i(\omega t-\vec{k}\cdot\vec{x})}$ 
+has the property:
 \begin{align}
     \omega^2=\vec{k}^2+m^2
 \end{align}
@@ -346,7 +366,7 @@ One checks by direct substitution that:
 is the solution to \ref{eq:QFT_in_a_Nutshell_Part_I.3.2}.
 
 We also denote the exponent in \ref{eq:QFT_in_a_Nutshell_Part_I.3.3}
-as $W(J)$. So:
+as $W(J)$ \nomenclature{$W(J)$}{\nomrefpage}. So:
 \begin{align}
     \label{eq:}
     W(J) = -\frac{1}{2} \int\int d^4x d^4y J(x)D(x-y)J(y) \\
@@ -399,7 +419,8 @@ field theory}.
 \paragraph{From field to particle}
 
 With the Fourier transformation, several physical properties
-could be extrated from $W(J)$. The Fourier transformed $W(J)$ is:
+could be extrated from $W(J)$. The Fourier transformed $W(J)$
+\nomenclature{Fourier transformed $W(J)$}{\nomrefpage} is:
 \begin{align}
     W(J) = -\frac{1}{2}\int \frac{d^4}{(2\pi)^4}J(k)^*
         \frac{1}{k^2-m^2+i\epsilon}J(k)
@@ -446,6 +467,10 @@ It shows us several information:
         It tends to $-\infty$ as $r\to 0$.
 \end{itemize}
 
+\textbf{Note} that the field $\phi$ used here is like the field used
+by Yukawa. The Yukawa model correctly describes the field of
+$\pi$ meson, also called pion.
+\nomenclature{$\pi$ meson}{ also called pion\nomrefpage}
 \paragraph{Origin of force}
 The energy calculated above, and the previous \textit{sink and source}
 interpretation, lead us to believe that force is the result of an
@@ -487,8 +512,11 @@ This clearly represent the idea of repulsive Coulomb force.
 
 \paragraph{Bypassing Maxwell}
 % TODO stopped here.
-I am not sure what to write here, since I lost grip of which field
-the author is trying to calculate: meson of spin 1? or phonton?.
+
+\paragraph{Unclear Points} Marked in the book. Especially, where
+in the calculatioin above shows that the field is of a spin $1$
+or a spin $2$ meson?
+
 \chapter{Bibliography}
 \begin{thebibliography}{1}
 	\bibitem{zee} A. Zee. Quantum Field Theory in a Nutshell
@@ -504,5 +532,6 @@ licensed under a
 	License}. Permissions beyond the scope of this 
 license may be available at \url{mailto:we.taper[at]gmail[dot]com}.
 
-
+% For a list of symbols.
+\printnomenclature
 \end{document}

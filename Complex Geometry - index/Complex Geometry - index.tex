@@ -159,7 +159,8 @@
     \textcolor{blue}{hermitian form $(,)$}:=$<,>-i\cdot\omega$.
     (\textbf{pp.30})
 
-    \textcolor{blue}{Lefschetz operator}:$L:\bigwedge^* V^*_{\mathbb{C}}\to
+    \textcolor{blue}{Lefschetz operator $L$}:
+        $\bigwedge^* V^*_{\mathbb{C}}\to
     \wedge^* V_{\mathbb{C}}^*$, given by $\alpha\to\omega\wedge\alpha$.
     (\textbf{pp.31})
 
@@ -188,6 +189,14 @@ $$[H,L]=2L,\text{ } [H,\Lambda]=-2\Lambda,\text{ } [L,\Lambda]=H.$$
 $$[L^i,\Lambda](\alpha)= i(k-n+i-1)L^{i-1}(\alpha),\text{for all}
     \alpha\in\bigwedge^k V^*$$
 (\textbf{pp.35})
+
+    \textcolor{blue}{primitive element} in $\bigwedge^kV^*$:
+        $\alpha$ is primitive if and only if $\Lambda\alpha=0$.
+    (\textbf{pp.36})
+
+    \textcolor{blue}{$P^k$} $\subset\bigwedge^kV^*$: is the subspace
+    of all primitive elements.
+    (\textbf{pp.36})
 \section{2.Complex Manifolds}
 
     \subsection{2.1 Complex and Hermitian Structures}
@@ -819,6 +828,24 @@ pp. 8:
       (x^1\wedge y^1)\wedge\cdots\wedge(x^m\wedge y^m).$$
 \end{lemma}
 
+\begin{prop}[Lefschetz decomposition]
+    There exists a direct sum decomposition of the form:
+    \begin{align}
+        \bigwedge^kV^* = \bigoplus_{i\geq 0} L^i(P^{k-2i})
+    \end{align}
+    Also, $P^k={\alpha\in \bigwedge^k V^*|L^{n-k+1}\alpha=0}$, for
+    $k\leq n$. Naturally $P^k=0$ for $k>0$.
+
+    We also have several morphisms induced by $L$, which is illustrated
+    in the following graph adapted from the book:
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1.3\linewidth]{pics/{prop-1.2.30-pp.36}.pdf}
+        \caption{Morphisms}
+    \end{figure}
+\end{prop}
+(\textbf{pp.36 of \cite{book}})
 \begin{thebibliography}{1}
 	\bibitem{book} Complex Geometry
 \end{thebibliography}
