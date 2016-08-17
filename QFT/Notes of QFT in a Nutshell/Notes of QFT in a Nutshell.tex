@@ -375,6 +375,7 @@ as $W(J)$ \nomenclature{$W(J)$}{\nomrefpage}. So:
 
 \paragraph{Free propagator}
 
+\nomenclature{$D(x)$}{propagator for the free field theory\nomrefpage}
 The function $D(x)$ is also called a propagator. It "plays an 
 essential role in quantum field theory. As the inverse of a
 differential operator it is clearly closely related to the Green’s
@@ -501,18 +502,46 @@ gauge invariance. The result is surprisingly simple. We have:
 \begin{align}
     D_{\nu\lambda}(k)&=\frac{-g_{\nu\lambda}+k_\nu k_\lambda/m^2}
         {k^2-m^2}
+        = \frac{-G_{\nu\lambda}}{k^2-m^2}
+        \nomenclature{$D_{\nu\lambda}$}
+            {Propagator for massive spin $1$ field\nomrefpage}
     \nonumber\\
     W(J)&=\frac{1}{2} \int \frac{d^4k}{(2\pi)^4}
         J^\mu (k)^* \frac{1}{k^2-m^2+i\epsilon} J_\mu(k)
     \nonumber\\
     E&=\frac{1}{4\pi r}e^{-mr} 
 \end{align}
-
+where he defines 
+$G_{\nu\lambda}\equiv g_{\nu\lambda}-\frac{k_\nu k_\lambda}{m^2}$.
 This clearly represent the idea of repulsive Coulomb force.
 
 \paragraph{Bypassing Maxwell}
-% TODO stopped here.
 
+Here he re-evaluates the propagator for massive spin $1$ particle
+(photon) using another approach, without the use of Maxwell's Lagrangian.
+\footnote{
+    In the appendix $1$, the author also provides a derivation of
+    Maxwell's Lagrangian.
+}
+The calculation depends on that:
+\begin{quote}
+   The amplitude for a particle with momentum $k$ and polarization $a$
+   to be created at the source is proportional to 
+   $\varepsilon^{(a)}_\lambda(k)$, and the amplitude for it to be absorbed 
+   at the sink is proportional to $\varepsilon^{(a)}_\lambda(k)$. We 
+   multiply the amplitudes together to get the amplitude for
+   propagation from source to sink, and then sum over the three 
+   possible polarizations
+\end{quote}
+This should give the propagator. In the end, it is found that:
+\begin{align}
+    \sum_a \varepsilon^{(a)}_\nu(k) \varepsilon^{(a)}_\lambda(k)
+    = - G_{\nu\lambda}(k) 
+    \equiv - \left(g_{\nu\lambda}-\frac{k_\nu k_\lambda}{m^2}\right)
+\end{align}
+
+\paragraph{Bypassing Einstein}
+% TODO stopped here.
 \paragraph{Unclear Points} Marked in the book. Especially, where
 in the calculatioin above shows that the field is of a spin $1$
 or a spin $2$ meson?
