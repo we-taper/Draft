@@ -513,6 +513,8 @@ gauge invariance. The result is surprisingly simple. We have:
 \end{align}
 where he defines 
 $G_{\nu\lambda}\equiv g_{\nu\lambda}-\frac{k_\nu k_\lambda}{m^2}$.
+\nomenclature{$G_{\nu\lambda}$}
+    {$g_{\nu\lambda}-\frac{k_\nu k_\lambda}{m^2}$\nomrefpage}
 This clearly represent the idea of repulsive Coulomb force.
 
 \paragraph{Bypassing Maxwell}
@@ -541,10 +543,34 @@ This should give the propagator. In the end, it is found that:
 \end{align}
 
 \paragraph{Bypassing Einstein}
-% TODO stopped here.
-\paragraph{Unclear Points} Marked in the book. Especially, where
-in the calculatioin above shows that the field is of a spin $1$
-or a spin $2$ meson?
+
+The producedure here is almost identical to that of the previous chapter.
+Here, two equations are sued to obtain the final result:
+\begin{align}
+    k^\mu \varepsilon^{(a)}{\mu\nu} &= 0\\
+    g^{\mu\nu}\varepsilon^{(a)}{\mu\nu}&=0 \text{(traceless)}\\
+\end{align}
+result:
+\begin{align}
+    \sum_a \varepsilon^{(a)}_{\mu\nu}(k) \varepsilon^{(a)}(k)
+        \varepsilon^{(a)}_{\lambda\sigma}(k)=
+        (G_{\mu\lambda}G_{\nu\sigma}+G_{\mu\sigma}G_{\nu\lambda})
+        -\frac{3}{2}G_{\mu\nu} G_{\lambda\sigma}
+\end{align}
+so that the propagator for a massive spin $2$ particle 
+\nomenclature{$D_{\mu\nu,\lambda\sigma}(k)$}
+{propagator for a massive spin $2$ particle\nomrefpage}
+is:
+\begin{align}
+    D_{\mu\nu,\lambda\sigma}(k)=
+    \frac{ (G_{\mu\lambda}G_{\nu\sigma}+G_{\mu\sigma}G_{\nu\lambda})
+        -\frac{3}{2}G_{\mu\nu} G_{\lambda\sigma} }
+        {k^2-m^2}
+\end{align}
+
+\paragraph{ Why we fall}
+
+\paragraph{Unclear Points} Marked in the book.
 
 \chapter{Bibliography}
 \begin{thebibliography}{1}
