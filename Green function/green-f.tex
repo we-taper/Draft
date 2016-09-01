@@ -20,6 +20,9 @@
 \usepackage{fancyref} % For easy adding figure,equation etc in reference. Use \fref or \Fref instead of \ref
 \usepackage{braket} %http://tex.stackexchange.com/questions/214728/braket-notation-in-latex
 
+% Following is for the special character: differential "d".
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
 % Following is for theorems etc environments
 % http://tex.stackexchange.com/questions/45817/theorem-definition-lemma-problem-numbering && https://en.wikibooks.org/wiki/LaTeX/Theorems
 \usepackage{amsthm}
@@ -37,6 +40,10 @@
 % To include PDF in higher version format.
 \pdfoptionpdfminorversion=6
 
+% A list of nomenclatures.
+\usepackage{nomencl}
+\makenomenclature
+
 \title{(Tentative) Calculating Green Function}
 % TODO give it a better name.
 \date{\today}
@@ -48,13 +55,13 @@
 
 \maketitle
 \abstract{
-    This is a note for reading the paper \cite{dissertation}, and for understanding
-    the code produced from that file.
+    This is a note for reading the paper \cite{dissertation}, and for 
+    understanding the code produced from that file.
 }
 \tableofcontents
 
 \section{Chapter 1 - Introductions}
-\label{sec:Chapter 1 - Introductions}
+\label{sec:Chapter_1_-_Introductions}
 This chapter is really a nice introduction to the current fields of mesoscopic physics.
 The writing is clear and it traces the develpment of this field. It gives me a lucid
 and holistic historical account of both the important discoveries and motives behind
@@ -65,6 +72,45 @@ them. I should find those marked regions on pdf inside this part very useful.
         \href{https://sundoc.bibliothek.uni-halle.de/diss-online/07/07H039/prom.pdf}{Electronic Transport in Mesoscopic Systems}, 
         by von Georgo Metalidis. (Link found via Google)
 \end{thebibliography}
+\section{Chapter 2 - 2 Landauer-Büttiker formalism}
+\label{sec:Chapter_2_-_2_Landauer-Buttiker_formalism}
+
+This chapter introduces the Landauer-Büttiker formalism for calculating the
+transport properties. The typical setup is illustrated below:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pics/{ch2.setup_for_L-B_formalism}.png}
+    \caption{Setup for the Landauer-Büttiker formalism}
+    %\label{fig:}
+\end{figure}
+
+In that formalism, the currents following through the leads have the following
+expression:
+\begin{align}
+    I_p = \frac{-e}{h} \sum_q \int T_{qp}(E)\left( f_p(E)-f_q(E) \right)\diff E
+\end{align}
+where $T_{pq}$ is the transmission coefficients for electrons to go from
+lead $q$ to lead $p$. This formula can be simplified/linearized into:
+\begin{align}
+    I_p = \frac{e^2}{h}\sum_q T_{pq}(E_F)(V_p-V_q)
+\end{align}
+An obvious advantage of Landauer-Büttiker formalism is that it makes the
+dependence of $I_p$ on experimental setup explicit in the formula.
+
+This chapter continue to discuss some time reversal symmetry (TR) properties 
+of this formula, centring/centering around the coefficient $T_{pq}$.
+But I am perplexed by that he, while discussing TR, mentions the
+magnetic field $B$ and formulae like:
+\begin{align}
+    T_{12}(+B)= T_{12}(-B)
+\end{align}
+\nomenclature{confusion: TR and $B$}{\nomrefpage}
+
+\section{Chapter 3 Tight-binding model}
+\label{sec:Chapter_3_Tight-binding_model}
+
+\printnomenclature
 \section{License}
 The entire content of this work (including the source code
 for TeX files and the generated PDF documents) by 
