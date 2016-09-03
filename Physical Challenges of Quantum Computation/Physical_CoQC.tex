@@ -1,0 +1,114 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+\usepackage{float}  % For H in figures
+\usepackage{amsmath} % For math
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+% Followings are for the special character: differential "d".
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
+\numberwithin{equation}{subsection} % have the enumeration go to the subsection level.
+                                    % See:https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
+\usepackage{graphicx}   % need for figures
+\usepackage{cite} % need for bibligraphy.
+\usepackage[unicode]{hyperref}  % make every cite a link
+\usepackage{CJKutf8} % For Chinese characters
+\usepackage{fancyref} % For easy adding figure,equation etc in reference. Use \fref or \Fref instead of \ref
+\usepackage{braket} %http://tex.stackexchange.com/questions/214728/braket-notation-in-latex
+
+% Following is for theorems etc environments
+% http://tex.stackexchange.com/questions/45817/theorem-definition-lemma-problem-numbering && https://en.wikibooks.org/wiki/LaTeX/Theorems
+\usepackage{amsthm}
+\newtheorem{defi}{Definition}[section]
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\theoremstyle{definition}
+\newtheorem{ex}{Example}[section]
+
+% A list of nomenclatures.
+\usepackage{nomencl}
+\makenomenclature
+
+\title{Notes of Physical Challenges of Quantum Computation}
+\date{\today}
+\author{Taper}
+
+
+\begin{document}
+
+
+\maketitle
+\abstract{
+    This is a note to the dissertation \cite{dissertation} by professor MH Wong in SUSTC.
+}
+\tableofcontents
+\section{Chapter 1 Overview}
+\label{sec:Chapter_1_Overview}
+
+    \subsection{1.1 Introduction to quantum computing}
+    \label{sec:1.1_Introduction_to_quantum_computing}
+    Here he presents some differences between the classical and quantum
+    computers. Keywords: \textbf{quantum parallelism}, \textbf{reversible
+    computation process}, \textbf{simulation of quantum dynamics}.
+
+    \subsection{1.2~1.3 Physical implementations and challenges 
+    of quantum computing}
+    
+    These two parts do as the title suggests. The methods are summarized
+    in the following table:
+
+    \begin{table}[H]
+    \centering
+    \caption{Different Quantum Computing Approaches}
+    %\label{my-label}
+    
+    \begin{tabular}
+        {|p{\dimexpr0.333\textwidth-2\tabcolsep-\arrayrulewidth\relax}|
+         p{\dimexpr0.333\textwidth-2\tabcolsep-\arrayrulewidth\relax}|
+         p{\dimexpr0.333\textwidth-2\tabcolsep-\arrayrulewidth\relax}|
+        }
+        %{lll}
+    \multicolumn{1}{c}{Name} & \multicolumn{1}{c}{Method} & \multicolumn{1}{c}{Error Prevention} \\ \hline
+        gate model 
+            & $U\ket{\text{Input}}=\ket{\text{Output}}$ 
+            & quantum error correction, 
+              analogous to its classical counterparts. \\ \hline
+        adiabatic model 
+            & Keep the quantum states of qbits in ground state. 
+            & Prevent thermalization. \\ \hline
+        one-way quantum computing/measurement-based quantum computing 
+            & Initialized in cluster state. Computation achived via 
+              a series of adaptive measurements. 
+            & High quality cluster state. Precision in measurement.
+        \\ \hline
+    \end{tabular}
+    
+    \end{table}
+
+    It should be noted that the above classification is not exclusive,
+    there are certainly overlap between the three approaches. 
+\begin{thebibliography}{1}
+    \bibitem{dissertation} From UIUC:
+    \url{https://www.ideals.illinois.edu/bitstream/handle/2142/14565/yung_manhong.pdf?sequence=1&isAllowed=y}
+\end{thebibliography}
+\printnomenclature
+\section{License}
+The entire content of this work (including the source code
+for TeX files and the generated PDF documents) by 
+Hongxiang Chen (nicknamed we.taper, or just Taper) is
+licensed under a 
+\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative 
+Commons Attribution-NonCommercial-ShareAlike 4.0 International 
+License}. Permissions beyond the scope of this 
+license may be available at \url{mailto:we.taper[at]gmail[dot]com}.
+\end{document}
