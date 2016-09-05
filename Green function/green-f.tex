@@ -62,10 +62,11 @@
 
 \section{Chapter 1 - Introductions}
 \label{sec:Chapter_1_-_Introductions}
-This chapter is really a nice introduction to the current fields of mesoscopic physics.
-The writing is clear and it traces the develpment of this field. It gives me a lucid
-and holistic historical account of both the important discoveries and motives behind
-them. I should find those marked regions on pdf inside this part very useful.
+This chapter is really a nice introduction to the current fields of 
+mesoscopic physics. The writing is clear and it traces the develpment 
+of this field. It gives me a lucid and holistic historical account of 
+both the important discoveries and motives behind them. I should 
+find those marked regions on pdf inside this part very useful.
 
 \section{Chapter 2 - 2 Landauer-Büttiker formalism}
 \label{sec:Chapter_2_-_2_Landauer-Buttiker_formalism}
@@ -83,6 +84,7 @@ transport properties. The typical setup is illustrated below:
 In that formalism, the currents following through the leads have the following
 expression:
 \begin{align}
+    \label{eq:ch1.Landauer-Buttiker_formula}
     I_p = \frac{-e}{h} \sum_q \int T_{qp}(E)\left( f_p(E)-f_q(E) \right)\diff E
 \end{align}
 where $T_{pq}$ is the transmission coefficients for electrons to go from
@@ -102,15 +104,15 @@ magnetic field $B$ and formulae like:
 \end{align}
 \nomenclature{confusion: TR and $B$}{\nomrefpage}
 
-\section{Chapter 3 Tight-binding model}
+\section{Chapter 3 - Tight-binding model}
 \label{sec:Chapter_3_Tight-binding_model}
 
 Here in this chapter the author presents the fundamental Hamiltonian of
 the system under consideration.
 \marginpar{
     Given the formula mentioned in previous chapter, the Hamiltonian
-    presented here seemed extraneous. Maybe the author wants to examine
-    the physics in more detail.
+    presented here seemed seemingly extraneous. Read the introduction
+    here in chapter 4 to understand the underlying logic.
 }
 
 The process to obtain the Hamiltonian is discretization the Hamiltonian
@@ -214,6 +216,80 @@ compared to physically relevant quantities such as the Fermi wavelength".
     Hamiltonian, not to be presented here, numbered equation (3.23)
     on page 18.
 
+\section{Chapter 4 - Green’s function formalism}
+\label{sec:Chapter_4-Greens_function_formalism}
+
+In this section we finally circled back to the Landauer-Büttiker
+formalism. Here a breif summary of chapter 3 and 4 is opportune.
+The purpose of chapter 3 and 4 as a whole, is to calculate the 
+transmission coefficient $T_{qp}$ in equation
+\ref{eq:ch1.Landauer-Buttiker_formula}. Here, chapter 3 establish the
+Hamiltonian, and chapter 4 uses the Green function to calculate
+transmission coefficient out of the Hamiltonian.
+
+    \subsection{4.1 Green’s functions: The basics}
+    \label{sec:4.1_Greens_functions_The_basics}
+    
+    The author takes the definition of Green's function as inverse
+    of Hamiltonian, more specifically:
+    \begin{align}
+        [E-\hat{H}]\hat{G}(E) = 1
+    \end{align}
+    or, in the position-spin representation:
+    \begin{align}
+        [E-H(\vec{x})]G(\vec{x},\vec{x'},E)=\delta(\vec{x}-\vec{x'})
+    \end{align}
+    where $\vec{x}=(\vec{r},\sigma)$, containing in addition to the
+    usual spatial part, the spin part.
+
+    The physical meaning is also explained, although I learnt this
+    better in A. Zee's QFT in a Nutshell. However, he notes that
+    to disguish between the source and sink, i.e. to tell whether
+    the Green's function calculated represents a wavefunction
+    resulted from a unit excitation (the sink), or a source for such
+    an excitation, we should incorporate boundary conditions. This is
+    done by adding "an infinitesimal imaginary variable into the energy",
+    "leading to the following definitions":
+    \begin{align}
+        G^{\pm}(\vec{x},\vec{x'},E)\equiv \lim_{\eta\to 0^{+}}
+            G(\vec{x},\vec{x'},E\pm i\eta)
+    \end{align}
+    and $G^{\pm}$ satisfies:
+    \begin{align}
+        [E\pm i\eta - H(\vec{x})] G^{\pm}(\vec{x},\vec{x'},E)=
+            \sigma(\vec{x}-\vec{x'})
+    \end{align}
+    The functions $G^+$ and $G^-$ are called respectively the
+    \textbf{retarded and advanced Green's function}. The author
+    mentions that, "when Fourier transforming the functions $G^\pm$ to
+    the time domain using a closed contour integration in the complex 
+    plane, they would correspond to causal and anticausal solutions".
+
+    Though seemingly extraneous, the operator definition for above
+    Green functions is also mentioned:
+    \begin{align}
+        \hat{G}^{\pm}(E)\equiv \lim_{\eta\to 0^+}
+            \frac{1}{E\pm i\eta-\hat{H}}
+    \end{align}
+    \subsection{4.2 Transmission coefficients and the Green’s function}
+    \label{sec:4.2_Transmission_coefficients_and_the_Greens_function}
+    
+    Here it is mentioned than the transmission coefficient is related
+    Green's funciton in the following way:
+    \begin{align}
+        T_{pq} = \text{Tr}\left[\Gamma_p G_{pq}\Gamma_q G^{\dagger}_{pq}
+                \right]
+    \end{align}
+    Here $G_{pq}$ is, to borrow the language of matrix mechanics,
+    a submatrix of the Green's function. $\Gamma_p$ is a abbreviation
+    for the following counting:
+    \marginpar{I am not sure about this peculiar thing.}
+    \begin{align}
+        \label{eq:}
+        \Gamma_p \equiv i(\sum_p-\sum^\dagger_p)
+    \end{align}
+    Here $\sum_p$ is named "self-energy of the lead", something I
+    don't quite understand.
 \section{Anchor}
 
 \begin{thebibliography}{1}

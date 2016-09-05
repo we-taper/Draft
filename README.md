@@ -3,19 +3,16 @@ This is intended for storing my drafts of my works. It is messy and will never b
 
 # An Outline of Notes of Drafts Included
 
-* Complex Geometry - index of ...
+1. Complex Geometry - index of ...
 
     This is intended for keeping a index of notation of the course
     *Introduction to Algebraic Geometry* (which actually teaches
     Complex Geometry) as well as its textbook *Introduction
     to Complex Geometry*.
 
-* draft.pdf
+2. draft.pdf
 
     This is a general purpose draft. It contains currently:
-
-    * Notes of **Lectures on the Frontiers of Physics**, a course
-    designed for professors to introduce their own fields.
 
     * Problems in **Bernevig’s Topological** .... This is a draft for
     my solution to that.
@@ -39,29 +36,38 @@ This is intended for storing my drafts of my works. It is messy and will never b
         Notes for the book *The Quantum Theory of Fields* by Weinberg.
 
 
-* **Photosynthesis** Course Note
+3. Useful **(anit)Commutative relationships**
 
-Notes taken when I am attending the course *An Introduction to 
-Light Harvesting in Bacteria and Plants*.
-
-* Useful **(anit)Commutative relationships**
-
-* **feynman diagram**
+4. **feynman diagram**
 
 	Notes for studying Feynman diagram. Currently stopped at defining
 	Green function.
 
-* Note of Sheaf Theory
+5. Note of Sheaf Theory
 
     Notes taken to understand sheaf cohomology. (Scattered and
     incomplete.)
 
-* Algebra
+6. Algebra
 	* Noetherian Ring
 
 		Introduces **Noetherian module** and Noetherian ring. 
 		From S.Lang's Algebra.
 
-* Quantum Field Theory in a Nutshell
+7. Quantum Field Theory in a Nutshell
 
     Notes for the book *Quantum Field Theory in a Nutshell* by A. Zee.
+
+8. **Finished**
+
+    Here in this folder, are notes that are considered finished and are not
+    likely to be updated, unless to correct spelling, grammar, etc.
+
+    * **Light Harvesting** Course Note 
+
+        Notes taken when I was attending the course *An Introduction to 
+        Light Harvesting in Bacteria and Plants*.
+
+    * Notes of **Lectures on the Frontiers of Physics**, a course
+    designed for professors to introduce their own fields.
+
