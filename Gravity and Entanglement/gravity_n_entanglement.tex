@@ -1,0 +1,100 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+\usepackage{float}  % For H in figures
+\usepackage{amsmath} % For math
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+% Followings are for the special character: differential "d".
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
+\numberwithin{equation}{subsection} % have the enumeration go to the subsection level.
+                                    % See:https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
+\usepackage{graphicx}   % need for figures
+\usepackage{cite} % need for bibligraphy.
+\usepackage[unicode]{hyperref}  % make every cite a link
+\usepackage{CJKutf8} % For Chinese characters
+\usepackage{fancyref} % For easy adding figure,equation etc in reference. Use \fref or \Fref instead of \ref
+\usepackage{braket} %http://tex.stackexchange.com/questions/214728/braket-notation-in-latex
+
+% Following is for theorems etc environments
+% http://tex.stackexchange.com/questions/45817/theorem-definition-lemma-problem-numbering && https://en.wikibooks.org/wiki/LaTeX/Theorems
+\usepackage{amsthm}
+\newtheorem{defi}{Definition}[section]
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\theoremstyle{definition}
+\newtheorem{ex}{Example}[section]
+
+% A list of nomenclatures.
+\usepackage{nomencl}
+\makenomenclature
+
+\title{Notes of Gravity and Entanglement}
+\date{\today}
+\author{Taper}
+
+
+\begin{document}
+
+
+\maketitle
+\abstract{
+This is my notes to \cite{utube_video}, a video lecture given by
+professor Mark Van Raamsdonk. Also, it seems that this lecture is
+unrelated to another paper of the same title, written by the same
+author, on arXiv \cite{arxiv_paper}.
+}
+\tableofcontents
+
+\section{Lecture}
+\label{sec:Lecture}
+
+We have reviewed ads/CFT, entanglement, some interesting connections
+between entanglement structure of the CFT states, and the geometry
+structure of the space time due to this state. If this is true, a natural
+question is whether we can understand spacetime dynamics, i.e. gravitation,
+from some physics related to entanglement.
+
+Consider some CFT theory, assumning to satisfy the xxxxx (1'50) conjectur 
+entanglement entropies are computed via:
+xxxxx conjecture
+2'17
+
+\begin{align}
+    S(A) = \frac{\text{Area}(\title{A})}{4G_N}
+\end{align}
+
+Some propertries that entanglement entropy must satisfy:
+\begin{enumerate}
+    \item sub-aditivity: $S(A and B)-S(A)-S(B) \geq 0$
+\end{enumerate}
+If there is some geometry due to the original states, will their entropy
+statisfy the above constraints. Hence: \textbf{what do those constraints imply about
+the spacetime geometry?}
+
+Start with small perturbations to (?). 
+\begin{thebibliography}{1}
+    \bibitem{utube_video} Availalble on Youtube: \href{https://www.youtube.com/watch?v=ABJvMg5d9OY}{Mark Van Raamsdonk -Gravity and Entanglement}.
+    \bibitem{arxiv_paper} \href{http://arxiv.org/abs/1609.00026v1}{arXiv:1609.00026v1}
+\end{thebibliography}
+\printnomenclature
+\section{License}
+The entire content of this work (including the source code
+for TeX files and the generated PDF documents) by 
+Hongxiang Chen (nicknamed we.taper, or just Taper) is
+licensed under a 
+\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative 
+Commons Attribution-NonCommercial-ShareAlike 4.0 International 
+License}. Permissions beyond the scope of this 
+license may be available at \url{mailto:we.taper[at]gmail[dot]com}.
+\end{document}
