@@ -79,4 +79,4 @@ This is intended for storing my drafts of my works. It is messy and will never b
     
     Here is the notes of Preskill's **Quantum Computation** course in
     Caltech. It is very ineresting. I focus on the part of quantum
-    Information theory.
+    Information theory.  
