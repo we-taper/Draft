@@ -1,0 +1,88 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+\usepackage{float}  % For H in figures
+\usepackage{amsmath} % For math
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+% Followings are for the special character: differential "d".
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
+\numberwithin{equation}{subsection} % have the enumeration go to the subsection level.
+                                    % See:https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
+\usepackage{graphicx}   % need for figures
+\usepackage{cite} % need for bibligraphy.
+\usepackage[unicode]{hyperref}  % make every cite a link
+\usepackage{CJKutf8} % For Chinese characters
+\usepackage{fancyref} % For easy adding figure,equation etc in reference. Use \fref or \Fref instead of \ref
+\usepackage{braket} %http://tex.stackexchange.com/questions/214728/braket-notation-in-latex
+
+% Following is for theorems etc environments
+% http://tex.stackexchange.com/questions/45817/theorem-definition-lemma-problem-numbering && https://en.wikibooks.org/wiki/LaTeX/Theorems
+\usepackage{amsthm}
+\newtheorem{defi}{Definition}[section]
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\theoremstyle{definition}
+\newtheorem{ex}{Example}[section]
+
+% A list of nomenclatures.
+\usepackage{nomencl}
+\makenomenclature
+
+\title{Notes of Preskill's Quantum Information Theory}
+\date{\today}
+\author{Taper}
+
+
+\begin{document}
+
+
+\maketitle
+\abstract{
+This is a note taken when I read the course notes of Preskill's
+course on quantum computation.
+}
+\tableofcontents
+\section{Chapter 2 Foundations I: States and Ensembles}
+\label{sec:Chapter_2_Foundations_I_States_and_Ensembles}
+
+    \subsection{2.2 The Qubit}
+    \label{sec:2.2_The_Qubit}
+    Here the concept of qubit is defined:
+    \begin{defi}[Qubit]
+    \nomenclature{Qubit}{\nomrefpage.}
+        A qubit is a quantum system described by a two-dimensional 
+        Hilbert space.
+    \end{defi}
+    However, since measurement collapse the superposition state of quantum
+    mechanics, there seems to be not difference between a qubit and a 
+    classical bit whose initial state is only known probabilistically.
+    More important distinction should be and will be pointed out in the
+    next few sections.
+
+    \paragraph{Spin-$\frac{1}{2}$} 
+
+\begin{thebibliography}{1}
+    %\bibitem{book} 
+\end{thebibliography}
+\printnomenclature
+\section{License}
+The entire content of this work (including the source code
+for TeX files and the generated PDF documents) by 
+Hongxiang Chen (nicknamed we.taper, or just Taper) is
+licensed under a 
+\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative 
+Commons Attribution-NonCommercial-ShareAlike 4.0 International 
+License}. Permissions beyond the scope of this 
+license may be available at \url{mailto:we.taper[at]gmail[dot]com}.
+\end{document}

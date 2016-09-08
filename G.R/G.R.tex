@@ -69,11 +69,102 @@ communication and coordination.
 Fram either perspective, the speed of light is inherently constent.
 However, from my view, it is not clear why this speed should be a maximum.
 
-\subsection{Invariance of Interval}
-\label{sec:Invariance of Interval}
+    \subsection{Invariance of Interval}
+    \label{sec:Invariance of Interval}
 
-The Landau's book\cite{landau}, introduces a 
+    To do dynamics, we necessarily need a measure of distance. 
+    Here introduces the distance in spacetime - interval. It is:
+    \begin{align}
+        \diff s^2 = \diff t^2 - \diff x^2 - \diff y^2 - \diff z^2
+    \end{align}
+    \textbf{Note} that from now on, I will try to use natural units
+    as often as possible.
 
+    Such a measure should be invariant in different Lorentz frames.
+    Landau proves it by postulating a priori that:
+    \begin{align}
+        \diff s^2 = a \diff s'^2
+    \end{align}
+    This is suggested by $\diff s=0$ is invariant (invariance of the
+    speed of light), and $\diff s$ and $\diff s'$ should be 
+    infinitesimals of the same order. From this postulation, it is
+    straightforward to argue that $a$ should be a constant and is
+    equal to $1$.
+
+    Using this property, one can classify interval between events
+    as being \textit{timelike, spacelike,} and \textit{lightlike},
+    by whether $ds>0$, $ds<0$ or $ds=0$. A mnemonic tip is that
+    for timelike intervals, the "time difference" is dominant,
+    and for spacelike intervals, the spatial difference is
+    dominant.
+
+    The following figure gives an indication of how the timelike,
+    spacelike, lightlike classification is related to causality:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{pics/{ch1.spacetime_regions}.png}
+        \caption{Spacetime regions}
+    \end{figure}
+
+    Only those events in the absolute future and in the absolute past
+    regions can have a causal link with the people at $O$, due to the 
+    limit of speed of propagation. And the future and past combined
+    together as the timelike region.
+
+    Another difference of timelike and spacelike regions lies in the
+    prefix "absoluate". All events in timelike region cannot be
+    simultaneous with $O$ in any reference frame, since the interval
+    must have a nonzero time component. Similarly all events in
+    spacelike region must happen in different place with the $O$.
+    An additional requirement, which comes naturally from law of
+    causality, is that all events in the future must remain absolutely
+    in the future in any reference frame. Similarly we have an
+    absolute past.
+
+    Interestingly, the concept of being simultaneous with $O$, 
+    being before or after $O$ in time, are relative for events in
+    spacelike region. However, since there can be no causal link
+    between $O$ and those events, this relativity does not pose
+    a challenge to causality.
+
+    Lastly, the cone formed by all events with $ds=0$ is called the
+    \textit{light cone}. Events in it is very special that it deserve
+    to devote a separate section to discuss it, which will be done
+    later in this note.
+
+    \subsection{Proper Time}
+    \label{sec:Proper_Time}
+    
+    By
+    \begin{align*}
+        dt'^2 = dt^2-dx^2 = dt^2-(v\diff t)^2
+    \end{align*}
+    we have 
+    \begin{align}
+        \label{eq:}
+        \Delta t' = \int_{t_1}^{t_2} \diff t \sqrt{1-v^2}
+    \end{align}
+
+    This shows the time dilation effect of a moving clock.
+    Also, by this we can always calculate the time experienced by a clock
+    by $t=\frac{1}{c}\int\diff s$ (SI unit).
+
+    The Landau's book \cite{landau} explains a classical paradox about
+    time dilation, which is omitted here.
+
+    Interestingly, we have the property that, for all lines between two
+    events, the longest one (i.e. the path that has the longest interval),
+    is the straight line, contrary to the classical case. To see this,
+    we note that any two events (assumed to be causally linked) can be
+    connected by a flying clock with uniform speed.
+
+    \subsection{Light's life}
+    \label{sec:Lights_life}
+    The life of a proton must be miserable.
+    
+    Possible sources: \href{http://physics.stackexchange.com/questions/16018/does-a-photon-in-vacuum-have-a-rest-frame}{1},
+    \href{http://physics.stackexchange.com/questions/29082/would-time-freeze-if-you-could-travel-at-the-speed-of-light}{2}.
+    \href{https://www.quora.com/What-does-the-frame-of-reference-of-a-photon-look-like}{3}.
 \begin{thebibliography}{1}
     \bibitem{landau} The Classical Theory of Fields
 \end{thebibliography}

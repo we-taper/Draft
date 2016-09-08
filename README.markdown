@@ -71,3 +71,12 @@ This is intended for storing my drafts of my works. It is messy and will never b
     * Notes of **Lectures on the Frontiers of Physics**, a course
     designed for professors to introduce their own fields.
 
+    * Notes of *Physical Challenges of Quantum Computation*, the
+    dissertation of professor MH. Wong. Although I did not finish it,
+    I may not read it anymore.
+
+9. Quantum Information
+    
+    Here is the notes of Preskill's **Quantum Computation** course in
+    Caltech. It is very ineresting. I focus on the part of quantum
+    Information theory.
