@@ -56,24 +56,70 @@ course on quantum computation.
 \section{Chapter 2 Foundations I: States and Ensembles}
 \label{sec:Chapter_2_Foundations_I_States_and_Ensembles}
 
-    \subsection{2.2 The Qubit}
-    \label{sec:2.2_The_Qubit}
-    Here the concept of qubit is defined:
-    \begin{defi}[Qubit]
-    \nomenclature{Qubit}{\nomrefpage.}
-        A qubit is a quantum system described by a two-dimensional 
-        Hilbert space.
-    \end{defi}
-    However, since measurement collapse the superposition state of quantum
-    mechanics, there seems to be not difference between a qubit and a 
-    classical bit whose initial state is only known probabilistically.
-    More important distinction should be and will be pointed out in the
-    next few sections.
+\subsection{2.2 The Qubit}
+\label{sec:2.2_The_Qubit}
+Here the concept of qubit is defined:
+\begin{defi}[Qubit]
+\nomenclature{Qubit}{\nomrefpage.}
+    A qubit is a quantum system described by a two-dimensional 
+    Hilbert space.
+\end{defi}
+However, since measurement collapse the superposition state of quantum
+mechanics, there seems to be not difference between a qubit and a 
+classical bit whose initial state is only known probabilistically.
+More important distinction should be and will be pointed out in the
+next few sections.
 
-    \paragraph{Spin-$\frac{1}{2}$} 
+    \subsubsection{Spin-\texorpdfstring{$\frac{1}{2}$}{}} 
+    In this part, the author in fact discusses the symmetry and its role
+    in quantum mechanis, albeit roughly.
+
+    \paragraph{Symmetry}
+    \begin{defi}[Symmetry]
+    \nomenclature{Symmetry}{\nomrefpage.}
+    A symmetry is a \textit{transformation} that acts on a state of a
+    system, yet leaves all observable properties of the system unchanged.
+    \end{defi}
+    Hence a symmetry must leaves any $|\braket{\psi|\phi}|^2$ 
+    (probability) unchanged. This leads Wigner to derive a famous theorem
+    stating that:
+    \begin{thm}
+        Any symmetry transformation, by adopting suitable phase conventions,
+        can always chosen to be either unitary or antiunitary.
+    \end{thm}
+
+    He mentions that symmetry transformations formes a group. (Omitted here)
+
+    Here the author focuses on unitary ones, since "The antiunitary
+    alternative, while important for discrete symmetries, can be 
+    excluded for continuous symmetries".
+
+    Also, he demands that symmetry "respect the dynamical evolution of 
+    the system", thus deducing:
+    \begin{align}
+        [\hat{U}(R),\hat{H}] = 0 \\
+        [\hat{Q},\hat{H}] = 0,\text{ }\hat{Q} = \hat{Q}^\dagger \\
+        \hat{U} = \hat{I} - i\varepsilon \hat{Q} \\
+    \end{align}
+    Here $\hat{U}$ is the symmetry transformation corresponding to the
+    symmetry $R$. $Q$ is an observable (since $\hat{Q}$ is hermitian)
+    related to this symmetry by above formula, and $\varepsilon$ as
+    expected is an infinitesimal number. We also finds that this
+    observable is conserved by above formula.
+
+    $\hat{Q}$ is said to be the generator
+    \nomenclature{$\hat{Q}$, generator}{\nomrefpage}
+    of the symmetry by the following formula:
+    \begin{align}
+        \label{eq:}
+        \hat{U}(R) = 
+          \lim_{N\to \infty}(\hat{I}+i\frac{\theta}{N}\hat{Q})^N
+          = e^{i\theta \hat{Q}}
+    \end{align}
 
 \begin{thebibliography}{1}
-    %\bibitem{book} 
+    \bibitem{book} Preskill's notes are available through his Caltech
+    course website, Phy219.
 \end{thebibliography}
 \printnomenclature
 \section{License}
