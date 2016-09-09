@@ -10,6 +10,11 @@ This is intended for storing my drafts of my works. It is messy and will never b
     Complex Geometry) as well as its textbook *Introduction
     to Complex Geometry*.
 
+    1.1. Complex Geometry - misc
+
+        Here are some miscellaneous things related to the same book.
+        For example, my homeworks and some related exercises.
+
 2. draft.pdf
 
     This is a general purpose draft. It contains currently:
