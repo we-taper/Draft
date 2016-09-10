@@ -370,8 +370,61 @@ transmission coefficient out of the Hamiltonian.
     about this.
     % TODO improve Dyson's equation.
 
-    After this, the author illustrate one simple example of using
-    Dyson's equation to calculate $G$.
+    After this, the author illustrates one simple example of using
+    Dyson's equation to calculate $G$. This process is essentially
+    the same as the standard recursive technique. Therefore I will
+    only mention the standard technique below.
+
+    The standard technique is best illustrated with the following
+    diagram:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{pics/{ch4.3.standard_recursive_technique}.png}
+        \caption{Standard recursive technique}
+        %\label{fig:pics/ch4.standard_recursive_technique.png}
+    \end{figure}
+
+    And these equations:
+    \begin{align}
+        G^L_{n+1,n+1}=&
+          \left(1-
+            G^{isol}_{n+1,n+1}V_{n+1,n}G^L_{n,n}V_{n,n+1}\right)^{-1}
+          G^{isol}_{n+1,n+1}
+        \\
+        G^L_{n+1,1}=& G^L_{n+1,n+1}V_{n+1,n}G^L_{n,1}
+        \\
+        G^L_{1,n+1} =& G^L_{1n} V_{n,n+1} G^L_{n+1,n+1}
+    \end{align}
+
+    \subsubsection{4.3.3 Recursive technique: An extension}
+    \label{sec:4.3.3_Recursive_technique_An_extension}
+
+    The author utilizes a simple bisection method to calculate,
+    best illustrated by the diagram:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{pics/{ch4.3.extended_recursive_technique}.png}
+        \caption{Extended recursive technique}
+        %\label{fig:pics/ch4.extended_recursive_technique.png}
+    \end{figure}
+    There is, obviously, one final step that requires different formula
+    than the previous steps:
+    \begin{align}
+        G_{n1}=&
+          \left( 1-G^L_{nn}V_{n,n+1}G^R_{n+1,n+1}V_{n+1,n}\right)^{-1}
+          \cdot G^L_{n1}
+        \\
+        G_{1n}=&
+          G^L_{1n}+G^L_{1n}V_{n,n+1}G^R_{n+1,n+1}V_{n+1,n}G_{nn}
+        \\
+        G_{nn}=&
+          \left(1-G^L_{nn}V_{n,n+1}G^R_{n+1,n+1}V_{n+1,n}\right)^{-1}
+          \cdot G^L_{nn}
+        \\
+        G_{Nn}=& G^R_{N,n+1}V_{n+1,n}G_{nn}
+        \\
+        G_{nN}=& G_{nn}V_{n,n+1}G^R_{n+1,N}
+    \end{align}
 \section{Anchor}
 
 \begin{thebibliography}{1}

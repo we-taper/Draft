@@ -158,6 +158,50 @@ However, from my view, it is not clear why this speed should be a maximum.
     we note that any two events (assumed to be causally linked) can be
     connected by a flying clock with uniform speed.
 
+    \subsection{Lorentz Transformation}
+    \label{sec:Lorentz_Transformation}
+    
+    Next we have to consider the coordinate transformations in
+    four-dimensional spacetime. The formula can be obtained solely by
+    the restricting transformation to be an isometry.
+
+    These transformations are categorize into two groups: parallel
+    displacement and rotation. Only formula for rotation is worth
+    consideration. Rotation in spacetime, simiilar to their
+    counterparts in $\mathbb{R}^3$, can be decomposed according to
+    six axes of rotation, each representing rotation in plane
+    $xy,xz,yz,xt,yt,zt$. The first of this is only ordinary spatial
+    rotation. The rest are called \textit{Lorentz Transformations}.
+    And there is really only one important formula, one for 
+    rotation around $xt$ plane:
+    \begin{align}
+        x = x'\cosh\psi + t \sinh\psi\text{, }
+        t = x'\sinh\psi + t \cosh\psi
+    \end{align}
+    where $\psi$ is the "angle of rotation". However, this "angle"
+    do not have much physical interpretation. Instead, the following
+    formula is more useful, which relates the coordinate in frame
+    $K$, to anther fram $K'$ moving in uniform velocity $v$ w.r.t
+    $K$:
+    \begin{align}
+        x = \frac{x'+vt'}{\sqrt{1-v^2}}\nonumber\\
+        y = y'\text{, }z = z' \nonumber\\
+        t = \frac{t'+v x'}{\sqrt{1-v^2}}
+    \end{align}
+
+    Aided with this formula, Landau discusses the \textit{Lorentz
+    contraction} phenomenon in special relativity and defines
+    the proper length\nomenclature{proper length}{\nomrefpage}
+    $l_0$, defined as the length in its rest frame. It is related
+    to its length measured in another frame $K'$ by:
+    \begin{align}
+        l' = l_0 \sqrt{1-v^2}
+    \end{align}
+
+    Finally he mentions that, since Lorentz transformations are
+    in fact rotations, they naturally do not commute, unless the
+    rotation is fixed in only one plane.
+
     \subsection{Light's life}
     \label{sec:Lights_life}
     The life of a proton must be miserable.
