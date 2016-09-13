@@ -202,6 +202,36 @@ However, from my view, it is not clear why this speed should be a maximum.
     in fact rotations, they naturally do not commute, unless the
     rotation is fixed in only one plane.
 
+    \subsection{Transformation of velocities}
+    \label{sec:Transformation_of_velocities}
+    
+    Note that for convenience, I will adopt the popular Lorentz factor
+    $\gamma$, defined as:
+    \begin{align}
+        \gamma \equiv \frac{1}{\sqrt{1-V^2}}
+    \end{align}
+
+    To get the similar transofmrations for velocities is quite easy,
+    and the result is:
+    \begin{align}
+        v_x &= \frac{v'_x + V}{1+ v'_x V}\\
+        v_y &= \frac{v'_y}{\gamma \left(1+v'x V\right)}\\
+        v_z &= \frac{v'_z}{\gamma \left(1+v'x V\right)}\\
+    \end{align}
+
+    In the special case when the motion is parallel to the $x$-axis,
+    we have (let $v_x$ just be $v$):
+    \begin{align}
+        v = \frac{v'+V}{1+v' V}
+    \end{align}
+    
+    Landau mentions that when $V$ is significantly smaller than the
+    velocity of light, we have the following approximate formula:
+    \begin{align}
+        \vec{v} = \vec{v'} + \vec{V} - (\vec{V}\cdot\vec{v'}) \vec{v'}
+    \end{align}
+
+
     \subsection{Light's life}
     \label{sec:Lights_life}
     The life of a proton must be miserable.
