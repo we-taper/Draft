@@ -39,6 +39,8 @@
 \usepackage{nomencl}
 \makenomenclature
 
+\usepackage{tensor}
+
 \title{Notes for General Relativity}
 \date{\today}
 \author{Taper}
@@ -232,6 +234,53 @@ However, from my view, it is not clear why this speed should be a maximum.
     \end{align}
 
 
+    \subsection{Four-vectors}
+    \label{sec:Four-vectors}
+    
+    This section is basically an recapitulation of important definitions
+    and results in tensor analysis in spacetime. Since I am quite
+    familiar with this topic, I will only cover something I felt new.
+
+    \paragraph{Complete antisymmetric tensor $e^{iklm}$}
+    It is defined such that any interchange of indices gives a minus
+    sign. We requires that:
+    \begin{align}
+        e^{0123}= +1
+    \end{align}
+    Therefore:
+    \begin{align*}
+        e_{0123}= -1\;, e^{iklm}e_{iklm}= -24
+    \end{align*}
+    Also, $e^{iklm}$ is only a pseudotensor:
+    \begin{proof}
+        Under transformation (let $\Lambda$ be the transformation matrix)
+        we have:
+        $\tilde{e}^{0123}=
+          \Lambda^{0}_{i}\Lambda^{1}_{k}\Lambda^{2}_{l}\Lambda^{3}_{m}
+          e^{iklm}$
+        Notice that $e^{iklm}=\mathrm{sgn}(iklm)$ by our definition.
+        Therefore, the right hand side above is exactly the definition
+        of determinant. Hence $\tilde{e}^{0123}=\mathrm{det}(\Lambda)$.
+
+        Also, one can easily show that $\tilde{e}^{nqpr}$ is also
+        totally antisymmetric, since $e^{iklm}$ is totally antisymmetric.
+
+        With these we have:
+        $$
+            \tilde{e}^{nqpr}=\mathrm{det}(\Lambda)e^{nqpr}
+        $$
+        But $e^{iklm}$ is defined without reference to basis, therefore
+        we have actually:
+        \begin{align}
+            \tilde{e}^{nqpr} \equiv e^{npqr}
+        \end{align}
+        Note that since $\Lambda$ must be orthonormal, we have 
+        $\mathrm{det}(\Lambda)=\pm 1$. Therefore when
+        $\mathrm{det}(\Lambda)=1$, the two requirement coincide and
+        $e^{iklm}$ behaves like a tensor, and when 
+        $\mathrm{det}(\Lambda)=-1$, it behaves like a pseudotensor.
+    \end{proof}
+    
     \subsection{Light's life}
     \label{sec:Lights_life}
     The life of a proton must be miserable.

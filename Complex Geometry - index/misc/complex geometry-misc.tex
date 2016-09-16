@@ -282,6 +282,190 @@ found a post in Math.SE about this \cite{math.se_1}.
         necessarily implies:
         $$ \text{det}_F \mathbf{M}= \text{det}_F (\mathbf{AD-BC}) $$
        
+        However, I am dubious about this conclusion, since I think it
+        needs in addition that the polynomial ring $F[x]$ has not
+        nonzero zero divisor.
+
+        Having demonstrated the above simple case, the author continues to
+        prove the main theorem. He proves by induction. He first uses:
+        \begin{align}
+            \left(
+                \begin{array}{cc}
+                 A & b \\
+                 c & d \\
+                \end{array}
+            \right)  \left(
+                \begin{array}{cc}
+                 \text{dI} & 0 \\
+                 -c & 1 \\
+                \end{array}
+            \right)=\left(
+                \begin{array}{cc}
+                 A_0 & b \\
+                 0 & d \\
+                \end{array}
+            \right)
+        \end{align}
+        where $A,A_0\in \tensor[^{m-1}]{R}{^{m-1}}, 
+        b\in \tensor[^{m-1}]{R}{}, c\in \tensor{R}{^{m-1}}, d\in R$. 
+        Therefore, (let $M=
+            \left(
+            \begin{array}{cc}
+             A & b \\
+             c & d \\
+            \end{array}
+            \right)$)
+        with similar reason mentioned before, he shows if:
+        \begin{align}
+            \text{det}_F \mathbf{A_0} =
+              \text{det}_F \mathbf{( \text{det}_R \mathbf{A_0})}
+        \end{align}
+        (which is true by induction) then:
+        \begin{align}
+            \text{det}_F \mathbf{M} =
+              \text{det}_F \mathbf{( \text{det}_R \mathbf{M})}
+        \end{align}
+        Proof completes.
+
+        He also mentions a corollary:
+        \begin{coro}
+            Let $\mathbf{P}\in \tensor[^n]{F}{^n}$ and $\mathbf{Q}\in
+            \tensor[^m]{F}{^m}$, then
+            \begin{align}
+                \text{det}_F (\mathbf{P\otimes Q}) =
+                (\text{det}_F \mathbf{P}) ^m (\text{det}_F \mathbf{Q})^n
+            \end{align}
+        \end{coro}
+
+        The proof is quite straightforward and is omitted.
+        \subsubsection{Why \texorpdfstring{$M_n = \frac{GL(2n,\mathbb{R})}
+            {GL(n,\mathbb{C})}$}{} (continued)}
+
+        Coming back to my point. This is a note of my question on
+        Math.SE\cite{math.se_3}
+
+        First, I try to do it when $n=1$. I inject a complex number 
+        $a+bi$ by
+        identify it with $a\mathbb{I}+b\mathbb{J}$, where $\mathbb{I}$ 
+        is the identify matrix and $\mathbb{J}$ is
+        $ \left(
+        \begin{array}{cc}
+         0 & -1 \\
+         1 & 0 \\
+        \end{array}
+        \right) $. I take one set of basis of 
+        $\mathrm{GL}(2,\mathbb{R})$ as:
+        $$
+        \left(
+        \begin{array}{cc}
+         1 & 0 \\
+         0 & 1 \\
+        \end{array}
+        \right),\left(
+        \begin{array}{cc}
+         0 & -1 \\
+         1 & 0 \\
+        \end{array}
+        \right),\left(
+        \begin{array}{cc}
+         0 & 0 \\
+         1 & 0 \\
+        \end{array}
+        \right),\left(
+        \begin{array}{cc}
+         0 & 0 \\
+         0 & 1 \\
+        \end{array}
+        \right)
+        $$
+
+        (I think this is a basis because the following matrix is 
+        non-singular:
+        $$
+        \left(
+        \begin{array}{cccc}
+         1 & 0 & 0 & 0 \\
+         0 & -1 & 0 & 0 \\
+         0 & 1 & 1 & 0 \\
+         1 & 0 & 0 & 1 \\
+        \end{array}
+        \right)
+        $$)
+        Then the $\frac{\mathrm{GL}(2n,\mathbb{R})}{\mathrm{GL}
+        (n,\mathbb{C})}$ becomes equivalent classes represented by 
+        $$
+        \left(
+        \begin{array}{cc}
+         0 & 0 \\
+         c & d \\
+        \end{array}
+        \right)
+        $$
+
+        However, I don't know how to link this with an almost complex 
+        structure.  
+
+        I have a feeling that I might have been in the wrong direction. 
+        It was pointed out that $\mathrm{GL}(2n,\mathbb{R})$ is not
+        even a vector space. So what I did is in fact nonsense.
+        
+        Below is one correct answer I got:
+
+        An almost-complex structure is a matrix $J$ such that $J^2 = -I$
+        is the negative identity. As you said, one example of such a 
+        matrix $J$ is $$\begin{pmatrix} 0 & I \\ -I & 0 \end{pmatrix}.$$
+
+        Interpreting $GL(n,\mathbb{C})$ as a subgroup of 
+        $GL(2n;\mathbb{R})$ depends on having fixed such an 
+        almost-complex structure. Once we have a matrix $J$, we can call 
+        a matrix $A \in GL(2n;\mathbb{R})$ complex-linear if it commutes 
+        with $J$, i.e. $AJA^{-1} = J.$
+
+        (The idea is that $\mathbb{C}$-linear maps $T$ are just real 
+        linear maps with the additional property that $T(iv) = i T(v)$
+        for all vectors $v$)
+
+        Given any matrix $A \in GL(2n;\mathbb{R})$, we get another 
+        almost-complex structure $AJA^{-1}$. This is the same 
+        almost-complex structure $J$ if and only if 
+        $A \in GL(n;\mathbb{C}).$ On the other hand, all almost-complex 
+        structures are similar (although it may take some work to be 
+        convincing that they are similar over $\mathbb{R}$ and not 
+        only $\mathbb{C}$) since they are diagonalizable with the same 
+        eigenvalues $\pm i$. That gives you a bijection 
+        $$
+            GL(2n;\mathbb{R}) / GL(n;\mathbb{C}) \longrightarrow 
+            \{\mathrm{almost}-\mathrm{complex}\; 
+            \mathrm{structures}\}
+        $$ 
+        under which a class $A \cdot GL(n;\mathbb{C})$ corresponds 
+        to the almost-complex structure $AJA^{-1}.$
+
+        I questioned him:
+        \begin{enumerate}
+            \item Why $AJA^{-1}$ is the same almost-complex structure 
+                $J$ if and only if $A\in \mathrm{GL}(n;\mathbb{C})$. 
+            \item Why all almost-complex structures are similar over 
+                $\mathbb{R}$.
+        \end{enumerate}
+        He responsed that:
+        \begin{enumerate}
+            \item is the definition of $\mathrm{GL}(n;\mathbb{C})$
+                as matrices $A$ with $AJA^{-1}=J$.
+            \item comes from the fact that any real matrices that are 
+                similar over $\mathbb{C}$ are already similar over 
+                $\mathbb{R}$. This isn't trivial but it has been asked 
+                and answered many times on this site: here is one 
+                reference \url{http://math.stackexchange.com/questions/57242/similar-matrices-and-field-extensions?noredirect=1&lq=1}
+        \end{enumerate}
+
+        Inside the reference, the following theorem is proved:
+
+        \begin{thm}
+            Let $E$ be a field, let $F$ be a subfield, and let $A$ and
+            $B$ be $nxn$ matrices with coefficients in $F$. If $A$ and
+            $B$ are similar over $E$, they are similar over $F$.
+        \end{thm}
 % TODO also, this post may be useful:http://math.stackexchange.com/questions/1400917/equivalence-of-almost-complex-structures
 
 \section{Anchor}
@@ -294,6 +478,7 @@ found a post in Math.SE about this \cite{math.se_1}.
   \bibitem{determinants_of_block_m} John R. Silvester, 
       Determinants of Block Matrices. Available in WebArchive link:
       \url{https://web.archive.org/web/20140505161153/http://www.mth.kcl.ac.uk/~jrs/gazette/blocks.pdf}
+  \bibitem{math.se_3} \href{http://math.stackexchange.com/questions/1927487/making-sense-of-frac-mathrmgl2n-mathbbr-mathrmgln-mathbbc/1927518?noredirect=1#comment3957369_1927518}{Making sense of $\frac{\mathrm{GL}(2n,\mathbb{R})}{\mathrm{GL}(n,\mathbb{C})}$}
 \end{thebibliography}
 \printnomenclature
 
