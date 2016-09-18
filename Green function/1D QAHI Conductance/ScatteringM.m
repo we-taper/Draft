@@ -1,6 +1,6 @@
 %function y=ScatteringM(1,Ly,W,E,Vy,u,t,a,tc,Ds,Dp,periodx)
 function [y11ee,y12ee,y11eh,y12eh,y21ee,y22ee,y21eh,y22eh,y11he,y12he,...
-    y11hh,y12hh,y21he,y22he,y21hh,y22hh]=ScatteringM_x(E,L,muS,muL,ts,tc1,tc2,tso,tsoL,delta,Gammaz,dis)
+  y11hh,y12hh,y21he,y22he,y21hh,y22hh]=ScatteringM_x(E,L,muS,muL,ts,tc1,tc2,tso,tsoL,delta,Gammaz,dis)
 %SCateringMatix calculates the scatering matrix from lattice Green function
 %based on the formula: S=-1+i*sqrt(Gammaa)*GF*sqrt(Gammaa')
 
@@ -14,7 +14,7 @@ y12=1i*A1*G1N*A2;
 y21=1i*A2*GN1*A1;
 y22=-eye(4)+1i*A2*GNN*A2;
 %y=[y11,y12;y21,y22];   %the basis here is [e1u,e1d,h1u,h1d,e2u,e2d,h2u,h2d]
-                        % e/h for electron/hole, 1/2 for lead 1/2, u/d for spin up/down
+% e/h for electron/hole, 1/2 for lead 1/2, u/d for spin up/down
 y11ee=y11(1:2*1,1:2*1);
 y12ee=y12(1:2*1,1:2*1);
 y11eh=y11(1:2*1,2*1+1:4*1);
@@ -39,11 +39,11 @@ y11ee=Rd*y11ee*R;
 y12ee=Rd*y12ee*R;
 
 %{
-% change the basis to [e1u,e1d,e2u,e2d,h1u,h1d,h2u,h2d] to obtain the whole S-matrix,  
+% change the basis to [e1u,e1d,e2u,e2d,h1u,h1d,h2u,h2d] to obtain the whole S-matrix,
 
 y=[y11ee,y12ee,y11eh,y12eh;
     y21ee,y22ee,y21eh,y22eh;
     y11he,y12he,y11hh,y12hh;
-    y21he,y22he,y21hh,y22hh]; 
+    y21he,y22he,y21hh,y22hh];
 %}
 end

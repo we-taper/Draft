@@ -1,5 +1,5 @@
 %% without normal t
-%% Modified program to calculate AIII topological insulator as 
+%% Modified program to calculate AIII topological insulator as
 %% spin transistor
 
 % i electron up
@@ -51,7 +51,7 @@ for i=1:L-1
     y(i+1,i+L)=-tso;
     y(i+2*L,i+L+1+2*L)=tso;
     y(i+1+2*L,i+L+2*L)=-tso;
-   
+    
     y(i+L+1,i)=tso;
     y(i+L,i+1)=-tso;
     y(i+L+1+2*L,i+2*L)=tso;
@@ -60,7 +60,7 @@ for i=1:L-1
     y(i,i+3*L)=delta;
     y(i+L,i+2*L)=-delta;
     y(i+3*L,i)=delta;
-    y(i+2*L,i+L)=-delta;  
+    y(i+2*L,i+L)=-delta;
 end
 mu=mu+dis*(rand-0.5);
 y(L,L)=Gamma-mu;
@@ -71,7 +71,7 @@ y(4*L,4*L)=Gamma+mu;
 y(L,L+3*L)=delta;
 y(L+L,L+2*L)=-delta;
 y(L+3*L,L)=delta;
-y(L+2*L,L+L)=-delta;  
+y(L+2*L,L+L)=-delta;
 y=sparse(y);
 end
 %}
@@ -111,7 +111,7 @@ for i=1:L-1
     y(i,i+3*L)=delta;
     y(i+L,i+2*L)=-delta;
     y(i+3*L,i)=delta;
-    y(i+2*L,i+L)=-delta;  
+    y(i+2*L,i+L)=-delta;
 end
 mu=mu+dis*(rand-0.5);
 y(L,L)=Gamma-mu;
@@ -122,7 +122,7 @@ y(4*L,4*L)=Gamma+mu;
 y(L,L+3*L)=delta;
 y(L+L,L+2*L)=-delta;
 y(L+3*L,L)=delta;
-y(L+2*L,L+L)=-delta;  
+y(L+2*L,L+L)=-delta;
 y=sparse(y);
 end
 %}

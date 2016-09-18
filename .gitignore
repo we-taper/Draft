@@ -3,6 +3,7 @@ math.html
 
 # Below ignore temporary files craeated by vim. Usually ending with ~.
 *~
+.*.*.swp
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

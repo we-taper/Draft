@@ -11,5 +11,5 @@ for i=1:1
     y(i,i+1)=tso;
     y(i+2*1,i+1+2*1)=-tso;
     y(i+1,i)=-tso;
-    y(i+1+2*1,i+2*1)=tso; 
+    y(i+1+2*1,i+2*1)=tso;
 end

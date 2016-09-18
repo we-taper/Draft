@@ -4,6 +4,8 @@
     * ScatteringM
         * GreenF
             * g11
+                * H_lead
+                * V_lead
             * V_sample
             * H_sample
         * my_sqrt
