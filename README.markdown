@@ -85,3 +85,12 @@ This is intended for storing my drafts of my works. It is messy and will never b
     Here is the notes of Preskill's **Quantum Computation** course in
     Caltech. It is very ineresting. I focus on the part of quantum
     Information theory.  
+
+10. Group Theory in Physics
+
+    Here is the course taught by Professor Fei Ye, about group theory's
+    application in physics. This course, although is targeted at
+    graduate level, is quite elemetary from a mathematical perspective.
+    However, my notes will contain the occasional sparking intuition
+    that I got from Fei Ye's lecture, which is certainly not contained
+    in the textbook.
