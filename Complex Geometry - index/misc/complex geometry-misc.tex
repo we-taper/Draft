@@ -215,7 +215,72 @@ important concepts for understanding that post.
         However, I still have doubts about the following question:
         For $A\in \mathrm{GL}(2n,\mathbb{R})$, if $AJA^{-1}=J$, can we
         conlude that $A$ is inside $\mathrm{GL}(n,\mathbb{C})$?
-        % TODO resolve this double.
+
+        The following is my solution:
+        \begin{lemma}
+            There exists a injection $\phi$ of $\mathrm{GL}(n,\mathbb{C})
+            \hookrightarrow \mathrm{GL}(2n,\mathbb{R})$ such that:
+            \begin{align}
+                \phi(i B)= \phi(i)\phi(B)
+            \end{align}
+            for any $B\in \mathrm{GL}(n,\mathbb{C})$. Also, for any
+            $A\in \mathrm{GL}(2n,\mathbb{R})$ we have $AJA^{-1}=J$
+            if and only if $A\in \mathrm{Im}(\phi)$, where $J\equiv\phi(i)$.
+        \end{lemma}
+        
+        \begin{proof}
+            The $\phi$ is construct as follows. Let 
+            $J_0=\left( \begin{array}{cc}
+                 0 & -1 \\
+            1 & 0 \\ \end{array} \right)$, define $H(x+iy)$ for
+            $x,y\in \mathbb{R}$ as
+            \begin{align}
+                H(x+iy) = x I + y J
+            \end{align}
+            Then:
+            \begin{align}
+                \phi(A)_{ij} \equiv H(a_{ij})
+            \end{align}
+            Then:
+            \begin{align}
+                \phi(i) = \left( \begin{array}{ccc}
+                     J & 0 & 0 \\
+                     0 & \text{...} & 0 \\
+                     0 & 0 & J \\
+                    \end{array} \right)
+            \end{align}
+            By direct simple calculation (remember to use the technique
+            of block multiplication), we have:
+            $\phi(i B)= \phi(i)\phi(B)$.
+            for any $B\in \mathrm{GL}(n,\mathbb{C}$. This shows also
+            $BJB^{-1}=J$, since $iB=Bi$.
+            
+            To prove the converse, we see that the following matrices forms
+            a basis of $2x2$ real matrices:
+            $$ \left( \begin{array}{cc}
+             1 & 0 \\
+             0 & 1 \\ \end{array}
+            \right),\left( \begin{array}{cc}
+             0 & -1 \\
+             1 & 0 \\ \end{array}
+            \right),\left( \begin{array}{cc}
+             0 & 0 \\
+             1 & 0 \\ \end{array}
+            \right),\left( \begin{array}{cc}
+             0 & 0 \\
+             0 & 1 \\ \end{array} \right) $$
+            They are denoted, from left to right as $I,J_0,K,L$.
+            \marginpar{Fun fact: $[K,J_0]=\sigma_z\;,[L,J_0]=\sigma_x$, the
+            pauli matrices!}
+            Let any $A\in \mathrm{GL}(2n,\mathbb{R})$, we can partition $A$
+            into a matrix of $2x2$ matrices $(a_{ij})$. Each matrix can
+            the be expressed as $a_{ij}=x_{ij}I+y_{ij}J_0+z_{ij}K+t_{ij}L$.
+            Then if $AJA^{-1}=J$, by direct calculation we find:
+            $$ (z_{ij}K+t_{ij}L)J_0=J_0(z_{ij}K+t_{ij}L)$$
+            then also by direct calculation, it can be easily found that
+            $z_{ij}=t_{ij}=0$. Hence $A\in \mathrm{Im}(\phi)$.
+        \end{proof}
+        
         \subsubsection{Why \texorpdfstring{
                 $GL(n, \mathbb{C}) \hookrightarrow GL^+(2n,\mathbb{R})$
                 }{}

@@ -1,0 +1,98 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+\usepackage{float}  % For H in figures
+\usepackage{amsmath} % For math
+\usepackage{amssymb}
+\usepackage{bbm} % for numbers within mathbb
+\usepackage{mathrsfs} % For \mathscr{ABC}
+% Followings are for the special character: differential "d".
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
+\numberwithin{equation}{subsection} % have the enumeration go to the subsection level.
+                                    % See:https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
+\usepackage{graphicx}   % need for figures
+\usepackage{cite} % need for bibligraphy.
+\usepackage[unicode]{hyperref}  % make every cite a link
+\usepackage{CJKutf8} % For Chinese characters
+\usepackage{fancyref} % For easy adding figure,equation etc in reference. Use \fref or \Fref instead of \ref
+\usepackage{braket} %http://tex.stackexchange.com/questions/214728/braket-notation-in-latex
+
+% Following is for theorems etc environments
+% http://tex.stackexchange.com/questions/45817/theorem-definition-lemma-problem-numbering && https://en.wikibooks.org/wiki/LaTeX/Theorems
+\usepackage{amsthm}
+\newtheorem{defi}{Definition}[section]
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\theoremstyle{definition}
+\newtheorem{ex}{Example}[section]
+
+% A list of nomenclatures.
+\usepackage{nomencl}
+\makenomenclature
+
+\title{Temp}
+\date{\today}
+\author{Taper}
+
+
+\begin{document}
+
+
+\maketitle
+\abstract{
+    (Unknown)
+}
+\tableofcontents
+\section{Classification of Topological states by Hamiltonian}
+\label{sec:Classification-of-Topological-states-by-Hamiltonian}
+
+\begin{table}[H]
+\centering
+\caption{$d=1$}
+\label{my-label}
+\begin{tabular}{|l|l|l|}
+\hline
+Class A                        & $\mathcal{H}=$                                                        & Commments \\ \hline
+$\mathbb{Z}$ class $A$ III     & $(m+\cos{k_x})\sigma_z+\sin{k_x} \sigma_y$                            & $S=\sigma_x$\\ \hline
+$0$ Class A                    & $(m+\cos{k_x}\sigma_z+\sin{k_x}\sigma_y$(SPEMT: $M\sigma_x$           & No symmetries \\ \hline
+$\mathbb{Z}_2$ class $D$       & $(m+\cos{k_x})\sigma_z + \sin{k_x}\sigma_y$                           & $C=\sigma_x K$ (Particle hole degree of freedom) \\ \hline
+$\mathbb{Z}_2$ class $D$III    & $(m+\cos{k_x})S_0 \sigma_z+\sin{k_x}S_0\sigma_y$                      & $C=\sigma_x K$(PH)$T=S_y K$, Spin $1/2$\\ \hline
+$0$ class AII                  & $(m+\cos{k_x})S_0 \sigma_z+\sin{k_x}S_0\sigma_y$ SPEMT:$MS_x\sigma_x$ & $T=S_yk$ Spin $1/2$ \\ \hline
+$\mathbb{Z}$ class CII         & $(m+\cos{k_x})S_0 \sigma_z+\sin{k_x}S_0\sigma_y$                      & $T=S_yK, C=S_y\sigma_xK$ \\ \hline
+%                             &                                                                       & \\ \hline
+%                              &                                                                       & \\ \hline
+%                              &                                                                       & \\ \hline
+%                              &                                                                       & \\ \hline
+%                              &                                                                       & \\ \hline
+%                              &                                                                       & \\ \hline
+%                              &                                                                       & \\ \hline
+\end{tabular}
+\end{table}
+
+\section{Anchor}
+\label{sec:Anchor}
+
+\begin{thebibliography}{1}
+    %\bibitem{book} 
+\end{thebibliography}
+\printnomenclature
+\section{License}
+The entire content of this work (including the source code
+for TeX files and the generated PDF documents) by 
+Hongxiang Chen (nicknamed we.taper, or just Taper) is
+licensed under a 
+\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative 
+Commons Attribution-NonCommercial-ShareAlike 4.0 International 
+License}. Permissions beyond the scope of this 
+license may be available at \url{mailto:we.taper[at]gmail[dot]com}.
+\end{document}
