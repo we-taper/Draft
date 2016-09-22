@@ -2,28 +2,28 @@
 clear
 cont=1.0;   % =1 for 2D countour plot, otherwise for 1D plot
 
-L=20;          % number of sites
-ts=10;           % hoping
-tso=1.0;          % spin orbital coupling
-tsoL=0;         % spin orbital coupling of the leads
-tc1=0.2*ts;     % coupling between lead 1 and the sample
-tc2=0.2*ts;     % coupling between lead 2 and the sample
-muL=5.0;          % chemical potential of the leads
-muS=0;          % chemical potential of the sample
-disorder=0;     % local disorder
-delta=0.0;         % superconducting pairing
+% Here we use ts as a reference for other energies.
+L=20;        % number of sites
+ts=10;       % hoping
+tso=1.0;     % spin orbital coupling
+tsoL=0;      % spin orbital coupling of the leads
+tc1=0.2*ts;  % coupling between lead 1 and the sample
+tc2=0.2*ts;  % coupling between lead 2 and the sample
+muL=5.0;     % chemical potential of the leads
+muS=0;       % chemical potential of the sample
+disorder=0;  % local disorder
+delta=0.0;   % superconducting pairing
 
-% M_gamma=200;   % gamma
-% N_E=200;   % E
-M_gamma=10;   % gamma
-N_E=10;   % E
+M_gamma=200; % gamma
+N_E=200;     % E
 
 if cont==1
-    gamma=3*(-ts:2.0*ts/M_gamma:ts);          % Zeeman energy Gammz_z as a variable
-    %E=-15:30/N:15;
+    % For cont=1, we try to plot G as a function of gamma
+    % and E.
+    gamma=3*(-ts:2.0*ts/M_gamma:ts);  % Zeeman energy
     E=(-muL:2*muL/N_E:1*muL);
 else
-    gamma=3.0;                % Zeeman energy Gammz_z as a constant
+    gamma=3.0;      % Zeeman energy Gammz_z as a constant
     gap=min(abs(2*ts-abs(gamma)),2*abs(tso));
     %  E=(-1*gap:2*gap/N:1*gap);                                 % bias energy eV
     E=(-muL:2*muL/N_E:1*muL);
@@ -33,6 +33,8 @@ end
 M_gamma=length(gamma);N_E=length(E)
 pause(0.5)
 
+% TC: Transmission Coefficient.
+% TL: what? TODO
 TCee=zeros(N_E,M_gamma);
 TChe=zeros(N_E,M_gamma);
 TLee=zeros(N_E,M_gamma);
@@ -40,10 +42,11 @@ TLhe=zeros(N_E,M_gamma);
 dis=disorder*(rand(1,L)-0.5);
 
 for i=1:N_E
-    i
+    i % Indicating the progress of this script
     for j=1:M_gamma
         [y11ee,y12ee,y11eh,y12eh,y21ee,y22ee,y21eh,y22eh,y11he,y12he,...
           y11hh,y12hh,y21he,y22he,y21hh,y22hh]=ScatteringM(E(i),L,muS,muL,ts,tc1,tc2,tso,tsoL,delta,gamma(j),dis);
+        % TODO what is the purpose of the following code
         %yup=T_up(y11ee,y12ee,y11eh,y12eh,y21ee,y22ee,y21eh,y22eh,y11he,y12he,...
         %    y11hh,y12hh,y21he,y22he,y21hh,y22hh);
         %ydown=T_down(y11ee,y12ee,y11eh,y12eh,y21ee,y22ee,y21eh,y22eh,y11he,y12he,...
@@ -54,10 +57,11 @@ for i=1:N_E
         %  TChe(i,j)=y(4,1)/2.0; % CAR
         %  Tsumee(i,j)=TLee(i,j)+TCee(i,j);
         
+        % TODO why do we sum before taking absolute value
+        % why do we have to take the average.
         TCeeupup(j,i)=(abs(y21ee(1,1)+y21ee(2,1)+y21ee(1,2)+y21ee(2,2)))^2/4.0; % Local e-e Sx up up
         TCeedownup(j,i)=(abs(y21ee(1,1)-y21ee(2,1)+y21ee(1,2)-y21ee(2,2)))^2/4.0; % Local e-e Sx down up
         TCeeup(j,i)=(TCeeupup(j,i)+TCeedownup(j,i)); % crossed e-e
-        
         TCeeupdown(j,i)=(abs(y21ee(1,1)+y21ee(2,1)-y21ee(1,2)-y21ee(2,2)))^2/4.0; % Local e-e Sx up up
         TCeedowndown(j,i)=(abs(y21ee(1,1)-y21ee(2,1)-y21ee(1,2)+y21ee(2,2)))^2/4.0; % Local e-e Sx down up
         TCeedown(j,i)=(TCeeupdown(j,i)+TCeedowndown(j,i)); % crossed e-e

@@ -4,15 +4,17 @@ function [G11,G1N,GN1,GNN,G1N_R,GN1_R,SE1,SE2]=GreenF(E,L,muS,muL,ts,tc1,tc2,tso
 
 w_energy_resol=1.*10^-3;                     % the resolution of energy
 
-I=eye(4);
-gL=g11(E,muL,ts,tsoL,w_energy_resol);
-Tc1=V_dl(tc1);
-SE1=Tc1*gL*Tc1';               % self energy for the L-L interfaces of lead-1
-HnS=H_sample(1,muS,ts,tso,delta,Gamma,0);
-HeS1=HnS+SE1+dis(1)*diag([-1,-1,1,1]);
-Tc2=V_dl(tc2);
-SE2=Tc2*gL*Tc2';               % self energy for the L-L interfaces of lead-2
-HeS2=HnS+SE2+dis(L)*diag([-1,-1,1,1]);
+% tc1 coupling between lead 1 and the sample
+% tc2 coupling between lead 2 and the sample
+I    = eye(4);
+gL   = g11(E,muL,ts,tsoL,w_energy_resol);
+Tc1  = V_dl(tc1);
+SE1  = Tc1*gL*Tc1';          % self energy for the L-L interfaces of lead-1
+HnS  = H_sample(1,muS,ts,tso,delta,Gamma,0);
+HeS1 = HnS+SE1+dis(1)*diag([-1,-1,1,1]);
+Tc2  = V_dl(tc2);
+SE2  = Tc2*gL*Tc2';       % self energy for the L-L interfaces of lead-2
+HeS2 = HnS+SE2+dis(L)*diag([-1,-1,1,1]);
 
 %% from left to right ( lead 1 to lead 2)
 Gnn=I/(((E+1i*w_energy_resol)*I-HeS1));      %| initial values of the first recursion, i.e. the isolated GF for the first component

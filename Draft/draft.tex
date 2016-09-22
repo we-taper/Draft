@@ -889,6 +889,29 @@ Thus $$\int_{0}^{\infty} \Big(\frac{\sin x}{x} \Big) \,dx = \int_{0}^{\infty}\fr
         $^{1}$We will ignore subtleties with [discontinuous/unbounded operators](http://en.wikipedia.org/wiki/Unbounded\_operator), domains, [selfadjoint extensions](http://en.wikipedia.org/wiki/Extensions\_of\_symmetric\_operators), etc., in this answer.
     \end{quote}
     
+    \begin{center}\noindent\rule{8cm}{0.4pt}\end{center}
+
+    \subsection{Bayes' theorem}
+    \label{sec:Bayes-theorem}
+    I am quite unfamiliar with this formula, so I decided to make a note
+    here for future reference.
+
+    This formula starts from the definition of conditional probability:
+    \begin{align}
+        P(A|B)\equiv \frac{P(A\&B)}{P(B)}
+    \end{align}
+    this definition if quite intuitively pleasing if $P(B)$ is multiplied
+    to the left side. Then one easily deduce that:
+    \begin{thm}[Bayes' theorem] \begin{align}
+        P(A|B)=\frac{P(B|A)P(A)}{P(B)}
+    \end{align} \end{thm}
+
+    We have also an extended form. Suppose the event space is partitioned
+    into $\{A_i\}$, then we have (also easily proved):
+    \begin{align}
+        P(A_i|B)=\frac{P(B|A_i)P(A_i)}{\sum_j P(B|A_j)P(A_j)}
+    \end{align}
+    Here's a good reading \href{http://plato.stanford.edu/entries/bayes-theorem/}{Bayes' Theorem in SEP}.
 \section{Anchor}
 % This is just an anchor for seperating thebibliography from above contents.
 \begin{thebibliography}{1}

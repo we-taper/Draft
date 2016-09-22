@@ -42,6 +42,10 @@
 % For better indices
 \usepackage{tensor}
 % ANCHOR
+
+% For highlighting
+\usepackage{xcolor,soul}
+
 \title{Miscellaneous notes for D. Huybrechts's Complex Geometry}
 \date{\today}
 \author{Taper}
@@ -593,6 +597,97 @@ important concepts for understanding that post.
         \end{align*}
         Notice that I have been sloopy in language, but the meaning should
         be clear.
+
+    \subsection{Math.SE answer in \texorpdfstring{$M_2$}{} is two copies of \texorpdfstring{$S^2$}{}}
+
+    Following is an answer\cite{math.se_set-of-almost}
+    in Math.SE about this question:
+    \begin{center}\noindent\rule{8cm}{0.4pt}\end{center}
+    \begin{quote}
+        As you noted, $M$ is *not* diffeomorphic to $S^2\coprod S^2$ for
+        dimension reasons.
+
+        On the other hand, what is true is $M$ is homotopy equivalent to $S^2
+        \coprod S^2$.
+
+        (The following argument is partly adapted from a [paper][1] of
+        Montgomery)
+
+        To see this, it's enough to show that
+        $Gl^+(4,\mathbb{R})/Gl(2,\mathbb{C})$ is homotopy equivalent to $S^2$,
+        where $Gl^+$ denotes those matrices of positive determinant.
+
+        Now, consider the subgroups $U(2)\subseteq Gl(2,\mathbb{C})$ and
+        $SO(4)\subseteq Gl^+(4,\mathbb{R})$.
+
+        It's relatively well known that $Gl(2,\mathbb{C})$ is diffeomorphic to
+        $U(2)\times \mathbb{R}^4$ and that $Gl^+(4,\mathbb{R})$ is diffeomorphic
+        to $SO(4)\times \mathbb{R}^{10}$.  Further, in the usual inclusion
+        $Gl(2,\mathbb{C})\rightarrow Gl^+(4,\mathbb{R})$, $U(2)$ becomes a
+        subgroup of $SO(4)$.
+
+        Now, the chain of subgroups $U(2)\subseteq SO(4)\subseteq
+        Gl^+(4,\mathbb{R})$ gives rise to a homogeneous fibration
+        $$SO(4)/U(2)\rightarrow Gl^+(4,\mathbb{R})/U(2)\rightarrow
+        Gl^+(4,\mathbb{R})/SO(4).$$  \hl{In light of the above diffeomorphisms,
+        $Gl^+(4,\mathbb{R})/SO(4)$ is diffeomorphic to $\mathbb{R}^{10}$.}
+        Since Euclidean spaces are \hl{contractible, it follows that the
+        fibration is trivial}, so $Gl^+(4,\mathbb{R})/U(2)$ is diffeomorphic to
+        $SO(4)/U(2)\times \mathbb{R}^{10}$.  In particular, $SO(4)/U(2)$ is
+        homotopy equivalent to $Gl^+(4,\mathbb{R})/U(2)$.
+
+        Now, consider the chain of subgroups $U(2)\subseteq
+        Gl(2,\mathbb{C})\subseteq Gl^+(4,\mathbb{R})$.  This gives rise to a
+        homogeneous fibration $$Gl(2,\mathbb{C})/U(2)\rightarrow
+        Gl^+(4,\mathbb{R})/U(2) \rightarrow
+        Gl^+(4,\mathbb{R})/Gl(2,\mathbb{C}).$$  In this case, the fiber is
+        diffeomoprhic to $\mathbb{R}^4$, which immediately implies that
+        $Gl^+(4,\mathbb{R})/U(2)$ is homotopy equivalent to
+        $Gl^+(4,\mathbb{R})/Gl(2,\mathbb{C})$.
+        \begin{center}\noindent\rule{8cm}{0.4pt}
+            (Paused reading here)
+        \end{center}
+
+        Putting the last two paragraphs together, we now know that $SO(4)/U(2)$
+        is homotopy equivalent to $Gl^+(4,\mathbb{R})/Gl(2,\mathbb{C})$.  
+
+        To finish off the argument, we need to show that $SO(4)/U(2)$ is
+        diffeomorphic to $S^2$.  To see this, first note that $U(2)$ intersects
+        the center $Z(SO(4)) = \{\pm I\}$ of $SO(4)$.  It follows that
+        $$SO(4)/U(2) \cong [SO(4)/Z(SO(4)]/[U(2)/(Z(SO(4))\cap U(2))].$$
+
+        But $SO(4)/Z(SO(4))\cong SO(3)\times SO(3)$ and $U(2)/(Z(SO(4))\cap
+        U(2)) \cong SO(3)\times S^1$.  So, $SO(4)/U(2)\cong (SO(3)\times
+        SO(3))/(SO(3)\times S^1)\cong SO(3)/S^1$.
+
+        But the standard action of $SO(3)$ on $S^2$ is transitive with
+        stabilizer $S^1$, so $SO(3)/S^1 \cong S^2$.  
+
+        [1]:
+        \url{http://www.ams.org/journals/proc/1950-001-04/S0002-9939-1950-0037311-6/S0002-9939-1950-0037311-6.pdf}
+    \end{quote}
+    \begin{center}\noindent\rule{8cm}{0.4pt}\end{center}
+
+    I honestly know almost nothing about the concepts this response mentioned.
+    Therefore, I try to dismantle the response into several parts:
+
+    Facts he mentioned that I am not familiar
+    \begin{enumerate}
+        \item $Gl(2,\mathbb{C})$ is diffeomorphic to $U(2)\times\mathbb{R}^4$.
+        \item $Gl^+(4,\mathbb{R})$ is diffeomoprhic to $SO(4)\times
+            \mathbb{R}^10$
+        \item In the usual inclusion $Gl(2,\mathbb{C})\rightarrow
+            Gl^+(4,\mathbb{R})$, $U(2)$ becomes a subgroup of $SO(4)$.
+    \end{enumerate}
+    Concepts to be learnt:
+    \begin{enumerate}
+        \item fibration of above Lie groups
+        \item Hightlight area 1: can fibration kill a subgroup?
+        \item Hightlight area 2: contractible and fibration?
+        \item And the following sentence.
+        \item then the next sentence: diffeomoprhism and homotopy?
+        \item How does a "chain of subgroups" gives rise to a fibration.
+    \end{enumerate}
 \section{Anchor}
 \label{sec:Anchor}
 
@@ -606,6 +701,7 @@ important concepts for understanding that post.
   \bibitem{math.se_3} \href{http://math.stackexchange.com/questions/1927487/making-sense-of-frac-mathrmgl2n-mathbbr-mathrmgln-mathbbc/1927518?noredirect=1#comment3957369_1927518}{Making sense of $\frac{\mathrm{GL}(2n,\mathbb{R})}{\mathrm{GL}(n,\mathbb{C})}$}
   \bibitem{math.se_4} \href{http://math.stackexchange.com/questions/57242/similar-matrices-and-field-extensions?noredirect=1&lq=1}
   {Similar matrices and field extensions}
+  \bibitem{math.se_set-of-almost} \href{http://math.stackexchange.com/questions/923957/set-of-almost-complex-structures-on-mathbb-r4-as-two-disjoint-spheres}{set of almost complex structures on $\mathbb{R}^4$ as two disjoint spheres}
 \end{thebibliography}
 \printnomenclature
 

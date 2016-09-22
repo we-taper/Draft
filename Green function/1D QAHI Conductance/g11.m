@@ -6,6 +6,8 @@ function y=g11(E,mu,ts,tso,w_energy_resol)
     B=A';
     d=D;
     for i=1:1000 %maximum number of recursive times
+        % The following 4 lines of code seems to come from:
+        % Appendix B of the dissertation
         d1=d-A/D*B;
         D1=D-A/D*B-B/D*A;
         A1=A/D*A;
@@ -20,6 +22,7 @@ function y=g11(E,mu,ts,tso,w_energy_resol)
         B=B1;
     end
     y=eye(4)/d1;
+end
 
 function y=H_lead(L,mu,ts,tso)
     y=zeros(4*L);
@@ -38,18 +41,18 @@ function y=H_lead(L,mu,ts,tso)
     %y(i+3*L,i+2*L)=I*m_y;
     %=====================================================================
     for i=1:L-1
-        y(i,i)=Gamma-mu;
-        y(i+L,i+L)=-Gamma-mu;
-        y(i+2*L,i+2*L)=Gamma-mu;
-        y(i+3*L,i+3*L)=-Gamma-mu;
+        y(i,i)         = Gamma-mu;
+        y(i+L,i+L)     = -Gamma-mu;
+        y(i+2*L,i+2*L) = Gamma-mu;
+        y(i+3*L,i+3*L) = -Gamma-mu;
         
         %=====================================================================
         % Additional term which break C2,T2 symmetry but preserve C1 and T1
         % symmetry. To test the influence of C1 and T1 symmetry.
-        y(i,i+L)=m_x+I*m_y;
-        y(i+L,i)=m_x-I*m_y;
-        y(i+2*L,i+3*L)=m_x-I*m_y;
-        y(i+3*L,i+2*L)=m_x+I*m_y;
+        y(i,i+L)       = m_x+I*m_y;
+        y(i+L,i)       = m_x-I*m_y;
+        y(i+2*L,i+3*L) = m_x-I*m_y;
+        y(i+3*L,i+2*L) = m_x+I*m_y;
         
         %=====================================================================
         if condition==1
@@ -109,4 +112,6 @@ function y=V_lead(ts,tso)
         y(i+2*1,i+1+2*1)=-tso;
         y(i+1,i)=-tso;
         y(i+1+2*1,i+2*1)=tso;
+    end
 end
+    

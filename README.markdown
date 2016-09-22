@@ -97,3 +97,9 @@ This is intended for storing my drafts of my works. It is messy and will never b
 11. Matlab Home
     
     Here stores all sorts of small self-written scripts for Matlab program.
+
+12. Notes for Advanced Quantum Mechanics
+
+    The notes for Advanced Quantum Mechanics, tought by Professor MH. Yong.
+    Also due to the level of graduates here, the class is targeted not
+    at too high a level.
