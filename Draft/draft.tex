@@ -396,7 +396,7 @@ Thus $$\int_{0}^{\infty} \Big(\frac{\sin x}{x} \Big) \,dx = \int_{0}^{\infty}\fr
     A copper pair has the energy of:
     $$\Delta = \braket{C_{k \uparrow}C_{-k \downarrow} }$$
     
-    To resist the flow of current carried by Copper Pair, is equivlant to destroying a pair of Copper Pair:
+    To resist the flow of current carried by Copper Pair, is equivalent to destroying a pair of Copper Pair:
     $$ \braket{C_{k \uparrow}C_{-k \downarrow} } \longrightarrow C_{k \uparrow}C_{-k \downarrow}$$
     
     This will require an additional enegy of $2\Delta$.
@@ -912,6 +912,17 @@ Thus $$\int_{0}^{\infty} \Big(\frac{\sin x}{x} \Big) \,dx = \int_{0}^{\infty}\fr
         P(A_i|B)=\frac{P(B|A_i)P(A_i)}{\sum_j P(B|A_j)P(A_j)}
     \end{align}
     Here's a good reading \href{http://plato.stanford.edu/entries/bayes-theorem/}{Bayes' Theorem in SEP}.
+    \subsection{About Matlab}
+    \label{sec:About-Matlab}
+    \paragraph{On using $A/B$ or $A\\B$}
+    Matlab's matrix divide function \texttt{mrdivide}, \texttt{mldivide}
+    , abbrevated $A/B$ and $A\\B$, are different and should be used with
+    caution. One can check that:
+    \begin{center}
+        $A\cdot D^{-1}$ is equivalent to $A/D$, $D^{-1}\cdot A$ is
+        equivalent to $D\backslash A$.
+    \end{center}
+    Also, it is straightforward to prove that the two are equal if and only if $A$ commutes with $D$.
 \section{Anchor}
 % This is just an anchor for seperating thebibliography from above contents.
 \begin{thebibliography}{1}

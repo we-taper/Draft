@@ -1,19 +1,22 @@
 function y=g11(E,mu,ts,tso,w_energy_resol)
-    %g11 The submatrix of the Green function of the LEAD
-    % Obtained by N times of recursion
+%g11 The submatrix of the Green function of the LEAD
+% Obtained by N times of recursion
+% Checkpoint: I think I understand this code now.
+% For derivation pls refer: Appendix B of the dissertation
+    % TODO find reference for following line of code
     D=(E+1i*w_energy_resol)*eye(4)-H_lead(1,mu,ts,tso);
+    % TODO find reference for following line of code
     A=V_lead(ts,tso);
     B=A';
     d=D;
     for i=1:1000 %maximum number of recursive times
         % The following 4 lines of code seems to come from:
-        % Appendix B of the dissertation
         d1=d-A/D*B;
         D1=D-A/D*B-B/D*A;
         A1=A/D*A;
         B1=B/D*B;
         if max(max(abs(d1-d)))<1e-99
-            %i
+            % TODO 1e-99 might be too small...
             break
         end
         d=d1;
@@ -25,6 +28,7 @@ function y=g11(E,mu,ts,tso,w_energy_resol)
 end
 
 function y=H_lead(L,mu,ts,tso)
+% TODO I should find reference for this.
     y=zeros(4*L);
     Gamma=00.0;  % Gamma: the Zeeman energy in the leads.
     condition=1.0; % =1 for spin independent hoping ts
@@ -40,6 +44,9 @@ function y=H_lead(L,mu,ts,tso)
     %y(i+2*L,i+3*L)=-I*m_y;
     %y(i+3*L,i+2*L)=I*m_y;
     %=====================================================================
+    % TODO what is the point of the following line? It is never used in
+    % actually usage.
+    % TODO Also, the variable I is not defined!
     for i=1:L-1
         y(i,i)         = Gamma-mu;
         y(i+L,i+L)     = -Gamma-mu;
@@ -99,8 +106,14 @@ function y=H_lead(L,mu,ts,tso)
 end
 
 function y=V_lead(ts,tso)
-    %V: the inside coupling term of the sample between two wires: Vn,n+1; Vn+1,n=conj(Vn,n+1).
-    %tso: SOC
+%V: the inside coupling term of the sample between two wires: Vn,n+1; Vn+1,n=conj(Vn,n+1).
+%tso: SOC
+% TODO I should find reference for this.
+% % An example output for this code:
+% [     -ts,     tso, zero1_3, zero1_4]
+% [    -tso,     -ts, zero2_3, zero2_4]
+% [ zero3_1, zero3_2,      ts,    -tso]
+% [ zero4_1, zero4_2,     tso,      ts]
     y=zeros(4);
     for i=1:1
         y(i,i)=-ts;

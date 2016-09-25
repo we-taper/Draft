@@ -1,13 +1,14 @@
-%% without normal t
-%% Modified program to calculate AIII topological insulator as
-%% spin transistor
+% without normal t
+% Modified program to calculate AIII topological insulator as
+% spin transistor
 
 % i electron up
 % i electron down
 
 
 function y=H_sample(L,mu,ts,tso,delta,Gamma,dis)
-y=zeros(4*L);
+% TODO Find reference for this code
+%y=zeros(4*L);
 
 m_y=0.0;
 m_x=00.0;
@@ -65,6 +66,7 @@ end
 mu=mu+dis*(rand-0.5);
 y(L,L)=Gamma-mu;
 y(2*L,2*L)=-Gamma-mu;
+% TODO the following code might be wrong!
 y(3*L,3*L)=-Gamma+mu;
 y(4*L,4*L)=Gamma+mu;
 
@@ -76,7 +78,24 @@ y=sparse(y);
 end
 %}
 
-%% with normal
+% % A sample output of the above code:
+% [ gamma - mu - dis*(rand - 0.5),                             -ts,                         zero1_3,                          m_y*1i,                               tso,                           zero1_6,                       zero1_7,                         zero1_8,                         zero1_9,                           delta,                          zero1_11,                        zero1_12]
+% [                           -ts, gamma - mu - 2*dis*(rand - 0.5),                             -ts,                            -tso,                            m_y*1i,                               tso,                       zero2_7,                         zero2_8,                         zero2_9,                        zero2_10,                             delta,                        zero2_12]
+% [                       zero3_1,                             -ts, gamma - mu - 3*dis*(rand - 0.5),                         zero3_4,                              -tso,                           zero3_6,                       zero3_7,                         zero3_8,                         zero3_9,                        zero3_10,                          zero3_11,                           delta]
+% [                       -m_y*1i,                            -tso,                         zero4_3, - gamma - mu - dis*(rand - 0.5),                                ts,                           zero4_6,                        -delta,                         zero4_8,                         zero4_9,                        zero4_10,                          zero4_11,                        zero4_12]
+% [                           tso,                         -m_y*1i,                            -tso,                              ts, - gamma - mu - 2*dis*(rand - 0.5),                                ts,                       zero5_7,                          -delta,                         zero5_9,                        zero5_10,                          zero5_11,                        zero5_12]
+% [                       zero6_1,                             tso,                         zero6_3,                         zero6_4,                                ts, - gamma - mu - 3*dis*(rand - 0.5),                       zero6_7,                         zero6_8,                          -delta,                        zero6_10,                          zero6_11,                        zero6_12]
+% [                       zero7_1,                         zero7_2,                         zero7_3,                          -delta,                           zero7_5,                           zero7_6, gamma - mu - dis*(rand - 0.5),                             -ts,                         zero7_9,                         -m_y*1i,                               tso,                        zero7_12]
+% [                       zero8_1,                         zero8_2,                         zero8_3,                         zero8_4,                            -delta,                           zero8_6,                           -ts, gamma - mu - 2*dis*(rand - 0.5),                             -ts,                            -tso,                           -m_y*1i,                             tso]
+% [                       zero9_1,                         zero9_2,                         zero9_3,                         zero9_4,                           zero9_5,                            -delta,                       zero9_7,                             -ts, mu - gamma + 3*dis*(rand - 0.5),                        zero9_10,                              -tso,                        zero9_12]
+% [                         delta,                        zero10_2,                        zero10_3,                        zero10_4,                          zero10_5,                          zero10_6,                        m_y*1i,                            -tso,                        zero10_9, - gamma - mu - dis*(rand - 0.5),                                ts,                       zero10_12]
+% [                      zero11_1,                           delta,                        zero11_3,                        zero11_4,                          zero11_5,                          zero11_6,                           tso,                          m_y*1i,                            -tso,                              ts, - gamma - mu - 2*dis*(rand - 0.5),                              ts]
+% [                      zero12_1,                        zero12_2,                           delta,                        zero12_4,                          zero12_5,                          zero12_6,                      zero12_7,                             tso,                        zero12_9,                       zero12_10,                                ts, gamma + mu + 3*dis*(rand - 0.5)]
+ 
+% Refer to the scanned notes for a better display of above result.
+
+
+% with normal
 %{
 function y=H_sample(L,mu,ts,tso,delta,Gamma,dis)
 %

@@ -191,6 +191,17 @@ However, from my view, it is not clear why this speed should be a maximum.
         t = \frac{t'+v x'}{\sqrt{1-v^2}}
     \end{align}
 
+    Note that in matrix form, (using the popular notations
+    $\tensor[]{\Lambda}{^\nu_\mu},\gamma, \text{and }\beta$):
+    \begin{align}
+        \tensor[]{\Lambda}{^\nu_\mu} =
+        \left( \begin{array}{cccc}
+         \gamma        & -\gamma \beta & 0 & 0 \\
+         -\gamma \beta & \gamma        & 0 & 0 \\
+         0             & 0             & 0 & 0 \\
+         0             & 0             & 0 & 0 \\
+        \end{array} \right)
+    \end{align}
     Aided with this formula, Landau discusses the \textit{Lorentz
     contraction} phenomenon in special relativity and defines
     the proper length\nomenclature{proper length}{\nomrefpage}
@@ -301,13 +312,46 @@ However, from my view, it is not clear why this speed should be a maximum.
         e^{prst}A_{ip}A_{kr}A_{ls}A_{mt} &= -A e_{iklm} \\
         e^{iklm}e^{prst}A_{ip}A_{kr}A_{ls}A_{mt} &= 24 \;\mathrm{det}(A)
     \end{align}
-    Next the autho introduces the dual tensors. Since this is important
+    Next Landau introduces the dual tensors. Since this is important
     and the case of Lorentzian spacetime is somewhat different from
     the usual case, this topic deserves a separate treatment in the
     following section.
 
+    \subsection{Digression: inverse of \texorpdfstring{$\Lambda$}{}}
+    Here's a simple formula to get the inverse of Lorentz transformation.
+    \begin{align}
+        \tensor[]{(\Lambda^{-1})}{^\nu_\mu}=\tensor[]{\Lambda}{_\mu^\nu}
+    \end{align}
+    i.e., we drag down the first index and raise the second index, using
+    of course the metric $g$.
+    To put it more precise, we have:
+    \begin{align}
+        \Lambda\indices{^i_\sigma}\Lambda\indices{_j^\sigma}&=\delta^i_j
+        \nonumber\\
+        \Lambda\indices{_\sigma^i}\Lambda\indices{^\sigma_j}&=\delta^i_j
+    \end{align}
+    \begin{proof}
+    This can be proved by noting
+    $(\Lambda V, \Lambda W)=(V,W)$, i.e.
+    $$
+    \Lambda\indices{^\mu_\nu} V^\nu g_{\mu\mu'}
+        \Lambda\indices{^{\mu'}_{\nu'}} W^{\nu'} =  
+        V^\mu g_{\mu\mu'} W^{\mu'}$$
+    By choosing $V$ and $W$ to have appropriate components, one can prove
+    that $\Lambda\indices{^\mu_i} g_{\mu\mu'}\Lambda\indices{^{\mu'}_j}=
+    g_{ij}$. Also notice that $g^2=I$. Then by multiply $g^{ik}$ to the
+    left, we can get:
+    \begin{align}
+        g^{ik} \Lambda\indices{^\mu_k}g_{\mu\mu'}
+            \Lambda\indices{^{\mu'}_j} = \delta^i_j
+    \end{align}
+    \end{proof}
+    Actually, the above proof shows that this relation is much general,
+    can be applied in all space transformations that preserve any metric.
+    It only requires that the matric is idempotent.
+    
     \subsection{Dual Tensors}
-    \label{sec:Dual_Tensors}
+    \label{secinDual_Tensors}
     % TODO See this post:http://physics.stackexchange.com/questions/37577/what-does-the-dual-of-a-tensor-mean-e-g-dual-stress-tensor-in-relativistic-ed
     \subsection{Light's life}
     \label{sec:Lights_life}

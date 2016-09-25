@@ -46,6 +46,9 @@
 % For highlighting
 \usepackage{xcolor,soul}
 
+% For category graphs
+\usepackage[all]{xy}
+
 \title{Miscellaneous notes for D. Huybrechts's Complex Geometry}
 \date{\today}
 \author{Taper}
@@ -688,6 +691,57 @@ important concepts for understanding that post.
         \item then the next sentence: diffeomoprhism and homotopy?
         \item How does a "chain of subgroups" gives rise to a fibration.
     \end{enumerate}
+
+    The following notes are aim at understanding the above sentences.
+
+    \subsection{Lifting Property}
+    \label{sec:Lifting-Property}
+    \paragraph{Lift of morphisms}
+    \begin{defi}[Lift of morphisms]
+    \nomenclature{Lift of morphisms}{\nomrefpage.}
+        The \textbf{lift} of a morphism $f: Y\to B$ along an epimorphism
+        \footnote{Epimorphism is the category analogy of surjective
+        functions in set theory}. (or more general map) $p:X\to B$ is a
+        morphism $\tilde{f}: Y\to X$ such that $f = p\circ\tilde{f}$.
+    \end{defi}
+    $$
+    \xymatrix{
+        X\ar[r]^p                    & B \\
+        Y\ar[ur]^f\ar[u]^{\tilde{f}} & \\
+    }
+    $$
+    \begin{defi}[Lift property]
+    \nomenclature{Lift property}{\nomrefpage.}
+        We say that $f$ has a \textbf{left lifting property} w.r.t $g$, or
+        equivalently that $g$ has a \textbf{right lifting property} w.r.t
+        $f$, if and only if for every commutative diagram below:
+        $$
+        \xymatrix{
+        a\ar[r]^u\ar[d]^f & c\ar[d]^g \\
+        b\ar[r]^v         & d
+        }
+        $$
+        there is an arrow $\gamma$, s.t. both triangles in the followinng
+        diagram commutes.
+        $$ \xymatrix{
+        a\ar[r]^u\ar[d]^f         & c\ar[d]^g \\
+        b\ar[r]^v\ar[ru]^{\gamma} & d
+        }$$
+        Such an arrow $\gamma$ is called a \textbf{lift} or a 
+        \textbf{solution} to the lifting problem $(u,v)$.
+        If such $\gamma$ is unique, i.e. we have:
+        $$ \xymatrix{
+        a\ar[r]^u\ar[d]^f         & c\ar[d]^g \\
+        b\ar[r]^v\ar@{.>}[ru]^{\gamma} & d
+        }$$
+        Then we say $f$ is \textbf{orthogonal} to $g$, denoted $f \perp g$.
+    \end{defi}
+    ref \cite{nlab-lift}.
+   
+    % Resources: https://ncatlab.org/nlab/show/fibration
+    %            https://ncatlab.org/nlab/show/homotopy+lifting+property
+    %            https://en.wikipedia.org/wiki/Homotopy_lifting_property
+    %            https://en.wikipedia.org/wiki/Fibration
 \section{Anchor}
 \label{sec:Anchor}
 
@@ -702,6 +756,7 @@ important concepts for understanding that post.
   \bibitem{math.se_4} \href{http://math.stackexchange.com/questions/57242/similar-matrices-and-field-extensions?noredirect=1&lq=1}
   {Similar matrices and field extensions}
   \bibitem{math.se_set-of-almost} \href{http://math.stackexchange.com/questions/923957/set-of-almost-complex-structures-on-mathbb-r4-as-two-disjoint-spheres}{set of almost complex structures on $\mathbb{R}^4$ as two disjoint spheres}
+  \bibitem{nlab-lift}\href{https://ncatlab.org/nlab/show/lift}{nLab Lift}
 \end{thebibliography}
 \printnomenclature
 

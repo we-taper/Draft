@@ -1,6 +1,7 @@
 function [G11,G1N,GN1,GNN,G1N_R,GN1_R,SE1,SE2]=GreenF(E,L,muS,muL,ts,tc1,tc2,tso,tsoL,delta,Gamma,dis)
 % Obtain the GF with recursive method for twoo-lead with same material
 % tc is coupling between S and N
+% TODO: I think I should check this with the PDF.
 
 w_energy_resol=1.*10^-3;                     % the resolution of energy
 
