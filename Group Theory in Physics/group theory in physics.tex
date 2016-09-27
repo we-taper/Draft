@@ -329,12 +329,120 @@ concepts about linear algebra:
         is not orthonormal.
 \end{enumerate}
 
+\section{20160926}
+\label{sec:20160926}
+
+He first introduces some important matrices:
+
+\paragraph{Unitary matrix} Eigenvalues of Unitary matrices has modulus $1$,
+i.e. $|\lambda|=1$. This can be proved directly. Also, Unitary matrices are unitarily diagonalizable. This is a result of the following Spectral Theorem:
+\begin{thm}[Spectral Theorem]
+    A matrix $A$, which is normal (i.e. $A^\dagger A= AA^\dagger$), if and only if it is unitarily diagonalizable.
+\end{thm}
+\begin{proof}
+    If $A$ is normal, then by Schur decomposition, we can write
+    $A=UTU^\dagger$, here $U$ is unitary and $T$ is upper-triangular. 
+    Using the condition of being normal, one can show directly that $T$ 
+    is in fact also normal. Now we show that any triangular matrix that 
+    is normal must be diagonal. Observe that we have 
+    $\braket{e_i,T^\dagger T e_i}=\braket{e_i,TT^\dagger e_i}$, 
+    i.e. $\braket{T^\dagger e_i, T^\dagger e_i}=\braket{T e_i, T e_i}$. 
+    This is sayin g that the norm of the first column of $A^\dagger$ 
+    is equal to the norm of the first column of $A$. Obviously 
+    $A$ has to be diagonal.
+
+    The converse is obvious.
+\end{proof}
+
+Also, unitary matrix's eigenvector corresponding to different eigenvalues 
+are orthogonal. This is a direct result of fact mentioned above.
+
+\paragraph{Hermitian matrices} They have real eigenvalues and orthogonal
+eigenvectors (proof omitted). Also, if $\text{det}(R^\dagger R)\neq 0$,
+then $R^\dagger R >0$, i.e. it is positive-definite. 
+
+\textbf{This is wong:} An example is that
+the matrix $\Omega$ introduced in the previous lecture has
+$\text{det}(\Omega^\dagger \Omega)=\text{det}(\Omega)$, hence
+$\text{det}(\Omega)=1$ (it cannot be $0$), hence it is positive definite.
+
+\textbf{Actually} 
+$\text{det}(\Omega^\dagger \Omega)\neq\text{det}(\Omega)$, because
+\begin{align}
+    \sum_\rho \ket{e_\rho}\bra{e_\rho} \neq 1 \text{(unless the basis is
+        orthonormal)}
+    % TODO think about this in depth
+\end{align}
+Therefore we need anthoer argument for $\Omega$ being positive-definite.
+It is provided in page 11 of \cite{book}.
+
+\paragraph{Orthogonal matrix} For an orthogonal matrix over $\mathbb{C}$,
+it is quite troublesome. For example, if $Ra=\lambda a$ and
+$\lambda \neq \pm 1$, then we have $a^T a=0$, which is quite bad because
+this force $a$ to have complex components.
+
+\paragraph{Orthogonal matrix over $\mathbb{R}$} In this case, we have
+similar result. But it is easy to show that for an orthogonal matrix
+$R$ having only real elements, then its eigenvalues $\lambda= \pm 1$.
+
+Then he proceeds to direct product.
+\paragraph{Direct product} and also the Kronecker Product of two
+matrices. Properties (let $T=R\otimes S$):
+\begin{enumerate}
+    \item $\mathrm{dim}T = \mathrm{dim}R \times \mathrm{dim}S$
+    \item $\mathrm{tr}(T)=\mathrm{tr}(R)\mathrm{tr}(S)$
+    \item $\otimes$ commutes with the operation of inverse, transpose,
+        and transpose conjugation.
+    \item \begin{align}
+            \frac{d}{d\alpha} (R(\alpha)\otimes S(\alpha)) =
+            R'(\alpha)\otimes S(\alpha) + R(\alpha)\otimes S'(\alpha)
+    \end{align}
+    \item when the dimentions are the same:
+        \begin{enumerate}
+            \item 
+            $(R_1\otimes S_1)(R_2\otimes S_2) = (R_1R_2)\otimes (S_1S_2)$
+        \end{enumerate}
+\end{enumerate}
+
+Finally we arrived in the group theory.
+\paragraph{Symmetry examples} Dipole transition. 
+$\braket{\phi_f|\hat{P}|\phi_i}$, must happen when the parity of $\phi_i$
+and $\phi_f$ is of opposite parity. (pp.18 of \cite{book})
+
+\paragraph{Group}
+\begin{defi}[Group]
+\nomenclature{Group}{\nomrefpage.}
+    Omitted.
+\end{defi}
+Some basic properties (Omitted).
+\begin{defi}[Abel Group]
+\nomenclature{Abel Group}{\nomrefpage.}
+    Omitted.
+\end{defi}
+\begin{defi}[Cardinality of group $\# A$]
+\nomenclature{Cardinality of group $#$}{\nomrefpage.}
+    Omitted.
+\end{defi}
+
+\paragraph{Multiplication table}
+
+Facts: group of order $1,2,$ and $3$ are unique up to an isomorphism.
+
+\begin{defi}[Cyclic group, generators]
+\nomenclature{Cyclic group, generators}{\nomrefpage.}
+    Omitted.
+\end{defi}
+
+\begin{defi}[$C_N,\bar{C}_N$]
+\nomenclature{$C_N,\bar{C}_N$}{\nomrefpage.}
+    $\bar{C}_N=C_N*\sigma$
+\end{defi}
 \section{Anchor}
 \label{sec:Anchor}
 
 \begin{thebibliography}{1}
     %\bibitem{book} 
-    \bibitem{book_1} Zhongqi Ma, Group Theory in Physics
+    \bibitem{book} Zhongqi Ma, Group Theory in Physics
     \bibitem{math.se_1_lenz_vector} \href{physics.stackexchange.com/questions/18088/what-symmetry-causes-the-runge-lenz-vector-to-be-conserved}{What symmetry causes the Runge-Lenz vector to be conserved?}
 \end{thebibliography}
 \printnomenclature

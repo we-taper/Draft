@@ -596,7 +596,11 @@ important concepts for understanding that post.
         \begin{align*}
             \mathrm{det_\mathbb{R}}(A) =
             \mathrm{det_\mathbb{R}}  (\mathrm{det_\mathbb{C}}(A))
-            = |\mathrm{det_\mathbb{C}}(A) |^2 \geq 0
+            = \mathrm{det}_\mathbb{R}(aI+bJ)
+            =\mathrm{det}\left(\begin{array}{cc}
+                    a & -b\\
+                    b & a\\
+            \end{array}\right) \geq 0
         \end{align*}
         Notice that I have been sloopy in language, but the meaning should
         be clear.
@@ -694,8 +698,8 @@ important concepts for understanding that post.
 
     The following notes are aim at understanding the above sentences.
 
-    \subsection{Lifting Property}
-    \label{sec:Lifting-Property}
+    \subsection{Fibration}
+    \label{sec:Fibration}
     \paragraph{Lift of morphisms}
     \begin{defi}[Lift of morphisms]
     \nomenclature{Lift of morphisms}{\nomrefpage.}
@@ -738,6 +742,38 @@ important concepts for understanding that post.
     \end{defi}
     ref \cite{nlab-lift}.
    
+    \begin{defi}[Homotopy lifting property]
+    \nomenclature{Homotopy lifting property}{\nomrefpage.}
+    Let $C$ be a category with \textbf{products} and with \textbf{interval
+    object} $I$. A morphism $E\to B$ has the homotopy lifting property if it
+    has the right lifting property w.r.t all morphisms of the form
+    $(\text{Id},0):Y \to Y\times I$.
+    \end{defi}
+    $$ \xymatrix{
+        Y\ar[r]^f\ar[d]                 & E\ar[d]^p \\
+        Y\times I\ar[r]^F\ar[ru]^\sigma & B
+    }$$
+    Note: the term \textbf{products} and \textbf{interval object} mentioned
+    above are category analogy of cartisian products and unit interval $[0,1]$
+    in our daily mathematics. Since I will be concentrated in the case of a
+    topological space, I will simply regard them just as topological products
+    and the unit interval.
+
+    \paragraph{Fibrations}
+    \begin{defi}[Hurewicz fibration]
+    \nomenclature{Hurewicz fibration}{\nomrefpage.}
+        A map $p$ is called a Hurewicz fibration if it satisfies the homotopy
+        lifting property w.r.t to all spaces $X$.
+    \end{defi}
+    \begin{defi}[Serre fibration]
+    \nomenclature{Serre fibration}{\nomrefpage.}
+        A map $p$ is called a Serre fibration if it satisfies the homotopy
+        lifting property w.r.t to all discs $X$.
+    \end{defi}
+    Notes: by discs, I think he means closed discs, or closed balls, because he
+    also mentioned "equivalently" closed cubes.
+
+    Ref \cite{nlab-homotopy-lifting-property}.
     % Resources: https://ncatlab.org/nlab/show/fibration
     %            https://ncatlab.org/nlab/show/homotopy+lifting+property
     %            https://en.wikipedia.org/wiki/Homotopy_lifting_property
@@ -746,17 +782,18 @@ important concepts for understanding that post.
 \label{sec:Anchor}
 
 \begin{thebibliography}{1}
-  \bibitem{book} D Huybrechts's Introduction to Complex Geometry.
-  \bibitem{math.se_1} \href{http://math.stackexchange.com/questions/923957/set-of-almost-complex-structures-on-mathbb-r4-as-two-disjoint-spheres}{set of almost complex structures on $\mathbb{R}^4$ as two disjoint spheres}.
-  \bibitem{math.se_2} \href{http://math.stackexchange.com/questions/1356823/does-gln-mathbbc-inject-into-gl2n-mathbbr-for-all-n}{Does $GL(n,\mathbb{C})$ inject into $GL^+(2n, \mathbb{R})$ for all $n$?}
-  \bibitem{determinants_of_block_m} John R. Silvester, 
+    \bibitem{book} D Huybrechts's Introduction to Complex Geometry.
+    \bibitem{math.se_1} \href{http://math.stackexchange.com/questions/923957/set-of-almost-complex-structures-on-mathbb-r4-as-two-disjoint-spheres}{set of almost complex structures on $\mathbb{R}^4$ as two disjoint spheres}.
+    \bibitem{math.se_2} \href{http://math.stackexchange.com/questions/1356823/does-gln-mathbbc-inject-into-gl2n-mathbbr-for-all-n}{Does $GL(n,\mathbb{C})$ inject into $GL^+(2n, \mathbb{R})$ for all $n$?}
+    \bibitem{determinants_of_block_m} John R. Silvester, 
       Determinants of Block Matrices. Available in WebArchive link:
       \url{https://web.archive.org/web/20140505161153/http://www.mth.kcl.ac.uk/~jrs/gazette/blocks.pdf}
-  \bibitem{math.se_3} \href{http://math.stackexchange.com/questions/1927487/making-sense-of-frac-mathrmgl2n-mathbbr-mathrmgln-mathbbc/1927518?noredirect=1#comment3957369_1927518}{Making sense of $\frac{\mathrm{GL}(2n,\mathbb{R})}{\mathrm{GL}(n,\mathbb{C})}$}
-  \bibitem{math.se_4} \href{http://math.stackexchange.com/questions/57242/similar-matrices-and-field-extensions?noredirect=1&lq=1}
-  {Similar matrices and field extensions}
-  \bibitem{math.se_set-of-almost} \href{http://math.stackexchange.com/questions/923957/set-of-almost-complex-structures-on-mathbb-r4-as-two-disjoint-spheres}{set of almost complex structures on $\mathbb{R}^4$ as two disjoint spheres}
-  \bibitem{nlab-lift}\href{https://ncatlab.org/nlab/show/lift}{nLab Lift}
+    \bibitem{math.se_3} \href{http://math.stackexchange.com/questions/1927487/making-sense-of-frac-mathrmgl2n-mathbbr-mathrmgln-mathbbc/1927518?noredirect=1#comment3957369_1927518}{Making sense of $\frac{\mathrm{GL}(2n,\mathbb{R})}{\mathrm{GL}(n,\mathbb{C})}$}
+    \bibitem{math.se_4} \href{http://math.stackexchange.com/questions/57242/similar-matrices-and-field-extensions?noredirect=1&lq=1}
+      {Similar matrices and field extensions}
+    \bibitem{math.se_set-of-almost} \href{http://math.stackexchange.com/questions/923957/set-of-almost-complex-structures-on-mathbb-r4-as-two-disjoint-spheres}{set of almost complex structures on $\mathbb{R}^4$ as two disjoint spheres}
+    \bibitem{nlab-lift}\href{https://ncatlab.org/nlab/show/lift}{nLab Lift}
+    \bibitem{nlab-homotopy-lifting-property}\href{https://ncatlab.org/nlab/show/homotopy+lifting+property}{nLab Homotopy lifting property}, \href{https://ncatlab.org/nlab/show/cartesian+product}{nLab Cartesian product}, \href{https://ncatlab.org/nlab/show/interval+object}{nLab Interval object}.
 \end{thebibliography}
 \printnomenclature
 
