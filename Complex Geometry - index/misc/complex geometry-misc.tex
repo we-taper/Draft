@@ -67,7 +67,7 @@ to Complex Geometry}, include some homeworks done.
   (exercise 1.2.1)}
 \label{sec:The_structure_of_almost_complex_structures_on_R2n}
 In exercise 1.2.1, it says that the set of all compatible almost complex
-structures on a euclidean space of dimension $2n$, is two copies of $S^2$.
+structures on a euclidean space of dimension $4$, is two copies of $S^2$.
 
 To show it, I tried first a straight calculation. Assuming the almost
 complex structure $I= (a_{ij})$. Then we have:
@@ -163,6 +163,8 @@ important concepts for understanding that post.
         
         Below is one correct answer I got:
 
+        \begin{center}\noindent\rule{8cm}{0.4pt}\end{center}
+        
         An almost-complex structure is a matrix $J$ such that $J^2 = -I$
         is the negative identity. As you said, one example of such a 
         matrix $J$ is $$\begin{pmatrix} 0 & I \\ -I & 0 \end{pmatrix}.$$
@@ -192,6 +194,8 @@ important concepts for understanding that post.
         $$ 
         under which a class $A \cdot GL(n;\mathbb{C})$ corresponds 
         to the almost-complex structure $AJA^{-1}.$
+
+        \begin{center}\noindent\rule{8cm}{0.4pt}\end{center}
 
         I questioned him:
         \begin{enumerate}
@@ -259,7 +263,7 @@ important concepts for understanding that post.
             By direct simple calculation (remember to use the technique
             of block multiplication), we have:
             $\phi(i B)= \phi(i)\phi(B)$.
-            for any $B\in \mathrm{GL}(n,\mathbb{C}$. This shows also
+            for any $B\in \mathrm{GL}(n,\mathbb{C})$. This also shows 
             $BJB^{-1}=J$, since $iB=Bi$.
             
             To prove the converse, we see that the following matrices forms
@@ -300,6 +304,8 @@ important concepts for understanding that post.
             GL(n, \mathbb{C}) \hookrightarrow GL^+(2n,\mathbb{R})
         \end{align}
         for any $n$. The questioner gives the intuition for this fact:
+        \begin{center}\noindent\rule{8cm}{0.4pt}\end{center}
+        
         \begin{quote}
             how about since as Lie groups, $GL(n,\mathbb{C}) 
             \subset GL(2n, \mathbb{R})$ and $GL(n,\mathbb{C})$ is connected 
@@ -308,9 +314,12 @@ important concepts for understanding that post.
             identity has positive determinant, so it must lie in that 
             component.
         \end{quote}
+        \begin{center}\noindent\rule{8cm}{0.4pt}\end{center}
         
         Someone answered that question: 
 
+        \begin{center}\noindent\rule{8cm}{0.4pt}\end{center}
+        
         \begin{quote}
             The claim is: If $V$ is an $n$-dimensional complex vector space with underlying $2n$-dimensional real vector space $W$, then the canonical group monomorphism $\mathrm{GL}(V) \to \mathrm{GL}(W)$ lands inside $\mathrm{GL}^+(W)=\{f \in \mathrm{GL}(W) : \det(f)>0\}$.  The purpose of this abstract reformulation is that we may use operations on vector spaces in order to simplify the problem: If $V'$ is another finite-dimensional complex vector space with underlying real vector space $W'$, the diagram
 
@@ -339,10 +348,11 @@ important concepts for understanding that post.
             which has determinant $1$. Finally, the complex $2 \times 2$-matrix  $\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$ becomes the real $4 \times 4$-matrix $\begin{pmatrix} 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1\\ 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \end{pmatrix}$, which has determinant $1$.
 
         \end{quote}
-
+        \begin{center}\noindent\rule{8cm}{0.4pt}\end{center}
+        
         However, this proof is not complete because, to build the proof from 
-        $\mathbb{R}^2$ to $\mathbb{R}^{2n}$, it requries, in his argument, that
-        any element in $\mathrm{GL}(V\oplus V)$ is in the image of
+        $\mathbb{R}^2$ to $\mathbb{R}^{2n}$, it requries, in his argument,
+        that any element in $\mathrm{GL}(V\oplus V)$ is in the image of
         $\mathrm{GL}(V)\times \mathrm{GL}(V')$, which is not the case.
 
         On the other hand, it seems that this property can be proved directly
