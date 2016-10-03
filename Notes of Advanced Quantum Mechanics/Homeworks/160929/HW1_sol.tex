@@ -1,0 +1,191 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+\usepackage{float}  % For H in figures
+\usepackage{amsmath} % For math
+\usepackage{amssymb}
+\usepackage{bbm} % for numbers within mathbb
+\usepackage{mathrsfs} % For \mathscr{ABC}
+% Followings are for the special character: differential "d".
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
+\numberwithin{equation}{subsection} % have the enumeration go to the subsection level.
+                                    % See:https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
+\usepackage{graphicx}   % need for figures
+\usepackage{cite} % need for bibligraphy.
+\usepackage[unicode]{hyperref}  % make every cite a link
+\usepackage{CJKutf8} % For Chinese characters
+\usepackage{fancyref} % For easy adding figure,equation etc in reference. Use \fref or \Fref instead of \ref
+\usepackage{braket} %http://tex.stackexchange.com/questions/214728/braket-notation-in-latex
+
+% Following is for theorems etc environments
+% http://tex.stackexchange.com/questions/45817/theorem-definition-lemma-problem-numbering && https://en.wikibooks.org/wiki/LaTeX/Theorems
+\usepackage{amsthm}
+\newtheorem{defi}{Definition}[section]
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\theoremstyle{definition}
+\newtheorem{ex}{Example}[section]
+
+
+\usepackage{CJKutf8}
+
+% A list of nomenclatures.
+\usepackage{nomencl}
+\makenomenclature
+
+% For drawing diagrams with arrows
+\usepackage[all]{xy}
+
+\title{Solution for HW1 20160929}
+\date{\today}
+\author{Taper}
+
+\begin{document}
+
+\maketitle
+\abstract{
+\begin{CJK}{UTF8}{gbsn}陈鸿翔（11310075）\end{CJK}
+}
+%\tableofcontents
+\section{1.Describe and explain (or derive) the following concepts}
+
+\paragraph{Photoelectric effect} is the effect when light is shone on
+metals, there will be currents induced. Also, there exists an lower limits
+of light frequency, which is independent of light intensity, for this to
+happen. This is because the energy of a single photon is determined by its
+frequency.
+
+\paragraph{Compton effect} says that the wavelength of light (especially
+the x-ray), after a collision and scattering with electron, changes. This
+shows that light also behaves like an ordinary particle when coliding with
+other particles.
+
+\section{Problem 2}
+\paragraph{Normalize}
+\begin{align}
+    \int_{-\infty }^{\infty }
+      &e^{-\lambda *|x|}e^{-i\omega t}*e^{-\lambda *|x|}e^{i\omega t}dx
+      =2 \int_0^{\infty } e^{-2 \lambda x} \, dx
+      =\frac{2}{2 \lambda }=\frac{1}{\lambda }
+\end{align}
+So $A=\sqrt{\lambda}$ (up to an irrelavent phase factor).
+\paragraph{$\braket{x}$}=
+\begin{align}
+    \int _{-\infty }^{\infty }\lambda *e^{-\lambda *|x|}
+        e^{-i\omega t}*x*e^{-\lambda *|x|}e^{i\omega t}dx
+    =\lambda \int _{-\infty }^{\infty }e^{-2 \lambda |x|}x\, dx=0
+\end{align}
+\paragraph{$\braket{x^2}$}=
+\begin{align}
+    \int _{-\infty }^{\infty }
+      \lambda*e^{-\lambda *|x|}e^{-\text{i$\omega $t}}
+      *x^2*e^{-\lambda *|x|}e^{\text{i$\omega $t}}\, dx
+    =2 \lambda  \int_0^{\infty } e^{-2 \text{$\lambda $x}} x^2 \, dx
+    =2\lambda *\frac{1}{4}
+      \frac{\partial ^2}{\partial \lambda ^2}\frac{1}{2 \lambda }
+    =\frac{1}{2 \lambda ^2}
+\end{align}
+\paragraph{$\sigma $}=
+\begin{align}
+    \sqrt{\braket{x^2}-\braket{x}^2}=\frac{\sqrt{2}}{2}\frac{1}{\lambda}
+\end{align}
+Plot when $\lambda=1$, $|\Psi|^2=\exp(-2|x|)$:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{{plot-1}.eps}
+    %\caption{{plot-1}.eps}
+\end{figure}
+
+5. the probability that the particle would be found outside this range
+$\braket{ \braket{x}-\sigma,\braket{x}+\sigma }$:
+
+\begin{align}
+    &\int_{\braket{x}-\sigma}^{\braket{x}+\sigma} |\Psi(x)|^2 \diff x
+    = \int_{-\sigma}^{\sigma}e^{-2\lambda |x|} \lambda \diff x
+    = 2\lambda \int_0^{\sigma} e^{-2\lambda x} \diff x \nonumber\\
+    &= 2\lambda \frac{1}{2\lambda} (1-e^{-2\lambda\sigma})
+    = 1-e^{-2\lambda\sigma}
+\end{align}
+So the probability that the particle fall out of one sigma away from the
+center is: $e^{-2\lambda\sigma}$.
+
+\section{Problem 3}
+Derive the Compton shift formula:
+$\Delta\lambda=\frac{h}{mc}(1-\cos{\phi})$:
+\begin{proof}
+
+    Let $e$ for electron, $h$ for photon. Primed for  Conservation of energy: 
+    \begin{align}
+        \label{eq:p.1}
+        hv+ m_ec^2 = hv' + \sqrt{(p_e'c)^2+m_e^2c^4}
+    \end{align}
+    Conservation of momentum:
+    \begin{align}
+        \label{eq:p.2}
+        p_h = p_e' + p_h'
+    \end{align}
+    so:
+    \begin{align}
+        \label{eq:p.3}
+        \vec{p}_e'^2 = 
+        (\vec{p}_h - \vec{p}_h')^2 = p_h^2+p_h'^2-2p_h p_h'\cos{\theta}
+    \end{align}
+    According to Einstein's relationship:
+    \begin{align}
+        \label{eq:p.4}
+        p_h = \frac{h}{\lambda},\, p_h'=\frac{h}{\lambda'}
+    \end{align}
+    Then \ref{eq:p.4} into \ref{eq:p.3}:
+    \begin{align}
+        \label{eq:p.5}
+        p_e'^2= 
+          h^2 \left(\frac{1}{\lambda^2}+\frac{1}{\lambda'^2}-
+          \frac{2}{\lambda\lambda'}\cos{\theta}\right)
+    \end{align}
+    \ref{eq:p.5} into \ref{eq:p.1} $\Rightarrow$
+    \begin{align}
+        \label{eq:p.6}
+        h(v-v') =
+        \sqrt{h^2\left(
+            \frac{1}{\lambda^2}+\frac{1}{\lambda'^2}
+            -\frac{2\cos{\theta}}{\lambda\lambda'}\right) c^2
+            +E_0^2}
+        -E_0^2
+    \end{align}
+    where we write $E_0\equiv m_e c^2$. Squaring both sides (notice that
+    $\lambda=\frac{c}{v}$):
+    \begin{align}
+        \label{eq:p.7}
+        h^2(v-v')^2+E_0^2 +2h(v-v')E_0 = 
+        h^2\left(v^2+v'^2-2\cos{\theta}vv'\right)+E_0^2
+    \end{align}
+    After simplification:
+    \begin{align}
+        \label{eq:p.8}
+        (v-v')E_0 = h(1-\cos{\theta})vv'
+    \end{align}
+    Back to $\lambda=\frac{c}{v}$:
+    \begin{align}
+        \label{eq:p.9}
+        \frac{\frac{1}{\lambda}-\frac{1}{\lambda'}}
+            {\frac{1}{\lambda\lambda'}c}
+            =\frac{h}{E_0} (1-\cos{\theta})
+    \end{align}
+    Or:
+    \begin{align}
+        \label{eq:p.10}
+        \lambda'-\lambda = \Delta\lambda = \frac{h}{m_e c}(1-\cos{\theta})
+    \end{align}
+\end{proof}
+
+\end{document}
