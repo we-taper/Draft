@@ -375,6 +375,41 @@ Thus $$\int_{0}^{\infty} e^{-xy} \sin x \,dx = \frac{1}{1+y^2}$$
 Thus $$\int_{0}^{\infty} \Big(\frac{\sin x}{x} \Big) \,dx = \int_{0}^{\infty}\frac{1}{1+y^2}\,dy = \frac{\pi}{2}.$$
 
 
+\subsection{About \texorpdfstring{$e^{-i\pi S_y/\hbar}$}{}}
+\label{sec:About-exp(-i*pi S_y/hbar)}
+
+    (Related: Sakurai's Q.M., about (4.4.65)).
+
+    Since 
+    $$S_y=\frac{\hbar}{2}\sigma_y=
+        \left( \begin{array}{cc}
+         0 & -i \\
+         i & 0 \\
+        \end{array} \right)$$
+    It is easy to check that $\sigma_y^2 = - \mathbb{I}$. Therefore:
+    \begin{align}
+        (i\sigma_y)^2 = \mathbb{I}
+    \end{align}
+    So:
+    \begin{align*}
+        e^{-i\pi S_y/\hbar}=
+        e^{-i\frac{\pi}{2}\sigma_y}&=\sum_{n=0}^{\infty}
+         \frac{(-\frac{\pi}{2})^n(i\sigma_y)^n}{n!}\nonumber\\
+         &=\sum_{\text{odd }n}-\frac{(\frac{\pi}{2})^n}{n!}i\sigma_y
+           + \sum_{\text{even }n}\frac{(\frac{\pi}{2})^n}{n!}\mathbb{I}
+    \end{align*}
+    Using the taylor expansions:
+    \begin{align}
+        \sinh{x}&= \sum_{n=0}^{\infty}\frac{x^{2n+1}}{(2n+1)!}
+        \text{ (odd terms)}\\
+        \cosh{x}&= \sum_{n=0}^{\infty}\frac{x^{2n}}{(2n)!}
+        \text{ (even terms)}
+    \end{align}
+    We see that:
+    \begin{align}
+        e^{-i\frac{\pi}{2}\sigma_y}&=
+         - \sinh{\frac{\pi}{2}}i\sigma_y + \cosh{\frac{\pi}{2}}\mathbb{I}
+    \end{align}
 \section{Miscellnaneous Notes}
     \subsection{Super conductor}
     Mean-field approach to deal with a four operator diagonalization.
