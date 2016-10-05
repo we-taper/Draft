@@ -381,22 +381,18 @@ Thus $$\int_{0}^{\infty} \Big(\frac{\sin x}{x} \Big) \,dx = \int_{0}^{\infty}\fr
     (Related: Sakurai's Q.M., about (4.4.65)).
 
     Since 
-    $$S_y=\frac{\hbar}{2}\sigma_y=
+    $$S_y=\frac{\hbar}{2}\sigma_y=\frac{\hbar}{2}
         \left( \begin{array}{cc}
          0 & -i \\
          i & 0 \\
         \end{array} \right)$$
-    It is easy to check that $\sigma_y^2 = - \mathbb{I}$. Therefore:
-    \begin{align}
-        (i\sigma_y)^2 = \mathbb{I}
-    \end{align}
-    So:
+    It is easy to check that $\sigma_y^2 = \mathbb{I}$. So:
     \begin{align*}
-        e^{-i\pi S_y/\hbar}=
-        e^{-i\frac{\pi}{2}\sigma_y}&=\sum_{n=0}^{\infty}
-         \frac{(-\frac{\pi}{2})^n(i\sigma_y)^n}{n!}\nonumber\\
-         &=\sum_{\text{odd }n}-\frac{(\frac{\pi}{2})^n}{n!}i\sigma_y
-           + \sum_{\text{even }n}\frac{(\frac{\pi}{2})^n}{n!}\mathbb{I}
+        e^{-i\phi S_y/\hbar}=
+        e^{-i\frac{\phi}{2}\sigma_y}&=\sum_{n=0}^{\infty}
+         \frac{(-i\frac{\phi}{2})^n(\sigma_y)^n}{n!}\nonumber\\
+         &=\sum_{\text{odd }n}-\frac{i(\frac{\phi}{2})^n}{n!}\sigma_y
+           + \sum_{\text{even }n}\frac{(i\frac{\phi}{2})^n}{n!}\mathbb{I}
     \end{align*}
     Using the taylor expansions:
     \begin{align}
@@ -407,9 +403,54 @@ Thus $$\int_{0}^{\infty} \Big(\frac{\sin x}{x} \Big) \,dx = \int_{0}^{\infty}\fr
     \end{align}
     We see that:
     \begin{align}
-        e^{-i\frac{\pi}{2}\sigma_y}&=
-         - \sinh{\frac{\pi}{2}}i\sigma_y + \cosh{\frac{\pi}{2}}\mathbb{I}
+        e^{-i\phi S_y/\hbar}=e^{-i\frac{\phi}{2}\sigma_y}&=
+         - \sigma_y\sinh{i\frac{\phi}{2}}+ \mathbb{I}\cosh{i\frac{\phi}{2}}
+         \nonumber\\
+         &=
+         -i\sigma_y \sin{\frac{\phi}{2}}+\mathbb{I}\cos{\frac{\phi}{2}}
+        \\
+         &=-i\frac{2}{\hbar}S_y\sin{\frac{\phi}{2}}
+            +\mathbb{I}\cos{\frac{\phi}{2}}
+        \\
+         &=\left( \begin{array}{cc}
+            \cos(\frac{\phi }{2}) & -\sin(\frac{\phi }{2}) \\
+            \sin (\frac{\phi }{2}) & \cos (\frac{\phi }{2}) \\
+         \end{array}\right)
     \end{align}
+    So
+    $$e^{-i\pi S_y/\hbar} = -i\frac{2S_y}{\hbar}$$
+    By exactly the same argument, or simply by the symmetry
+    ($x\leftrightarrow y$), we
+    have:
+    \begin{align}
+        e^{-i\phi S_x/\hbar}=e^{-i\frac{\phi}{2}\sigma_x}&=
+         -i\sigma_x \sin{\frac{\phi}{2}}+\mathbb{I}\cos{\frac{\phi}{2}}
+        \\
+        &=-i\frac{2}{\hbar}S_x\sin{\frac{\phi}{2}}
+            +\mathbb{I}\cos{\frac{\phi}{2}}
+        \\
+        &=\left(\begin{array}{cc}
+            \cos(\frac{\phi }{2}) & -\sin(\frac{\phi }{2}) \\
+            \sin (\frac{\phi }{2}) & \cos(\frac{\phi }{2}) \\
+         \end{array}\right)
+    \end{align}
+    Also, one can easily find that:
+    \begin{align}
+        e^{-i\phi S_z/\hbar}=e^{-i\frac{\phi}{2}\sigma_z}&=
+          \left(\begin{array}{cc}
+              e^{-i\frac{\phi }{2}} & 0 \\
+              0                     & e^{i\frac{\phi }{2}} \\
+         \end{array}\right)
+    \end{align}
+    Here a formula that encompass all the above relationship:
+    \begin{align}
+        \exp(\frac{-i\vec{\sigma}\cdot\hat{\vec{n}}\phi}{2})
+        =
+        \cos(\frac{\phi}{2})\mathbb{I}-i\vec\sigma\cdot\hat{\vec{n}}
+        \sin(\frac{\phi}{2})
+    \end{align}
+    where $\vec\sigma=(\sigma_x,\sigma_y,\sigma_z)$, and 
+    $\hat{\vec{n}}$ is any unit vector.
 \section{Miscellnaneous Notes}
     \subsection{Super conductor}
     Mean-field approach to deal with a four operator diagonalization.
