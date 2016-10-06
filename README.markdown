@@ -3,7 +3,24 @@ This is intended for storing my drafts of my works. It is messy and will never b
 
 # An Outline of Notes of Drafts Included
 
-1. Complex Geometry - index of ...
+1. **Finished**
+
+    Here in this folder, are notes that are considered finished and are not
+    likely to be updated, unless to correct spelling, grammar, etc.
+
+    * **Light Harvesting** Course Note 
+
+        Notes taken when I was attending the course *An Introduction to 
+        Light Harvesting in Bacteria and Plants*.
+
+    * Notes of **Lectures on the Frontiers of Physics**, a course
+    designed for professors to introduce their own fields.
+
+    * Notes of *Physical Challenges of Quantum Computation*, the
+    dissertation of professor MH. Wong. Although I did not finish it,
+    I may not read it anymore.
+
+2. Complex Geometry - index of ...
 
     This is intended for keeping a index of notation of the course
     *Introduction to Algebraic Geometry* (which actually teaches
@@ -15,7 +32,7 @@ This is intended for storing my drafts of my works. It is messy and will never b
         Here are some miscellaneous things related to the same book.
         For example, my homeworks and some related exercises.
 
-2. draft.pdf
+3. draft.pdf
 
     This is a general purpose draft. It contains currently:
 
@@ -40,44 +57,28 @@ This is intended for storing my drafts of my works. It is messy and will never b
 
         Notes for the book *The Quantum Theory of Fields* by Weinberg.
 
-3. Useful **(anit)Commutative relationships**
+4. Useful **(anit)Commutative relationships**
 
-4. **feynman diagram**
+5. **feynman diagram**
 
 	Notes for studying Feynman diagram. Currently stopped at defining
 	Green function.
 
-5. Note of Sheaf Theory
+6. Note of Sheaf Theory
 
     Notes taken to understand sheaf cohomology. (Scattered and
     incomplete.)
 
-6. Algebra
+7. Algebra
 	* Noetherian Ring
 
 		Introduces **Noetherian module** and Noetherian ring. 
 		From S.Lang's Algebra.
 
-7. Quantum Field Theory in a Nutshell
+8. Quantum Field Theory in a Nutshell
 
     Notes for the book *Quantum Field Theory in a Nutshell* by A. Zee.
 
-8. **Finished**
-
-    Here in this folder, are notes that are considered finished and are not
-    likely to be updated, unless to correct spelling, grammar, etc.
-
-    * **Light Harvesting** Course Note 
-
-        Notes taken when I was attending the course *An Introduction to 
-        Light Harvesting in Bacteria and Plants*.
-
-    * Notes of **Lectures on the Frontiers of Physics**, a course
-    designed for professors to introduce their own fields.
-
-    * Notes of *Physical Challenges of Quantum Computation*, the
-    dissertation of professor MH. Wong. Although I did not finish it,
-    I may not read it anymore.
 
 9. Quantum Information
     
