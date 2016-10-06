@@ -103,3 +103,11 @@ This is intended for storing my drafts of my works. It is messy and will never b
     The notes for Advanced Quantum Mechanics, tought by Professor MH. Yong.
     Also due to the level of graduates here, the class is targeted not
     at too high a level.
+
+13. Notes about TR Symmetry
+    
+    This is notes I wrote when I read the third chapter of Bernevig's book
+    Introduction to Topological Insulator and Superconductors. It also
+    contains a summary of result about spins (or in general, Rotations in
+    quantum mechanics), which is quite useful for studying other quantum
+    mechanical properties.

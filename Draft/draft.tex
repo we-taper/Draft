@@ -172,7 +172,7 @@
     operator, a representation of such group is obtained. However,
     such a representation can be projective (projective as in
     projective geometry, or $\mathbb{CP}^n$), since operators acts
-    on ket spaces, which is already projective (within a freedom of
+    on ket spaces, which is already projective (i.e. within a freedom of
     phase). 
 
     If the phase is taken into consideration, it is found that this
@@ -897,76 +897,6 @@ Thus $$\int_{0}^{\infty} \Big(\frac{\sin x}{x} \Big) \,dx = \int_{0}^{\infty}\fr
 
     % TODO having trouble understanding the Theorem 4 on page 55.
 
-    \subsection{Adjoint of antilinear operator}
-    \label{sec:Adjoint_of_antilinear_operator}
-    
-    If we were to define adjoint of an antilinear operator, we might
-    run into troubles with traditional definition. For example, suppose
-    $A$ is antilinear, let multiply it with $c\mathbbm{1}$, where $c$
-    is just some nonzero constant.
-
-    We have:
-    \begin{align}
-        \braket{\phi|cA \psi} = c\braket{\phi|A\psi}
-    \end{align}
-    on the other hand:
-    \begin{align}
-        &\braket{\phi|cA \psi} = \braket{cA\psi|\phi}^*
-            = \braket{\psi|A^\dagger c^* \phi}^* \nonumber\\
-        &=(c\braket{\psi|A^\dagger \phi})^* = c^* \braket{A\psi|\phi}^*
-            = c^* \braket{\phi|A\psi}
-    \end{align}
-    A contracdiction. Then, it was proposed, in the first answer to
-    this Math.SE post, that we define the adjoint operator differently 
-    for antilinear operator $A$:
-    \begin{align}
-        \braket{A^\dagger v|w} = \braket{v| Aw}^*
-    \end{align}
-    Then the above discrepancy will not exist anymore (easily confirmed).
-
-    Here I also include the complete answer for reference:
-    \begin{center}\noindent\rule{8cm}{0.4pt}\end{center}
-    \begin{quote}
-        I) First of all, one should never use the [Dirac bra-ket notation](http://en.wikipedia.org/wiki/Bra-ket\_notation) (in its ultimate version where an operator acts to the right on kets and to the left on bras) to consider the definition of [adjointness](http://en.wikipedia.org/wiki/Adjoint\_operator), since the notation was designed to make the adjointness property look like a mathematical triviality, which it is not. See also [this](http://physics.stackexchange.com/q/43069/2451) Phys.SE post.
-
-        II) OP's question(v1) about the existence of the adjoint of an [antilinear](http://en.wikipedia.org/wiki/Antilinear\_map) operator is an interesting mathematical question, which is rarely treated in textbooks, because they usually start by assuming that operators are $\mathbb{C}$-linear. 
-
-        III) Let us next recall the mathematical definition of the adjoint of a linear operator. Let there be a [Hilbert space](http://en.wikipedia.org/wiki/Hilbert\_space) $H$ over a [field](http://en.wikipedia.org/wiki/Field\_\%28mathematics\%29) $\mathbb{F}$, which in principle could be either real or complex numbers, $\mathbb{F}=\mathbb{R}$ or $\mathbb{F}=\mathbb{C}$. Of course in quantum mechanics, $\mathbb{F}=\mathbb{C}$. In the complex case, we will use the standard physicist's convention that the [inner product/sequilinear form](http://en.wikipedia.org/wiki/Sesquilinear\_form) $\langle \cdot | \cdot \rangle$ is conjugated $\mathbb{C}$-linear in the first entry, and $\mathbb{C}$-linear in the second entry.
-
-        Recall [Riesz' representation theorem](http://en.wikipedia.org/wiki/Riesz\_representation\_theorem): For each continuous $\mathbb{F}$-linear functional $f: H \to \mathbb{F}$ there exists a unique vector $u\in H$ such that
-        $$\text{tag\{1\}} f(\cdot)~=~\langle u | \cdot \rangle.$$
-
-        Let $A:H\to H$ be a continuous$^1$ $\mathbb{F}$-linear operator. Let $v\in H$ be a vector. Consider the continuous $\mathbb{F}$-linear functional 
-
-        $$\text{tag\{2\}} f(\cdot)~=~\langle v | A(\cdot) \rangle.$$ 
-
-        The value $A^{\dagger}v\in H$ of the adjoint operator $A^{\dagger}$ at the vector $v\in H$ is by definition the unique vector $u\in H$, guaranteed by Riesz' representation theorem, such that 
-        $$\text{tag\{3\}} f(\cdot)~=~\langle u | \cdot \rangle.$$
-
-        In other words, 
-        $$\text{tag\{4\}} \langle A^{\dagger}v | w \rangle~=~\langle u | w \rangle~=~f(w)=\langle v | Aw \rangle. $$
-
-        It is straightforward to check that the adjoint operator $A^{\dagger}:H\to H$ defined this way becomes an $\mathbb{F}$-linear operator as well. 
-
-        IV) Finally, let us return to OP's question and consider the definition of the adjoint of an antilinear operator. The definition will rely on the complex version of Riesz' representation theorem. Let $H$ be given a complex Hilbert space, and let  $A:H\to H$ be an antilinear continuous operator. In this case, the above equations (2) and (4) should be replaced with
-
-        $$\text{tag\{2'\}} f(\cdot)~=~\overline{\langle v | A(\cdot) \rangle},$$
-
-        and
-
-        $$\text{tag\{4'\}} \langle A^{\dagger}v | w \rangle~=~\langle u | w \rangle~=~f(w)=\overline{\langle v | Aw \rangle}, $$
-
-        respectively. Note that $f$ is a $\mathbb{C}$-linear functional.
-
-        It is straightforward to check that the adjoint operator $A^{\dagger}:H\to H$ defined this way becomes an antilinear operator as well.  
-
-        --
-
-        $^{1}$We will ignore subtleties with [discontinuous/unbounded operators](http://en.wikipedia.org/wiki/Unbounded\_operator), domains, [selfadjoint extensions](http://en.wikipedia.org/wiki/Extensions\_of\_symmetric\_operators), etc., in this answer.
-    \end{quote}
-    
-    \begin{center}\noindent\rule{8cm}{0.4pt}\end{center}
-
     \subsection{Bayes' theorem}
     \label{sec:Bayes-theorem}
     I am quite unfamiliar with this formula, so I decided to make a note
@@ -1010,7 +940,6 @@ Thus $$\int_{0}^{\infty} \Big(\frac{\sin x}{x} \Big) \,dx = \int_{0}^{\infty}\fr
     \bibitem{DETA} Martin Braun. Differential Equations and Their
     Applications. 4ed. Springer.
     \bibitem{Kardar} M. Kardar. Statistical Physics of Particles (2007)
-    \bibitem{math.SE-adjoint-of-antilinear}\href{http://physics.stackexchange.com/questions/45227/existence-of-adjoint-of-an-antilinear-operator-time-reversal}{Existence of adjoint of an antilinear operator, time reversal}
 \end{thebibliography}
 \section{License}
 The entire content of this work (including the source code
