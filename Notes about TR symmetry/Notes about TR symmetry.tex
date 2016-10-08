@@ -781,8 +781,10 @@ Outline:
 
     It is also interesting to note that in general:
     \begin{align}
+        \label{eq:TRoper.TRoper.square_minus}
         \Theta^2 &= -1 \text{ if $j$ is a half-integer} \\
         \Theta^2 &= 1 \text{ if $j$ is an integer}
+        \label{eq:TRoper.TRoper.square_plus}
     \end{align}
     However, this can only be proved when $j=\frac{1}{2}$, in which case
     the proof is also straightforward if we use the formula mentioned in
@@ -792,9 +794,63 @@ Outline:
     electrons of spin $\frac{1}{2}$, then we have a strong argument that
     the above formula is true.
     \subsection{Kramer's theorem and the lifting of degenracy}
+    When one is concerned with the energy spectrum, one encounters the
+    Kramer's theorem, which says:
+    \begin{thm}[Kramer's theorem]
+        For a system with halt-integer $j$ spin, the degree of degeneracy
+        is at least two.
+    \end{thm}
+    \begin{proof}
+        Let $\ket{n}$ be an energy eigenstate. If the system is time
+        reversal symmetric, i.e. $[H,\Theta]=0$, then $\Theta \ket{n}$ is
+        another energy eigenstate with the same energy. Supposing there is
+        no degeneracy, then we have
+        $$ \ket{n} = e^{i\eta}\Theta\ket{n}$$
+        for some $\eta\in \mathbb{R}$. Apply $\Theta$ on both sides, then
+        we have
+        \begin{align*}
+            e^{-i\eta} \Theta^2 \ket{n} &= \pm e^{-i\eta}\ket{n} \\
+            &= \Theta \ket{n} = e^{i\eta} \ket{n}
+        \end{align*}
+        Clearly this is a contracdiction unless $\Theta^2=1$, which is
+        true only for interger spin system by equation
+        \ref{eq:TRoper.TRoper.square_plus} and
+        \ref{eq:TRoper.TRoper.square_minus}.
+    \end{proof}
+    Another way to show this is presented in page 37 of
+    \cite{bernevig}. That method is too troublesome and basis dependent 
+    \footnote{Borrowing the jargon of mathematicians, not canonical,
+        geometric, or intrinsic.}
+    to be shown here.
+    But it shows an interesting fact that $\Theta^2=-1$, actually
+    implies that $U$, its unitary component mentioned in section
+    \ref{sec:Property-of-symmetry-operator}, is antisymmetric. This is
+    obvious when one juxtapose the following two facts:
+    $$ U (U^*)^T = \mathbbm{1}$$
+    $$ \Theta^2 = UKUK = U U^* = -\mathbbm{1} $$
 
+    By Kramer's theorem, one also says that for system with half-integer
+    spin, one \textit{lift the degenracy by breaking the time reversal
+    symmetry of the system.}
     
+    An additional point by Bernevig is about the transition probability
+    $\bra{\Theta \psi}H\ket{\psi}$ from a state to its time reversed
+    state.
 
+    \begin{align*}
+        & \braket{\Theta\psi|H|\psi} = (U_{mp}K\psi_p)^*H_{mn}\psi_n 
+        =U_{mp}^* \psi_p H_{mn} \psi_n = (U^\dagger)_pm\psi_p H_{mn}\psi_n
+        = (U^\dagger)_{pm}\psi_p (THT^{-1})_{mn} \psi_n
+        \\
+        &= (U^\dagger)_{pm}\psi_p \left(U_{mr}KH_{rq}(-U_{qn}K)\right)\psi_n\\
+        &= - (U^\dagger)_{pm}\psi_p \left(U_{mr}H^*_{rq}U^*_{qn}\right)\psi_n\\
+        &= - \psi_p \left((U^\dagger)_{pm}
+            U_{mr}\right)H^*_{rq}U^*_{qn}\psi_n\\
+        &= - \psi_p H^*_{pq}U^*_{qn}\psi_n\\
+            \overset{\text{by ...}}{=}& - \psi_p U^*_{pq}H_{qn}\psi_n \\
+        &= U^*_{qp}\psi_p H_{qn} \psi_n
+    \end{align*}
+    Either there is a mistake in Bernevig's derivation or I am wrong...
 \section{Anchor}
 \label{sec:Anchor}
 
