@@ -33,8 +33,10 @@
 \newtheorem{remark}{Remark}[section]
 \newtheorem{prop}{Proposition}[section]
 \newtheorem{coro}{Corollary}[section]
+\newtheorem{fact}{Fact}[section]
 \theoremstyle{definition}
 \newtheorem{ex}{Example}[section]
+\newtheorem{argument}{Argument}[section]
 
 % A list of nomenclatures.
 \usepackage{nomencl}
@@ -688,10 +690,10 @@ Outline:
     \subsection{From classical notion to properties of TR symmetry}
     \label{sec:From-classical-notion-to-property-of-TR-symmetry}
     To get the time reversal operator, we can first look at the following
-    equality (let $\Theta$ dentoes the time reversal operator):
+    equality (let $T$ dentoes the time reversal operator):
     \begin{align}
-        \left(1-\frac{iH}{\hbar}\delta t\right) \Theta \ket{\alpha}
-        = \Theta\left(1-\frac{iH}{\hbar}(-\delta t)\right)\ket{\alpha}
+        \left(1-\frac{iH}{\hbar}\delta t\right) T \ket{\alpha}
+        = T\left(1-\frac{iH}{\hbar}(-\delta t)\right)\ket{\alpha}
         \label{eq:TRoper.fromClas2Quam.phyPic}
     \end{align}
     This follows from the following notion: a time reversed state is
@@ -701,48 +703,51 @@ Outline:
 
     From equality \ref{eq:TRoper.fromClas2Quam.phyPic}, one finds:
     \begin{align}
-        -iH\Theta = \Theta i H
+        -iHT = T i H
     \end{align}
 
-    One can show that \textbf{$\Theta$ must be antilinear}. Because if one
-    assumes that $\Theta$ is linear, one will find that the energy
+    One can show that \textbf{$T$ must be antilinear}. Because if one
+    assumes that $T$ is linear, one will find that the energy
     spectrum for time reversal symmetric system will always has symmetric
     energy spectrum (i.e. with both and symmetric positive and negative
     energy), which is not true.
 
     So we have:
     \begin{itemize}
-        \item $\Theta$ is antiunitary.
-        \item $\Theta H=H\Theta$.
+        \item $T$ is antiunitary.
+        \item $T H=HT$ for a time reversal symmetric state.
     \end{itemize}
-
     
-    Recall that $\Theta= UK$, and $K$ is highly dependent on the basis
-    chosen. So $U$ will depend on the basis too. To get $\Theta$ in a
+    Recall that $T= UK$, and $K$ is highly dependent on the basis
+    chosen. So $U$ will depend on the basis too. To get $T$ in a
     basis $\ket{e_i}$, obviously we only need to consider the result of
     $K\ket{e_i}$. This however, is hard to determine. However we can argue
     that in case when the basis has some classical connection, then by the
     Correspondance Principle we have, for example:
     \begin{align}
-        \Theta \hat{p} \Theta^{-1}&= -\hat{p} \\
-        \Theta \hat{x} \Theta^{-1}&= \hat{x} \\
-        \Theta \mathbf{J} \Theta^{-1}&= -\mathbf{J}
+        T \hat{p} T^{-1}&= -\hat{p} \\
+        T \hat{x} T^{-1}&= \hat{x} \\
+        T \mathbf{J} T^{-1}&= -\mathbf{J}
     \end{align}
     with these one can easily find:
     \begin{align}
-        \Theta \ket{p} &= \ket{-p} \\
-        \Theta \ket{x} &= \ket{x} \\
-        [x_i, p_j]\Theta \ket{} &= i\hbar \delta_{ij} \Theta\ket{}
+        T \ket{p} &= \ket{-p} \\
+        T \ket{x} &= \ket{x} \\
+        [x_i, p_j]T \ket{} &= i\hbar \delta_{ij} T\ket{}
     \end{align}
-    where $\ket{}$ stands for any ket. Then clearly, $\Theta$ is just
-    complex conjugation for wave function $\Psi(x)$. But $\Theta$ acts on
+    where $\ket{}$ stands for any ket. Then clearly, $T$ is just
+    complex conjugation for wave function $\Psi(x)$. But $T$ acts on
     $\Psi(p)$ will produces $\Psi^*(-p)$. The case for eigenstate of
     spin is a little complicated, which will be discussed in section
     \ref{sec:Time-reversal-operator-in-spin-j}.
 
+    \subsection{Properties of TR operator}
+    \label{sec:Properties-of-TR-operator}
+    
     Following is a useful theorem, which is easy to proof (proof can be
     found on page 294 of \cite{sakurai}):
     \begin{thm}
+        \label{thm:TRoper.fromCM2QM.TR_nondegen_real}
         When Hamiltonian is invariant under time reversal and the energy
         eigenket is nondegenerate; then the corresponding energy
         eigenfunction is real (or, more generally, a real function times a
@@ -750,8 +755,46 @@ Outline:
     \end{thm}
     Therefore, a complex eigenfunction almost means a degenrate state, or
     the system is not invariant under time reversal.
+    
+    The next theorem is about $T^2$. Classically, since there is only
+    two directions in time, we expect $T^2=1$. But quantum states are
+    rays, so there is the freedom of phase. Then $T^2 = \phi$ for
+    some $|\phi|^2=1$. But better, we have:
+    
+    \begin{lemma}
+        $T^2 = \pm \mathbbm{1}$
+    \end{lemma}
+    \begin{proof}
+        Proof can be found on page 34 of \cite{bernevig}. But the proof is
+        so clever that I want to include it here. First observe that 
+        $U U^\dagger = \mathbbm{1}$, implies that $U^* U^T = \mathbbm{1}$
+        by transposing both sides. Next one use the expression $T=UK$ to
+        expand $T^2$, only to find that $U=\phi U^T$, this means that
+        $\phi^2=1$. Hence $\phi=\pm 1$.
+    \end{proof}
 
-    \subsection{Time reversal operator in spin \texorpdfstring{$j$}{}}
+    We then have the useful fact:
+    \begin{fact}
+        For any kets $\ket{\alpha},\ket{\beta}$, we have
+        \begin{align}
+            \pm \braket{\alpha|T\beta} = 
+                \braket{\beta|T\alpha}
+        \end{align}
+        The sign is the same as in $T^2=\pm 1$. Specifically, one has
+        \begin{align}
+            \braket{\alpha |T \alpha} = 0
+        \end{align}
+        when $T^2= -\mathbbm{1}$.
+    \end{fact}
+    \begin{proof}
+        This is simple by using 
+        $\braket{T\alpha|T\beta} = \braket{\beta|\alpha}$, 
+        and replacing $\ket{\alpha}$ with $\ket{T \alpha}$.
+    \end{proof}
+
+    
+    \subsection{Time reversal operator in system with spin 
+    \texorpdfstring{$j$}{}}
     \label{sec:Time-reversal-operator-in-spin-j}
     Using my guess \ref{eq:revSpin.getMatRot.Sn.Snket}:
     \begin{align*}
@@ -768,24 +811,24 @@ Outline:
     
     Since time reversal reverses the angular momentum, I expects:
     \begin{align}
-        \Theta \ket{\hat{\mathbf{n}};+} = \eta \ket{\hat{\mathbf{n}};-}
+        T \ket{\hat{\mathbf{n}};+} = \eta \ket{\hat{\mathbf{n}};-}
     \end{align}
     where $\eta$ is just some unnecessay factor.
 
     With above relationship, one can easily see that:
     \begin{align}
-        \Theta = \eta e^{-i\pi J_y/\hbar}K
+        T = \eta e^{-i\pi J_y/\hbar}K
     \end{align}
     The proof is trivial for $j=\frac{1}{2}$, but I cannot find a proof
     for other values of $j$.
 
     It is also interesting to note that in general:
-    \begin{align}
+    \begin{thm} \begin{align}
         \label{eq:TRoper.TRoper.square_minus}
-        \Theta^2 &= -1 \text{ if $j$ is a half-integer} \\
-        \Theta^2 &= 1 \text{ if $j$ is an integer}
+        T^2 &= -1 \text{ if $j$ is a half-integer} \\
+        T^2 &= 1 \text{ if $j$ is an integer}
         \label{eq:TRoper.TRoper.square_plus}
-    \end{align}
+    \end{align} \end{thm}
     However, this can only be proved when $j=\frac{1}{2}$, in which case
     the proof is also straightforward if we use the formula mentioned in
     section \ref{sec:About-exp(-i*pi-S_y/hbar)}.
@@ -794,6 +837,7 @@ Outline:
     electrons of spin $\frac{1}{2}$, then we have a strong argument that
     the above formula is true.
     \subsection{Kramer's theorem and the lifting of degenracy}
+    \label{sec:Kramers-theorem-and-the-lifting-of-degenracy}
     When one is concerned with the energy spectrum, one encounters the
     Kramer's theorem, which says:
     \begin{thm}[Kramer's theorem]
@@ -802,17 +846,17 @@ Outline:
     \end{thm}
     \begin{proof}
         Let $\ket{n}$ be an energy eigenstate. If the system is time
-        reversal symmetric, i.e. $[H,\Theta]=0$, then $\Theta \ket{n}$ is
+        reversal symmetric, i.e. $[H,T]=0$, then $T \ket{n}$ is
         another energy eigenstate with the same energy. Supposing there is
         no degeneracy, then we have
-        $$ \ket{n} = e^{i\eta}\Theta\ket{n}$$
-        for some $\eta\in \mathbb{R}$. Apply $\Theta$ on both sides, then
+        $$ \ket{n} = e^{i\eta}T\ket{n}$$
+        for some $\eta\in \mathbb{R}$. Apply $T$ on both sides, then
         we have
         \begin{align*}
-            e^{-i\eta} \Theta^2 \ket{n} &= \pm e^{-i\eta}\ket{n} \\
-            &= \Theta \ket{n} = e^{i\eta} \ket{n}
+            e^{-i\eta} T^2 \ket{n} &= \pm e^{-i\eta}\ket{n} \\
+            &= T \ket{n} = e^{i\eta} \ket{n}
         \end{align*}
-        Clearly this is a contracdiction unless $\Theta^2=1$, which is
+        Clearly this is a contracdiction unless $T^2=1$, which is
         true only for interger spin system by equation
         \ref{eq:TRoper.TRoper.square_plus} and
         \ref{eq:TRoper.TRoper.square_minus}.
@@ -822,38 +866,122 @@ Outline:
     \footnote{Borrowing the jargon of mathematicians, not canonical,
         geometric, or intrinsic.}
     to be shown here.
-    But it shows an interesting fact that $\Theta^2=-1$, actually
+    But it shows an interesting fact that $T^2=-1$, actually
     implies that $U$, its unitary component mentioned in section
     \ref{sec:Property-of-symmetry-operator}, is antisymmetric. This is
     obvious when one juxtapose the following two facts:
     $$ U (U^*)^T = \mathbbm{1}$$
-    $$ \Theta^2 = UKUK = U U^* = -\mathbbm{1} $$
+    $$ T^2 = UKUK = U U^* = -\mathbbm{1} $$
 
     By Kramer's theorem, one also says that for system with half-integer
     spin, one \textit{lift the degenracy by breaking the time reversal
     symmetry of the system.}
     
-    An additional point by Bernevig is about the transition probability
-    $\bra{\Theta \psi}H\ket{\psi}$ from a state to its time reversed
-    state.
+        \subsubsection{Argument against Bernevig's result}
+        \label{sec:Argument again Bernevig's result}
+        
+        An additional point by Bernevig is about the transition probability
+        $\bra{T \psi}H\ket{\psi}$ from a state to its time reversed
+        state.
 
-    \begin{align*}
-        & \braket{\Theta\psi|H|\psi} = (U_{mp}K\psi_p)^*H_{mn}\psi_n 
-        =U_{mp}^* \psi_p H_{mn} \psi_n = (U^\dagger)_pm\psi_p H_{mn}\psi_n
-        = (U^\dagger)_{pm}\psi_p (THT^{-1})_{mn} \psi_n
-        \\
-        &= (U^\dagger)_{pm}\psi_p \left(U_{mr}KH_{rq}(-U_{qn}K)\right)\psi_n\\
-        &= - (U^\dagger)_{pm}\psi_p \left(U_{mr}H^*_{rq}U^*_{qn}\right)\psi_n\\
-        &= - \psi_p \left((U^\dagger)_{pm}
-            U_{mr}\right)H^*_{rq}U^*_{qn}\psi_n\\
-        &= - \psi_p H^*_{pq}U^*_{qn}\psi_n\\
-            \overset{\text{by ...}}{=}& - \psi_p U^*_{pq}H_{qn}\psi_n \\
-        &= U^*_{qp}\psi_p H_{qn} \psi_n
-    \end{align*}
-    Either there is a mistake in Bernevig's derivation or I am wrong...
+        Here I first mention two points:
+        \begin{enumerate}
+            \item When $T H=HT$, and $T=UK$, one can deduce
+                $UH^* = HU$, or $U^*H=H^*U^*$, i.e.
+                $(U^*)_{mp}H_{pn}=(H^*)_{mp}(U^*)_{pn}$.
+            \item As mentioned before in section
+                \ref{sec:Kramers-theorem-and-the-lifting-of-degenracy},
+                $U$ is antisymmetric, so $U^*$ is antisymmetric too.
+        \end{enumerate}
+
+        Then begin Bernevig's wrong calculation (Summation implied when
+        index is repeated twice):
+        \begin{align}
+            & \braket{T\psi|H|\psi} = (U_{mp}K\psi_p)^*H_{mn}\psi_n 
+            \nonumber\\
+            =& U_{mp}^* \psi_p H_{mn} \psi_n 
+            \nonumber\\
+            =& (U^\dagger)_{pm}\psi_p H_{mn}\psi_n 
+            \label{eq:TRoper.Kramer.bernevig1}
+            \\
+            =& (U^\dagger)_{pm}\psi_p (THT^{-1})_{mn} \psi_n 
+            \nonumber\\       
+            =& (U^\dagger)_{pm}\psi_p \left(U_{mr}KH_{rq}(-U_{qn}K)\right)
+                \psi_n
+            \nonumber\\       
+            =& - (U^\dagger)_{pm}\psi_p \left(U_{mr}H^*_{rq}U^*_{qn}\right)
+                \psi_n
+            \nonumber\\       
+            =& - \psi_p \left((U^\dagger)_{pm}
+                U_{mr}\right)H^*_{rq}U^*_{qn}\psi_n
+            \nonumber\\       
+            =& - \psi_p H^*_{pq}U^*_{qn}\psi_n
+            \nonumber\\       
+            \text{(by point 1)}=& - \psi_p U^*_{pq}H_{qn}\psi_n 
+            \nonumber\\       
+            \text{(by point 2)}=& U^*_{qp}\psi_p H_{qn} \psi_n 
+            \nonumber\\       
+            \text{(by the first line)}=& \braket{T\psi|H|\psi}
+        \end{align}
+        So I see that he just circles back to the origin...
+
+        No I give an argument that statement in page 37 of
+        \cite{bernevig} cannot be true.
+        \begin{argument}
+            Suppose we can prove that $\braket{T \psi|H|\psi}=0$.
+            Then $\braket{\psi|HT |\psi}=0$, notice that $H=T
+            HT^{-1}$, and $T^{2}=-1$, one can see that
+            $\braket{\psi|H|\psi}=0$. Such is too strong an result. For
+            example, if $\ket{\psi}$ is any eigenket of $H$, then our
+            argument shows that its eigenvalue is zero. Does this means
+            that $H$ is just the trivial operator $0$? Of course not!
+            Therefore the Bernevig's result is wrong.
+        \end{argument}
+    
+    \subsection{Time reversal symmetry in crystal}
+    \label{sec:Time-reversal-symmetry-in-crystal}
+    
+        \subsubsection{Time reversal symmetry in spinless crystal}
+        \label{sec:Time-reversal-symmetry-in-spinless-}
+        Since there is not spin, time reversal symmetry does not alter a
+        creation/annihilation of a particle. Then:
+        \begin{align}
+            Tc_j T^{-1} = c_j
+        \end{align}
+        Then, in the fourier expansion of $c_j$:
+        \begin{align}
+            c_j = \sum_k e^{ikR_j} c_k
+        \end{align}
+        Since $T$ acting on the left, will change $e^{ikR_j}$ into
+        $e^{-ikR_j}$, then naturally:
+        \begin{align}
+            Tc_k T^{-1} = c_{-k}
+        \end{align}
+        Then, for a time reversal symmetric system, let 
+        $H = \sum_k h(k)c_k^\dagger c_k$. Since $T H T^{-1}=H$,
+        $T$ has to flip the sign of $k$ again, so:
+        \begin{align}
+            T h(k) T^{-1} = h(-k) \,\text{(For TR symmetric
+            state)}
+            \label{eq:TRoper.trInCry.trInSpinless.hk}
+        \end{align}
+        
+        \paragraph{Implications for crystal systems} The above result has
+        profound implications for crystal with zero spin.
+        \begin{thm}
+            For crystal with zero spin, one has in crystal momentum space,
+            always at least a double degeneracy, except for certain point
+            symmetric to $k$ and $-k$.
+        \end{thm}
+        \begin{proof}
+            By equation \ref{eq:TRoper.trInCry.trInSpinless.hk}, one has
+            $\phi(k)$ and $T\phi(k)$ corresponding to eigenstate in
+            $k$ and $-k$. When $T$ acts on a wavefunction, its
+            creation operator is affected and its ... (paused here).
+        \end{proof}
+        
 \section{Anchor}
 \label{sec:Anchor}
-
 \begin{thebibliography}{1}
     \bibitem{sakurai} Modern Quantum Mechanics. J.J. Sakurai.
     \bibitem{bernevig} Introduction to Topological Insulators. Bernevig.
