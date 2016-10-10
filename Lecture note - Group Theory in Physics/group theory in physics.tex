@@ -34,7 +34,9 @@
 \newtheorem{coro}{Corollary}[section]
 \theoremstyle{definition}
 \newtheorem{ex}{Example}[section]
+\newtheorem{fact}{Fact}[section]
 
+\usepackage{CJKutf8} % For chinese characters.
 % A list of nomenclatures.
 \usepackage{nomencl}
 \makenomenclature
@@ -433,13 +435,165 @@ Facts: group of order $1,2,$ and $3$ are unique up to an isomorphism.
     Omitted.
 \end{defi}
 
+\begin{CJK}{UTF8}{gbsn}
+固有转动是指的那些 $det(M)>0$ 的转动. 用$C_n$来表示他们.
+
+Also, 周期 of $R$ is just $\braket{R}$.
+\end{CJK}
+
+Let $\sigma$\nomenclature{$\sigma$}{\nomrefpage.} for spatial reflection.
 \begin{defi}[$C_N,\bar{C}_N$]
 \nomenclature{$C_N,\bar{C}_N$}{\nomrefpage.}
     $\bar{C}_N=C_N*\sigma$
 \end{defi}
+\section{20161010}
+\label{sec:20161010}
+Introducing to various groups:$S_4, V_4$, $D_3$, all omited.
+(\textbf{pp.22-23 of \cite{book}})
+
+$D_n$ group. See pp. 25-26 of the book \cite{book}.
+Note that here the $n$ refers to the $n$-polygon, not that the group is
+of order $n$. For the mathematicians, they might be comfortable with
+$D_n$ means the dihedral group of order $n$, but is actually the group of
+symmetries of $n/2$-polygon.
+
+\begin{defi}[Subgroup]
+\nomenclature{Subgroup}{\nomrefpage.}
+    Omitted.
+\end{defi}
+\begin{fact}
+    One only has to check the closeness for determining a subgroup, if it
+    is of finite order.
+
+    However, for group of infinite order, one has to check the existance
+    of unit and inverse elements.
+\end{fact}
+Examples of subgroup (\textbf{pp.26 of \cite{book}})
+
+Noteworth:$C_6$ has three copies of $D_2$, this can be intuitively 
+guessed by the fact that a hexago has three rectanle in it.
+
+\begin{defi}[Coset]
+\nomenclature{Coset}{\nomrefpage.}
+    Omitted.
+\end{defi}
+Properties of coset (omitted).
+
+\begin{defi}[Index of subgroup]
+\nomenclature{Index of subgroup}{\nomrefpage.}
+    Omitted.
+\end{defi}
+
+\begin{prop}
+    Two elements $R$ and $T$ belongs to the same coset $kH$, if and only
+    if $R^{-1}T\in H$.
+\end{prop}
+\begin{proof}
+    Omitted.
+\end{proof}
+\begin{defi}[Normal/Invariant subgroup]
+\nomenclature{Normal/Invariant subgroup}{\nomrefpage.}
+    A subgroupNormal/Invariant subgrouproup(also invariant), if and only
+    if for any $x\in G$, we have $xH = Hx$.
+\end{defi}
+\begin{fact}
+    If $H$ has index 2, then it must be normal/invariant. This is
+    obvious.
+\end{fact}
+\begin{defi}[Quotient]
+\nomenclature{Quotient}{\nomrefpage.}
+    Omitted.
+\end{defi}
+Note that quotient group (a.k.a. factor group) is only defined for a normal subgroup.
+
+\begin{ex}
+    $D_3$ (Using the multiplication table). Omitted because it is too
+    complex to be typed down here.
+\end{ex}
+
+\begin{defi}[Conjugate]
+\nomenclature{Conjugate}{\nomrefpage.}
+    If exists $S\in G$, s.t. $R' = S^{-1}RS$, then we say $R'$ is
+    conjugate to $R$.
+\end{defi}
+see (\textbf{pp.28-30 of \cite{book}})
+This is clearly an equivalence relationship. By this we can define
+conjugate class, denoted by $C=\{R_1,\cdots\}$, then we have the
+characterization $C = \{ s^{-1} R_i s|\forall s\in G\}$, for any
+$R_i$. We then have the following facts (all are obvious):
+\begin{fact}$ $
+
+    \begin{enumerate}
+        \item The unit class formed just by the unit element.
+        \item The inverse class formed by just all the inverse element.
+            $C^{-1} = \{ R_i^{-1}\}$. If $C=C^{-1}$, then $C$ is called
+            self-inverse.
+        \item The order of elements in a class is just the same.
+        \item For $\forall T,S\in G$, $TS$ and $ST$ are conjugate to each
+            other. This means that all elements symmetric on the
+            multiplication table is conjugate to each other.
+        \item For two elements $R$, $R'$ conjugate to each other, both
+            can be expressed by the products of two elements in two
+            different way. (Isn't this too obvious to mention.)
+        \item Let $G$ be a rotation group. Suppose it has an axis of the
+            order of $n$, with its operation denoted as $R$,, we can get
+            a new axis by the following steps. (Supose we have another
+            rotation $S$),
+
+            \begin{enumerate}
+                \item  $S^{-1}$, rotate $m$ back to $n$.
+                \item  $R$, rotate about n around $2\pi/n$,
+                \item  $S$ rotate $n$ to $m$
+            \end{enumerate}
+
+            Result: $S^{-1}RS$ rotate around a new axis $m$ about
+            $2\pi/n$. So $R'=S^{-1}RS$ and $R$ is calle the equivalent
+            axis. 
+            
+            Also, if $m=-n$, then they are called polar axis to each
+            other.
+
+        \item $C_n$, which is an abel group, every element form a
+            conjugate class by itself. Specifically, $e$ and $R^{n/2}$
+            are self inverse, if $n$ is even.
+    \end{enumerate}
+\end{fact}
+\begin{prop}
+    \label{prop:20161010.conjugate_subgroup}
+    For an invariant subgroup, then every conjugate element is also
+    inside the same invariant subgroup. This shows that an invariant
+    subgroup can be decomposed into a series of sum of conjugate classes.
+\end{prop}
+\begin{proof}
+    If $R\in H$, then we show that $S^{-1}RS\in H$, this is obviously
+    since it belongs to $S^{-1}HS$.
+\end{proof}
+
+\begin{ex}
+    For $D_3: E,D,F,A,B,C$, their orders are respetively
+    $1,3,3,2,2,2$. We have the following conjugate classes:
+    \begin{enumerate}
+        \item $\{ E\}$. Is self inverse.
+        \item $\{ D,F\}$. $D$ is conjugate to $F$. We can see
+            this physically by looking at rotation from the front
+            or the below. This class is also self-inverse.
+        \item $\{A,B,C\}$, is clearly a self-inverse conjugate
+            class.
+    \end{enumerate}
+\end{ex}
+\begin{ex}[$D_6$]
+    Ramiliarize one with the formulae for $D_n$. Hint: use the order of
+    elements to find classes of conjugate. Then use the proposition
+    \ref{prop:20161010.conjugate_subgroup} to find the subgroups.
+    % TODO maybe I can try this when I am free.
+\end{ex}
+
+
+
+
+
 \section{Anchor}
 \label{sec:Anchor}
-
 \begin{thebibliography}{1}
     %\bibitem{book} 
     \bibitem{book} Zhongqi Ma, Group Theory in Physics
