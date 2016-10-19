@@ -1,0 +1,599 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+\usepackage{float}  % For H in figures
+\usepackage{amsmath} % For math
+\usepackage{amssymb}
+\usepackage{bbm} % for numbers within mathbb
+\usepackage{mathrsfs} % For \mathscr{ABC}
+% Followings are for the special character: differential "d".
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
+\numberwithin{equation}{subsection} % have the enumeration go to the subsection level.
+                                    % See:https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
+\usepackage{graphicx}   % need for figures
+\usepackage{cite} % need for bibligraphy.
+\usepackage[unicode]{hyperref}  % make every cite a link
+\usepackage{CJKutf8} % For Chinese characters
+\usepackage{fancyref} % For easy adding figure,equation etc in reference. Use \fref or \Fref instead of \ref
+\usepackage{braket} %http://tex.stackexchange.com/questions/214728/braket-notation-in-latex
+
+% Following is for theorems etc environments
+% http://tex.stackexchange.com/questions/45817/theorem-definition-lemma-problem-numbering && https://en.wikibooks.org/wiki/LaTeX/Theorems
+\usepackage{amsthm}
+\newtheorem{defi}{Definition}[section]
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\newtheorem{fact}{Fact}[section]
+\theoremstyle{definition}
+\newtheorem{ex}{Example}[section]
+\newtheorem{argument}{Argument}[section]
+
+% A list of nomenclatures.
+\usepackage{nomencl}
+\makenomenclature
+
+% For drawing diagrams with arrows
+\usepackage[all]{xy}
+
+% For highlighting
+\usepackage{color,soul}
+
+\title{General Physics Formula}
+\date{\today}
+\author{Taper}
+
+
+\begin{document}
+
+
+\maketitle
+\abstract{
+This is a collection of important formulae in Fundamentals of Physics
+Extended Version by Halliday and Resnick.
+}
+\tableofcontents
+
+\section{Classical mechanics}
+\label{sec:Classical-mechanics}
+
+\paragraph{Constant Accleration}
+These five equations in Table 2-1 describe the motion of a particle with constant acceleration:
+\begin{align}
+    v           &= v_0 + at \\
+    x-x_0       &= v_0 t + \frac{1}{2} at^2\\
+    x-x_0       &= vt - \frac{1}{2} at^2\\
+    v^2 - v_0^2 &= 2a(x-x_0)\\
+    x-x_0       &= \frac{1}{2} (v_0+v) t
+\end{align}
+
+\paragraph{Projectile Motion} Projectile motion is the motion of a
+particle that is launched with an initial velocity $\vec v_0$. During
+its flight, the particle’s horizontal acceleration is zero and its
+vertical acceleration is the free-fall acceleration $-g$. (Upward is
+taken to be a positive direction.) If $\vec v_0$ is expressed as a
+magnitude (the speed $v_0$) and an angle $\theta_0$ (measured from the
+horizontal), the particle’s equations of motion along the horizontal x
+axis and vertical y axis are
+\begin{align}
+    x-x_0 &= (v_0 \cos(\theta_0) ) t \\
+    y-y_0 &= (v_0 \sin(\theta_0) ) t - \frac{1}{2} gt^2 \\
+    v_y   &= v_0 \sin{\theta_0} - gt \\
+    v_y^2 &= (v_0 \sin{\theta_0})^2 - 2g (y-y_0)
+\end{align}
+The \textbf{trajectory} (path) of a particle in projectile motion is
+parabolic and is given by
+\begin{align}
+    y &= (\tan{\theta_0}) x - \frac{gx^2}{2(v_0 \cos{\theta_0})^2} 
+\end{align}
+
+\paragraph{Uniform Circular Motion} If a particle travels along a circle
+or circular arc of radius $r$ at constant speed $v$, it is said to be in
+\textit{uniform circular motion} and has an acceleration of constant
+magnitude
+\begin{align}
+    a = \frac{v^2}{r}
+\end{align}
+The direction of is toward the center of the circle or circular arc,
+and is said to be centripetal. The time for the particle to complete
+a circle is
+\begin{align}
+    T=\frac{2\pi r}{v}
+\end{align}
+$T$ is called the period of revolution, or simply the period, of the
+motion.
+
+This acceleration is due to a net centripetal force on the particle,
+with magnitude given by
+\begin{align}
+    F = \frac{mv^2}{R}
+\end{align}
+where $m$ is the particle’s mass. The vector quantities $\vec a$ and
+$\vec F$ are directed toward the center of curvature of the particle’s
+path
+\begin{defi}[Normal force]
+\nomenclature{Normal force}{\nomrefpage.}
+A \textbf{normal force} is the force on a body from a surface against
+which the body presses.The normal force is always perpendicular to the
+surface.
+\end{defi}
+
+\paragraph{Drag Force} When there is relative motion between air (or
+some other fluid) and a body, the body experiences a drag force $\vec
+D$
+that opposes the relative motion and points in the direction in
+which the fluid flows relative to the body. The magnitude of $\vec D$is
+related to the relative speed $v$ by an experimentally determined
+drag coefficient $C$ according to
+\begin{align}
+    D=\frac{1}{2} C\rho A v^2
+\end{align}
+where $\rho$ is the fluid density (mass per unit volume) and $A$ is
+the effective cross-sectional area of the body (the area of a cross
+section taken perpendicular to the relative velocity $\vec v$)
+
+Power The power due to a force is the rate at which that force
+does work on an object. For a force $\vec F$ at an angle $\phi$ to the
+direction of travel of the instantaneous velocity $\vec v$, the
+instantaneous power is
+\begin{align}
+    P = Fv \cos{\phi} = \vec{F} \cdot \vec{v}
+\end{align}
+
+\paragraph{Collision and Impulse} Applying Newton’s second law in
+momentum form to a particle-like body involved in a collision
+leads to the impulse–linear momentum theorem:
+\begin{align}
+    \vec{p}_f - \vec{p}_i = \int_{t_i}^{t_f} \vec{F} \diff t
+\end{align}
+where the LHS is the change in the body’s linear
+momentum, and RHS is defined as the impulse $\vec{J}$ due to the force
+exerted on the body by the other body in the collision.
+
+\paragraph{Elastic Collisions in One Dimension} An elastic collision
+is a special type of collision in which the kinetic energy of a system
+of colliding bodies is conserved. If the system is closed and
+isolated, its linear momentum is also conserved. For a one-dimensional
+collision in which body $2$ is a target and body $1$ is an incoming
+projectile, conservation of kinetic energy and linear momentum yield
+the following expressions for the velocities immediately after the
+collision:
+\begin{align}
+    v_{1f} &= \frac{m_1-m_2}{m_1+m_2} v_{1i} \\
+    v_{2f} &= \frac{2m_1}{m_1+m_2} v_{1i}
+\end{align}
+
+Variable-Mass Systems In the absence of external forces a rocket
+accelerates at an instantaneous rate given by
+\begin{align}
+    R v_{\text{rel}} = Ma \text{(first rocket equation)}
+\end{align}
+in which $M$ is the rocket’s instantaneous mass (including
+unexpended fuel), $R$ is the fuel consumption rate, and $v_{\text{rel}}$ is the fuel’s
+exhaust speed relative to the rocket. The term $R v_{\text{rel}}$ is the thrust of
+the rocket engine. For a rocket with constant R and $v_{\text{rel}}$, whose speed
+changes from $v_i$ to $v_f$ when its mass changes from $M_i$ to $M_f$,
+\begin{align}
+    v_f - v_i = v_{\text{rel}} \ln\frac{M_i}{M_f} \text{(second rocket
+    equation)}
+\end{align}
+($R\equiv |\frac{\diff M}{\diff t}|$)
+
+\paragraph{The Kinematic Equations for Constant Angular Acceleration}
+Constant angular acceleration ($\alpha =$a constant) is an important
+special case of rotational motion. The appropriate kinematic
+equations, given in Table 10-1, are
+\begin{align}
+    \sigma &= \sigma_0 + \alpha t \\
+    \theta - \theta_0 &= \omega_0 t + \frac{1}{2} \alpha t^2 \\
+    \theta - \theta_0 &= \omega t - \frac{1}{2} \alpha t^2 \\
+    \omega^2 - \omega_0^2 &= 2\alpha (\theta - \theta_0) \\
+    \theta - \theta_0 &= \frac{1}{2}(\omega_0 + \omega) t
+\end{align}
+
+\paragraph{Linear and Angular Variables Related} A point in a rigid
+rotating body, at a perpendicular distance $r$ from the rotation axis,
+moves in a circle with radius $r$. 
+
+The linear acceleration $\vec{a}$ of the point \hl{has both tangential and
+radial components}.The tangential component is
+\begin{align}
+    a_t = \alpha r
+\end{align}
+where $\alpha$ is the magnitude of the angular acceleration (in radians
+per second-squared) of the body.The radial component of $\vec{a}$ is
+\begin{align}
+    a_r = \frac{v^2}{r} = \omega^2 r
+\end{align}
+If the point moves in uniform circular motion, the period $T$ of
+the motion for the point and the body is
+\begin{align}
+    T = \frac{2\pi r}{v} = \frac{2\pi}{\omega}
+\end{align}
+\paragraph{Rotational Kinetic Energy and Rotational Inertia} The
+kinetic energy $K$ of a rigid body rotating about a fixed axis is
+given by
+\begin{align}
+    K=\frac{1}{2} I\omega^2
+\end{align}
+in which $I$ is the rotational inertia of the body, defined as
+\begin{align}
+    I \equiv \int r^2 \diff m
+\end{align}
+\paragraph{The Parallel-Axis Theorem} 265
+\begin{align}
+    I = I_{\text{com}} + M h^2
+\end{align}
+
+\paragraph{Work and Rotational Kinetic Energy} 265
+\begin{align}
+    W = \int_{\theta_i}^{\theta_f} \tau \diff \theta \\
+    P = \frac{\diff W}{\diff t} = \tau \omega
+\end{align}
+
+\paragraph{Rolling Bodies}
+[295]
+\begin{align}
+    v_\text{com} &= \omega R\\
+    K  &= \frac{1}{2}I_\text{com}\omega^2 + \frac{1}{2}Mv_\text{com}^2
+    \\
+    a_\text{com} = \alpha R
+\end{align}
+\paragraph{Precession of a Gyroscope}
+\begin{align}
+    \Omega = \frac{Mgr}{I\omega}
+\end{align}
+
+\paragraph{Elastic Moduli} [319]
+\begin{center}
+    stress $=$ modulus $\times$ strain
+\end{center}
+
+Young's modulus:
+\begin{align}
+    \frac{F}{A} = E \frac{\Delta L}{L}
+\end{align}
+
+Shear's modulus:
+\begin{align}
+    \frac{F}{A} = G \frac{\Delta x}{L}
+\end{align}
+
+Hydraulic bulk modulus:
+\begin{align}
+    p = B \frac{\Delta V}{V}
+\end{align}
+
+\paragraph{Gravitational Potential Energy} [349]
+\begin{align}
+    U = -\frac{GMm}{r}
+\end{align}
+
+\textbf{Escape speed}
+\begin{align}
+    v = \sqrt{ \frac{2GM}{R} }
+\end{align}
+
+\textbf{Kepler's Laws}
+\begin{enumerate}
+    \item The law of orbits. All planets move in elliptical orbits
+        with the Sun at one focus.
+    \item The law of areas. A line joining any planet to the Sun
+        sweeps out equal areas in equal time intervals. (This
+        statement is equivalent to conservation of angular momentum.)
+    \item The law of periods. The square of the period $T$ of any
+        planet is proportional to the cube of the semimajor axis a of
+        its orbit. For circular orbits with radius $r$,
+    \begin{align}
+        T^2 = \left(\frac{4\pi^2}{GM}\right) r^3
+    \end{align}
+        where $M$ is the mass of the attracting body—the Sun in the
+        case of the solar system. For elliptical planetary orbits, the
+        semimajor axis $a$ is substituted for $r$.
+\end{enumerate}
+
+\textbf{Energy in Planetary Motion}
+\begin{align}
+    U &= -\frac{GMm}{r} \\
+    K &= \frac{GMm}{2r} \\
+    E &= -\frac{GMm}{2r} \,\text{ or} \\
+    E &= -\frac{GMm}{2a} 
+\end{align}
+
+\paragraph{Flow of Ideal Fluids}[377]
+\begin{defi}[Apparent weight]
+\nomenclature{Apparent weight}{\nomrefpage.}
+    Omited
+\end{defi}
+
+\textbf{Equation of continuity}
+\begin{align}
+    R_v \equiv Av = \text{ a constant}
+\end{align}
+\textbf{Bernoulli's Equation}
+\begin{align}
+    p + \frac{1}{2}\rho v^2 + \rho gh = \text{ a constant}
+\end{align}
+
+\paragraph{Oscillation} (\textbf{pp.403 of \cite{book}})
+\begin{align}
+    \omega &= \frac{2\pi}{T} = 2\pi f
+\end{align}
+\textbf{Linear Oscillator}
+\begin{align}
+    & \omega = \sqrt{\frac{k}{m}} \\
+    & T = 2\pi \sqrt{\frac{m}{k}} 
+\end{align}
+\textbf{Pendulums}
+\begin{align}
+    & T = 2\pi \sqrt{I/\kappa} \\
+    & T = 2\pi \sqrt{L/g} \\
+    & T = 2\pi \sqrt{I/mgh}
+\end{align}
+\textbf{Damped Harmonic Motion}
+\begin{align}
+    & x(t) = x_m e^{-bt/2m} \cos\left( \omega' t+\phi\right) \\
+    & \omega' = \sqrt{ \frac{k}{m} - \frac{b^2}{4m^2} } \\
+    & E(t)\approx \frac{1}{2} kx_m^2 e^{-bt/m}
+\end{align}
+\paragraph{Waves} (\textbf{pp.436 ch16 of \cite{book}})
+\begin{align}
+    & y(x,t) = y_m \sin(kx-\omega t) \\
+    & k = \frac{2\pi}{\lambda} \\
+    & f = \frac{\omega}{2\pi} = \frac{1}{T} \\
+    & v = \frac{\omega}{k} = \frac{\lambda}{T} = \lambda f
+\end{align}
+\textbf{String}
+\begin{align}
+    & v = \frac{\tau}{\mu} \\
+    & P_\text{avg} = \frac{1}{2}\mu v \omega^2 y_m^2
+\end{align}
+\textbf{Resonance}
+\begin{align}
+    n \lambda = 2L
+\end{align}
+\paragraph{Longitudinal Wave} (\textbf{pp.466 ch17 of \cite{book}})
+\begin{align}
+    & v = \sqrt{\frac{B}{\rho}} \\
+    & s = s_m \cos(kx-\omega t) \\
+    & \Delta p = \Delta p_m sin(kx-\omega r) \\
+    & \Delta p_m = (v\rho \omega) s_m
+\end{align}
+\textbf{Sound Intensity}
+\begin{align}
+    & I = \frac{P}{A} \\
+    & I = \frac{1}{2}\rho v \omega^2 s_m^2 \\
+    & I = \frac{P_s}{4\pi r^2} \\
+\end{align}
+\textbf{Standing Wave Patterns in Pipes}
+\begin{align}
+    & f = \frac{v}{\lambda} = \frac{nv}{2L}\text{, $n=1,2,3,\cdots$} \\
+    & f = \frac{v}{\lambda} = \frac{nv}{4L}\text{, $n=1,3,5,\cdots$}
+\end{align}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pics/{ch17.sound_wave}.png}
+\end{figure}
+\textbf{Beat}
+\begin{align}
+    f_\text{beat} = f_1 - f_2
+\end{align}
+\textbf{The Doppler Effect}
+\begin{align}
+    f' = f \frac{ v \pm v_D}{ v\pm v_s}
+\end{align}
+The signs are chosen such that $f'$ tends to be \textit{greater} for
+motion toward and \textit{less} for motion away.
+\textbf{Shock wave}
+\begin{align}
+    \sin{\theta} = \frac{v}{v_s}\text{ , $v_s\geq v$}
+\end{align}
+
+\paragraph{Conduction} (\textbf{pp.498 ch18 of \cite{book}})
+\textbf{Thermal expansion}
+\begin{align}
+    & \Delta L = L \alpha \Delta T \\
+    & \Delta V = V \beta \Delta T \\
+    & \beta = 3 \alpha \\
+    & Q = C \Delta T = cm \Delta T
+\end{align}
+\begin{defi}[Convection]
+\nomenclature{Convection}{\nomrefpage.}
+    Convection occurs when temperature differences cause an energy
+    transfer by motion within a fluid
+\end{defi}
+\textbf{Radiation}
+\begin{align}
+    & P_\text{rad} = \sigma \varepsilon AT^4 \\
+    & P_\text{abs} = \sigma \varepsilon AT_\text{evn}^4
+\end{align}
+\textbf{Conduction}
+\begin{align}
+    P_\text{cond} \equiv \frac{Q}{t} = kA \frac{T_H-T_C}{L} 
+\end{align}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pics/{ch18.heat_cond}.png}
+\end{figure}
+
+\paragraph{Thermal Process} (\textbf{pp.529 ch19 of \cite{book}})
+Thermal process:
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        No. & Constant Quaility            & Process Type & Special Results  \\
+        \hline
+        1   & $p$                          & Isobaric     & $Q = nC_p\Delta T;W=p\Delta V$ \\
+        2   & $V$                          & Isothermal   & $Q=W=nRT\ln(V_f/V_i); \Delta E_\text{int}=0$  \\
+        3   & $pV^\gamma$, $TV^{\gamma-1}$ & Adiabatic    & $W=-\Delta E_\text{int}$ \\
+        4   & $V$                          & Isochoric    & $Q=\Delta E_\text{int}=nC_V \Delta T;W=0$ \\
+        \hline
+    \end{tabular}
+\end{table}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pics/{ch18.therm_pro}.png}
+\end{figure}
+Isothermal Process:
+\begin{align}
+    W = Nk T \ln\frac{V_f}{V_i}
+\end{align}
+\textbf{Temperature and Kinetic Energy}
+\begin{align}
+    & K_\text{avg} = \frac{3}{2}kT \text{, per molecule} \\
+    & \lambda = \frac{1}{\sqrt{2} \pi d^2 N/V} 
+\end{align}
+\paragraph{Molar Specific Heats}
+\begin{align}
+    & C_V = \frac{3}{2} R \\
+    & C_P = C_V + R \\
+    & \Delta E_\text{int} = N C_V \Delta T \\
+    & C_V = \frac{f}{2} k \\
+    & \gamma \equiv \frac{C_P}{C_V}
+\end{align}
+
+\paragraph{Entropy} (\textbf{pp.554 ch20 of \cite{book}})
+
+\begin{align}
+    & \diff S = \frac{\diff Q}{T} \\
+    & \Delta S = nR \ln{\frac{V_f}{V_i}} + nC_V \ln{\frac{T_f}{T_i}}
+    \\
+    & \varepsilon = 1-\frac{T_L}{T_H}  \text{ (Carnot engine)} \\
+    & K = \frac{T_L}{T_H-T_L} \text{ (Carnot refrigerator)}  \\
+    & \ln{N!} \approx N\ln{N} - N
+\end{align}
+
+\paragraph{Electric field} (\textbf{pp.596 ch22 of \cite{book}})
+\begin{align}
+    & E = \frac{1}{4\pi \varepsilon_0} \frac{q}{r^2} \\
+    & E = \frac{1}{2\pi \varepsilon_0} \frac{p}{z^3} \\
+    & U = - \vec{p}\cdot \vec{E} 
+\end{align}
+
+\paragraph{Gauss's Law} (\textbf{pp.620 ch23 of \cite{book}})
+
+\begin{align}
+    & E = \frac{\sigma}{\varepsilon_0}\text{ ,charged conductor} \\
+    & E = \frac{\sigma}{2\varepsilon_0}\text{ ,infinite sheet} \\
+    & E = \frac{\lambda}{2\pi\varepsilon_0 r} \\
+    & E = 0 \text{ , inside charged shell} \\
+    & E = \left(\frac{q}{4\pi\varepsilon_0 R^3}\right) r
+\end{align}
+
+\paragraph{Electric Potential} (\textbf{pp.646 ch24 of \cite{book}})
+
+\begin{align}
+    & V = \frac{1}{4\pi\varepsilon_0}\frac{q}{r} \\
+    & V = \frac{1}{4\pi\varepsilon_0}\frac{p\cos\theta}{r^2} \\
+    & U = \frac{1}{4\pi\varepsilon_0}\frac{q_1 q_2}{r}
+\end{align}
+
+\paragraph{Capacitor} (\textbf{pp.675 ch25 of \cite{book}})
+
+\begin{align}
+    & C \equiv \frac{q}{V} \\
+    & C = \frac{\varepsilon_0 A}{d} \text{ (parallel-plate)} \\
+    & C = 2\pi \varepsilon_0 \frac{L}{\ln{b/a}} 
+            \text{ (cylindrical)}\\
+    & C = 4\pi \varepsilon_0 \frac{ab}{b-a} \text{ (spherical)}\\
+    & C = 4\pi \varepsilon_0 R \text{ (isolated spherical)} \\
+    & C = \sum_j C_j \text{ (parallel)} \\
+    & \frac{1}{C} = \sum_j \frac{1}{C_j} \text{ (series)}  \\
+    & U = \frac{1}{2}\frac{q^2}{C} = \frac{1}{2}CV^2 \\
+    & u = \frac{1}{2}\varepsilon_0 E^2
+\end{align}
+
+\paragraph{Current} (\textbf{pp.698 ch26 of \cite{book}})
+
+\begin{align}
+    & \vec{J} = ne \vec{v}_d \\
+    & \rho \equiv \frac{1}{\sigma} = \frac{E}{J} \\
+    & \vec{E} = \rho \vec{J} \\
+    & R = \rho \frac{L}{A} \\
+    & \rho - \rho_0 = \rho_0 \alpha (T-T_0) \\
+    & \rho = \frac{m}{e^2 n\tau }
+\end{align}
+
+\paragraph{Electro motive force} (\textbf{pp.724 ch27 of \cite{book}})
+
+\begin{align}
+    & \mathcal{E} = \frac{\diff W}{\diff q}
+\end{align}
+
+\textbf{Circuit Rule}
+\begin{itemize}
+    \item \textbf{Loop Rule}. The algebraic sum of the changes in
+        potential encountered in a complete traversal of any loop of a
+        circuit must be zero.
+    \item \textbf{Junction Rule}. The sum of the currents entering any
+        junction must be equal to the sum of the currents leaving that
+        junction
+\end{itemize}
+
+\begin{align}
+    & R = \sum_j R_j \text{ , series} \\
+    & \frac{1}{R} = \sum_j \frac{1}{R_j} \text{ , parallel}
+\end{align}
+
+\paragraph{Magnetic Field} (\textbf{pp.755 ch28 of \cite{book}})
+
+\begin{align}
+    & qvB = \frac{mv^2}{r} \\
+    & T = \frac{2\pi r}{ rqB / m} = \frac{2\pi m}{qB} \\
+    & \vec\tau = \vec{\mu} \times \vec{B} \\
+    & U(\theta) = -\vec\mu \cdot \vec B
+\end{align}
+
+\paragraph{Magnetic -> Electricity} (\textbf{pp.781 ch29 of
+\cite{book}})
+
+\begin{align}
+    & \diff \vec{B} = \frac{\mu_0}{4\pi}
+        \frac{i\diff \vec{s}\times\hat{r}}{r^2} \\
+    & B = \frac{\mu_0 i}{2\pi R} \\
+    & B = \frac{\mu_0 i \phi}{4\pi R} \\
+    & B = \mu_0 i N/L \\
+    & B = \frac{\mu_i i N}{2\pi}\frac{1}{r} \\
+    & \vec{B}(z) = \frac{\mu_0}{2\pi}\frac{\vec{\mu}}{z^3}
+\end{align}
+
+\paragraph{Faraday's Law} (\textbf{pp.816 ch30 of \cite{book}})
+
+\begin{align}
+    \mathcal{E} = \int \vec{E} \diff \vec{s} \\
+\end{align}
+\textbf{Inductance}
+\begin{align}
+    & L \equiv \frac{N\Phi_B}{i} \\
+    & \frac{L}{l} = \mu_n n^2 A \\
+    & \mathcal{E}_L = - L\frac{\diff i}{\diff t} \\
+    & U_B = \frac{1}{2} L i^2 \\
+    & u_B = \frac{1}{2} \frac{B^2}{\mu_0} 
+\end{align}
+\section{Anchor}
+\label{sec:anchor}
+\begin{thebibliography}{1}
+    \bibitem{book} Fundamentals of Physics, Extended Edition. Halliday
+    \& Resnick.
+\end{thebibliography}
+\printnomenclature
+\section{License}
+The entire content of this work (including the source code
+for TeX files and the generated PDF documents) by 
+Hongxiang Chen (nicknamed we.taper, or just Taper) is
+licensed under a 
+\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative 
+Commons Attribution-NonCommercial-ShareAlike 4.0 International 
+License}. Permissions beyond the scope of this 
+license may be available at \url{mailto:we.taper[at]gmail[dot]com}.
+\end{document}
