@@ -1,0 +1,153 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+\usepackage{float}  % For H in figures
+\usepackage{amsmath} % For math
+\usepackage{amssymb}
+\usepackage{bbm} % for numbers within mathbb
+\usepackage{mathrsfs} % For \mathscr{ABC}
+% Followings are for the special character: differential "d".
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
+\numberwithin{equation}{subsection} % have the enumeration go to the subsection level.
+                                    % See:https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
+\usepackage{graphicx}   % need for figures
+\usepackage{cite} % need for bibligraphy.
+\usepackage[unicode]{hyperref}  % make every cite a link
+\usepackage{CJKutf8} % For Chinese characters
+\usepackage{fancyref} % For easy adding figure,equation etc in reference. Use \fref or \Fref instead of \ref
+\usepackage{braket} %http://tex.stackexchange.com/questions/214728/braket-notation-in-latex
+
+% Following is for theorems etc environments
+% http://tex.stackexchange.com/questions/45817/theorem-definition-lemma-problem-numbering && https://en.wikibooks.org/wiki/LaTeX/Theorems
+\usepackage{amsthm}
+\newtheorem{defi}{Definition}[section]
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\theoremstyle{definition}
+\newtheorem{ex}{Example}[section]
+
+
+\usepackage{CJKutf8}
+
+% A list of nomenclatures.
+\usepackage{nomencl}
+\makenomenclature
+
+% For drawing diagrams with arrows
+\usepackage[all]{xy}
+
+\title{Solution for HW2 20161013}
+\date{\today}
+\author{Taper}
+
+\begin{document}
+
+\maketitle
+\abstract{
+\begin{CJK}{UTF8}{gbsn}陈鸿翔（11310075）\end{CJK}
+}
+%\tableofcontents
+\section{Describe wave function}
+Wave functgion is a function that is assumed to be describing the
+physical system. It is assumed that all physical information can be
+extracted from it, which is saying that a wave function is the
+complete description of the physical system it is complete. And we
+calculate any observable $A$ by calculating its expectation value
+using the wave function.
+
+As for the probability wave, I thick this is kind of a misnomer. It is
+the wave function that propagates in the form of waves, as can be seen
+by the following formal solution to the schrodinger equation:
+
+\begin{align}
+    i\hbar \frac{\partial}{\partial t} \Psi = H \Psi \nonumber\\
+    \Rightarrow \Psi(t) = e^{-i\hbar H} \Psi(t=t_0)
+\end{align}
+
+However, the probability is determined by the absolute value of
+wavefunction, so it does not exactly propagate like a wave. 
+
+\section{Eigensystems}
+
+$\bullet e^x$: $\frac{\diff^2}{\diff x^2} e^x = e^x$, so it IS an
+eigenfunction, with eigenvalue $1$.
+
+$\bullet \sin(x)$: $\frac{\diff^2}{\diff x^2} \sin(x) = -\sin(x)$, so
+it IS an eigenfunction, with eigenvalue $-1$.
+
+$\bullet 2\cos(x)$: $\frac{\diff^2}{\diff x^2} 2\cos(x) = 2
+(-\cos(x)) = - (2\cos(x))$, so it IS an eigenfunction, with eigenvalue
+$-1$.
+
+$\bullet \sin^2(x)$: $\frac{\diff^2}{\diff x^2} \sin^2(x) =
+\frac{\diff}{\diff x}2 \cos(x) = -2 \sin(x)$, so it is NOT an
+eigenfunction.
+
+$\bullet x^3$: $\frac{\diff^2}{\diff x^2} x^3 = 6x$, so it is NOT an
+eigenfunction.
+
+$\bullet \sin(x)+\cos(x)$: the combination of two eigenfunction with
+the same eigenvalue is of course an eigenfunction, with eigenvalue
+$-1$.
+
+\section{1D infinite potential well}
+The time-independent Schrodinger equation inside the wall is:
+$$ -\frac{\hbar^2}{2m} \frac{\diff^2}{\diff x^2} \psi = E\psi$$,
+so clearly
+$$\psi = A \sin(kx) + B\cos(kx)$$
+inside the wall. Here $k=\sqrt{\frac{2mE}{\hbar^2}}$.
+
+Outside the wall the potential is infinite, not suitable for
+wavefunction to live. So $\psi=0$ outside. Connecting the wave
+function in the boundary will clearly leads to dicretized wavelength.
+But the give coordinate is not convenient to determine the parameters
+$A,B$. So I shift the origin leftwards for $\frac{a}{2}$. Then the
+potential becomes:
+$$
+U = \begin{cases}
+    0& 0\leq x\leq a \\
+    \infty& \text{otherwise}
+\end{cases}
+$$
+Then we have $\psi(0)=0$, hence $B=0$. And $\psi(a)=0$, hence
+$$ \sqrt{\frac{2mE}{\hbar^2}} a = n\pi \Rightarrow$$
+$$ E = \frac{n^2\pi^2\hbar^2}{2ma^2}$$
+where $n=1,2,\cdots$. $A$ is determined by normalization, but I don't
+have to calculate because the next exercise has already given the
+answer: $A = \sqrt{\frac{2}{a}}$. Now shift the coordinate back, I
+have
+\begin{align}
+    \psi(x) &= \sqrt{\frac{2}{a}}\sin\left(k(x-\frac{a}{2})\right)
+            =\sqrt{\frac{2}{a}}
+                \sin\left(\frac{n\pi}{a}(x-\frac{a}{2})\right)\\
+    k       &= \sqrt{\frac{2mE}{\hbar^2}}\\
+    E       &= \frac{n^2\pi^2\hbar^2}{2ma^2}
+\end{align}
+
+\section{Prove the orthogonality}
+This is simple:
+\begin{align*}
+    &\int_{0}^{l} \sin(\frac{n\pi x}{l}) \sin(\frac{m\pi x}{l})\\
+    =& \int_{0}^{l} \frac{ 
+        \cos(\frac{(n-m)\pi x}{l}) - \cos(\frac{(n-m)\pi x}{l})
+        } {2}
+\end{align*}
+Notice that when $n\neq m$, both $\cos(\frac{(n-m)\pi x}{l})$ and
+$\cos(\frac{(n-m)\pi x}{l})$ oscillate with the period of $l$. That
+means the integration is taken over a whole peroid. So the result is
+$0$, i.e.:
+\begin{align}
+    \int_{0}^{l} \sin(\frac{n\pi x}{l}) \sin(\frac{m\pi x}{l})=0
+\end{align}
+for $m\neq n$.
+\end{document}
