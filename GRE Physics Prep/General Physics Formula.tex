@@ -309,6 +309,9 @@ Hydraulic bulk modulus:
     E &= -\frac{GMm}{2a} 
 \end{align}
 
+\section{Fluid}
+\label{sec:Fluid}
+
 \paragraph{Flow of Ideal Fluids}[377]
 \begin{defi}[Apparent weight]
 \nomenclature{Apparent weight}{\nomrefpage.}
@@ -323,6 +326,9 @@ Hydraulic bulk modulus:
 \begin{align}
     p + \frac{1}{2}\rho v^2 + \rho gh = \text{ a constant}
 \end{align}
+
+\section{Wave}
+\label{sec:Wave}
 
 \paragraph{Oscillation} (\textbf{pp.403 of \cite{book}})
 \begin{align}
@@ -345,6 +351,8 @@ Hydraulic bulk modulus:
     & \omega' = \sqrt{ \frac{k}{m} - \frac{b^2}{4m^2} } \\
     & E(t)\approx \frac{1}{2} kx_m^2 e^{-bt/m}
 \end{align}
+
+
 \paragraph{Waves} (\textbf{pp.436 ch16 of \cite{book}})
 \begin{align}
     & y(x,t) = y_m \sin(kx-\omega t) \\
@@ -397,6 +405,9 @@ motion toward and \textit{less} for motion away.
 \begin{align}
     \sin{\theta} = \frac{v}{v_s}\text{ , $v_s\geq v$}
 \end{align}
+
+\section{Thermal Physics}
+\label{sec:Thermal-Physics}
 
 \paragraph{Conduction} (\textbf{pp.498 ch18 of \cite{book}})
 \textbf{Thermal expansion}
@@ -472,6 +483,9 @@ Isothermal Process:
     & K = \frac{T_L}{T_H-T_L} \text{ (Carnot refrigerator)}  \\
     & \ln{N!} \approx N\ln{N} - N
 \end{align}
+
+\section{Electrodynamics}
+\label{sec:Electrodynamics}
 
 \paragraph{Electric field} (\textbf{pp.596 ch22 of \cite{book}})
 \begin{align}
@@ -570,7 +584,7 @@ Isothermal Process:
 \paragraph{Faraday's Law} (\textbf{pp.816 ch30 of \cite{book}})
 
 \begin{align}
-    \mathcal{E} = \int \vec{E} \diff \vec{s} \\
+    \mathcal{E} = \oint \vec{E} \diff \vec{s} \\
 \end{align}
 \textbf{Inductance}
 \begin{align}
@@ -580,6 +594,110 @@ Isothermal Process:
     & U_B = \frac{1}{2} L i^2 \\
     & u_B = \frac{1}{2} \frac{B^2}{\mu_0} 
 \end{align}
+
+\paragraph{LC Circuit} (\textbf{pp.853 ch31 of \cite{book}})
+
+\begin{align}
+    & U_E = \frac{q^2}{2C} \\
+    & U_B = \frac{L i^2}{2} \\
+    & \omega = \frac{1}{\sqrt{LC}}
+\end{align}
+Predicting RLC current (\textbf{pp.843 of \cite{book}})
+
+\paragraph{Maxwell's Equations} (\textbf{pp.869 of \cite{book}})
+
+\begin{align}
+    & \oint \vec{E} \cdot \diff \vec{A} = q_\text{enc}/\varepsilon_0
+    \\
+    & \oint \vec{B} \cdot\diff\vec{A} = 0 \\
+    & \oint \vec{E}\cdot\diff\vec{s} = -\frac{\diff\Phi_B}{\diff t} \\
+    & \oint \vec{B}\cdot\diff\vec{s} = 
+    \mu_0\varepsilon_0 \frac{\diff\Phi_E}{\diff t} +\mu_0 i_\text{enc}
+    \nonumber\\
+    & \,= \mu_0 i_d + \mu_0 i_\text{enc}
+\end{align}
+
+(\textbf{pp.882 ch32 of \cite{book}})
+
+\textbf{Spin}
+\begin{align}
+    & \mu_s = -\frac{e}{m} S \\
+    & \mu_B = \frac{e\hbar}{2m} = 9.27\times 10^{-24} \text{J/T} \\
+    & \mu_\text{orb} = -\frac{e}{2m} L_\text{orb}
+\end{align}
+\textbf{Curie's law} 
+\begin{align}
+    M = C\frac{B_\text{ext}}{T}
+\end{align}
+
+\paragraph{Optics} (\textbf{pp.913 ch33 of \cite{book}})
+\begin{align}
+    & \vec{S} = \frac{1}{\mu_0} \vec{E}\times\vec{B} \\
+    & F = \frac{IA}{c} \text{ (total absorption)} \\
+    & F = \frac{2IA}{c} \text{ (total reflection)} \\
+    & I = I_0 \cos^2{\theta} \\
+    & n_1 \sin{\theta_1} = n_2 \sin{\theta_2} \\
+    & \theta_c = \sin^{-1}\frac{n_2}{n_1} \\
+    & \theta_B = \tan^{-1}\frac{n_2}{n_1}
+\end{align}
+
+\paragraph{Optics 2} (\textbf{pp.948 ch34 of \cite{book}})
+\begin{align}
+    \text{Omitted}
+\end{align}
+
+\paragraph{Interference} (\textbf{pp.981 ch35 of \cite{book}})
+
+\begin{align}
+    & \lambda_n = \frac{\lambda}{n} \\
+    & 2L = (m+\frac{1}{2})\frac{\lambda}{n_2} \text{ (thin film, max)}
+    \\
+    & d\sin{\theta} = m\lambda \text{ (Young's, max)}
+\end{align}
+
+\paragraph{Diffraction} (\textbf{pp.1013 ch36 of \cite{book}})
+
+\begin{align}
+    a\sin{\theta} &= m \lambda \text{, $m=1,2,\cdots$ (single-slit
+    minima)} \\
+    \theta_R &= 1.22\frac{\lambda}{d} \text{ (Rayleigh's criterion)}
+    \\
+    I(\theta) &=  I_m
+      (\cos^2\beta)\left(\frac{\sin{\alpha}}{\alpha}\right)^2 \\
+    \beta &= (\pi d/\lambda),\, \alpha = (\pi a/\lambda)\sin\theta \\
+    d\sin{\theta} &= m\lambda \text{, $m=0,1,2\cdots$ (diffraction
+      grating maxima)} \\
+    2d\sin{\theta} &= m\lambda \text{, $m=1,2,\cdots$ (Bragg's law)}
+\end{align}
+
+\paragraph{Relativity} (\textbf{pp.1048 ch37 of \cite{book}})
+\begin{align}
+    \Delta t &= \gamma \Delta t_0 \\
+    L &= L_0/\gamma \\
+    x' &= \gamma(x-vt) \\
+    t' &= \gamma(t-vx/c^2) \\
+    u &= \frac{u'+v}{1+u'v/c^2} \\
+    f &= f_0 \sqrt{\frac{1-\beta}{1+\beta}} \\
+    f &= f_0 \sqrt{1-\beta^2} \\
+    \vec{p} &= \gamma m \vec{v} \\
+    E &= mc^2 + K = \gamma mc^2 \\
+    E^2 &= (pc)^2 + (mc^2)^r
+\end{align}
+
+\paragraph{Photon} (\textbf{pp.1077 ch38 of \cite{book}})
+\begin{align}
+    & E = h f \\
+    & p= \frac{hf}{c} = \frac{h}{\lambda} \\
+    & hf = K_\text{max} + \Phi_\text{work function} \\
+    & \Delta\lambda = \frac{h}{mc}(1-\cos{\phi})
+\end{align}
+
+\paragraph{Conductions} (\textbf{pp.1160 ch41 of \cite{book}})
+\begin{align}
+    P(E) &= \frac{1}{e^{(E-E_F)/kT} +1} 
+\end{align}
+
+
 \section{Anchor}
 \label{sec:anchor}
 \begin{thebibliography}{1}
