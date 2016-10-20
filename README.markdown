@@ -112,3 +112,7 @@ This is intended for storing my drafts of my works. It is messy and will never b
     contains a summary of result about spins (or in general, Rotations in
     quantum mechanics), which is quite useful for studying other quantum
     mechanical properties.
+
+14. GRE physics preparation notes
+
+15. My C.V.
