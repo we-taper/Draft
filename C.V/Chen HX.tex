@@ -12,8 +12,12 @@
 \documentclass[letterpaper]{article}
 
 % For better tables with automatically wraping
-\usepackage{tabularx}
+\usepackage{tabu}
 \usepackage{booktabs}
+\usepackage[table]{xcolor}
+\definecolor{lightblue}{RGB}{217,224,250}
+\definecolor{lightgrey}{RGB}{211,211,211}
+%\renewcommand{\arraystretch}{1.5}
 
 \usepackage{hyperref}
 \usepackage{geometry}
@@ -29,7 +33,7 @@
 \usepackage{amssymb}
 
 % For highlighting
-\usepackage{color,soul}
+\usepackage{soul}
 
 \setlength\LTleft{0pt}
 \setlength\LTright{0pt}
@@ -101,7 +105,7 @@
 \begin{minipage}{0.44\linewidth}
   %\href{http://www.physics.upenn.edu/}{University of Pennsylvania} \\
   %Department of Physics and Astronomy \\
-  No 1088,xueyuan Rd., Xili, Nanshan District,\\
+  No 1088, Xueyuan Rd., Xili, Nanshan District,\\
   Shenzhen,Guangdong,\\
   China \\
 \end{minipage}
@@ -127,8 +131,8 @@ https://github.com/we-taper/Draft/} \\
 %\rule{\linewidth}{.7pt}}
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
 %\hline
-{\bf\large South University of Science and Technology of China} &
-    Shenzhen, Guangdong\\
+{\bf\large South University of Science and Technology of China
+    (SUSTC)} & Shenzhen, Guangdong\\
 Bachelar of Science.~in Physics, May 2017 \\
 Advisor: Prof. Wu.~Jiansheng \\
 Graduation Paper: \\
@@ -149,25 +153,33 @@ GPA: \hl{To Be Added}/4.00. Major GPA: \hl{TBA}/4.00.
 \vspace{-8pt}
 \hrule height .7pt
 % \smallskip
-\vspace{-8pt}
+\hl{\textbf{TODO: Suit the order here with specific skills intended for
+different labs}}
+% TODO Comment the above line and uncomment the following line when
+% DONE
+% \vspace{-10 pt}
 \begin{table}[h]
     \centering
-    \begin{tabularx}{\linewidth}{  l X X X  }
-     &  Physical Science & Mathematics & Computer Technology \\
+    \rowcolors{1}{white}{lightgrey}
+    \tabulinesep=1.2mm
+    \begin{tabu}{  l X[l] X[l] X[l]  }
+        &  \textit{Physical Science} & \textit{Mathematics} &
+        \textit{Computer Technology} \\
     \hline
-    \textit{Proficient} & Topological Insulators and Superconductors &
+    %\taburowcolors[1]3{lightblue .. yellow}
+    \textbf{Proficient} & Topological Insulators and Superconductors &
         Abstract Algebra, Advanced Linear Algebra & Programming
         Language (Java, Matlab), Vim \\
 
-    \textit{Familiar} & Classical Field Theory, Theory of Solids &
+    \textbf{Familiar} & Classical Field Theory, Theory of Solids &
         Differential Geometry, Complex Geometry, Cohomology Theory &
         Programming Language (Python, Ruby, Bash) \\
 
-    \textit{Acquainted} & Quantum Many-body Theory & Algebraic
+    \textbf{Acquainted} & Quantum Many-body Theory & Algebraic
         Geometry, Discrete Mathematics & Program Algorithm Design,
         RESTful Programming, Linux System Adminstration\\
     \bottomrule
-    \end{tabularx}
+    \end{tabu}
 \end{table}
 \subsection*{Soft Skills}
 \vspace{-5pt}
@@ -177,51 +189,6 @@ GPA: \hl{To Be Added}/4.00. Major GPA: \hl{TBA}/4.00.
     \item $\bullet$ Good and confident presentation skills.
 \end{itemize}
 
-\section*{Hobbies}
-\vspace{-8pt}
-\hrule height .7pt
-\smallskip
-\begin{itemize}
-    \item $\bullet$ Fond of a diverse genras of music, from
-        classics to punk. Each suits different emotions.
-        Representatives:
-        Symphony No. 5 (Beethoven), Goldberg Variations (J.S. Bach),
-        Guangling San (Unknown), Civial War (Gun N' Roses), Hotel
-        California (Eagles).
-    \item $\bullet$ Fond of handicrafts. Favorites: Lego, Zhezhi
-        (also called Origami by the Japanese).
-\end{itemize}
-\section*{Honors and Awards}
-\vspace{-8pt}
-\hrule height .7pt
-\smallskip
-\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-    %TODO adjust the date accordingly.
-{\em\large Excellent Student Scholarship (CNY \yen 1500)} &
-October 2016 \\
-{\small South University of Science and Technology of China}\\
-\\
-{\em\large ChuChuang Scholarship (CNY \yen 6000)} &
-October 2016 \\
-{\small South University of Science and Technology of China}\\
-\\
-{\em\large ChuChuang Scholarship (CNY \yen 6000)} &
-October 2015 \\
-{\small South University of Science and Technology of China}\\
-\\
-{\em\large ChuChuang Scholarship (CNY \yen 6000)} &
-October 2014 \\
-{\small South University of Science and Technology of China}\\
-\\
-% {\em\large Werner B. Teutsch Prize} ``Awarded annually to the graduate
-% student who, & Fall 2008 \\
-% by his or her performance in the first year courses, shows the most
-% promise for\\
-% outstanding achievement in research''\\
-% {\small University of Pennsylvania} \\
-% \\
-\end{tabular*}
-
 \section*{Talks and Presentations}
 \vspace{-8pt}
 \hrule height .7pt
@@ -230,44 +197,32 @@ October 2014 \\
 % \vspace{-10pt}
 % \begin{longtable}{lr}%{\textwidth}{l@{\extracolsep{\fill}}r}
 % {\em\large Geometry of 2D Foams: Spaces of Foams and Their Topology} &
-% April 2011\\
-% {\small Gotham Metro Conensed Matter Meeting: NYAS} \\
-% \\
-% {\em\large Geometry of 2D Foams: Spaces of Foams and Their Topology} &
 % October 2010\\
 % {\small Seminar: Academia Sinica} \\
 % \\
-% {\em\large Ideal 2D foams and spherical foams from Mancini's equations} &
-% October 2009\\
-% {\small Geometry and Materials seminar: Institute for Advanced Study} \\
-% \\
-% {\em\large Realization spaces of bubble clusters and coarsening
-% trajectories} & May 2009\\
-% {\small Penn-NYU Soft Matter Workshop: NYU} \\
 % \end{longtable}
-
 % \subsection*{Contributed Talks}
 % \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-% {\em\large realization spaces of bubble clusters and coarsening
-% trajectories} & march 2009\\
-% {\small aps march meeting: pittsburgh, pa} \\
-% \\
 % {\em\large nematic order on foams} & march 2008\\
 % {\small aps march meeting: new orleans, la} \\
 % \end{tabular*}
 
 \subsection*{poster presentations}
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-{\em\large should i include my pre in all classes here?} & may 2011\\
-{\small english class: south university of science and technology of china} \\
+{\em\large My Panopticon} & December 2014\\
+{\small English Class: South University of Science and Technology of China} \\
+\\
+{\em\large A Review On Carbon Nanotube} & January 2014 \\
+{\small General Chemistry Class: South University of Science and
+Technology of China } \\
+\\
+{\em\large Advances in Origami} & November 2013\\
+{\small English Class: South University of Science and Technology of China} \\
 \\
 % {\em\large smectic topology, topography, and tomography} & june 2009\\
 % {\small liquid crystals gordon research conference: colby-sawyer
 % college} \\
 % \\
-% {\em\large smectic topology, topography, and tomography} & april 2009\\
-% {\small hougen symposium on frontiers of liquid crystals: university
-% of wisconsin} \\
 \end{tabular*}
 
 % \section*{teaching experience}
@@ -418,5 +373,56 @@ October 2014 \\
 %  \end{footnotesize}
 %\end{center}
 
+
+\section*{Hobbies}
+\vspace{-8pt}
+\hrule height .7pt
+\smallskip
+\begin{itemize}
+    \item $\bullet$ An all-encompassing attitude towards a diverse
+        genras of music, from classics to punk. Each suits different
+        emotions.
+
+        $\,$ Favorites:
+        Symphony No. 5 (Beethoven), Goldberg Variations (J.S. Bach),
+        Guangling San (Unknown), Civial War (Gun N' Roses), Hotel
+        California (Eagles).
+    \item $\bullet$ Handicrafts. Favorites: Lego, Zhezhi
+        (also called Origami by the Japanese).
+\end{itemize}
+\section*{Honors and Awards}
+\vspace{-8pt}
+\hrule height .7pt
+\smallskip
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+    %TODO adjust the date accordingly.
+{\em\large Excellent Student Scholarship }(\yen 1500) &
+October 2016 \\
+{\small South University of Science and Technology of China}\\
+\\
+{\em\large ChuChuang Scholarship }(\yen 6000) &
+October 2016 \\
+{\small South University of Science and Technology of China}\\
+\\
+{\em\large ChuChuang Scholarship }(\yen 6000) &
+October 2015 \\
+{\small South University of Science and Technology of China}\\
+\\
+{\em\large Second Place in Debating Competition} &
+January 2015 \\
+{\small Student Debating Union, South University of Science and Technology of China}\\
+\\
+{\em\large ChuChuang Scholarship }(\yen 6000)&
+October 2014 \\
+{\small South University of Science and Technology of China}\\
+\\
+% {\em\large Werner B. Teutsch Prize} ``Awarded annually to the graduate
+% student who, & Fall 2008 \\
+% by his or her performance in the first year courses, shows the most
+% promise for\\
+% outstanding achievement in research''\\
+% {\small University of Pennsylvania} \\
+% \\
+\end{tabular*}
 
 \end{document}
