@@ -781,6 +781,7 @@ Outline:
 
     We then have the useful fact:
     \begin{fact}
+        \label{fact:TROperator_TRInSpin_InnerProdTUandU}
         For any kets $\ket{\alpha},\ket{\beta}$, we have
         \begin{align}
             \pm \braket{\alpha|T\beta} = 
@@ -1013,7 +1014,105 @@ Outline:
             Therefore $F_{ij}$ is a odd function. So its integration
             over the whole BZ is zero, i.e. $\sigma_{ij}$ is zero.
         \end{proof}
+        \subsubsection{Time reversal symmetry in electron bands}
+        \label{sec:Time-reversal-symmetry-in-electron-bands}
+        Natually operator $T$ flips the sign of the
+        creation/annihilation operator of an electron. We now proves:
+        \begin{thm}
+            We have, up to a phase,
+            \begin{align}
+                & T c_\sigma T^{-1} =
+                i(\sigma_y)_{\sigma\sigma'}c_{\sigma'} \\
+                & T c_\sigma^\dagger T^{-1} = 
+                ic_{\sigma'}^\dagger(\sigma_y)^T_{\sigma'\sigma}
+            \end{align}
+            Where $\sigma_y = \left( \begin{array}{cc}
+                         0 & -i \\
+                         i & 0 \\ \end{array} \right)$.
+            and $\sigma$ label spin $\uparrow$ and spin
+            $\downarrow$.
+        \end{thm}
+        \begin{proof}
+            Assuming
+            \begin{align}
+                & Tc_\uparrow T^{-1} = A c_\downarrow \\
+                & Tc_\downarrow T^{-1} = B c_\uparrow
+            \end{align}
+            Then we need only to prove $AB^* = -1$. Since up to a
+            phase change, we can let
+            \begin{equation}
+                A = 1\,, B = -1
+            \end{equation}
+            This is what the theorem says.
+
+            Let's consider the following
+            $$T c_\uparrow c_\uparrow^\dagger \ket{0}$$
+            First, it is equal to $T\ket{0}$. On the other hand, we
+            can let the $T$ jumps over one creation operator:
+            $$A c_\downarrow T c_\uparrow^\dagger \ket{0}$$
+            Now insert $T^{-1}T$ between $A$ and $c_\downarrow$. And
+            makes the new $T$ one jump to the right:\
+            $$ A T^{-1} B c_\uparrow T^2 c_\uparrow^\dagger \ket{0}$$
+            Now be careful to notice that the first $T^{-1}$ is $T$,
+            whereas the second $T^2$ is $- \mathbbm{1}$ (watch the
+            Spin!). With simple calculation one finds it is equal to
+            $$ -AB^* T\ket{0}$$
+            Hence $-AB^* = 1$. The case for the creation operatros is
+            similar.
+        \end{proof}
+        \begin{thm}
+            For the creation and annihilation in the momentum space,
+            we have:
+            \begin{align}
+                & Tc^\dagger_{\vb{k}\sigma} T^{-1} =
+                    c^\dagger_{\vb{-k}\sigma'}
+                    i(\sigma_y)^T_{\sigma\sigma'} \\
+                & Tc_{\vb{k}\sigma} T^{-1} =
+                    c_{\vb{-k}\sigma'}
+                    i(\sigma_y)_{\sigma\sigma'}
+            \end{align}
+        \end{thm}
+        \begin{proof}
+            This is quite obvious since $T$ changes the coefficient of
+            fourier expansion: $e^{-i \vb{k}\vdot\vb{R}_j} \to 
+            e^{i \vb{k}\vdot\vb{R}_j}$
+        \end{proof}
+        Then directly apply $T$ and $T^{-1}$ to both sides of
+        $$H = \sum_{\vb{k}} c^\dagger_{\vb{k}\sigma}
+            h^{\sigma\sigma'}(\vb{k})
+            c_{\vb{k}\sigma'}$$
+
+            gives (noticing $h(k)$ is just a number that $T$ turns it
+            into its conjugate number):
+        \begin{equation}
+            h^{\sigma\sigma'}(\vb{k}) \mapsto
+            i(\sigma_y)^T_{\sigma_1\sigma} (h^{\sigma,\sigma'})^*
+            i(\sigma_y)_{\sigma'\sigma_2}
+        \end{equation}
+        If one carefully examine the cases, one finds that when
+        $\sigma_1\neq\sigma_2$, the above should obviously be $0$. And
+        when $\sigma_1=\sigma_2$, the RHS above is surprisingly just
+        $(h^{\{\cdot,\cdot\}})^*$, with appropriate spin.
+        So we have compactly:
+        \begin{thm}
+            For electron bands,
+            \begin{equation}
+                Th(\vb{k})T^{-1} = h(-\vb{k})
+            \end{equation}
+            with spin inverted.
+        \end{thm}
         
+        Then we have the following fact:
+        \begin{fact}
+            For Time reversal symmetric electron bands, there is
+            always at least two degenerate state
+        \end{fact}
+        This is obvious since:
+        $$h(-\vb{k}) T\ket{u(\vb{k})} = Th(\vb{k})\ket{u(\vb{k})}
+        = TE(\vb{k})\ket{u(\vb{k})} = E(\vb{k})T\ket{u(\vb{k})} $$
+        Also, by fact \ref{fact:TROperator_TRInSpin_InnerProdTUandU},
+        one sees that the time reversed state $T\ket{u(\vb{k})}$ is
+        distinct from the orginal state. Hence the double degeneracy.
         
 \section{Anchor}
 \label{sec:Anchor}
