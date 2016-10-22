@@ -22,7 +22,6 @@
 \usepackage[unicode]{hyperref}  % make every cite a link
 \usepackage{CJKutf8} % For Chinese characters
 \usepackage{fancyref} % For easy adding figure,equation etc in reference. Use \fref or \Fref instead of \ref
-\usepackage{braket} %http://tex.stackexchange.com/questions/214728/braket-notation-in-latex
 
 % Following is for theorems etc environments
 % http://tex.stackexchange.com/questions/45817/theorem-definition-lemma-problem-numbering && https://en.wikibooks.org/wiki/LaTeX/Theorems
@@ -44,6 +43,13 @@
 
 % For drawing diagrams with arrows
 \usepackage[all]{xy}
+
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physics-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physics-taper}
 
 \title{Notes about Spin and TR Symmetry}
 \date{\today}
@@ -984,12 +990,28 @@ Outline:
             Recall we have:
             \begin{align}
                 \sigma_{ij} = \int \frac{\diff k_x\diff k_y}{(2\pi)^2}
-                \sum_{a=1}^{m} -i \left(
-                    \braket{\partial_i(a,k)|\partial_j}
-                \right)
+                \sum_{a=1}^{m} (-i) F_{jk}^a(\vb{k})
+                = \frac{1}{(2\pi)^2} \sum_{a=1}^m \gamma_a
             \end{align}
+            i.e., The Hall conductivity is an integral over the filled
+            bands of the Berry curvature. (See (3.79) of\cite{bernevig})
 
-            See (1.11) and 
+            Here 
+            $$F_{ij}(\vb{k}) = -i \left( \braket{\partial_i
+            u(k)|\partial_j u(k)} - (i\leftrightarrow j) \right)$$
+            is the Berry field strength.
+            For system with TR symmetry, we have
+            $$ u(k) = T u(-k)$$
+            (Note that $T$ flips the sign of $k$) Since $T$ is
+            antiunitary, we have $ u(-k) = u(k)^*$. Therefore
+            $\braket{\partial_i u(-k)|\partial_j u(-k)} = 
+              \braket{\partial_j u(k)|\partial_i u(k)}$
+            So:
+            \begin{equation}
+                F_{ij}(\vb{-k}) = - F_{ij}(\vb{k})
+            \end{equation}
+            Therefore $F_{ij}$ is a odd function. So its integration
+            over the whole BZ is zero, i.e. $\sigma_{ij}$ is zero.
         \end{proof}
         
         
