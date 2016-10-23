@@ -1113,6 +1113,34 @@ Outline:
         Also, by fact \ref{fact:TROperator_TRInSpin_InnerProdTUandU},
         one sees that the time reversed state $T\ket{u(\vb{k})}$ is
         distinct from the orginal state. Hence the double degeneracy.
+
+        \begin{lemma}
+            For time reversal symmetric electron bands, its Berry
+            phase is always $0$. Hence, the Hall conductance is also
+            zero.
+        \end{lemma}
+        \begin{proof}
+            Consider the Berry field strength:
+            $$F_{ij}(\vb{k}) = \braket{\partial_i n(\vb{k})|\partial_j
+            n(\vb{k})} - (i \leftrightarrow j) $$
+
+            The time reversed state $T\ket{n(\vb{k})}
+            =\ket{n^*(-\vb{k})}$, since $T$ flips $\vb{k}$ and is
+            antiunitary. So in the time reversed state the Berry field
+            strength is:
+            $$F'_{ij}(\vb{k}) = \braket{\partial_i n^*(-\vb{k})|\partial_j
+            n^*(-\vb{k})} - (i \leftrightarrow j) $$
+            Notice that $\braket{n^*|m^*} = \braket{m|n}$, as can be
+            seen if we use the position space wave function. Then we
+            have
+            $$F'_{ij}(\vb{k}) = -F_{ij}(-\vb{k})$$
+            Also, the system is time reversal symmetric, so
+            \begin{align}
+                F_{ij}(\vb{k}) = F'_{ij}(\vb{k}) = -F_{ij}(-\vb{k})
+            \end{align}
+            Hence $F_{ij}$ is an odd function and its integration over
+            the whole BZ is $0$.
+        \end{proof}
         
 \section{Anchor}
 \label{sec:Anchor}
