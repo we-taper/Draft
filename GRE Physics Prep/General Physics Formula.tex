@@ -22,7 +22,6 @@
 \usepackage[unicode]{hyperref}  % make every cite a link
 \usepackage{CJKutf8} % For Chinese characters
 \usepackage{fancyref} % For easy adding figure,equation etc in reference. Use \fref or \Fref instead of \ref
-\usepackage{braket} %http://tex.stackexchange.com/questions/214728/braket-notation-in-latex
 
 % Following is for theorems etc environments
 % http://tex.stackexchange.com/questions/45817/theorem-definition-lemma-problem-numbering && https://en.wikibooks.org/wiki/LaTeX/Theorems
@@ -47,6 +46,16 @@
 
 % For highlighting
 \usepackage{color,soul}
+
+% Resolving pdf version warning
+\pdfoptionpdfminorversion=7
+
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physics-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physics-taper}
 
 \title{General Physics Formula}
 \date{\today}
@@ -120,6 +129,13 @@ with magnitude given by
 where $m$ is the particle’s mass. The vector quantities $\vec a$ and
 $\vec F$ are directed toward the center of curvature of the particle’s
 path
+
+\paragraph{First, Second Speed}
+
+\textbf{Circular}: $v = \sqrt{gR}$.
+
+\textbf{Escape Speed} $\frac{1}{2}mv^2 = \frac{GMm}{R}$, so
+$v=\sqrt{2GM/R}$.
 \begin{defi}[Normal force]
 \nomenclature{Normal force}{\nomrefpage.}
 A \textbf{normal force} is the force on a body from a surface against
@@ -233,7 +249,12 @@ in which $I$ is the rotational inertia of the body, defined as
 \begin{align}
     I = I_{\text{com}} + M h^2
 \end{align}
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pics/{some-rotational-inertias}.png}
+    \caption{Some Rotational Inertias (p. 255 of\cite{book}) }
+    \label{fig:some-rotational-inertias}
+\end{figure}
 \paragraph{Work and Rotational Kinetic Energy} 265
 \begin{align}
     W = \int_{\theta_i}^{\theta_f} \tau \diff \theta \\
@@ -429,11 +450,18 @@ motion toward and \textit{less} for motion away.
 \end{align}
 \textbf{Conduction}
 \begin{align}
-    P_\text{cond} \equiv \frac{Q}{t} = kA \frac{T_H-T_C}{L} 
+    & P_\text{cond} \equiv \frac{Q}{t} = kA \frac{T_H-T_C}{L}  \\
+    & P_\text{cond} = A \frac{T_H-T_C}{\sum(L_i/K_i)}
 \end{align}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{pics/{ch18.heat_cond}.png}
+    \caption{pp.494 of \cite{book}}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pics/{ch18.heat_cond_series}.png}
+    \caption{pp.495 of \cite{book}}
 \end{figure}
 
 \paragraph{Thermal Process} (\textbf{pp.529 ch19 of \cite{book}})
@@ -445,12 +473,17 @@ Thermal process:
         No. & Constant Quaility            & Process Type & Special Results  \\
         \hline
         1   & $p$                          & Isobaric     & $Q = nC_p\Delta T;W=p\Delta V$ \\
-        2   & $V$                          & Isothermal   & $Q=W=nRT\ln(V_f/V_i); \Delta E_\text{int}=0$  \\
+        2   & $T$                          & Isothermal   & $Q=W=nRT\ln(V_f/V_i); \Delta E_\text{int}=0$  \\
         3   & $pV^\gamma$, $TV^{\gamma-1}$ & Adiabatic    & $W=-\Delta E_\text{int}$ \\
         4   & $V$                          & Isochoric    & $Q=\Delta E_\text{int}=nC_V \Delta T;W=0$ \\
         \hline
     \end{tabular}
 \end{table}
+In particular, for Adiabatic process (let $K\equiv pV^\gamma$):
+\begin{equation}
+    W = \int_i^f \frac{K}{V^\gamma}\dd V =
+    \frac{p_fV_f-p_iV_i}{1-\gamma}
+\end{equation}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{pics/{ch18.therm_pro}.png}
@@ -472,6 +505,19 @@ Isothermal Process:
     & C_V = \frac{f}{2} k \\
     & \gamma \equiv \frac{C_P}{C_V}
 \end{align}
+
+Even more accurate formulae found in pp. 158 Kardar's book \cite{kardar}:
+\begin{align}
+    & C_V = \frac{6n-3-r}{2}k_B \\
+    & C_p = C_V + k_B
+\end{align}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pics/{kardar-C_v-formulae}.PNG}
+    \caption{Examples of $n,r,$ and $\gamma$.}
+\end{figure}
+But these are \hl{\textbf{classical results}}, only valid at high
+temperature! (See the refered page for details).
 
 \paragraph{Entropy} (\textbf{pp.554 ch20 of \cite{book}})
 
@@ -543,6 +589,14 @@ Isothermal Process:
 \begin{align}
     & \mathcal{E} = \frac{\diff W}{\diff q}
 \end{align}
+Cutting Magnetic field lines:
+\begin{equation}
+    \mathcal{E} = BLv 
+\end{equation}
+Cutting Magnetic field lines in circular motion:
+\begin{equation}
+    \mathcal{E} = B(\frac{1}{2}\omega R) R = \frac{1}{2}B\omega R^2
+\end{equation}
 
 \textbf{Circuit Rule}
 \begin{itemize}
@@ -617,6 +671,27 @@ Predicting RLC current (\textbf{pp.843 of \cite{book}})
     & \,= \mu_0 i_d + \mu_0 i_\text{enc}
 \end{align}
 
+\paragraph{Radiation} $ $
+
+Electric dipole:
+\begin{equation}
+    \braket{P} = \frac{\mu_0 p_0^2 \omega^4}{12\pi c}
+\end{equation}
+where $p_0 = q_0 d$.
+Electric quadrupole: $\braket{P} \propto \omega^6$.
+
+(The cases for Magnetic dipole is similarly $\propto \omega^4$)
+
+\textbf{Lienard's generalization of the Larmor formula}
+\begin{align}
+    P &= \frac{\mu_0 q^2 \gamma^6}{6\pi c}
+    \left( a^2- \abs{\frac{\vb{v}\cross\vb{a}}{c}}^2\right) \\
+    &\approx \frac{\mu_0q^2}{6\pi c} a^2
+\end{align}
+(\textbf{pp.448 of \cite{Griffiths_electrod}}).
+
+\begin{center}\noindent\rule{8cm}{0.4pt}\end{center}
+
 (\textbf{pp.882 ch32 of \cite{book}})
 
 \textbf{Spin}
@@ -646,6 +721,10 @@ Predicting RLC current (\textbf{pp.843 of \cite{book}})
     \text{Omitted}
 \end{align}
 
+\hl{Light waves change phase by $\pi/2$ when they reflect from the surface of
+a medium with higher refractive index than that of the medium in which
+they are travelling.}
+
 \paragraph{Interference} (\textbf{pp.981 ch35 of \cite{book}})
 
 \begin{align}
@@ -670,8 +749,12 @@ Predicting RLC current (\textbf{pp.843 of \cite{book}})
     2d\sin{\theta} &= m\lambda \text{, $m=1,2,\cdots$ (Bragg's law)}
 \end{align}
 
+\section{Relativity}
+\label{sec:Relativity}
+
 \paragraph{Relativity} (\textbf{pp.1048 ch37 of \cite{book}})
 \begin{align}
+    \gamma &= \frac{1}{\sqrt{1-\beta^2}} \\
     \Delta t &= \gamma \Delta t_0 \\
     L &= L_0/\gamma \\
     x' &= \gamma(x-vt) \\
@@ -681,8 +764,27 @@ Predicting RLC current (\textbf{pp.843 of \cite{book}})
     f &= f_0 \sqrt{1-\beta^2} \\
     \vec{p} &= \gamma m \vec{v} \\
     E &= mc^2 + K = \gamma mc^2 \\
-    E^2 &= (pc)^2 + (mc^2)^r
+    E^2 &= (pc)^2 + (mc^2)^2
 \end{align}
+
+\paragraph{Electrodynamics with Relativity} (\textbf{pp.526-531 of
+\cite{Griffiths_electrod}})
+\begin{equation}
+    E = \gamma_0 E_0
+\end{equation}
+    (Only in the direction perpendicular to
+    the motion, without $B$ field)
+\begin{align}
+    & \bar{E}_x = E_x \\
+    & \bar{E}_y = \gamma(E_y - v B_z) \\
+    & \bar{E}_z = \gamma(E_z + v B_y) \\
+    & \bar{B}_x = B_x \\
+    & \bar{B}_y = \gamma(B_y + \frac{v}{c^2} E_z) \\
+    & \bar{B}_z = \gamma(B_z - \frac{v}{c^2} E_y)
+\end{align}
+
+\section{Quantum Mechanics}
+\label{sec:Quantum-Mechanics}
 
 \paragraph{Photon} (\textbf{pp.1077 ch38 of \cite{book}})
 \begin{align}
@@ -692,17 +794,85 @@ Predicting RLC current (\textbf{pp.843 of \cite{book}})
     & \Delta\lambda = \frac{h}{mc}(1-\cos{\phi})
 \end{align}
 
+\paragraph{Infinite Square Well} (\textbf{pp.32 of \cite{Griffiths_QM}})
+
+\begin{align}
+    & k_n = \frac{n\pi}{a} \\
+    & E_n = \frac{\hbar^2 k_n^2}{2m} \\
+    & \psi_n = \sqrt{\frac{2}{a}} \sin(k_n x)
+\end{align}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pics/qm_infinite_square_well.PNG}
+    \caption{Wave functions}
+\end{figure}
 \paragraph{Conductions} (\textbf{pp.1160 ch41 of \cite{book}})
 \begin{align}
     P(E) &= \frac{1}{e^{(E-E_F)/kT} +1} 
 \end{align}
 
 
+\section{Atomic Physics}
+\label{sec:Atomic-Physics}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pics/{electron-state}.PNG}
+    \caption{Electron State (from pp.162 of \cite{book_atomic})}
+\end{figure}
+
+\paragraph{Standard Model}
+Read page 1244 of \cite{book}.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pics/{Standard-Model-of-Elementary-Particles}.pdf}
+    \caption{Standard Model of Elementary Particles (from Wikipedia)}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pics/{Elementary_particle_interactions_in_the_Standard_Model}.png}
+    \caption{Elementary particle interactions in the Standard Model
+    (from Wikipedia)}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pics/{Comprehensive-standard-model-particle-chart}.jpg}
+    \caption{Comprehensive standard model particle Chart }
+\end{figure}
+(from \href{http://electron6.phys.utk.edu/phys250/modules/module%206/images/particle_chart.jpg}{Link})
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\linewidth]{pics/{Elementary-Particles-concept-map}.pdf}
+    \caption{Elementary Particles concept Map}
+\end{figure}
+\section{Positronium}
+\label{sec:Positronium}
+
+\href{https://en.wikipedia.org/wiki/Positronium}{Wiki Positronium}.
+
+Energy:
+\begin{equation}
+    E_n = -\frac{6.8 \text{eV}}{n^2}
+\end{equation}
+\section{Common Mathematical Formulae}
+\label{sec:Common-Mathematical-Formulae}
+\begin{align}
+    & \frac{1}{1-x} = 1 + x + x^2 + x^3 + \cdots
+\end{align}
+
 \section{Anchor}
 \label{sec:anchor}
 \begin{thebibliography}{1}
     \bibitem{book} Fundamentals of Physics, Extended Edition. Halliday
     \& Resnick.
+    \bibitem{book_atomic} Atomic Physics. Fujia, Yang. (Chinese)
+    \bibitem{Griffiths_electrod} Introduction to Electrodynamics, 3rd,
+    Griffiths.
+    \bibitem{Griffiths_QM} Introduction to Quantum Mechanics, 2nd,
+    Griffiths.
+    \bibitem{kardar} Kardar. Statistical Physics of Particles. (2007)
 \end{thebibliography}
 \printnomenclature
 \section{License}
