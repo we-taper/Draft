@@ -1,0 +1,163 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+\usepackage{float}  % For H in figures
+\usepackage{amsmath} % For math
+\usepackage{amssymb}
+\usepackage{bbm} % for numbers within mathbb
+\usepackage{mathrsfs} % For \mathscr{ABC}
+% Followings are for the special character: differential "d".
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
+\numberwithin{equation}{subsection} % have the enumeration go to the subsection level.
+                                    % See:https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
+\usepackage{graphicx}   % need for figures
+\usepackage{cite} % need for bibligraphy.
+\usepackage[unicode]{hyperref}  % make every cite a link
+\usepackage{CJKutf8} % For Chinese characters
+\usepackage{fancyref} % For easy adding figure,equation etc in reference. Use \fref or \Fref instead of \ref
+\usepackage{braket} %http://tex.stackexchange.com/questions/214728/braket-notation-in-latex
+
+% Following is for theorems etc environments
+% http://tex.stackexchange.com/questions/45817/theorem-definition-lemma-problem-numbering && https://en.wikibooks.org/wiki/LaTeX/Theorems
+\usepackage{amsthm}
+\newtheorem{defi}{Definition}[section]
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\theoremstyle{definition}
+\newtheorem{ex}{Example}[section]
+
+
+\usepackage{CJKutf8}
+
+% A list of nomenclatures.
+\usepackage{nomencl}
+\makenomenclature
+
+% For drawing diagrams with arrows
+\usepackage[all]{xy}
+
+\title{Solution for HW3 20161019}
+\date{\today}
+\author{Taper}
+
+\begin{document}
+
+\maketitle
+\abstract{
+\begin{CJK}{UTF8}{gbsn}陈鸿翔（11310075）\end{CJK}
+}
+%\tableofcontents
+\section{Give the brief description of quantum state and operator in
+Hilbert space}
+
+\paragraph{Quantum state in Hilbert space}: each quantum state
+correspondes to a vector of unit length in Hilbert space.
+
+\paragraph{Operator in Hilbert space}: each operator coorespondes to
+an invertible linear transformation (or a transformation of basis) in
+Hilbert space. In rare case, an operator may coorespondes to an
+invertible anti-linear transformation in Hilbert space, such as the
+time reversal opertor.
+
+\section{Proof}
+
+$(1)$:
+\begin{proof}
+\begin{align*}
+    \text{LHS} &= \left( \begin{array}{c}
+                     a_1 + b_1\\
+                     a_2 + b_2\\
+                \end{array} \right)^\dagger * 
+                \left( \begin{array}{c}
+                     c_1 \\
+                     c_2 \\
+                \end{array} \right) \\
+                &= (a_1^*+b_1^*)c_1 + (a_2^*+b_2^*)c_2
+\end{align*}
+\begin{align*}
+    \text{RHS} &= (a_1^*c_1+a_2^* c_2) + (b_1^*c_1+b_2^* c_2)  \\
+               &= (a_1^*+b_1^*)c_1 + (a_2^*+b_2^*)c_2 \\
+               &= \text{LHS}
+\end{align*}
+\end{proof}
+
+$(2)$:
+\begin{proof}
+\begin{align*}
+    \text{LHS} &= \left( \begin{array}{c}
+                     a_1 + b_1\\
+                     a_2 + b_2\\
+                \end{array} \right) * \left( \begin{array}{cc}
+                     c_1^* & c_2^* \\
+                \end{array} \right) \\
+               &= \left( \begin{array}{cc}
+                    (a_1+b_1)c_1^* & (a_1+b_1)c_2^* \\
+                    (a_2+b_2)c_1^* & (a_2+b_2)c_2^* \\
+                \end{array} \right)
+\end{align*}
+\begin{align*}
+    \text{RHS} &= \left( \begin{array}{cc}
+                    a_1c_1^* & a_1c_2^* \\
+                    a_2c_1^* & a_2c_2^* \\
+                \end{array} \right) + \left( \begin{array}{cc}
+                    b_1c_1^* & b_1c_2^* \\
+                    b_2c_1^* & b_2c_2^* \\
+                \end{array} \right) \\
+               &= \left( \begin{array}{cc}
+                    (a_1+b_1)c_1^* & (a_1+b_1)c_2^* \\
+                    (a_2+b_2)c_1^* & (a_2+b_2)c_2^* \\
+                \end{array} \right) \\
+               &= \text{LHS}
+\end{align*}
+\end{proof}
+
+\section{Check}
+\paragraph{$A^\dagger=$}
+\begin{align*}
+    \left( \begin{array}{ccc}
+     0 & 0 & i \\
+     0 & 1 & 0 \\
+     -i & 0 & 0 \\
+    \end{array} \right)^\dagger = 
+    \overline{\left( \begin{array}{ccc}
+     0 & 0 & -i \\
+     0 & 1 & 0 \\
+     i & 0 & 0 \\
+    \end{array} \right)} = 
+    \left( \begin{array}{ccc}
+     0 & 0 & i \\
+     0 & 1 & 0 \\
+     -i & 0 & 0 \\
+    \end{array} \right) = A
+\end{align*}
+\paragraph{$B^\dagger=$}
+\begin{align*}
+    \left( \begin{array}{ccc}
+     3 & i & 0 \\
+     3 & 1 & 5 \\
+     0 & -i & 2 \\
+    \end{array} \right)^\dagger = 
+    \overline{\left( \begin{array}{ccc}
+     3 & 3 & 0 \\
+     i & 1 & -i \\
+     0 & 5 & 2 \\
+    \end{array} \right)} = 
+    \left( \begin{array}{ccc}
+     3 & 3 & 0 \\
+     -i & 1 & i \\
+     0 & 5 & 2 \\
+    \end{array} \right) \neq B
+\end{align*}
+
+So $A$ is Hermitian whereas $B$ is not.
+\end{document}
