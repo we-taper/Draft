@@ -72,8 +72,46 @@ Extended Version by Halliday and Resnick.
 }
 \tableofcontents
 
+\section{General}
+\label{sec:Table}
+
+\begin{table}[H]
+    \centering
+    \caption{Metric Prefix}
+    \begin{tabular}{c c c}
+        tera  & T     & $10^{12}$ \\
+        giga  & G     & $10^{9}$ \\
+        mega  & M     & $10^{6}$ \\
+        kilo  & k     & $10^{3}$ \\
+        centi & c     & $10^{-2}$ \\
+        milli & m     & $10^{-3}$ \\
+        micro & $\mu$ & $10^{-6}$ \\
+        nano  & n     & $10^{-9}$ \\
+        pico  & p     & $10^{-12}$ \\
+    \end{tabular}
+\end{table}
+
+\paragraph{Rotation matrix}
+Active rotation in the counter-clockwise $\theta$:
+\begin{equation}
+    \left(
+    \begin{array}{cc}
+        \cos{\theta} & -\sin{\theta} \\
+        \sin{\theta} & \cos{\theta} \\
+    \end{array}
+    \right)
+\end{equation}
+
 \section{Classical mechanics}
 \label{sec:Classical-mechanics}
+
+\begin{align}
+L &= T- V\\
+\frac{\diff}{\diff t} \left(\frac{\partial L}{\partial \dot{q}}\right)
+    &= \frac{\partial L}{\partial q} \\
+\dot{q} &= \frac{\partial H}{\partial p} \\
+\dot{p} &= -\frac{\partial H}{\partial q}
+\end{align}
 
 \paragraph{Constant Accleration}
 These five equations in Table 2-1 describe the motion of a particle with constant acceleration:
@@ -395,14 +433,15 @@ Now the pulse is not inverted by the reflection
 
 \textbf{String}
 \begin{align}
-    & v = \frac{\tau}{\mu} \\
+    & v = \sqrt{\frac{\tau}{\mu}} \\
     & P_\text{avg} = \frac{1}{2}\mu v \omega^2 y_m^2
 \end{align}
 \textbf{Resonance}
 \begin{align}
     n \lambda = 2L
 \end{align}
-\paragraph{Longitudinal Wave} (\textbf{pp.466 ch17 of \cite{book}})
+\paragraph{Sound (Longitudinal) Wave} (\textbf{pp.466 ch17 of
+\cite{book}})
 \begin{align}
     & v = \sqrt{\frac{B}{\rho}} \\
     & s = s_m \cos(kx-\omega t) \\
@@ -460,6 +499,28 @@ motion toward and \textit{less} for motion away.
     & P_\text{rad} = \sigma \varepsilon AT^4 \\
     & P_\text{abs} = \sigma \varepsilon AT_\text{evn}^4
 \end{align}
+
+\textbf{Black Body Radiation}
+Plank's law:
+\begin{equation}
+    I(\mu,T) = \frac{2h\mu^3}{c^2} \frac{1}{e^{\frac{h\mu}{kT}-1}}
+\end{equation}
+Wien's displacement law:
+
+Wien's displacement law shows how the spectrum of black-body radiation
+at any temperature is related to the spectrum at any other
+temperature. If we know the shape of the spectrum at one temperature,
+we can calculate the shape at any other temperature. Spectral
+intensity can be expressed as a function of wavelength or of
+frequency.
+
+A consequence of Wien's displacement law is that the wavelength at
+which the intensity per unit wavelength of the radiation produced by a
+black body is at a maximum, $\lambda_\text{max}$, is a function only of the temperature:
+\begin{equation}
+    \lambda_\text{max}=\frac{b}{T}
+\end{equation}
+where the constant $b$, known as Wien's displacement constant.
 \textbf{Conduction}
 \begin{align}
     & P_\text{cond} \equiv \frac{Q}{t} = kA \frac{T_H-T_C}{L}  \\
@@ -613,7 +674,10 @@ Cutting Magnetic field lines in circular motion:
 \begin{equation}
     \mathcal{E} = B(\frac{1}{2}\omega R) R = \frac{1}{2}B\omega R^2
 \end{equation}
-
+For electric generator:
+\begin{equation}
+    E_\text{max} = nBA_\text{rea}\omega
+\end{equation}
 \textbf{Circuit Rule}
 \begin{itemize}
     \item \textbf{Loop Rule}. The algebraic sum of the changes in
@@ -674,6 +738,18 @@ Cutting Magnetic field lines in circular motion:
 \end{align}
 Predicting RLC current (\textbf{pp.843 of \cite{book}})
 
+\begin{align}
+    & X_C = \frac{1}{\omega_d C} \\
+    & X_L = \omega_d L \\
+    & V = I X \\
+    & Z_\text{impedance} = \text{vector sum of all above} \\
+    & Z = \sqrt{R^2+(X_L-X_C)^2}  \text{ for simple RLC circuit}
+\end{align}
+% \begin{itemize}
+%     \item \textbf{Resisitor} $V_R$ is in phase with $I$.
+%     \item \textbf{Capacitor} $V_C$ lags $I$ by 90 degree.
+%     \item \textbf{Inductor} $V_C$ preceeds $I$ by 90 degree.
+% \end{itemize}
 \paragraph{Maxwell's Equations} (\textbf{pp.869 of \cite{book}})
 
 \begin{align}
@@ -721,6 +797,9 @@ Electric quadrupole: $\braket{P} \propto \omega^6$.
     M = C\frac{B_\text{ext}}{T}
 \end{align}
 
+\section{Optics}
+\label{sec:Optics}
+
 \paragraph{Optics} (\textbf{pp.913 ch33 of \cite{book}})
 \begin{align}
     & \vec{S} = \frac{1}{\mu_0} \vec{E}\times\vec{B} \\
@@ -744,6 +823,7 @@ they are travelling.}
 \paragraph{Interference} (\textbf{pp.981 ch35 of \cite{book}})
 
 \begin{align}
+    & n = \frac{c}{v_\text{medium}} \\
     & \lambda_n = \frac{\lambda}{n} \\
     & 2L = (m+\frac{1}{2})\frac{\lambda}{n_2} \text{ (thin film, max)}
     \\
@@ -765,6 +845,24 @@ they are travelling.}
     2d\sin{\theta} &= m\lambda \text{, $m=1,2,\cdots$ (Bragg's law)}
 \end{align}
 
+\paragraph{Lenses}
+
+\begin{align}
+    & \frac{1}{s_o} + \frac{1}{s_i} = \frac{1}{f}
+\end{align}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c c c}
+        Quantity & + & -\\
+        \hline
+        $s_i$ & real & virtual \\
+        \hline
+        $s_o$ & real & virtual \\
+        \hline
+        $f$ & convex & concave \\
+        \hline
+    \end{tabular}
+\end{table}
 \section{Relativity}
 \label{sec:Relativity}
 
@@ -776,8 +874,9 @@ they are travelling.}
     x' &= \gamma(x-vt) \\
     t' &= \gamma(t-vx/c^2) \\
     u &= \frac{u'+v}{1+u'v/c^2} \\
-    f &= f_0 \sqrt{\frac{1-\beta}{1+\beta}} \\
-    f &= f_0 \sqrt{1-\beta^2} \\
+    f &= f_0 \sqrt{\frac{1-\beta}{1+\beta}}\text{ (away)} \\
+    v &= \frac{|\Delta\lambda|}{\lambda_0}c\,( \text{ away, for } v<<c) \\
+    f &= f_0 \sqrt{1-\beta^2} \text{ (perpendicular)}\\
     \vec{p} &= \gamma m \vec{v} \\
     E &= mc^2 + K = \gamma mc^2 \\
     E^2 &= (pc)^2 + (mc^2)^2
@@ -836,7 +935,27 @@ they are travelling.}
     \caption{Electron State (from pp.162 of \cite{book_atomic})}
 \end{figure}
 
-\paragraph{Standard Model}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pics/Hydrogen_spectrum_series.pdf}
+    \caption{Hydrogen spectrum series}
+\end{figure}
+\begin{table}[H]
+    \centering
+    \caption{Three common decay processes}
+    \begin{tabular}{c c}
+        Decay name & Process \\
+        $\alpha$ & Emitting a Helium Nucleus (two protons and two
+        neutrons) \\
+        \hline
+        $\beta$ & $n\to p+e^- \bar{v_e}$ or $p\to n+e^+ +v_e$ \\
+        \hline
+        $\gamma$ & Only photon (light ray) emitted \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\section{Standard Model}
 Read page 1244 of \cite{book}.
 \begin{figure}[ht]
     \centering

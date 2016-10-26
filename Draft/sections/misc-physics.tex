@@ -1,0 +1,149 @@
+\subsection{Super conductor}
+Mean-field approach to deal with a four operator diagonalization.
+
+Suppose we have: $D^*C^* CD$, then let $\delta = CD - \braket{CD} =
+CD - avg$. Then if we assume $\braket{CD}\neq 0$, and $\delta \approx 0$. Then we have:
+
+   	$$ \delta^2 \approx 0 $$
+i.e.:
+
+\begin{align}
+   	( (CD)^* - avg ) ( CD - avg ) = 0\\
+   	D^*C^*CD = avg*(CD+D^*C^*) - avg^2
+\end{align}
+Hence a four operator is reduced into a few of two operators.
+Such method could be naturally extended to treat the operator
+$\sum_{i,j} D^*_i C^*_i C_j D_j$.
+
+A copper pair has the energy of:
+$$\Delta = \braket{C_{k \uparrow}C_{-k \downarrow} }$$
+
+To resist the flow of current carried by Copper Pair, is equivalent to destroying a pair of Copper Pair:
+$$ \braket{C_{k \uparrow}C_{-k \downarrow} } \longrightarrow C_{k \uparrow}C_{-k \downarrow}$$
+
+This will require an additional enegy of $2\Delta$.
+
+The exact meaning of "equivalent to" is as follows:
+\begin{align}
+    & \text{break a copper pair} \longrightarrow 
+    \text{scatter two electrons consecutively} 
+    \nonumber\\ & \longrightarrow 
+    \text{create two electron-hole mixed type quasi-particle} \longrightarrow 2\Delta \nonumber
+\end{align}
+
+
+
+\subsection{Preface of BSCS}
+    \label{sec:Preface_of_Bosonization_and_Strongly 
+    Correlated_Systems}
+BSCS: see \cite{BSCS}.
+Parallism between theories in condensed matter physics and those in
+particle physics.
+\begin{itemize}
+        \item Anderson-Higgs Phenomenon (Paritcle), Meissner effect
+                (C.M.P.)
+        \item 'inflation' in Cosmology, first order phase transition
+        \item 'cosmic strings', magnetic field vortex lines in type
+                II superconductors
+        \item Hadron-meson interaction, Ginzburg-Landau theory of
+                superfluid $He^3$.
+\end{itemize}
+Same ideas on different space-time scales, different hierachical
+'layers'.
+Strong parallism: \textbf{strongly correlated low dimensional system}
+
+E.g.:
+
+The problem of formation and structure of heavy particles - hadrons and mesons. The corresponding fine structure constant $\alpha_G\approx 1$.
+
+Approaches:
+\begin{enumerate}
+        \item Exact solutions
+        \item Reformulate complicated interacting models in such a way
+                that they become weekly interacting. -> Bosonization.
+                
+                Spin $1/2$ anisotropic Hisenberg chain $\approx$
+                Model of interacting
+
+                fermions.
+                (Jordan and Wigner, 1928)
+\end{enumerate}
+Bosonization: transformation from fermions to a scalar massless bosonic
+field.
+
+\subsection{Appearance of Gauge Structure in Simple Dynamical Systems}
+
+\begin{align}
+    0=(\eta_b,\dot{\eta_a}) = (\eta_b,\dot{U}_{ac}\psi) +
+        (\eta_b,U_{ac}\dot{\psi}_c
+\end{align}
+\subsection{Quantum Statistical Mechanics}
+\label{sec:Quantum Statistical Mechanics}
+\begin{defi}[Time Evolution Operator]
+    The time evolution operator $U(t,t_0)$ is defined such that
+    \begin{align}
+        \label{eq:def_time_evo_op}
+        \ket{\Psi(t)} = U(t,t_0) \ket{\Psi(t_0)}
+    \end{align}
+\end{defi}
+It satisfy the relationship:
+\begin{align}
+    \label{eq:def_time_evo_op 2}
+    i\hbar \partial_t U(t,t_0)= H U(t,t_0)
+\end{align}
+This is obvious when substituting $U(t,t_0)$ into the Schrodinger 
+Equations.
+
+\paragraph{Quantum Macrostates}
+Macrostates of the system depend on only a few the thermodynamic
+functions. We can form an ensemble of a large number $\mathcal{N}$ of
+microstates $\{\psi_\alpha\}$, corresponding too a given macrostates.
+The different microstates occur with probability $p_\alpha$.
+When wen no longer have exact knowledge of the microstate of a
+system the system is said to be in a \textit{mixed state}.
+The ensemble average of the quantum mechanical expectation
+value is given by:
+\begin{align}
+    \label{eq:quantum_macrostates_ensemble_avg}
+    \bar{\braket{O}} &= 
+        \sum_\alpha p_\alpha \braket{\psi_\alpha|O|\psi_\alpha}
+        = \sum_{\alpha,m,n} p_\alpha
+            \braket{\psi_\alpha|m}\braket{m|O|n}\braket{n|\psi_\alpha}
+            \nonumber\\
+        &= \sum_{m,n} \braket{n|\rho|m}\braket{m|O|n}
+            = \text{tr}(\rho O)
+\end{align}
+where we have introduced the density matrix:
+\begin{defi}[Density Matrix]
+    The density matrix $\rho(t)$ is defined as
+    \begin{align}
+        \label{eq:density_matrix_def}
+    \braket{n|\rho(t)|m} \equiv
+    \sum_\alpha p_\alpha \braket{n|\psi_\alpha} \braket{\psi_\alpha|m}
+    \end{align}
+    or
+    \begin{align}
+        \label{eq:density_matrix_def_2}
+        \rho(t) \equiv \sum_\alpha p_\alpha
+            \ket{\psi_\alpha}\bra{\psi_\alpha}
+    \end{align}
+\end{defi}
+Density matrix is denoted by $\rho(t)$ by analogy of the notation for
+P.D.F, since $\rho$ often represents density.
+
+Density matrix satisfies several good properties:
+\begin{itemize}
+    \item Normalized
+    \item Hermiticity
+    \item Positivity. For any $\Phi$, $\braket{\Phi|\rho|\Phi} \geq 0$.
+\end{itemize}
+The time evolution of density matrix, directly obtained from Schrodinger's
+equation, is
+\begin{align}
+    \label{eq:quantum_macrostates:density_matrix:evolution}
+    i\hbar \frac{\partial}{\partial t}\rho = [H,\rho]
+\end{align}
+\subsection{Special techniques in Electrostatistics}
+\label{sec:Special-techniques-in-Electrostatistics}
+
+For the book \cite{griffiths-EM}, pp. 120 of section 3.1.6. 

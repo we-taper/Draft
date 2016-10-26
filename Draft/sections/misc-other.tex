@@ -1,0 +1,179 @@
+\subsection{About Matlab}
+\label{sec:About-Matlab}
+\paragraph{On using $A/B$ or $A\\B$}
+Matlab's matrix divide function \texttt{mrdivide}, \texttt{mldivide}
+, abbrevated $A/B$ and $A\\B$, are different and should be used with
+caution. One can check that:
+\begin{center}
+    $A\cdot D^{-1}$ is equivalent to $A/D$, $D^{-1}\cdot A$ is
+    equivalent to $D\backslash A$.
+\end{center}
+Also, it is straightforward to prove that the two are equal if and only if $A$ commutes with $D$.
+
+\subsection{The Mathematical Theory of Communication}
+\label{sec:The_Mathematical_Theory_of_Communication}
+\subsubsection{Introduction}
+
+\paragraph{What is information}
+In this part, it is implied that \textit{information} in this work
+does not carry the usual sense in people's daily life. The semantic
+aspect of a message is considered to be irrelavant, for purpose
+of generality of the design of communication systems.
+
+\paragraph{Measure of information} 
+% TODO Read the paper of Hartley to understand what is information:
+% Hartley, R. V. L., "Transmission of Information," Bell System Technical
+% Journal, July 1928, p. 535
+
+Then it refers to a paper by Hartley to substantiate the use of
+\begin{align}
+\label{eq:measure_of_information}
+S = \log(M)
+\end{align}
+as a measure of information. More specifically, we assume we have a
+set of possible messages. Then $M$ is the cardinality of this set.
+Then $S$ is a measure of the information produced when one message
+is chosen from the set. Once again, we regard all choices 
+being equally possible.
+
+Note that the base of logrithm in \ref{eq:measure_of_information}
+is undefined. Choosing a base constituting choosing a unit of
+the measure. Two such measures, when calculated in different units,
+are related by a simple constant.
+
+Conventionally, a base $2$ is chosen. The resulted unit is called
+bits. If the base $10$ is chosen, then the units may be called
+decimal digits. If the base $e$ is chosen, then the units is
+called natural units.
+
+Also, the author lists several points to illustrate the
+convenience of this measure.
+
+\paragraph{Communication systems}
+Next the author defines the necessary components of a \textit{
+   	communication system}, and categorizes it into discrete systems,
+continuous systems and mixed systems.
+
+\subsubsection{Discrete Noiseless Systems}
+
+\paragraph{Discrete Noiseless Channel}
+\label{sec:Discrete Noiseless Channel}
+This part deals with another measure, the measure of the capacity
+of a channel to transmit information. It defines the capacity of a
+discrete channel as:
+\begin{align}
+\label{eq:capacity_of_disc_chan}
+C\equiv \lim_{T\to \infty} \frac{\log N(T)}{T}
+\end{align}
+where $N(T)$ is the number of allowed signals of duration $T$.
+Several examples are given with formula for $C$ in each particular
+example.
+
+\paragraph{Discrete Source of Information}
+Next, it proceeds to discuss the statistical property of the source
+of information. Pointing out that a statistical knowledge of the
+source of information can help peopole craft special protocals to
+reduce the required capacity of the channel, the article gradually
+focuses on the statistical property of sourcs. It profess that while a
+discrete source could be represented by a statistical source, a
+statistical process can also be considered a discrete source. The
+second claim is substatiated by several exmaples.
+
+In one example of natural language, the article defines a 
+\textit{n-gram} case to produce natural language from statistical
+information.
+
+\paragraph{Series of Approximations to English}
+As the title suggests, this part illustrate two serial levels of
+steps to approximate the English language using statistical knowledge
+of appearance of alphabets (the first method) and words (the second
+example). The article claims that "a sufficiently complex stochastic 
+process will give a satisfactory representation of a discrete source".
+Although I am largely against this juvenile view.
+
+\paragraph{Graphical Representation of a Markoff Process}
+Then the article mentions a graphical way to represent the aforementioned
+approximation process, and gives three examples on page 46.
+
+\paragraph{Ergodic and Mixed Sources}
+Now the article comes to a special type of stochastic process, ergodic
+processes. A rough idea of "ergodic" is given in page 45. The idea is
+so important that I felt compeled to present it here:
+
+"In an ergodic process every sequence produced by
+the process is the same in statistical properties. Thus the letter
+frequencies, digram frequencies, etc., obtained from particular
+sequences, will, as the lengths of the sequences increase, approach
+definite limits independent of the particular sequence.
+Actually
+this is not true of every sequence but the set for which it is false
+has probability zero. Roughly the ergodic property means 
+\textbf{statistical homogeneity}."
+
+Next, the article claims that artificial languages given in previous
+examples are ergodic, because the corresponding graph does not
+have two properties: they does not comprise two or more \textit{isolated
+   	parts}, and they $gcd$ of the lengths of all \textit{circuits }is one.
+The precise meaning is listed in page 47. Roughly, an analogy made by
+myself helps to
+catch the points. If we picture an stochastic process as a connected 
+area, then isolated parts are its connected components, whereas the
+circuit are the recurrent pattterns.
+
+Naturally , a stochastic process may exhibit a mixed behavir, in which
+there are several different sources $L_1,L_2,L_3,\cdots$, which are
+each of homogeneous, i.e. ergodic, statistical structure. This is
+discussed following the introduction of ergodicity in page 48.
+
+Then the article declare that except in special cases, ergodicity is
+always assumed. This purpose is analogous to that of in statistical
+physics, to "identify averages along a sequence with averages over 
+the ensemble of possible sequences", with "the probability of a
+discrepancy being zero".
+
+Lastly, the article mentions a fact regarding the equilibrium of
+the system. A process is called stationary, if it satisfies a
+equilibrium condition:
+\begin{align}
+\label{eq:Ergodic_and_Mixed_States:equil_condition}
+P_j = \sum_i P_i \cdot P_i(j)
+\end{align}
+where $P_j$ is the probability of being in state $j$, and $P_i(j)$ is
+the transition probability from $i$ to $j$.
+The fact is that ergodic process is, in a sense, always stationary.
+
+\paragraph{The Entropy of an Information Source}
+This part first defines the entropy of a discrete source of finite state
+to be:
+\begin{align}
+\label{eq:entropy_of_discrete_infor_source}
+H \equiv& \sum_i P_i H_i\\
+=& -\sum_{i,j} P_i p_i(j) \log(p_i(j)) \nonumber
+\end{align}
+It is "the entropy of the source per symbol of text". Another
+definition for entropy per second is also listed.
+
+Following this definition are some theorems, which I consider to be
+the most essential and influential part of the whole book (although
+I have not yet read the whole book). They are:
+
+\begin{thm}[Theorem 3 on page 55]
+   	Given any $\epsilon >0$ and $\delta >0$, we can find an $N_0$
+   	such that the sequences of any legnth $N\geq N_0$ fall into
+   	two class:
+   	\begin{itemize}
+   		\item A set whose total probability is less than $\epsilon$.
+   		\item The remainder, all of whose members have probabilities
+   		satisfying the inequality
+   		\begin{align}
+   		\label{eq:Entropy_of_info_source:thm3}
+   		\left| \frac{\log p^{-1}}{N}-H\right| < \delta
+   		\end{align}
+   	\end{itemize}
+\end{thm}
+"In other words we are almost certain to have 
+$\frac{\log p^{-1}}{N}$ very close to $H$ when $N$ is large."
+For me, this reads quite like the \textit{second law of
+   	thermaldynamics}.
+
+% TODO having trouble understanding the Theorem 4 on page 55.

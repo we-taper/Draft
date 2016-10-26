@@ -1,0 +1,179 @@
+\subsection{\texorpdfstring{$\int_0^\infty \frac{\sin(x)}{x}$}{}}
+From \href{http://math.stackexchange.com/questions/5248/solving-the-integral-int-0-infty-frac-sinxx-dx-frac-pi2}{Math.SE}. 
+By \href{http://math.stackexchange.com/users/1102/aryabhata}{Aryabhata}.
+
+I believe this can also be solved using double integrals.
+
+It is possible (if I remember correctly) to justify switching the order of integration to give the equality:
+
+$$\int_{0}^{\infty} \Bigg(\int_{0}^{\infty} e^{-xy} \sin x \,dy \Bigg)\, dx = \int_{0}^{\infty} \Bigg(\int_{0}^{\infty} e^{-xy} \sin x \,dx \Bigg)\,dy$$
+Notice that
+$$\int_{0}^{\infty} e^{-xy} \sin x\,dy = \frac{\sin x}{x}$$
+
+This leads us to
+
+$$\int_{0}^{\infty} \Big(\frac{\sin x}{x} \Big) \,dx = \int_{0}^{\infty} \Bigg(\int_{0}^{\infty} e^{-xy} \sin x \,dx \Bigg)\,dy$$
+Now the right hand side can be found easily, using integration by parts.
+
+\begin{align*}
+I &= \int e^{-xy} \sin x \,dx = -e^{-xy}{\cos x} - y \int e^{-xy} \cos x \, dx\\
+&= -e^{-xy}{\cos x} - y \Big(e^{-xy}\sin x + y \int e^{-xy} \sin x \,dx \Big)\\
+&= \frac{-ye^{-xy}\sin x - e^{-xy}\cos x}{1+y^2}.
+\end{align*}
+Thus $$\int_{0}^{\infty} e^{-xy} \sin x \,dx = \frac{1}{1+y^2}$$
+Thus $$\int_{0}^{\infty} \Big(\frac{\sin x}{x} \Big) \,dx = \int_{0}^{\infty}\frac{1}{1+y^2}\,dy = \frac{\pi}{2}.$$
+
+\subsection{Bayes' theorem}
+\label{sec:Bayes-theorem}
+I am quite unfamiliar with this formula, so I decided to make a note
+here for future reference.
+
+This formula starts from the definition of conditional probability:
+\begin{align}
+P(A|B)\equiv \frac{P(A\&B)}{P(B)}
+\end{align}
+this definition if quite intuitively pleasing if $P(B)$ is multiplied
+to the left side. Then one easily deduce that:
+\begin{thm}[Bayes' theorem] \begin{align}
+   	P(A|B)=\frac{P(B|A)P(A)}{P(B)}
+   	\end{align} \end{thm}
+
+We have also an extended form. Suppose the event space is partitioned
+into $\{A_i\}$, then we have (also easily proved):
+\begin{align}
+P(A_i|B)=\frac{P(B|A_i)P(A_i)}{\sum_j P(B|A_j)P(A_j)}
+\end{align}
+Here's a good reading \href{http://plato.stanford.edu/entries/bayes-theorem/}{Bayes' Theorem in SEP}.
+
+\subsection{System of Differential Equations}
+This is a smsall note of \cite{DETA}.
+
+pp. 266.
+
+\begin{defi}
+   	$\mathbf{x(t)}$ is a vector whose elements are $x_i(t)$.
+   	$ \frac{d}{d t}$ acts on vector $\mathbf{x}$ element-wise.
+   	$\dot{\mathbf{x}}$ is abbrevation for $\frac{d}{d t}\mathbf{x}$
+\end{defi}
+
+pp. 291.
+
+\begin{thm}[Existence-uniqueness theorem]
+   	There exists one, and only one, solution of the initial-value
+   	problem
+   	
+   	\begin{align}
+   	\dot{\mathbf{x}}=\mathbf{A}\mathbf{x}\text{, }&
+   	\mathbf{x}(t_0) = \mathbf{x}^0 = 
+   	\left(
+   	\begin{array}{c}
+   	x^0_1\\
+   	x^0_2\\
+   	\cdots
+   	\end{array} 
+   	\right)
+   	\end{align}
+   	
+   	Moreover, this solution exists for $-\infty\langle t\langle \infty$.
+\end{thm}
+\begin{remark}
+   	By this, any non-trivial solution $\mathbf{x}(t)\neq 0$ at any
+   	time $t$. Also notice that the elements of $\mathbf{A}$ are just
+   	numbers.
+\end{remark}
+
+\begin{thm}
+   	The dimension of the space $\mathbf{V}$ of all solutions of the
+   	homogeneous linear system of differential equations:
+   	\begin{align}
+   	\frac{d\mathbf{x}}{dt}=\mathbf{Ax}
+   	\end{align}
+   	is $n$, i.e. the dimension of vector $\mathbf{x}$.
+\end{thm} 
+\subsection{ODE by Arnold}
+sec. 14
+\begin{defi}
+   	\begin{align}
+   	\label{eq:e^A}
+   	e^A &= I + A + \frac{A^2}{2!} + \frac{A^3}{3!}\\
+   	\text{or}& \nonumber \\
+   	e^A &= \lim_{n\to \infty}(I+\frac{A}{n})^n
+   	\end{align}
+   	where $I$ is the identity matrix.
+\end{defi}
+Equivalance of the two definition will be addressed in the Theorem on
+pp. 165.
+
+Important theorems:
+\begin{thm}[pp. 158]
+   	The series $e^A$ converges for any $A$ uniformly on each set
+   	$X=\{A:||A||\leq a\}$, $a\in \mathbb{R}$.
+\end{thm}
+\begin{thm}[pp. 160]
+   	$$e^{At} = H^t$$
+   	where $H^t$ is the translation operator which sends every polynomial
+   	$p(x)$ into $p(x+t)$.
+\end{thm}
+\begin{thm}[pp. 163]
+   	$$\frac{d}{dt} e^{tA} = Ae^{tA}$$
+\end{thm}
+\begin{thm}[Fundamental Theorem of the Theory of Linear Equations with
+   	Constant Coefficients]
+   	The solution of:
+   	\begin{align}
+   	\label{eq:fund_thm_of_linear_eqs_const_coef}
+   	\dot{\mathbf{x}} = A\mathbf{x}
+   	\end{align}
+   	with initial condition $\phi(0) = \mathbf{x}_0$ is
+   	\begin{align}
+   	\mathbf{\phi}(t) = e^{tA}\mathbf{x}_0
+   	\end{align}
+\end{thm}
+
+Practically solution to
+$$ \dot{\mathbf{x}} = A\mathbf{x}$$
+(pp. 173, Sec 17)
+(Assuming $A$ is diagonalizable.)
+\begin{itemize}
+   	\item Find the eigenvectors $\xi_1,\cdots ,\xi_n$ and eigenvalues
+   	$\lambda_1,\cdots ,\lambda_n$. Use them as basis.
+   	\item Expand the initial condition in the new basis.
+   	\begin{align}
+   	\mathbf{x}_0=\sum_{k=1}^{n} C_k\xi_k
+   	\end{align}
+   	\item Then $\phi(t) = \sum_{k=1}^n C_k e^{\lambda_k t}\xi_k$
+\end{itemize}
+
+\subsection{Why 0/0 is undefined?}
+If we suppose
+$$ \frac{0}{0}= \triangle $$
+Consider the following derivation:
+\begin{align}
+\frac{0}{0} \cdot 1 &= \triangle \cdot 1 = \triangle \\
+0 \cdot \frac{1}{0} &= \triangle\\
+\Rightarrow \triangle &= 0
+\end{align}
+This is already bad enough. And we are forced to define $\frac{1}{0}$.
+Let $\frac{1}{0} = \square$, which literally means $1=0\cdot \square = 0$.
+This is disastrous.
+
+Alternatively, we could let
+\begin{enumerate}
+   	\item Let $\frac{1}{0}$ be undefined.
+   	\item Or let $\frac{1}{0} =
+   	\infty$.
+   	\item Or, let $\frac{a}{b}\cdot c= a\cdot \frac{c}{b}$ be not 
+   	true when $b=0$.
+\end{enumerate}
+The third idea is disastrous for algebraic manipulation. \footnote{
+   	Or more speicifically, it is a disaster for field theory.
+}
+The first idea is not good. Since defining $\frac{1}{0}=\infty$ turns
+out to be very useful in both mathematics and physics. Actully, in
+physics it is common practice to set $\frac{a}{0}=\pm\infty$ for
+any nonzero number $a$, where the sign of $\infty$ is determined by 
+the sign of $a$.
+The second idea is okey. But then we are faced with a serious problem.
+We have to define $\triangle \equiv 0 \cdot \infty$
+
+$\triangle \cdot 2 = \triangle$, What will be of $\triangle + 1$?
