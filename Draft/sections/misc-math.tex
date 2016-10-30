@@ -177,3 +177,44 @@ The second idea is okey. But then we are faced with a serious problem.
 We have to define $\triangle \equiv 0 \cdot \infty$
 
 $\triangle \cdot 2 = \triangle$, What will be of $\triangle + 1$?
+\subsection{Funcation satisfying \texorpdfstring{$f(x+y)=f(x)f(x)$}{}}
+\label{sec:Funcation satisfying \texorpdfstring{$f(x+y)=f(x)f(x)$}{}}
+
+Here I prove a simple fact that:
+\begin{thm}
+    Any smooth $f$ function of $\mathbb{R}$. If $f$ satisfy the
+    relation:
+    \begin{equation}
+        f(x+y)=f(x)f(y)
+    \end{equation}
+    for any $x,y\in \mathbb{R}$, and $f(0)\neq 0$. Then:
+    \begin{equation}
+        f(x) = e^{k x}
+    \end{equation}
+    where $k=\dv{f}{x}\left(0\right)$.
+\end{thm}
+\begin{proof}
+    Notice that since $f(0)=f(0+0)=f(0)^2$, and $f(0)\neq 0$, we have
+    $f(0)=1$.
+
+    Consider
+    \begin{align*}
+        \dv{f}{x} = \lim_{\Delta x\to 0} 
+        \frac{f(x+\Delta x)-f(x)}{\Delta x}
+            = \lim_{\Delta x\to 0} 
+            \frac{f(x)\left(f(\Delta x)-1\right)}{\Delta x}
+    \end{align*}
+    Using Taylor expansion about $f(0)$ and notice $f(0)=1$, one will
+    easily get
+    \begin{equation*}
+        \lim_{\Delta x\to 0} 
+            \frac{f(\Delta x)-1}{\Delta x}
+            = f'(0)
+    \end{equation*}
+    Therefore, 
+    \begin{equation*}
+        \dv{f}{x} = f'(0)f(x)
+    \end{equation*}
+    Hence by thoey of differential equations (I don't quite remember
+    the specific theorem), one has $f(x)=e^{f'(0)x}$.
+\end{proof}

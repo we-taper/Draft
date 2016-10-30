@@ -119,7 +119,11 @@ This is intended for storing my drafts of my works. It is messy and will never b
         is quite useful for studying other quantum mechanical
         properties.
 
-14. GRE physics preparation notes
+14. General Physics Formula
+
+    This file stems from my preparation notes for GRE physics test. It
+    contains several useful physics formulae, with links to their
+    sources.
 
 15. My C.V.
 

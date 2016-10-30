@@ -18,7 +18,6 @@
 \usepackage[unicode]{hyperref} % For hyperlink everything.
 \usepackage{CJKutf8} % For Chinese characters
 %\usepackage{ dsfont } % For double struck fonts
-\usepackage{braket} 
 \usepackage[T1]{fontenc}
 \usepackage{listings}
 
@@ -35,6 +34,13 @@
 \usepackage{tensor}  % For tensor indices
 \usepackage[all]{xy} % For drawing category diagrams
 \usepackage{mathrsfs}
+
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physics-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physics-taper}
 
 \title{Draft}
 \date{\today}

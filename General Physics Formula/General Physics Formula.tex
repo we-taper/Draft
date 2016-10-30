@@ -736,6 +736,11 @@ For electric generator:
     & U_B = \frac{L i^2}{2} \\
     & \omega = \frac{1}{\sqrt{LC}}
 \end{align}
+
+\textbf{RC Circuit}
+\begin{align}
+    Q = Q_0 e^{-t/(RC)}
+\end{align}
 Predicting RLC current (\textbf{pp.843 of \cite{book}})
 
 \begin{align}
@@ -745,13 +750,21 @@ Predicting RLC current (\textbf{pp.843 of \cite{book}})
     & Z_\text{impedance} = \text{vector sum of all above} \\
     & Z = \sqrt{R^2+(X_L-X_C)^2}  \text{ for simple RLC circuit}
 \end{align}
-% \begin{itemize}
-%     \item \textbf{Resisitor} $V_R$ is in phase with $I$.
-%     \item \textbf{Capacitor} $V_C$ lags $I$ by 90 degree.
-%     \item \textbf{Inductor} $V_C$ preceeds $I$ by 90 degree.
-% \end{itemize}
+\begin{itemize}
+    \item \textbf{Resisitor} $V_R$ is in phase with $I$.
+    \item \textbf{Capacitor} $V_C$ lags $I$ by 90 degree.
+    \item \textbf{Inductor} $V_C$ preceeds $I$ by 90 degree.
+\end{itemize}
 \paragraph{Maxwell's Equations} (\textbf{pp.869 of \cite{book}})
 
+\begin{defi}[Permittivity = Dielectric Constant]
+\nomenclature{Permittivity = Dielectric Constant}{$\varepsilon$, \nomrefpage.}
+    $\varepsilon$
+\end{defi}
+\begin{defi}[Permeability]
+\nomenclature{Permeability}{$\mu$, \nomrefpage.}
+    $\mu$
+\end{defi}
 \begin{align}
     & \oint \vec{E} \cdot \diff \vec{A} = q_\text{enc}/\varepsilon_0
     \\
