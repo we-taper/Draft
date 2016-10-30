@@ -1,106 +1,5 @@
-% The entire content of this work (including the source code
-% for TeX files and the generated PDF documents) by 
-% Hongxiang Chen (nicknamed we.taper, or just Taper) is
-% licensed under a 
-% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
-% International License (Link to the complete license text:
-% http://creativecommons.org/licenses/by-nc-sa/4.0/).
-\documentclass{article}
 
-\usepackage{float}  % For H in figures
-\usepackage{amsmath} % For math
-\usepackage{amssymb}
-\usepackage{bbm} % for numbers within mathbb
-\usepackage{mathrsfs} % For \mathscr{ABC}
-\numberwithin{equation}{subsection} % have the enumeration go to the subsection level.
-                                    % See:https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
-\usepackage{graphicx}   % need for figures
-\usepackage{cite} % need for bibligraphy.
-\usepackage[unicode]{hyperref}  % make every cite a link
-\usepackage{CJKutf8} % For Chinese characters
-\usepackage{fancyref} % For easy adding figure,equation etc in reference. Use \fref or \Fref instead of \ref
-
-% For highlighting
-\usepackage{color,soul}
-
-% Following is for theorems etc environments
-% http://tex.stackexchange.com/questions/45817/theorem-definition-lemma-problem-numbering && https://en.wikibooks.org/wiki/LaTeX/Theorems
-\usepackage{amsthm}
-\newtheorem{defi}{Definition}[section]
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{lemma}{Lemma}[section]
-\newtheorem{remark}{Remark}[section]
-\newtheorem{prop}{Proposition}[section]
-\newtheorem{coro}{Corollary}[section]
-\newtheorem{fact}{Fact}[section]
-\theoremstyle{definition}
-\newtheorem{ex}{Example}[section]
-\newtheorem{argument}{Argument}[section]
-
-% A list of nomenclatures.
-\usepackage{nomencl}
-\makenomenclature
-
-% For drawing diagrams with arrows
-\usepackage[all]{xy}
-
-% -=---------------- My Own New commands ---------------
-\usepackage[log-declarations=false]{xparse}
-\usepackage{physics-taper}
-% Referenced package: \usepackage{physics}
-
-%  Vector notation ---------------------
-% \DeclareDocumentCommand\vectorbold{ s m }{
-%     \IfBooleanTF{#1}
-%     {\boldsymbol{#2}}
-%     {\mathbf{#2}}
-% } % Vector bold [star for Greek and italic Roman]
-% \DeclareDocumentCommand\vb{}{\vectorbold} % Shorthand for \vectorbold
-% 
-% \DeclareDocumentCommand\vectorunit{ s m }{
-%     \IfBooleanTF{#1}
-%     {\boldsymbol{\hat{#2}}}
-%     {\mathbf{\hat{#2}}}
-% } % Unit vector [star for Greek and italic Roman]
-% \DeclareDocumentCommand\vu{}{\vectorunit} % Shorthand for \vectorunit
-% 
-% \DeclareDocumentCommand\vdot{}{\boldsymbol\cdot} % Vector dot product symbol
-% \DeclareDocumentCommand\cross{}{\boldsymbol\times} % Vector cross product symbol
-% \DeclareDocumentCommand\vnabla{}{\boldsymbol\nabla} % Vector bold \nabla symbol
-% \DeclareDocumentCommand\grad{}{\vnabla} 
-% \DeclareDocumentCommand\dive{}{\vnabla\vdot} 
-% \DeclareDocumentCommand\curl{}{\vnabla\cross}
-% \DeclareDocumentCommand\laplacian{}{\nabla^2} 
-% 
-% % Operators ----------------------------
-% \let\imaginary\Im
-% \RenewDocumentCommand\Im{g}{
-%     \IfNoValueTF{#1}
-%     {\operatorname{Im}}
-%     {\operatorname{Im}\left\{ #1 \right\}}
-% }
-% \let\real\Re
-% \DeclareDocumentCommand\Re{g}{
-%     \IfNoValueTF{#1}
-%     {\operatorname{Re}}
-%     {\operatorname{Re} \left\{ #1 \right\} }
-% }
-\title{Notes of Chapter 2 of Bernevig's Book}
-\date{\today}
-\author{Taper}
-
-
-\begin{document}
-
-
-\maketitle
-\abstract{
-Since I have already made a written one, this note is only an outline
-of the written script, in the hope of makeing it eaiser to read.
-}
-\tableofcontents
-
-\section{Deriving Berry Phase}
+\subsection{Deriving Berry Phase}
 \label{sec:Deriving-Berry-Phase}
 From page 1 to page 2 (equation 2.7), one derives the expression for
 the phase $e^{i\gamma_m}$ using instaneous energy eigenstate for
@@ -189,7 +88,7 @@ called Berry field, dentoed by $F_{jk}$ in Bernevig's book.
 $F_{jk} = \braket{\partial_j n(\vb{R})|\partial_j n(\vb{R})} - (j
     \leftrightarrow k) $.
 
-\section{Gauge-independent calculation of Berry Curvature}
+\subsection{Gauge-independent calculation of Berry Curvature}
 \label{sec:Gauge-independent-calculation-of-Berry-Curvature}
 For numerical considerations, we Bernevig gives a new way to calculate
 the Berry curvature. I shows in page 5 to 6 that:
@@ -214,12 +113,12 @@ remark is that:
     \end{align}
 \end{fact}
 
-\section{Degeneracy and level-crossing}
+\subsection{Degeneracy and level-crossing}
 \label{sec:Degeneracy-and-level-crossing}
 Page 7 has a discussion about the serious problems posed by the
 degenracy points. Then we turn our attention to two-level system.
 
-    \subsection{Two-level system and Berry connection
+    \subsubsection{Two-level system and Berry connection
     \texorpdfstring{$\vb{A}_n$}{}}
     \label{sec:Two-level-system-and-Berry-connection}
     Here Bernevig considers a system with Hamiltonian
@@ -236,7 +135,7 @@ degenracy points. Then we turn our attention to two-level system.
     On the other hand, Bernevig also gives an alternative calculation in
     the following.
 
-        \subsubsection{Two-level system using Hamiltonian approach}
+        \paragraph{Two-level system using Hamiltonian approach}
         \label{sec:Two-level-system-using-Hamiltonian-approach}
         On page 8 to 10, I gives the calculation of Berry phase of
         Spin in a varying magnetic environment. Consider the
@@ -282,21 +181,3 @@ degenracy points. Then we turn our attention to two-level system.
             Therefore, an electron transversing a circle will
             accumulate a phase of $e^{i\pi}=-1$.
         \end{remark}
-\section{Anchor}
-\label{sec:Anchor}
-
-\begin{thebibliography}{1}
-    \bibitem{book} Bernevig's Topological Insulators and
-    Superconductors
-\end{thebibliography}
-\printnomenclature
-\section{License}
-The entire content of this work (including the source code
-for TeX files and the generated PDF documents) by 
-Hongxiang Chen (nicknamed we.taper, or just Taper) is
-licensed under a 
-\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative 
-Commons Attribution-NonCommercial-ShareAlike 4.0 International 
-License}. Permissions beyond the scope of this 
-license may be available at \url{mailto:we.taper[at]gmail[dot]com}.
-\end{document}

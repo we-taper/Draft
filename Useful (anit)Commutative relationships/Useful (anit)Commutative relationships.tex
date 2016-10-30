@@ -1,0 +1,64 @@
+\documentclass{article}
+
+\usepackage{float}  % For H in figures
+\usepackage{amsmath} % For math
+\usepackage{amssymb}
+\usepackage{mathtools} % dcases*, see https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics#The_cases_environment
+\numberwithin{equation}{subsection} % have the enumeration go to the subsection level.
+									% See:https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
+\usepackage{graphicx}   % need for figures
+\usepackage{cite} % For bibligraphy
+\usepackage{fancyref} % For lazy reference \fref
+\usepackage{hyperref} % For hyperlink everything.
+\usepackage{CJKutf8} % For Chinese characters
+
+\title{Useful (anti)Commutation Relation}
+\date{\today}
+\author{\begin{CJK}{UTF8}{gbsn}
+陈鸿翔
+\end{CJK}(Taper)}
+
+\begin{document}
+
+\maketitle
+
+\abstract{
+none
+}
+
+\tableofcontents
+
+\section{General}
+\begin{align}
+    [A,B]   & \equiv AB-BA \\
+    \{A,B\} & \equiv AB+BA\\
+    [AB,C]  & = A [B,C] + [A,C]B\\
+    	    & = A\{B,C\} - \{A,C\} B\\
+    [C,AB]  & = -[AB,C]\\
+		    & =A [C,B] + [C,A]B \\
+            & =\{C,A\} B - A\{C,B\}
+\end{align}
+
+\section{2nd Quantization}
+
+\subsection{Boson}
+
+\begin{align}
+    n_{\alpha} &\equiv a_{\alpha}^{\dagger}a_{\alpha}\\
+    [a_{\alpha},a_{\beta}]&=[a^{\dagger}_{\alpha},a^{\dagger}_{\beta}]=0\\
+    [a_{\alpha},a^{\dagger}_{\beta}]&=\delta_{\alpha\beta}
+\end{align}
+
+\subsection{Fermion}
+\begin{align}
+    n_{\alpha} &\equiv c_{\alpha}^{\dagger}c_{\alpha}\\
+    \{c_{\alpha},c_{\beta}\} &= \{c_{\alpha}^{\dagger},c_{\beta}^{\dagger}\} = 0\\
+    \{c_{\alpha},c^{\dagger}_{\beta}\}&=\delta_{\alpha\beta} \\
+    \{n_{\alpha},c_{\alpha}\} &= c_{\alpha} \\
+    \{n_{\alpha},c^{\dagger}_{\alpha}\} &= c^{\dagger}_{\alpha}
+\end{align}
+
+\begin{thebibliography}{1}
+    \bibitem{nobook} No books.
+\end{thebibliography}
+\end{document}
