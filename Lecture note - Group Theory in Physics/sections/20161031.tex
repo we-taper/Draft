@@ -1,0 +1,280 @@
+
+
+\subsection{Unitarity of Representation}
+\label{sec:Unitarity-of-Representation}
+
+\begin{thm}[Unitary Representation]
+    For finite groups and for compact Lie groups, all representations
+    are equivalent to a unitary representation.
+\end{thm}
+\begin{remark}
+    Before the formal proof, I remarked that since any finite group
+    can be imbeded inside the symmetric group (Cayley's theorem), and
+    the symmetric has clearly a unitary representation (perhaps the
+    easiest representation one could ever construct besides the
+    trivial representation), one could naturally guess whether it is
+    possible that any representation could be turned into a unitary
+    one.
+
+    As for the compact Lie group case, it is just mentioned in
+    \cite{Ludeling} and will not be proved here. It is mentioned in
+    page 25 of \cite{Ludeling} that:
+    \begin{quote}
+        For compact Lie groups, however, there exists a (unique)
+        translationally invariant measure, so we can replace
+        $\sum_g\to \int \dd g$ and the integral is convergent because
+        of compactness. Then the proof directly carries over.
+    \end{quote}
+\end{remark}
+\begin{proof}
+    For $D(g)$, we need to find a $X$ such that $\bar{D}(g)\equiv
+    X^{-1}D(g)X$ is unitary.
+
+    Since
+    \begin{align*}
+        1 = \bar{D}^\dagger \bar{D}
+    \end{align*}
+    One will find 
+    $$ (XX^\dagger)^{-1} = D^\dagger (XX^\dagger)^{-1} D$$
+    Then let
+    \begin{equation}
+        H\equiv \sum_{s\in G} D^\dagger(s) D(s)
+    \end{equation}
+    One can verify that
+    \begin{equation}
+        D^\dagger (g) H D(g) = H
+    \end{equation}
+
+    Now we construct $X$ from $H$. We have
+    \begin{equation}
+        H = (XX^\dagger)^{-1}
+    \end{equation}
+
+    Notice we have $H$ is Hermitian by above equation. Also, $H$ is
+    positive definite (easily seen from the definition of $H$ and 
+    $a^\dagger H a \geq 0$. Also $H$ is of full rank.).
+
+    Then we have $UHU^{-1} = \mathrm{diag}\{\gamma_1,\gamma_2,\cdots\}$
+    and $\gamma_i > 0$. The rest for constructing $X$ should be
+    obvious.
+\end{proof}
+\begin{remark}[Examples of Non-unitary representation]
+    It is remard in \cite{Ludeling} that for infinite and non-compact
+    groups, the representation are not unitary in general. He gives
+    two examples:
+    \begin{itemize}
+        \item The group $\mathbb{Z}^*$ acting on $\mathbb{C}$ by
+            mulplication is certain not equivalent to any unitary
+            representation.
+        \item Arugment for a representation of non-compact Lie group
+            cannot be made unitary by a similarity transformation:
+            \begin{quote}
+                The group of unitary operators on a finite dimensional
+                vector space is isomorphic to $U(n)$ (for complex
+                vector spaces, $O(n)$ otherwise), and is hence
+                compact. But there cannot be a bijective continuous
+                map between a compact and a non-compact space, so
+                faithful finite-dimensional representations of
+                non-compact groups will be non-unitary. 
+            \end{quote}
+            But then he mentions something about a perculiar case, the
+            Lorentz group, which I do not understand. 
+    \end{itemize}
+\end{remark}
+Anyway, he summarised in the following:
+\begin{quote}
+   To summarise, for finite groups and for compact Lie groups, all
+   representations are equivalent to a unitary one (and we will
+   usually take them to be unitary from now on).  For infinite groups
+   and non-compact Lie groups, on the other hand, finite-dimensional
+   faithful representations are never unitary. Finally, some
+   non-compact groups may have representations which are unitary with
+   respect to a non-definite scalar product, such as the Lorentz group 
+\end{quote}
+
+From class, Ye Fei proved that:
+\begin{thm}
+    For any two equivalent representation, there is always a unitary
+    matrix to relate the two, i.e. exits $Y$ unitary, s.t.
+    $$ \bar{D}(g) = Y^{-1} D(g) Y$$
+\end{thm}
+\begin{proof}
+    Suppose we have two unitary representation $D(g)$ and
+    $\bar{D}(g)$, related by
+    $$ \bar{D}(g) = X^{-1} D(g) X$$
+    where $X$ is not necessarily unitary.
+
+    Let $H\equiv X^\dagger X$, it is easy to prove that $H$ is
+    Hermitian and positive definite. Direct calculation shows that
+    $$ \bar{D}^{-1}(g) H \bar{D}(g) = H$$
+    That is $\bar{D}(g)$ and $H$ commute.
+    Then we construct $Y$ from $H$. Let $V$ be such that
+    \begin{equation}
+        V^{-1} H V = \Gamma
+    \end{equation}
+    where $\Gamma$ is a diagonal matrix of $H$'s eigenvalues.
+    Obviously $V$ has to be unitary. Define $\bar{Y}$ to be
+    \begin{equation}
+        \bar{Y}\equiv V \sqrt{\Gamma} V^{-1}
+    \end{equation}
+    By direct calculation, we have
+    $$ (X\bar{Y})^\dagger (X\bar{Y}) = \id$$
+    One can show that
+    $$ \bar{Y}^{-1} \bar{D} \bar{Y} = \bar{D}$$
+    with laborious calculation. Then one can easily verify that
+    $Y\equiv \bar{Y}X$ is the required unitary transformation.
+\end{proof}
+
+\begin{defi}[Reducibility of Representation]
+    \nomenclature{Reducibility of Representation}{\nomrefpage.}
+    A representation $D$ is called \textit{reducible} if $V$ contains an
+    invariant subspace. Otherwise $D$ is called irreducible.
+
+    A representation is called \textit{fully reducible} if $V$ can be
+    written as the direct sum of irreducible invariant subspaces, i.e.
+    $V=V_1\oplus \cdots \oplus V_p$, all the $V_i$ are invariant and the
+    restriction of $D$ to each $V_i$ is irreducible.
+\end{defi}
+
+\begin{ex}$ $
+
+    \begin{itemize}
+        \item The representation of finite group is obviously fully
+            reducible or irreducible.
+        \item The representation of translation group is not fully
+            reducible. For example, for translation we have:
+            $T_a T_b = T_{a+b}$,
+            One can confirm that the following representation obeys
+            the above relationship:
+            $$T_a = \left( \begin{array}{cc}
+                 1 & a \\
+                 0 & 1 \\
+            \end{array} \right)$$
+            but this is obviously not fully reducible.
+    \end{itemize}
+\end{ex}
+
+\begin{defi}[Interwiner]
+\nomenclature{Interwiner}{\nomrefpage.}
+    Given two representations $D_1$ and $D_2$ acting on $V_1$ and
+    $V_2$, an intertwiner between $D_1$ and $D_2$ is a linear operator
+    \begin{equation}
+        F: V_1 \mapsto V_2
+    \end{equation}
+    which "commutes" with $G$ in the sense that
+    \begin{equation}
+        F D_1(g) = D_2(g) F
+    \end{equation}
+    for all $g\in G$.
+\end{defi}
+
+(From pp.30 of \cite{Ludeling})
+
+The existence of an intertwiner has a number of consequences. First,
+$D_1$ and $D_2$ are equivalent exactly if there exists an invertible
+intertwiner. Second, \hl{the kernel and the image of $F$ are invariant
+subspaces}: Assume $v\in \Ker{F}$, i.e. $Fv = 0$. Then
+\begin{equation}
+    FD_1 v = D_2 F v = D_2 0 = 0
+\end{equation}
+so $D_1 v\in \Ker{F}$. On the other hand, let $w_2 = Fw_1$ be an
+arbitrary element of the image of $F$. Then from the definition we have
+\begin{equation}
+    D_2 w_2 = D_2 F w_1 = FD_1 w_1
+\end{equation}
+which is again in the image of $F$. Now if $D_1$ is irreducible, the only invariant subspaces,
+hence the only possible kernels, are $\{0\}$ and $V_1$ itself, so $F$ is either injective or zero.
+Similarly, if $D_2$ is irreducible, F is either surjective or zero. Taking these statements together, we arrive at Schur’s Lemma: 
+
+\begin{lemma}[Schur's lemma I]
+    An intertwiner between two irreducible representations is either
+    an isomorphism, in which case the representations are equivalent,
+    or zero
+\end{lemma}
+
+An important special case is the one where $D_1 = D_2$. In that case,
+we see that $F$ is essentially unique. More precisely, we have the
+following theorem, also often called Schur’s Lemma:
+\begin{lemma}[Schur's lemma II]
+    If $D$ is an irreducible finite-dimensional representation on a complex
+vector space and there is an endomorphism $F$ of $V$ which satisfies 
+\begin{equation}
+    FD(g) = D(g) F
+\end{equation}
+for all $g\in G$, then F is a multiple of the identity, $F = \lambda
+\id$
+\end{lemma}
+\begin{proof}
+    Note that $F$ has at least one eigenvector $v$ with eigenvalue
+    $\lambda$. (This is where we need $V$ to be a complex vector
+    space: A real matrix might have complex eigenvalues, and hence no
+    real eigenvectors.) Clearly, $F-\lambda\id$ is also an
+    intertwiner, and it is not an isomorphism since it annihilates
+    $v$. Hence, by Schur’s Lemma, it vanishes, thus $F = \lambda\id$.
+\end{proof}
+
+(From the book \cite{book})
+\begin{thm}[Orthogonal Theorem]
+    For finite group $G$, let $D^i(G)$ and $D^j(G)$ be its two
+    irreducible, non-equivalent, and unitary representation. Then, as
+    a vector in group algebra, they have the following orthogonal
+    relationship:
+    \begin{equation}
+        \sum_{R\in G} D^{i*}_{\mu\rho}(R)D^j_{\nu \lambda}(R) =
+        \frac{g}{m_j} \delta_{ij} \delta_{\mu\nu}\delta_{\rho\lambda}
+    \end{equation}
+    $g$ is the order of the group, and $m_j$ is the
+    dimension of representation $D^j(G)$.
+\end{thm}
+\begin{proof}
+    Let
+    \begin{equation}
+        Y_{\rho\lambda}^{\mu\nu} \equiv
+        \delta_{\rho\lambda}\delta_{\mu\nu}
+    \end{equation}
+    Then let
+    \begin{align*}
+        X^{\mu\nu} = \sum_{R\in G} D^i(R^{-1}) Y^{\mu\nu} D^j(R)
+    \end{align*}
+    One can find by direct calculation
+    \begin{align}
+        X^{\mu\nu}_{\rho\lambda}= \sum_{R\in G}
+        D^{i*}_{\mu\rho}(R)D^j_{\nu \lambda}(R)
+    \end{align}
+    And also through direct calculation, one finds
+    \begin{align*}
+        D^i (s) X^{\mu\nu} = X^{\mu\nu} D^j(s)
+    \end{align*}
+    for any $s\in G$. 
+    Then $X^{\mu\nu}$ is a interwiner. So the case for $i\neq j$ is
+    obvious. When $i=j$, we have:
+    $$ X = \lambda \id$$
+    Now we find the $\lambda$, i.e. the eigenvalue of $X^{\mu\nu}$.
+    
+    Now since
+    \begin{align*}
+        X^{\mu\nu}_{\rho\lambda} = \lambda^{\mu\nu}
+        \delta_{\rho\lambda}
+    \end{align*}
+    One can find two fact by direct calculation:
+    \begin{align*}
+        &\sum_\rho X^{\mu\nu}_{\rho\lambda} = m_j \lambda^{\mu\nu} \\
+        &\sum_\rho X^{\mu\nu}_{\rho\lambda} = g \delta^{\mu\nu}
+    \end{align*}
+    Hence $\lambda^{\mu\nu} = \frac{g}{m_j} \delta^{\mu\nu}$.
+\end{proof}
+\begin{remark}
+    For the first orthogonality $\delta_{ij}$, one actually do not
+    required that $D^i$ and $D^j$ is unitary.
+\end{remark}
+\begin{coro}
+    \begin{equation}
+        \sum_{j=1}^{l} m_j^2 \leq g
+    \end{equation}
+    % TODO
+\end{coro}
+\begin{coro}
+    \begin{equation}
+        \sum_{R\in G} \chi^{i*}(R)\chi^j(R) = g \delta_{ij}
+    \end{equation}
+\end{coro}

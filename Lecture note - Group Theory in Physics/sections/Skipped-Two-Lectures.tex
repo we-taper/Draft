@@ -1,0 +1,73 @@
+
+Due to GRE physics preparation. Concepts that may have been covered:
+
+\begin{itemize}
+    \item Representation of Groups.
+        \begin{itemize}
+            \item Character of representation.
+            \item Equivalence between representation.
+        \end{itemize}
+    \item Transformation of Fields
+    \item Regular Representation.
+\end{itemize}
+
+Now let me cover these concepts quickly.
+
+\begin{defi}[Representation]
+\nomenclature{Representation}{\nomrefpage.}
+    A representation of a group $G$ is a continuous homomorphism $D$
+    from $G$ to the group of automorphisms of a vector space $V$:
+    \begin{equation}
+        D: G\mapsto \mathrm{Aut}V
+    \end{equation}
+    $V$ is called the \textit{represetation space}, and the
+    \textit{dimension of the representation} is the dimension of $V$.
+\end{defi}
+
+The following is copied from \cite{Ludeling}.
+
+\begin{itemize}
+    \item There is always the representation $D(g) = 1$ for all $g$.
+        If $\mathrm{dim} V = 1$, this is called the \textit{trivial
+        representation} \nomenclature{trivial
+        representation}{\nomrefpage}.
+    \item The matrix groups, i.e. $\mathrm{GL}(n, K)$ and subgroups,
+        naturally have the representation "by themselves", i.e.
+        by$n\times n$ matrices acting on $K_n$ and satisfying the
+        defining constraints (e.g. nonzero determinant). This is
+        loosely called the \textit{fundamental or defining
+        representation}.
+    \item Two representations $D$ and $D'$ are called
+        \textit{equivalent}\nomenclature{equivalent of
+        representation}{\nomrefpage} if they are related by a
+        similarity transformation, i.e. if there is an operator S such
+        that
+        \begin{equation}
+            SD(g)S^{-1} = D'(g)
+        \end{equation}
+        for all $g$. Note that $S$ does not depend on $g$! Two equivalent
+        representation can be thought of as the same representation in
+        different bases. We will normally regard equivalent
+        representations as being equal.
+
+        Note also here $S$ is the transformation of basis. If we know
+        the transformation of vectors $X$, then
+        \begin{equation}
+            X^{-1} D(g)X = D'(g)
+        \end{equation}
+    \item A representation is called
+        \textit{faithful}\nomenclature{faithful
+        representation}{\nomrefpage} if it is injective, i.e.
+        $\mathrm{ker} D = \{e\}$, or in other words, if $D(g_1) \neq
+        D(g_2)$ whenever $g_1 \neq g_2$.
+    \item If $V$ is equipped with a (positive definite) scalar
+        product, D is unitary if it preserves that scalar product, i.e
+        if
+        \begin{equation}
+            \braket{u,v} = \braket{D(g)u,D(g)v}
+        \end{equation}
+        for all $g\in G$. (Here we assume that $V$ is a complex vector
+        space, as that is the most relevant case. Otherwise one could
+        define orthogonal representations etc.)
+\end{itemize}
+

@@ -1,0 +1,262 @@
+
+
+He first introduces several common examples of symmetries in our life and
+physics. Omitted, with one exception:
+
+He mentions that there is one more symmetry in the Hydrogen 
+Hamiltonian: the Laplace-Runge-Lenz symmetry. (So its symmetry 
+group is not just $SO(3)$, but two copies of $SO(3)$ that forms a $SO(4)$.
+And using the representation of $SO(4)$, the complete spectrum of
+Hydrogen Hamiltonian is solved. Hence this $SO(4)$ is the largest
+symmetry of Hydrogen Hamiltonian.
+
+    \subsection{Digression about Lenz vector}
+    \label{sec:Digression_about_Lenz_vector}
+    Since the class is too boring, I checked about the Lenz vector via
+    Google and found this Math.SE question \cite{math.se_1_lenz_vector}
+
+    The first answer to that post is:
+
+    \begin{center}\noindent\rule{8cm}{0.4pt}\end{center}
+
+    \begin{quote}
+        1) \textbf{Problem}. The \href{http://en.wikipedia.org/wiki/Kepler_problem}{Kepler Problem} has Hamiltonian
+
+        $$ H~:=~ \frac{p^2}{2m}- \frac{k}{q},  $$
+
+        where $m$ is the 2-body reduced mass. The [Laplace–Runge–Lenz vector](http://en.wikipedia.org/wiki/Laplace%E2%80%93Runge%E2%80%93Lenz_vector) is (up to an irrelevant normalization)
+
+        $$ A^j ~:=~a^j  + km\frac{q^j}{q}, \qquad a^j~:=~({\bf L} \times {\bf p})^j~=~{\bf q}\cdot{\bf p}~p^j- p^2~q^j,\qquad {\bf L}~:=~ {\bf q} \times {\bf p}.$$ 
+
+        2) \textbf{Action}. The Hamiltonian Lagrangian is
+
+        $$  L_H~:=~ \dot{\bf q}\cdot{\bf p} - H, $$
+
+        and the action is 
+
+        $$ S[{\bf q},{\bf p}]~=~ \int {\rm d}t~L_H .$$
+
+        The non-zero fundamental canonical Poisson brackets are 
+
+        $$ \{ q^i , p^j\}~=~ \delta^{ij}. $$
+
+        3) \textbf{Inverse Noether's Theorem}. Quite generally in the Hamiltonian formulation, given a constant of motion $Q$, then the infinitesimal variation 
+
+        $$\delta~=~ \varepsilon \{Q,\cdot\}$$ 
+
+        is a global off-shell symmetry of the action $S$ (modulo boundary terms). Here $\varepsilon$ is an infinitesimal global parameter, and $X_Q=\{Q,\cdot\}$ is a Hamiltonian vector field with Hamiltonian generator $Q$. The full Noether current is (minus) $Q$, see e.g. my answer to [this question](http://physics.stackexchange.com/q/8626/2451). \hl{(The words \textbf{on-shell}. and \textbf{off-shell}. refer to whether the equations of motion are satisfied or not.)}
+
+        4) \textbf{Variation}. Let us check that the three Laplace–Runge–Lenz components $A^j$ are Hamiltonian generators of three continuous global off-shell symmetries of the action $S$. In detail, the infinitesimal variations $\delta= \varepsilon_j \{A^j,\cdot\}$ read
+
+        $$ \delta  q^i ~=~  \varepsilon_j  \{A^j,q^i\}   , \qquad 
+         \{A^j,q^i\} ~ =~ 2 p^i q^j - q^i p^j - {\bf q}\cdot{\bf p}~\delta^{ij}, $$
+        $$ \delta  p^i ~=~  \varepsilon_j  \{A^j,p^i\}   , \qquad  
+        \{A^j,p^i\}~ =~ p^i p^j - p^2~\delta^{ij} +km\left(\frac{\delta^{ij}}{q}- \frac{q^i q^j}{q^3}\right), $$
+        $$ \delta  t ~=~0,$$
+
+        where $\varepsilon_j$ are three infinitesimal parameters.
+
+        5) Notice for later that
+
+        $$ {\bf q}\cdot\delta {\bf q}~=~\varepsilon_j({\bf q}\cdot{\bf p}~q^j - q^2~p^j),  $$
+
+        $$ {\bf p}\cdot\delta {\bf p}
+        ~=~\varepsilon_j km(\frac{p^j}{q}-\frac{{\bf q}\cdot{\bf p}~q^j}{q^3})~=~- \frac{km}{q^3}{\bf q}\cdot\delta {\bf q},  $$
+
+        $$ {\bf q}\cdot\delta {\bf p}~=~\varepsilon_j({\bf q}\cdot{\bf p}~p^j - p^2~q^j )~=~\varepsilon_j a^j,  $$
+
+        $$ {\bf p}\cdot\delta {\bf q}~=~2\varepsilon_j( p^2~q^j - {\bf q}\cdot{\bf p}~p^j)~=~-2\varepsilon_j a^j~.  $$
+
+        6) The Hamiltonian is invariant
+
+        $$ \delta  H ~=~ \frac{1}{m}{\bf p}\cdot\delta {\bf p} + \frac{k}{q^3}{\bf q}\cdot\delta {\bf q}~=~0, $$
+
+        showing that the Laplace–Runge–Lenz vector $A^j$ is classically a constant of motion 
+
+        $$\frac{dA^j}{dt} ~\approx~ \{ A^j, H\}+\frac{\partial A^j}{\partial t} ~=~  0.$$   
+
+        (We will use the $\approx$ sign to stress that an equation is an on-shell equation.) 
+
+        7) The variation of the Hamiltonian Lagrangian $L_H$ is a total time derivative
+
+        $$ \delta L_H~=~ \delta  (\dot{\bf q}\cdot{\bf p})~=~ \dot{\bf q}\cdot\delta {\bf p} - \dot{\bf p}\cdot\delta {\bf q} + \frac{d({\bf p}\cdot\delta {\bf q})}{dt} $$
+        $$  =~ \varepsilon_j\left( \dot{\bf q}\cdot{\bf p}~p^j - p^2~\dot{q}^j +  km\left( \frac{\dot{q}^j}{q} -  \frac{{\bf q} \cdot \dot{\bf q}~q^j}{q^3}\right)\right)    $$
+        $$- \varepsilon_j\left(2 \dot{\bf p}\cdot{\bf p}~q^j - \dot{\bf p}\cdot{\bf q}~p^j- {\bf p}\cdot{\bf q}~\dot{p}^j  \right) - 2\varepsilon_j\frac{da^j}{dt}$$
+        $$ =~\varepsilon_j\frac{df^j}{dt}, \qquad f^j ~:=~ A^j-2a^j, $$
+
+        and hence the action $S$ is invariant off-shell up to boundary terms.
+
+        8) \textbf{Noether current}. The bare \href{http://en.wikipedia.org/wiki/Noether%27s_theorem}{Noether current} $j^k$ is
+
+        $$j^k~:=~ \frac{\partial L_H}{\partial \dot{q}^i}  \{A^k,q^i\}+\frac{\partial L_H}{\partial \dot{p}^i}  \{A^k,p^i\}
+        ~=~ p^i\{A^k,q^i\}~=~ -2a^k. $$
+
+        The full Noether current $J^k$ (which takes the total time-derivative into account) becomes (minus) the Laplace–Runge–Lenz vector
+
+        $$ J^k~:=~j^k-f^k~=~ -2a^k-(A^k-2a^k)~=~ -A^k.$$
+
+        $J^k$ is conserved on-shell 
+
+        $$\frac{dJ^k}{dt} ~\approx~  0,$$  
+
+        due to \href{http://en.wikipedia.org/wiki/Noether%27s_theorem}{Noether's first Theorem}. Here $k$ is an index that labels the three symmetries.
+    \end{quote}
+
+    \begin{center}\noindent\rule{8cm}{0.4pt}\end{center}
+
+    However, I don't really understand the content inside. I asked professor
+    Ye whether we can find some physics about this conserved quantity, and
+    he answered with no.
+
+    The next answer is also interesting:
+    
+    \begin{center}\noindent\rule{8cm}{0.4pt}\end{center}
+
+    \begin{quote}
+        While Kepler second law is simply a statement of the conservation of angular momentum (and as such it holds for all systems described by central forces), \hl{the first and the third laws are special and are linked with the unique form of the newtonian potential $-k/r$.} In particular, \hl{Bertrand theorem assures that *only* the newtonian potential and the harmonic potential $kr^2$ give rise to closed orbits (no precession).} It is natural to think that this must be due to some kind of symmetry of the problem. In fact, the particular symmetry of the newtonian potential is described exactly by the conservation of the RL vector (\hl{it can be shown that the RL vector is conserved iff the potential is central and newtonian}). This, in turn, is due to a more general symmetry: \hl{if conservation of angular momentum is linked to the group of special orthogonal transformations in 3-dimensional space $SO(3)$, conservation of the RL vector must be linked to a 6-dimensional group of symmetries}, since in this case there are apparently six conserved quantities (3 components of $L$ and 3 components of $\mathcal A$). In the case of bound orbits, this group is $SO(4)$, the group of rotations in 4-dimensional space.  
+
+        Just to fix the notation, the RL vector is:
+
+        \begin{equation} \mathcal{A}=\textbf{p}\times\textbf{L}-\frac{km}{r}\textbf{x} \end{equation}
+
+        Calculate its total derivative:
+
+        \begin{equation}\frac{d\mathcal{A}}{dt}=-\nabla U\times(\textbf{x}\times\textbf{p})+\textbf{p}\times\frac{d\textbf{L}}{dt}-\frac{k\textbf{p}}{r}+\frac{km(\textbf{p}\cdot \textbf{x})}{r^3}\textbf{x} \end{equation}
+
+        Make use of Levi-Civita symbol to develop the cross terms:
+
+        \begin{equation}\epsilon_{sjk}\epsilon_{sil}=\delta_{ji}\delta_{kl}-\delta_{jl}\delta_{ki}   \end{equation}
+
+        Finally:
+
+        \begin{equation}
+        \frac{d\mathcal{A}}{dt}=\left(\textbf{x}\cdot\nabla U-\frac{k}{r}\right)\textbf{p}+\left[(\textbf{p}\cdot\textbf{x})\frac{k}{r^3}-2\textbf{p}\cdot\nabla U\right]\textbf{x}+(\textbf{p}\cdot\textbf{x})\nabla U
+        \end{equation}
+
+        Now, if the potential $U=U(r)$ is central:
+
+        \begin{equation}
+        (\nabla U)_j=\frac{\partial U}{\partial x_j}=\frac{dU}{dr}\frac{\partial r}{\partial x_j}=\frac{dU}{dr}\frac{x_j}{r}
+        \end{equation}
+
+        so 
+
+        \begin{equation} \nabla U=\frac{dU}{dr}\frac{\textbf{x}}{r}\end{equation}
+
+        Substituting back:
+
+        \begin{equation}
+            \hlMath{\frac{d\mathcal A}{dt}=\frac{1}{r}\left(\frac{dU}{dr}-\frac{k}{r^2}\right)[r^2\textbf{p}-(\textbf{x}\cdot\textbf{p})\textbf{x}]}
+        \end{equation}
+
+        Now, you see that if $U$ has \textit{exactly} the newtonian form then the first parenthesis is zero and so the RL vector is conserved. 
+
+        Maybe there's some slicker way to see it (Poisson brackets?), but this works anyway.
+    \end{quote}
+    \begin{center}\noindent\rule{8cm}{0.4pt}\end{center}
+    
+    % TODO Study in detail about this example.
+
+    \subsection{Coming back to the course}
+
+After mentioning the Poinc\'{a}re group, he produces to review some
+concepts about linear algebra:
+\begin{enumerate}
+    \item The axioms of linear space, using quantum mechanics
+        as basic example (Omitted).
+    \item Some common concepts of linear space: linear-independence,
+        subspace, direct sum, linear operators, its matrix representation. (Omitted)
+    \item Introducing the complete antisymmetric tensor 
+        $\epsilon^{a_1,\cdots,a_n}$. Some properties:
+        \begin{align}
+            \frac{1}{(m-n)!} \sum_{a_{n+1},\cdots, a_m}
+            & \epsilon_{a_1,\cdots,a_n,a_{n+1},a_m}
+            \epsilon_{b_1,\cdots,b_n,a_{n+1},a_m}\nonumber
+            \\
+            &= \sum_{p_1,\cdots,p_n} 
+            \epsilon_{p_1,\cdots,p_n} 
+                \delta_{a_1,b_{p_1}}\cdots \delta_{a_n,b_{p_n}}
+                \\
+            \epsilon_{ab}\epsilon_{rs} &=
+                \delta_{ar}\delta_{bs}-\delta_{as}\delta_{br}
+                \\
+            \sum_d\epsilon_{abd}\epsilon_{rsd} &=
+                \delta_{ar}\delta_{bs} + \delta_{as}\delta_{br}
+        \end{align}
+    \item Some special matrices.
+    \item Fact: If $R\Gamma = \Gamma R$, and 
+        $\Gamma$ is diagonal. (let $\mu\neq\nu$) Then if 
+        $\Gamma_{\mu\mu} \neq \Gamma_{\nu\nu}$ , we have:
+        $ R_{\mu\nu}=R_{\nu\mu} = 0 $.
+        On the other hand, if $R_{\mu\nu}\neq 0$, then
+        $\Gamma_{\mu\mu}=\Gamma_{\nu\nu}$.
+        This is obviously from:
+        \begin{align*}
+            \sum_j R^{i}_{j}\Gamma^{j}_{k}=\sum_j\Gamma^{i}_{j} R^{j}_k
+            \Longrightarrow
+            R^i_k\Gamma^k_k = \Gamma^i_i R^i_k
+        \end{align*}
+        where the first is automatically summed, and the second is not.
+
+    \item A linear functional is closed w.r.t. a vector space. (Omitted)
+    \item ... then this linear functional can be expressed as a
+        matrix w.r.t to a basis of this vector space. (Omitted)
+    \item Invariant subspace. (Omitted)
+    \item Transformation of basis. (Omitted)
+    \item Direct sum of operators:
+
+        Let vector spaces $L=L_1\oplus L_2$, with $L=\braket{e_i}$,
+        $L_1=\braket{e'_1,\cdots e'_n}$,$L_2=\braket{e'_{n+1},\cdots,e'_m}$,
+        $e'_\nu=\sum_\mu e_\mu  S_{\mu\nu}$. 
+        Assume that $L_1,L_2$ are invariant w.r.t $A$, an linear operator. If:
+        \begin{align}
+            A e'_\mu = \sum_{\nu=1}^{m} e'_\nu R'_{\nu\mu}
+        \end{align}
+        we have obviously:
+        \begin{align}
+            A e'_\mu = \sum_{\nu=1}^{n} e'_\nu R'_{\nu\mu} \text{for }
+                \mu\in \{1\cdots n\}
+                \\
+            A e'_\mu = \sum_{\nu=n}^{m} e'_\nu R'_{\nu\mu} \text{for }
+                \mu\in \{n\cdots m\}
+        \end{align}
+        i.e., $A$'s matrix representation has two diagonal blocks.
+        Using this fact, $A$ after a linear transformation (by $S$),
+        could be written as $R_1\oplus R_2$, where the meaning of $R_1/R_2$
+        is obvious.
+    \item Eigenvalues and the characteristic equation. (Omitted)
+        Some properties:
+        \begin{enumerate}
+            \item Trace = $\sum_i \lambda_i$
+            \item Determinant = $\prod_i \lambda_i$
+            \item Geometric multiplicity $\leq$ Algebraic multiplicity, or
+                $$\mathrm{dim}V_{\lambda_1} \leq n_1$$.
+        \end{enumerate}
+    \item Inner product and orthonormal basis. (Omitted) Here we define
+        matrix $\Omega$ to be, when a basis $\{e_i\}$is given:
+        \begin{defi}[]
+        \nomenclature{}{\nomrefpage.}
+            \begin{align}
+                \Omega_{ij} \equiv \braket{e_i,e_j}
+            \end{align}
+        \end{defi}
+    \item Adjoint operator:
+
+        Let $A$ be a linear operator represented by matrix $A^i_j$. Let
+        its adjoint $A^\dagger$ be represented by $R^i_J$. Then using
+        $\braket{A^\dagger e_j, e_i} = \braket{e_j,A e_i}$, we will
+        get $(R^{k}_j)^* \Omega_{ki}= \Omega_{jk}A^k_i$, i.e.
+        $(R^T)^* \Omega = \Omega A$, so:
+        \begin{align}
+            R = \Omega^{-1} A^\dagger \Omega
+        \end{align}
+        where we have used the fact that $\Omega^\dagger=\Omega$.
+
+        Note that $(R^{k}_j)^* \Omega_{ki}$ is not $\Omega^T R^*$.
+        (Be careful and you will find out why.)
+
+        This is very different from my previous naive concept
+        when $\Omega$ is not identity matrix, i.e. when the basis
+        is not orthonormal.
+\end{enumerate}
+
