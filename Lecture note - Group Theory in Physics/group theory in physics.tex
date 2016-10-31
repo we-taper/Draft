@@ -21,18 +21,17 @@
 \usepackage[unicode]{hyperref}  % make every cite a link
 \usepackage{CJKutf8} % For Chinese characters
 \usepackage{fancyref} % For easy adding figure,equation etc in reference. Use \fref or \Fref instead of \ref
-\usepackage{braket} %http://tex.stackexchange.com/questions/214728/braket-notation-in-latex
 
 % Following is for theorems etc environments
 % http://tex.stackexchange.com/questions/45817/theorem-definition-lemma-problem-numbering && https://en.wikibooks.org/wiki/LaTeX/Theorems
 \usepackage{amsthm}
-\newtheorem{defi}{Definition}[section]
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{lemma}{Lemma}[section]
 \newtheorem{remark}{Remark}[section]
 \newtheorem{prop}{Proposition}[section]
 \newtheorem{coro}{Corollary}[section]
 \theoremstyle{definition}
+\newtheorem{defi}{Definition}[section]
 \newtheorem{ex}{Example}[section]
 \newtheorem{fact}{Fact}[section]
 
@@ -45,6 +44,12 @@
 \usepackage{xcolor,soul}
 \newcommand{\hlMath}[1]{\colorbox{yellow!80}{$\displaystyle#1$}}
 
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physics-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physics-taper}
 
 \title{Group Theory in Physics (Course Note)}
 \date{\today}
@@ -592,12 +597,313 @@ $R_i$. We then have the following facts (all are obvious):
 
 
 
+\section{Skipped Two lectures}
+Due to GRE physics preparation. Concepts that may have been covered:
+
+\begin{itemize}
+    \item Representation of Groups.
+        \begin{itemize}
+            \item Character of representation.
+            \item Equivalence between representation.
+        \end{itemize}
+    \item Transformation of Fields
+    \item Regular Representation.
+\end{itemize}
+
+Now let's me cover these concepts quickly.
+
+\begin{defi}[Representation]
+\nomenclature{Representation}{\nomrefpage.}
+    A representation of a group $G$ is a continuous homomorphism $D$
+    from $G$ to the group of automorphisms of a vector space $V$:
+    \begin{equation}
+        D: G\mapsto \mathrm{Aut}V
+    \end{equation}
+    $V$ is called the \textit{represetation space}, and the
+    \textit{dimension of the representation} is the dimension of $V$.
+\end{defi}
+
+The following is copied from \cite{Ludeling}.
+
+\begin{itemize}
+    \item There is always the representation $D(g) = 1$ for all $g$.
+        If $\mathrm{dim} V = 1$, this is called the \textit{trivial
+        representation} \nomenclature{trivial
+        representation}{\nomrefpage}.
+    \item The matrix groups, i.e. $\mathrm{GL}(n, K)$ and subgroups,
+        naturally have the representation "by themselves", i.e.
+        by$n\times n$ matrices acting on $K_n$ and satisfying the
+        defining constraints (e.g. nonzero determinant). This is
+        loosely called the \textit{fundamental or defining
+        representation}.
+    \item Two representations $D$ and $D'$ are called
+        \textit{equivalent}\nomenclature{equivalent of
+        representation}{\nomrefpage} if they are related by a
+        similarity transformation, i.e. if there is an operator S such
+        that
+        \begin{equation}
+            SD(g)S^{-1} = D'(g)
+        \end{equation}
+        for all $g$. Note that $S$ does not depend on $g$! Two equivalent
+        representation can be thought of as the same representation in
+        different bases. We will normally regard equivalent
+        representations as being equal.
+
+        Note also here $S$ is the transformation of basis. If we know
+        the transformation of vectors $X$, then
+        \begin{equation}
+            X^{-1} D(g)X = D'(g)
+        \end{equation}
+    \item A representation is called
+        \textit{faithful}\nomenclature{faithful
+        representation}{\nomrefpage}if it is injective, i.e.
+        $\mathrm{ker} D = \{e\}$, or in other words, if $D(g_1) \neq
+        D(g_2)$ whenever $g_1 \neq g_2$.
+    \item If $V$ is equipped with a (positive definite) scalar
+        product, D is unitary if it preserves that scalar product, i.e
+        if
+        \begin{equation}
+            \braket{u,v} = \braket{D(g)u,D(g)v}
+        \end{equation}
+        for all $g\in G$. (Here we assume that $V$ is a complex vector
+        space, as that is the most relevant case. Otherwise one could
+        define orthogonal representations etc.)
+\end{itemize}
+
+\section{20161031}
+\label{sec:20161031}
+
+\begin{thm}[Unitary Representation]
+    For finite groups and for compact Lie groups, all representations
+    are equivalent to a unitary representation.
+\end{thm}
+\begin{proof}
+    For $D(g)$, we need to find a $X$ such that $\bar{D}(g)\equiv
+    X^{-1}D(g)X$ is unitary.
+
+    Since
+    \begin{align*}
+        1 = \bar{D}^\dagger \bar{D}
+    \end{align*}
+    One will find 
+    $$ (XX^\dagger)^{-1} = D^\dagger (XX^\dagger)^{-1} D$$
+    Then let
+    \begin{equation}
+        H\equiv \sum_{s\in G} D^\dagger(s) D(s)
+    \end{equation}
+    One can verify that
+    \begin{equation}
+        D^\dagger (g) H D(g) = H
+    \end{equation}
+
+    Now we construct $X$ from $H$. We have
+    \begin{equation}
+        H = (XX^\dagger)^{-1}
+    \end{equation}
+
+    Notice we have $H$ is Hermitian by above equation. Also, $H$ is
+    positive definite (easily seen from the definition of $H$ and 
+    $a^\dagger H a \geq 0$. Also $H$ is of full rank.).
+
+    Then we have $UHU^{-1} = \mathrm{diag}\{\gamma_1,\gamma_2,\cdots\}$
+    and $\gamma_i > 0$. The rest for constructing $X$ should be
+    obvious.
+
+    Another way to prove this is to imbe
+\end{proof}
+
+\begin{thm}
+    For any two equivalent representation, there is always a unitary
+    matrix to relate the two, i.e. exits $Y$ unitary, s.t.
+    $$ \bar{D}(g) = Y^{-1} D(g) Y$$
+\end{thm}
+\begin{proof}
+    Suppose we have two unitary representation $D(g)$ and
+    $\bar{D}(g)$, related by
+    $$ \bar{D}(g) = X^{-1} D(g) X$$
+    where $X$ is not necessarily unitary.
+
+    Let $H\equiv X^\dagger X$, it is easy to prove that $H$ is
+    Hermitian and positive definite. Direct calculation shows that
+    $$ \bar{D}^{-1}(g) H \bar{D}(g) = H$$
+    That is $\bar{D}(g)$ and $H$ commute.
+    Then we construct $Y$ from $H$. Let $V$ be such that
+    \begin{equation}
+        V^{-1} H V = \Gamma
+    \end{equation}
+    where $\Gamma$ is a diagonal matrix of $H$'s eigenvalues.
+    Obviously $V$ has to be unitary. Define $Y$ to be
+    \begin{equation}
+        Y\equiv V \sqrt{\Gamma} V^{-1}
+    \end{equation}
+    By direct calculation, we have
+    $$ (XY)^\dagger (XY) = 1$$
+    One can show that
+    $$[ Y, \bar{D}(g)] = 0$$
+    with laborious calculation. % TODO 
+\end{proof}
+
+\begin{defi}[Reducibility of Representation]
+    \nomenclature{Reducibility of Representation}{\nomrefpage.}
+    A representation $D$ is called \textit{reducible} if $V$ contains an
+    invariant subspace. Otherwise $D$ is called irreducible.
+
+    A representation is called \textit{fully reducible} if $V$ can be
+    written as the direct sum of irreducible invariant subspaces, i.e.
+    $V=V_1\oplus \cdots \oplus V_p$, all the $V_i$ are invariant and the
+    restriction of $D$ to each $V_i$ is irreducible.
+\end{defi}
+
+\begin{ex}$ $
+
+    \begin{itemize}
+        \item The representation of finite group is obviously fully
+            reducible or irreducible.
+        \item The representation of translation group is not fully
+            reducible. For example, for translation we have:
+            $T_a T_b = T_{a+b}$,
+            One can confirm that the following representation obeys
+            the above relationship:
+            $$T_a = \left( \begin{array}{cc}
+                 1 & a \\
+                 0 & 1 \\
+            \end{array} \right)$$
+            but this is obviously not fully reducible.
+    \end{itemize}
+\end{ex}
+
+\begin{defi}[Interwiner]
+\nomenclature{Interwiner}{\nomrefpage.}
+    Given two representations $D_1$ and $D_2$ acting on $V_1$ and
+    $V_2$, an intertwiner between $D_1$ and $D_2$ is a linear operator
+    \begin{equation}
+        F: V_1 \mapsto V_2
+    \end{equation}
+    which "commutes" with $G$ in the sense that
+    \begin{equation}
+        F D_1(g) = D_2(g) F
+    \end{equation}
+    for all $g\in G$.
+\end{defi}
+
+(From pp.30 of \cite{Ludeling})
+
+The existence of an intertwiner has a number of consequences. First,
+$D_1$ and $D_2$ are equivalent exactly if there exists an invertible
+intertwiner. Second, \hl{the kernel and the image of $F$ are invariant
+subspaces}: Assume $v\in \Ker{F}$, i.e. $Fv = 0$. Then
+\begin{equation}
+    FD_1 v = D_2 F v = D_2 0 = 0
+\end{equation}
+so $D_1 v\in \Ker{F}$. On the other hand, let $w_2 = Fw_1$ be an
+arbitrary element of the image of $F$. Then from the definition we have
+\begin{equation}
+    D_2 w_2 = D_2 F w_1 = FD_1 w_1
+\end{equation}
+which is again in the image of $F$. Now if $D_1$ is irreducible, the only invariant subspaces,
+hence the only possible kernels, are $\{0\}$ and $V_1$ itself, so $F$ is either injective or zero.
+Similarly, if $D_2$ is irreducible, F is either surjective or zero. Taking these statements together, we arrive at Schur’s Lemma: 
+
+\begin{lemma}[Schur's lemma 1]
+    An intertwiner between two irreducible representations is either
+    an isomorphism, in which case the representations are equivalent,
+    or zero
+\end{lemma}
+
+An important special case is the one where $D_1 = D_2$. In that case,
+we see that $F$ is essentially unique. More precisely, we have the
+following theorem, also often called Schur’s Lemma:
+\begin{lemma}[Schur's lemma 2]
+    If $D$ is an irreducible finite-dimensional representation on a complex
+vector space and there is an endomorphism $F$ of $V$ which satisfies 
+\begin{equation}
+    FD(g) = D(g) F
+\end{equation}
+for all $g\in G$, then F is a multiple of the identity, $F = \lambda
+\id$
+\end{lemma}
+\begin{proof}
+    Note that $F$ has at least one eigenvector $v$ with eigenvalue
+    $\lambda$. (This is where we need $V$ to be a complex vector
+    space: A real matrix might have complex eigenvalues, and hence no
+    real eigenvectors.) Clearly, $F-\lambda\id$ is also an
+    intertwiner, and it is not an isomorphism since it annihilates
+    $v$. Hence, by Schur’s Lemma, it vanishes, thus $F = \lambda\id$.
+\end{proof}
+
+(From the book \cite{book})
+\begin{thm}[Orthogonal Theorem]
+    For finite group $G$, let $D^i(G)$ and $D^j(G)$ be its two
+    irreducible, non-equivalent, and unitary representation. Then, as
+    a vector in group algebra, they have the following orthogonal
+    relationship:
+    \begin{equation}
+        \sum_{R\in G} D^{i*}_{\mu\rho}(R)D^j_{\nu \lambda}(R) =
+        \frac{g}{m_j} \delta_{ij} \delta_{\mu\nu}\delta_{\rho\lambda}
+    \end{equation}
+    $g$ is the order of the group, and $m_j$ is the
+    dimension of representation $D^j(G)$.
+\end{thm}
+\begin{proof}
+    Let
+    \begin{equation}
+        Y_{\rho\lambda}^{\mu\nu} \equiv
+        \delta_{\rho\lambda}\delta_{\mu\nu}
+    \end{equation}
+    Then let
+    \begin{align*}
+        X^{\mu\nu} = \sum_{R\in G} D^i(R^{-1}) Y^{\mu\nu} D^j(R)
+    \end{align*}
+    One can find by direct calculation
+    \begin{align}
+        X^{\mu\nu}_{\rho\lambda}= \sum_{R\in G}
+        D^{i*}_{\mu\rho}(R)D^j_{\nu \lambda}(R)
+    \end{align}
+    And also through direct calculation, one finds
+    \begin{align*}
+        D^i (s) X^{\mu\nu} = X^{\mu\nu} D^j(s)
+    \end{align*}
+    for any $s\in G$. 
+    Then $X^{\mu\nu}$ is a interwiner. So the case for $i\neq j$ is
+    obvious. When $i=j$, we have:
+    $$ X = \lambda \id$$
+    Now we find the $\lambda$, i.e. the eigenvalue of $X^{\mu\nu}$.
+    
+    Now since
+    \begin{align*}
+        X^{\mu\nu}_{\rho\lambda} = \lambda^{\mu\nu}
+        \delta_{\rho\lambda}
+    \end{align*}
+    One can find two fact by direct calculation:
+    \begin{align*}
+        &\sum_\rho X^{\mu\nu}_{\rho\lambda} = m_j \lambda^{\mu\nu} \\
+        &\sum_\rho X^{\mu\nu}_{\rho\lambda} = g \delta^{\mu\nu}
+    \end{align*}
+    Hence $\lambda^{\mu\nu} = \frac{g}{m_j} \delta^{\mu\nu}$.
+\end{proof}
+\begin{remark}
+    For the first orthogonality $\delta_{ij}$, one actually do not
+    required that $D^i$ and $D^j$ is unitary.
+\end{remark}
+\begin{coro}
+    \begin{equation}
+        \sum_{j=1}^{l} m_j^2 \leq g
+    \end{equation}
+    % TODO
+\end{coro}
+\begin{coro}
+    \begin{equation}
+        \sum_{R\in G} \chi^{i*}(R)\chi^j(R) = g \delta_{ij}
+    \end{equation}
+\end{coro}
 \section{Anchor}
 \label{sec:Anchor}
 \begin{thebibliography}{1}
-    %\bibitem{book} 
     \bibitem{book} Zhongqi Ma, Group Theory in Physics
     \bibitem{math.se_1_lenz_vector} \href{physics.stackexchange.com/questions/18088/what-symmetry-causes-the-runge-lenz-vector-to-be-conserved}{What symmetry causes the Runge-Lenz vector to be conserved?}
+    \bibitem{Ludeling} Lecture Notes for physics751: Group Theory (for
+    Physicists), by C Ludeling.
+    \href{http://www.th.physik.uni-bonn.de/nilles/people/luedeling/grouptheory/data/grouptheorynotes.pdf}{Link}
 \end{thebibliography}
 \printnomenclature
 \section{License}
