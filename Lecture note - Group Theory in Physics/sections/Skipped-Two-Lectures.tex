@@ -2,16 +2,116 @@
 Due to GRE physics preparation. Concepts that may have been covered:
 
 \begin{itemize}
+    \item Conjugacy classes
     \item Representation of Groups.
         \begin{itemize}
             \item Character of representation.
             \item Equivalence between representation.
         \end{itemize}
     \item Transformation of Fields
-    \item Regular Representation.
+    \item Group Algebra and Regular Representation.
 \end{itemize}
 
-Now let me cover these concepts quickly.
+\subsection{Conjugacy classes (continued)}
+\label{sec:Conjugacy classes (continued)}
+
+One important group is the symmetric group. It is important because
+that every finite group of order $n$ can be embedded inside the
+symmetric group $S_n$ (Cayley's theorem) \footnote{
+    However, it is hard sometimes to find the smallest possible
+    symmetric group to embed into. For example, $S_3$ has 6 elements
+    and can thus be embedded into $S_6$. But obviously it can be
+    embedded better just into itself $S_3$.
+}.
+
+The conjugacy classes in symemtric is pretty easy to find. What we
+need to know is the following observation (from \cite{Ludeling})
+
+\begin{key}
+    Consider two permutation $\pi$ and $\sigma$:
+    \begin{align}
+        \pi =\left( \begin{array}{ccc}
+             1 & \cdots & n \\
+            \pi(1) & \cdots & \pi(n) \\
+            \end{array} \right) ,\quad\quad
+        \sigma = \left( \begin{array}{ccc}
+             1 & \cdots & n \\
+            \sigma(1) & \cdots & \sigma(n) \\
+            \end{array} \right)
+    \end{align}
+    Then we have by direct calculation:
+    \begin{align}
+        \sigma\pi\sigma^{-1} = \left( \begin{array}{ccc}
+                \sigma(1)      & \cdots & \sigma(n) \\
+                \sigma(\pi(1)) & \cdots & \sigma(\pi(n)) \\
+            \end{array} \right)
+    \end{align}
+    Therefore, the cycle structure of $\pi$ is unchanged under any
+    "conjugacy transformation".
+\end{key}
+What do I mean by cycle structure? Let's see an example. Suppose we
+have a cycle $(123)$:
+\begin{center} \begin{tikzcd}[column sep=small]
+    & 1 \arrow[dr] & \\
+    2\arrow[ru] & & 3\arrow{ll} 
+\end{tikzcd} \end{center}
+Then the conjugated map $\sigma (123) \sigma^{-1}$ will have:
+\begin{center} \begin{tikzcd}[column sep=small]
+    & \sigma(1) \arrow[dr] & \\
+    \sigma(2)\arrow[ru] & & \sigma(3)\arrow{ll} 
+\end{tikzcd} \end{center}
+So it has a cycle of $(\sigma(1)\sigma(2)\sigma(3))$.
+We see that in general, the cycle type is unchanged under conjugacy
+transformation.
+\footnote{ For a permutation, its cycle type is determined by
+    decomposing it into independent cycles. For independent cycles,
+    the cycle type is unique. For example, $(135)(24)$ has a cycle
+    type of $(3,2)$, or $(2,3)$ since the order is irrelevant. But if
+    we decompose it into non-independent cycles, we cannot determine
+    its cycle type. For example, $(135)=(15)(13)$, which is ambiguous
+    if we were to tell the cycle type.
+}
+
+On the other hand, all elements of the same cycle type belong to the
+same conjugacy class. For example, consider two permutations:
+$(i_1 i_2 i_3)(i_4 i_5)$ and $\left(\pi_{i_1}
+\pi_{i_2}\pi_{i_3}\right)\left(\pi_{i_4}\pi_{i_5}\right)$, where $\pi$
+permutes the five numbers $i_1 \cdots i_5$.
+Consider the map:
+\begin{equation}
+    \sigma \equiv \left( \begin{array}{ccc}
+            i_1      & \cdots & i_5 \\
+            \pi_{i_1} & \cdots & \pi_{i_5} \\
+        \end{array} \right)
+\end{equation}
+Then \begin{align*}
+    &\sigma (i_1 i_2 i_3)(i_4 i_5) \sigma^{-1} =  \\
+    &\left( \begin{array}{ccc}
+            i_1      & \cdots & i_5 \\
+            \pi_{i_1} & \cdots & \pi_{i_5} \\
+        \end{array} \right)
+        (i_1 i_2 i_3)(i_4 i_5)
+        \left( \begin{array}{ccc}
+            \pi_{i_1} & \cdots & \pi_{i_5} \\
+            i_1      & \cdots & i_5 \\
+        \end{array} \right) \\
+    & = (\pi_{i_1} \pi_{i_2}\pi_{i_3})(\pi_{i_4}\pi_{i_5})
+\end{align*}
+The proof for the general case is similar. So we have the theorem
+below:
+\begin{thm}[Cycle type determines conjugacy class]
+    Two permutations are conjugate in the symmetric group if and only if they have the same cycle type.
+\end{thm}
+\begin{remark}
+    Since a cycle type is just a set of unordered integer partition of
+    number $n$. The above theorem means that the set of conjugacy
+    classes in the symmetric group on a finite set is in bijection
+    with the set of unordered integer partitions of the size of the
+    set. 
+\end{remark}
+
+\subsection{Group Representation}
+\label{sec:Group-Representation}
 
 \begin{defi}[Representation]
 \nomenclature{Representation}{\nomrefpage.}
@@ -24,7 +124,7 @@ Now let me cover these concepts quickly.
     \textit{dimension of the representation} is the dimension of $V$.
 \end{defi}
 
-The following is copied from \cite{Ludeling}.
+Related concepts. (The following is copied from \cite{Ludeling}.)
 
 \begin{itemize}
     \item There is always the representation $D(g) = 1$ for all $g$.
@@ -50,8 +150,8 @@ The following is copied from \cite{Ludeling}.
         different bases. We will normally regard equivalent
         representations as being equal.
 
-        Note also here $S$ is the transformation of basis. If we know
-        the transformation of vectors $X$, then
+        Note also here $S$ represents a transformation of basis. If we
+        know the transformation of vectors $X$, then
         \begin{equation}
             X^{-1} D(g)X = D'(g)
         \end{equation}
@@ -71,3 +171,81 @@ The following is copied from \cite{Ludeling}.
         define orthogonal representations etc.)
 \end{itemize}
 
+\subsubsection{Regular Representation}
+\label{sec:Regular-Representation}
+
+Now we construce a simple representation for all groups. It utilizes a
+vector space constructed from group itself called Group Algebra.
+
+\begin{defi}[Group algebra/Monoid algebra]
+\nomenclature{$A[G]$ group algebra/monoid algebra}{\nomrefpage.}
+
+    Let $A$ be a commutative ring, $G$ be a monoid, written
+    multiplicatively. Then the monoid ring $A[G]$ consists of those
+    finite formal linear combinations $v$ of the form:
+    \begin{equation}
+        v = \sum_{g\in G} v_g g
+    \end{equation}
+    where $v_g \in A$. The $v_g$ are seen as coefficients and $g$ are
+    seen as the basis vectors that can be multiplied. Soe the addition
+    is defined as:
+    \begin{equation}
+        v+w = \sum_{g\in G} (v_g + w_g) g
+    \end{equation}
+    And the multiplication is
+    \begin{equation}
+        v w = \sum_{g,g'\in G} (v_g w_{g'}) gg'
+    \end{equation}
+    If $G$ is a group then the
+    corresponding $A[G]$ is called a \textit{group algebra}.
+\end{defi}
+A rigorious definition would use the concept of function to define the
+"formal linear combination". Please refer to page 105 (section II.3) of
+\cite{lang-algebra}. 
+\begin{remark}
+    Note that both $A$ and $G$ can be naturally embeded into $A[G]$.
+    This will helps us to define a representation of group $G$ later.
+\end{remark}
+
+\begin{ex}
+    (From page 106 of \cite{lang-algebra}.)
+    Polynomial rings are special cases. In $n$ variables, consider a
+    multiplicative free abelian group of rank $n$. Let $X_l,\cdots
+    X_n$ be generators. Let $G$ be the multiplicative subset
+    consisting of elements $X_1^{v_1},\cdots,X_n^{v_n}$, where
+    $v_i\leq 0$ for all $i$. Then $G$ is a monoid, and it is eas to
+    verify that $A[G]$ is just $A[X_1,\cdots, X_n]$.
+\end{ex}
+
+Here we take $A$ to be $\mathbb{C}$, then we have clearly
+$\mathbb{C}[G]$ a vector space equipped with a bilinear map (the
+product), i.e. an algebra over a field. Its dimension is clear equal
+to the order of $G$. We can also give it an inner product by:
+\begin{equation}
+    \braket{v,w} =\sum_{g\in G} v_g^* w_g
+\end{equation}
+Now we can define the regular representation:
+
+\begin{defi}[Regular Representation]
+\nomenclature{Regular Representation}{\nomrefpage.}
+    A regular representation of a group $G$ is the following
+    endomorphism of $\mathbb{C}[G]$:
+    \begin{equation}
+        D_\text{reg}: v \mapsto g\cdot v
+    \end{equation}
+    where $v\in \mathbb{C}[G]$, $g\in G \hookrightarrow \mathbb{C}[G]$.
+\end{defi}
+
+\begin{remark}
+    This representation can be just seen as a permutation of basis
+    vectors, because:
+    \begin{equation}
+        g\cdot v = \sum_{h\in G} v_h (gh) = \sum_{h'\in G}
+        v_{g^{-1}h'}\, h'
+    \end{equation}
+    Therefore, it is unitary.
+\end{remark}
+
+\begin{remark}
+    This representation is not 
+\end{remark}

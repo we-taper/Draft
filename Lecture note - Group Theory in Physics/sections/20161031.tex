@@ -9,7 +9,7 @@
 \end{thm}
 \begin{remark}
     Before the formal proof, I remarked that since any finite group
-    can be imbeded inside the symmetric group (Cayley's theorem), and
+    can be embedded inside the symmetric group (Cayley's theorem), and
     the symmetric has clearly a unitary representation (perhaps the
     easiest representation one could ever construct besides the
     trivial representation), one could naturally guess whether it is
@@ -125,7 +125,10 @@ From class, Ye Fei proved that:
     $Y\equiv \bar{Y}X$ is the required unitary transformation.
 \end{proof}
 
-\begin{defi}[Reducibility of Representation]
+\subsection{Reduciblility of Representations}
+\label{sec:Reduciblility-of-Representations}
+
+\begin{defi}[Reducible/Irreducible Representation]
     \nomenclature{Reducibility of Representation}{\nomrefpage.}
     A representation $D$ is called \textit{reducible} if $V$ contains an
     invariant subspace. Otherwise $D$ is called irreducible.
@@ -136,11 +139,12 @@ From class, Ye Fei proved that:
     restriction of $D$ to each $V_i$ is irreducible.
 \end{defi}
 
+
 \begin{ex}$ $
 
     \begin{itemize}
         \item The representation of finite group is obviously fully
-            reducible or irreducible.
+            reducible or irreducible. % TODO WHY 
         \item The representation of translation group is not fully
             reducible. For example, for translation we have:
             $T_a T_b = T_{a+b}$,
