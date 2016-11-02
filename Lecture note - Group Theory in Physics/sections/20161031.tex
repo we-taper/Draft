@@ -139,12 +139,22 @@ From class, Ye Fei proved that:
     restriction of $D$ to each $V_i$ is irreducible.
 \end{defi}
 
+\begin{ex}
+    The regular representation mentioned before is reducible. For
+    example, the vector
+    \begin{equation}
+        V = \sum_{g\in G} g
+    \end{equation}
+    spans an invariant subspace of the operator $D_\text{reg}$.
+\end{ex}
+
 
 \begin{ex}$ $
 
     \begin{itemize}
         \item The representation of finite group is obviously fully
-            reducible or irreducible. % TODO WHY 
+            reducible or irreducible (since a unitary matrix cannot
+            have off diagonal blocks).
         \item The representation of translation group is not fully
             reducible. For example, for translation we have:
             $T_a T_b = T_{a+b}$,
@@ -218,19 +228,32 @@ for all $g\in G$, then F is a multiple of the identity, $F = \lambda
 \end{proof}
 
 (From the book \cite{book})
-\begin{thm}[Orthogonal Theorem]
+\subsection{Orthogonality Relations and Counting Irreducible
+    Representations}
+\label{sec:Orthogonality-Relations-and-Counting-Irreducible-Representations}
+
+\begin{thm}[Orthogonality Theorem for Representations]
     For finite group $G$, let $D^i(G)$ and $D^j(G)$ be its two
-    irreducible, non-equivalent, and unitary representation. Then, as
-    a vector in group algebra, they have the following orthogonal
+    irreducible representation. Then, as a vector in group algebra,
+    they have the following orthogonal
     relationship:
     \begin{equation}
-        \sum_{R\in G} D^{i*}_{\mu\rho}(R)D^j_{\nu \lambda}(R) =
-        \frac{g}{m_j} \delta_{ij} \delta_{\mu\nu}\delta_{\rho\lambda}
+        \sum_{h\in G} D^{i}_{\mu\rho}(h^{-1})D^j_{\nu \lambda}(h) =
+        \frac{N}{d_j} \delta_{ij} \delta_{\mu\nu}\delta_{\rho\lambda}
     \end{equation}
-    $g$ is the order of the group, and $m_j$ is the
-    dimension of representation $D^j(G)$.
+    $N$ is the order of the group, and $d_j$ is the
+    dimension of representation $D^j(G)$. If in addition, the two
+    representations are unitary, we have
+    \begin{equation}
+        \sum_{h\in G} D^{i*}_{\mu\rho}(h)D^j_{\nu \lambda}(h) =
+        \frac{N}{d_j} \delta_{ij} \delta_{\mu\nu}\delta_{\rho\lambda}
+    \end{equation}
 \end{thm}
 \begin{proof}
+    \textbf{Note}: The following proof is clumsy and only applies for
+    the unitary case. For a good proof, please refer to page 44 of
+    \cite{Ludeling}.
+
     Let
     \begin{equation}
         Y_{\rho\lambda}^{\mu\nu} \equiv
@@ -238,12 +261,12 @@ for all $g\in G$, then F is a multiple of the identity, $F = \lambda
     \end{equation}
     Then let
     \begin{align*}
-        X^{\mu\nu} = \sum_{R\in G} D^i(R^{-1}) Y^{\mu\nu} D^j(R)
+        X^{\mu\nu} = \sum_{h\in G} D^i(h^{-1}) Y^{\mu\nu} D^j(h)
     \end{align*}
     One can find by direct calculation
     \begin{align}
-        X^{\mu\nu}_{\rho\lambda}= \sum_{R\in G}
-        D^{i*}_{\mu\rho}(R)D^j_{\nu \lambda}(R)
+        X^{\mu\nu}_{\rho\lambda}= \sum_{h\in G}
+        D^{i*}_{\mu\rho}(h)D^j_{\nu \lambda}(h)
     \end{align}
     And also through direct calculation, one finds
     \begin{align*}
@@ -262,23 +285,88 @@ for all $g\in G$, then F is a multiple of the identity, $F = \lambda
     \end{align*}
     One can find two fact by direct calculation:
     \begin{align*}
-        &\sum_\rho X^{\mu\nu}_{\rho\lambda} = m_j \lambda^{\mu\nu} \\
-        &\sum_\rho X^{\mu\nu}_{\rho\lambda} = g \delta^{\mu\nu}
+        &\sum_\rho X^{\mu\nu}_{\rho\lambda} = d_j \lambda^{\mu\nu} \\
+        &\sum_\rho X^{\mu\nu}_{\rho\lambda} = N \delta^{\mu\nu}
     \end{align*}
-    Hence $\lambda^{\mu\nu} = \frac{g}{m_j} \delta^{\mu\nu}$.
+    Hence $\lambda^{\mu\nu} = \frac{N}{d_j} \delta^{\mu\nu}$.
+\end{proof}
+The above relation gives us the first clue to the total number of
+irreducible representations by the following corollary. 
+\begin{coro}
+    \begin{equation}
+        \sum_{j} m_j^2 = N = \abs{G}
+    \end{equation}
+    where the index $j$ runs over all possible irreducible
+    representations.
+\end{coro}
+\begin{proof}
+    Define the following vector in group algebra
+    \begin{equation}
+        v^{i}_{\mu\nu} = \sqrt{\frac{d_j}{N}} \sum_{h\in G}
+        \left(D^i(h)\right)_{\mu\nu} h
+    \end{equation}
+    Then by the orthogonality theorem, this vector is orthonomal in
+    vector space/group algebra $\mathbb{C}[G]$. But the dimension of
+    this vector space is $N$, and for each representation $D^i$ we
+    have $d_i^2$ vectors like the one above, which are all orthogonal
+    to each other. Note that orthogonal implies linear independence,
+    hence we have:
+        $$\sum_{j} m_j^2 \leq N $$
+    To make the inequality an equality, it is suffice to prove that
+    such $v^{i}_{\mu\nu}$ forms a basis of the group algebra
+    $\mathbb{C}[G]$. In page 45 to 46 of \cite{Ludeling}, he shows
+    that for any $g\in G\hookrightarrow \mathbb{C}[G]$, one has
+    \begin{align}
+        g = \sum_{h\in G} \left(D_\text{reg}(h)\right)_{ge} h
+        = \sum_{h\in G} \left[ \sum_{j,\mu\nu} c^j_{\mu\nu}
+        \left(D^j(h)\right)_{\mu\nu}\right] h
+    \end{align}
+    where $e$ is the unit in the group. $c$ are some hard to tell
+    constants. To show this, \cite{Ludeling} uses that fact that
+    $D_\text{reg}$ is unitary, so it is completely reducible into
+    irreducible components, which have to be (some of) the $D^i$,
+    i.e. $D_\text{reg}= U(D^{i_1}\oplus D^{i_2}\oplus
+    \cdots)U^\dagger$. The detailed proof is not reproduced here.
+
+    Then, $g$ is a linear combination with
+    coefficients in $\left(D^j(h)\right)_{\mu\nu}$, hence a linear
+    combination of $v^i_{\mu\nu}$. Since $g$ can be any basis in the
+    group algebra, this shows that the $\{v^i_{\mu\nu}\}$ is complete.
 \end{proof}
 \begin{remark}
-    For the first orthogonality $\delta_{ij}$, one actually do not
-    required that $D^i$ and $D^j$ is unitary.
+    The above proof shows in some sense that the regular
+    representation contains all irreducible representation as
+    components. Since all $v^i_{\mu\nu}$ appears in the regular
+    representation.
 \end{remark}
+
+\subsection{Characters}
+\label{sec:Characters}
+\begin{defi}[Character of Representation]
+\nomenclature{Character of Representation}{\nomrefpage.}
+    Given a representation $D$ of $G$ over vector space on field $K$,
+    the character $\chi: G\to K$ is
+    defined as the trace
+    \begin{equation}
+        \chi(g) = \Tr D(g)
+    \end{equation}
+\end{defi}
+\begin{remark}
+    Since trace is invariant under similarity transformation (remember
+    that $\Tr AB = \Tr BA$), trace can be used to distinguishes
+    between non-equivalent representations. Hence it is called the
+    character of that representation.
+\end{remark}
+Using the orthogonality relation in
+Section~\ref{sec:Orthogonality-Relations-and-Counting-Irreducible-Representations}
+it is esay to see we have
 \begin{coro}
     \begin{equation}
-        \sum_{j=1}^{l} m_j^2 \leq g
+        \sum_{h\in G} \chi^{i}(h^{-1})\chi^j(h) = N \delta_{ij}
     \end{equation}
-    % TODO
-\end{coro}
-\begin{coro}
+    Or when the representations are unitary:
     \begin{equation}
-        \sum_{R\in G} \chi^{i*}(R)\chi^j(R) = g \delta_{ij}
+        \sum_{h\in G} \chi^{i*}(h)\chi^j(h) = N \delta_{ij}
     \end{equation}
+    Here again $N = \abs{G}$.
 \end{coro}

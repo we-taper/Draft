@@ -7,7 +7,7 @@
 % @4. My Own Shortcuts
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{physicist-taper}[2016/11/02 Major update]
+\ProvidesPackage{physicist-taper}[2016/11/01 Major update]
 
 % @1. General LaTeX Adjustment -----------------------------------
 \RequirePackage{float}  % For H in figures
@@ -16,8 +16,14 @@
 \RequirePackage[unicode]{hyperref}  % make every cite a link
 \RequirePackage{CJKutf8} % For Chinese characters
 \RequirePackage{fancyref} % For easy adding figure,equation etc in reference. Use \fref or \Fref instead of \ref
-% A list of nomenclatures.
-\RequirePackage{nomencl}
+
+% For better tables with automatically wraping
+\usepackage{tabu}
+\usepackage{booktabs}
+\usepackage[table]{xcolor} % For automatically coloring rows.
+\definecolor{lightblue}{RGB}{217,224,250}
+\definecolor{lightgrey}{RGB}{211,211,211}
+
 
 % @2. Mathematical Addons -----------------------------------
 \RequirePackage{amsmath} % For math
@@ -25,14 +31,15 @@
 \RequirePackage{mathrsfs}
 \numberwithin{equation}{subsection} % have the enumeration go to the subsection level.
                                     % See:https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
+% A list of nomenclatures.
+\RequirePackage{nomencl}
+
+% Quick Mathmetical Common Symbols
+\DeclareDocumentCommand\Ker{}{\operatorname{Ker}}
 
 % for numbers with mathbb
 \RequirePackage{dsfont} 
-
-% Quick Mathmetical Common Operators
-\DeclareDocumentCommand\Ker{}{\operatorname{Ker}}
 \DeclareDocumentCommand\id{}{\mathds{1}}
-\DeclareDocumentCommand\Tr{}{\operatorname{Tr}}
 
 % For drawing diagrams
 \RequirePackage{tikz-cd}
