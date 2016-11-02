@@ -35,6 +35,7 @@
 \newtheorem{coro}{Corollary}[section]
 \theoremstyle{definition}
 \newtheorem{ex}{Example}[section]
+\newtheorem{fact}{Fact}[section]
 
 % A list of nomenclatures.
 \usepackage{nomencl}
@@ -73,11 +74,31 @@ this goal.
 First two lessons are for the layman, which are not included in
 this note.
 
+\section{Skipped Several Lecture}
+\label{sec:Skipped-Several-Lecture}
+Since there is nothing interesting.
+
+\section{20161102}
+\label{sec:20161102}
+\begin{defi}[Trace of Operator]
+\nomenclature{Trace of Operator}{\nomrefpage.}
+\begin{equation}
+    \operatorname{Tr} X = \sum_n \braket{n |X| n}
+\end{equation}
+\end{defi}
+\begin{fact}
+    \begin{equation}
+        \operatorname{Tr}(\ket{\alpha}\bra{\beta}) =
+        \braket{\beta|\alpha}
+    \end{equation}
+\end{fact}
+Although this is quite simple to proof, this is quite interesting a
+result.
 \section{Anchor}
 \label{sec:Anchor}
 
 \begin{thebibliography}{1}
-    %\bibitem{book} 
+    \bibitem{book} Modern Quantum Mechanics. Sakurai.
 \end{thebibliography}
 \printnomenclature
 \section{License}
