@@ -1,0 +1,147 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physicist-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physicist-taper}
+
+\title{Solution for HW5 20161102}
+\date{\today}
+\author{Taper}
+
+\begin{document}
+
+\maketitle
+\abstract{
+\begin{CJK}{UTF8}{gbsn}陈鸿翔（11310075）\end{CJK}
+}
+%\tableofcontents
+\section{Uncertainty of electron velocity}
+
+\section{Proof}
+\begin{proof}
+Assuming an orthonormal basis labeled by $n$: $\ket{n}$. Using
+Einstein Summation convention, one finds:
+\begin{align*}
+    \Tr(AB) &= \braket{n|AB|n} = \braket{n|A|m}\braket{m|B|n}
+      = \braket{m|B|n}\braket{n|A|m} \\
+      &= \braket{m|BA|m} = \Tr(BA)
+\end{align*}
+Hence
+\begin{align*}
+    \Tr(XYZ) = \Tr( (XY) Z) = \Tr(Z (XY)) = \Tr( (ZX) Y) = \Tr(YZX)
+\end{align*}
+\end{proof}
+
+\section{Proof}
+\begin{proof}
+\begin{align*}
+    \braket{[A,B]} = \braket{ AB-BA} = \braket{AB} - \braket{BA} =
+    \braket{AB}-\braket{AB}^* = 2i \Im(\braket{AB})
+\end{align*}
+Hence it is imaginary or zero. Similar, by replacing the $-$ sign
+above with $+$ sign, one easily finds:
+\begin{align*}
+    \braket{\{A,B\}} = 2\Re(\braket{AB})
+\end{align*}
+So it is real.
+\end{proof}
+
+\section{Diagonalization}
+$A$ is real and symmetric, hence it is diagonalizable:
+\begin{align*}
+    &\det\left( \begin{array}{ccc}
+     1-\lambda & 1 & 3 \\
+     1 & 5-\lambda & 1 \\
+     3 & 1 & 1-\lambda \\
+    \end{array} \right) = 
+    \det\left( \begin{array}{ccc}
+     1-\lambda & 1 & 3 \\
+     1 & 5-\lambda & 1 \\
+     0 & -14+3\lambda & -\lambda-2 \\
+        \end{array} \right)\\
+     &=(1-\lambda)\left[(5-\lambda)(-\lambda-2)+14-3\lambda\right]
+        -(-10\lambda+4)
+        = -\lambda^3+7\lambda^2 -36
+\end{align*}
+The roots are $\lambda_1 = -2$, $\lambda_2=3$, $\lambda_3=6$.
+For $\lambda=-2$, we have
+$$
+\left( \begin{array}{ccc}
+ 1 & 1 & 3 \\
+ 1 & 5 & 1 \\
+ 3 & 1 & 1 \\
+\end{array} \right)\left( \begin{array}{c}
+ x \\
+ y \\
+ z \\
+\end{array} \right) = 
+-2\left( \begin{array}{c}
+ x \\
+ y \\
+ z \\
+\end{array} \right)
+$$
+Or
+$$
+\left( \begin{array}{ccc}
+ 3 & 1 & 3 \\
+ 1 & 7 & 1 \\
+ 3 & 1 & 3 \\
+\end{array} \right)\left( \begin{array}{c}
+ x \\
+ y \\
+ z \\
+\end{array} \right) = 0
+$$
+Or
+$$
+\left( \begin{array}{ccc}
+ 0 & -20 & 0 \\
+ 1 & 7 & 1 \\
+ 0 & 0 & 0 \\
+\end{array} \right)\left( \begin{array}{c}
+ x \\
+ y \\
+ z \\
+\end{array} \right) = 0
+$$
+Obviously the corresponding eigenvector is $\alpha\left( \begin{array}{c}
+     1 \\
+     0 \\
+     -1 \\
+\end{array} \right)$, where $\alpha$ is any nonzero complex number.
+The case for $\lambda=3$ and $\lambda=6$ can be similar solved by
+examing the following two equations:
+$$
+\left( \begin{array}{ccc}
+ -2 & 1 & 3 \\
+ 1 & 2 & 1 \\
+ 3 & 1 & -2 \\
+\end{array} \right)\left( \begin{array}{c}
+ x \\
+ y \\
+ z \\
+\end{array} \right) = 0, \quad
+\left( \begin{array}{ccc}
+ -5 & 1 & 3 \\
+ 1 & -1 & 1 \\
+ 3 & 1 & -5 \\
+\end{array} \right)\left( \begin{array}{c}
+ x \\
+ y \\
+ z \\
+\end{array} \right) = 0
+$$
+and the result is summarized as
+
+\end{document}
