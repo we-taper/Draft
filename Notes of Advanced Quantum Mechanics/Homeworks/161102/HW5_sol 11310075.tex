@@ -26,7 +26,7 @@
 }
 %\tableofcontents
 \section{Uncertainty of electron velocity}
-
+% TODO email the T.A. about my mistake in the last homework.
 \section{Proof}
 \begin{proof}
 Assuming an orthonormal basis labeled by $n$: $\ket{n}$. Using
@@ -143,5 +143,48 @@ $$
 \end{array} \right) = 0
 $$
 and the result is summarized as
-
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c c}
+        \textit{Eigenvalue} & \textit{Eigenvector} \\
+        \hline
+        $-2$ & $\alpha \left( \begin{array}{c}
+                     1 \\
+                     0 \\
+                     -1 \\
+                \end{array} \right)$ \\
+        $3$ & $\beta \left( \begin{array}{c}
+                     1 \\
+                     -1 \\
+                     1 \\
+                \end{array} \right)$ \\
+        $6$ & $\gamma \left( \begin{array}{c}
+                     1 \\
+                     2 \\
+                     1 \\
+                \end{array} \right)$
+    \end{tabular}
+\end{table}
+where $\alpha,\beta,\gamma$ are arbitrary nonzero complex numbers.
+Therefore, take the three eigenvector as basis (to get an orthonormal
+    basis, we can let $\alpha=\frac{1}{\sqrt{2}}$,
+    $\beta=\frac{1}{\sqrt{3}}$, $\gamma=\frac{1}{\sqrt{6}}$.), we
+have:
+$$
+X^{-1}AX = \left(
+\begin{array}{ccc}
+ -2 & 0 & 0 \\
+ 0 & 3 & 0 \\
+ 0 & 0 & 6 \\
+\end{array}
+\right) 
+$$
+where
+$$
+X=\left( \begin{array}{ccc}
+ \alpha & \beta & \gamma \\
+ 0 & -\beta & 2\gamma \\
+ \alpha & \beta & \gamma \\
+\end{array} \right)
+$$
 \end{document}
