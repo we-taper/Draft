@@ -294,7 +294,7 @@ The above relation gives us the first clue to the total number of
 irreducible representations by the following corollary. 
 \begin{coro}
     \begin{equation}
-        \sum_{j} m_j^2 = N = \abs{G}
+        \sum_{j} d_j^2 = N = \abs{G}
     \end{equation}
     where the index $j$ runs over all possible irreducible
     representations.
@@ -311,7 +311,7 @@ irreducible representations by the following corollary.
     have $d_i^2$ vectors like the one above, which are all orthogonal
     to each other. Note that orthogonal implies linear independence,
     hence we have:
-        $$\sum_{j} m_j^2 \leq N $$
+        $$\sum_{j} d_j^2 \leq N $$
     To make the inequality an equality, it is suffice to prove that
     such $v^{i}_{\mu\nu}$ forms a basis of the group algebra
     $\mathbb{C}[G]$. In page 45 to 46 of \cite{Ludeling}, he shows
@@ -370,3 +370,85 @@ it is esay to see we have
     \end{equation}
     Here again $N = \abs{G}$.
 \end{coro}
+
+Let the conjugacy classes be labeled by $K_a$, $a=1,\cdots,k$. $k$ is
+the number of conjugacy classes. Let $n_a$ be the number of group
+elements in each conjugacy class $K_a$. Consider one thing:
+\begin{itemize}
+    \item Characters is invariant within each conjugacy classes
+\end{itemize}
+One can derive (pp. 47 of \cite{Ludeling})
+\begin{equation}
+    \sum_a n_a \chi^{i,a}(\chi^{j,a})^* = N\delta^{ij}
+    \label{eq:20161031-nxx-is-Ndelte}
+\end{equation}
+here $\chi^{i,a}$ menas the character in the $i$'s irreducible
+representation of the group element in $a$'s conjugacy class.
+Then the vectors (labeled by each irreducible representation $i$)
+\begin{equation}
+    \frac{1}{\sqrt{N}}
+    (\sqrt{n_1}\chi^{i,1},\cdots,\sqrt{n_k}\chi^{i,k})
+\end{equation}
+are orthonomal. Notice that given a $k$-dimensional space, we in
+effect show cases $r$ linear independence vectors. Therefore we must
+have 
+\begin{equation}
+    r \leq k
+\end{equation}
+
+    \subsubsection{Finding Components of Representations}
+    \label{sec:Finding-Components-of-Representations}
+    \begin{remark}
+        It's easy to see that if $D=aD^1\oplus bD^2$, one has $\chi =
+        a\chi^1 + b\chi^2$.
+    \end{remark}
+    Now we consider the coefficients in the general case. Suppose a
+    representation $D$ has:
+    \begin{equation}
+        D = \oplus a^i D^i
+    \end{equation}
+    where the sum is taken over all irreducible representations
+    $D^i$. We have:
+    \begin{equation}
+        X = \sum_{i} a^i \chi^i
+    \end{equation}
+    It is calculated (page 47 to 48 of \cite{Ludeling}) using equation
+    \ref{eq:20161031-nxx-is-Ndelte},
+    that
+    \begin{equation}
+        \sum_a n_a \chi^{i,a*}X^a = N a^i
+    \end{equation}
+    so
+    \begin{equation}
+        a^i = \frac{1}{N} \sum_a n_a(\chi^{i,a})^* X^a
+        \label{eq:20161031-components-formula}
+    \end{equation}
+    From now on, we always denote the class of identity by $K_1$, and
+    the corresponding character in that representation by
+    $\chi^{i,1}$. Clearly $\chi^{i,1}\equiv d_i$.
+    \begin{ex}
+        If $D$ is the regular representation. It is easy to see that
+        \begin{equation}
+            X_\text{reg}(g) = N \delta_{g,e}
+        \end{equation}
+        where $e$ is the unit element in the group.
+        Then
+        \begin{equation}
+            a^i = \frac{1}{N}\sum_a n_a (\chi^{i,a})^* X^a_\text{reg}
+            = \frac{1}{N} (\chi^{i,1})^* X^1_\text{reg} = 
+            \frac{1}{N} d_i N = d_i
+        \end{equation}
+    \end{ex}
+    \begin{remark}[Criterion for irreduciblility]
+        The above result gives us one way to assess the level of
+        irreduciblility of a representation. Direct calculation shows
+        (with the help of equation
+        \ref{eq:20161031-components-formula})
+        \begin{equation}
+            \sum_a n_a (X^a)^* X^a = N \sum_i (a^i)^2
+        \end{equation}
+        So for a irreducible representation $X$, we have $\sum_a n_a
+        (X^a)^* X^a= N$. For other representations, we have $\sum_a
+        n_a (X^a)^* X^a= N/2N/3N/\cdots$. In this way one somehow
+        measures qualitatively how complex this representation is.
+    \end{remark}
