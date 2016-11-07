@@ -393,6 +393,7 @@ are orthonomal. Notice that given a $k$-dimensional space, we in
 effect show cases $r$ linear independence vectors. Therefore we must
 have 
 \begin{equation}
+    \label{eq:20161031-r_leq_k}
     r \leq k
 \end{equation}
 
@@ -410,6 +411,7 @@ have
     where the sum is taken over all irreducible representations
     $D^i$. We have:
     \begin{equation}
+        \label{eq:20161031-X_components}
         X = \sum_{i} a^i \chi^i
     \end{equation}
     It is calculated (page 47 to 48 of \cite{Ludeling}) using equation
@@ -429,11 +431,13 @@ have
     \begin{ex}
         If $D$ is the regular representation. It is easy to see that
         \begin{equation}
+            \label{eq:20161031-X-characters}
             X_\text{reg}(g) = N \delta_{g,e}
         \end{equation}
         where $e$ is the unit element in the group.
         Then
         \begin{equation}
+            \label{eq:20161031-X_components_reg}
             a^i = \frac{1}{N}\sum_a n_a (\chi^{i,a})^* X^a_\text{reg}
             = \frac{1}{N} (\chi^{i,1})^* X^1_\text{reg} = 
             \frac{1}{N} d_i N = d_i
@@ -452,3 +456,83 @@ have
         n_a (X^a)^* X^a= N/2N/3N/\cdots$. In this way one somehow
         measures qualitatively how complex this representation is.
     \end{remark}
+
+    It is also very easy to use the idea of equation
+    \ref{eq:20161031-X_components} to the following result:
+    \begin{thm}
+        Two representations are equivalent if and only if they have
+        the same character function.
+    \end{thm}
+    \subsubsection{Conjugacy Classes and Representations}
+    \label{sec:Conjugacy-Classes-and-Representations}
+    
+    Now we proves an refined version of inequality
+    \ref{eq:20161031-r_leq_k}:
+    \begin{thm}
+        For a group $G$, we have
+        \begin{equation}
+            r=k
+        \end{equation}
+        Here $r$ is the number of different irreducible
+        representations of $G$, $k$ is the number of different conjugacy
+        classes of $G$.
+    \end{thm}
+    \begin{ex}
+        It is interesting for symmetric group. Because we have known
+        from remark \ref{rmk:20161010-conjugacy_class_in_Sn} that the
+        number of symmetric group's conjugacy class is an
+        combinatorical problem. So its number of irreducible
+        representation is also a combinatorical number.
+    \end{ex}
+    \begin{proof}
+        To prove the theorem, we somehow reverse the logic. We want to
+        show that there are $k$ vectors, labled by conjugacy classes,
+        in a $r$-dimensional vector space. These $k$ vectors forms
+        someting resembles 
+        $\sum_i \chi^{i,a}\chi^{i,b}\approx \delta^{ab}$.
+        
+        We first look at the regular representation. The previous
+        section shows (by equation \ref{eq:20161031-X_components},
+        \ref{eq:20161031-X-characters}, and
+        \ref{eq:20161031-X_components_reg}):
+        \begin{equation}
+            \sum_{i\in\text{ I.R.}} \chi^{i,1}\chi^{i,a} = N
+            \delta_{a,e}
+        \end{equation}
+        Here $i$ denotes different irreducible representations, $a$
+        for conjugacy classes. The delta function is $1$ only when $a$
+        is the unit conjugacy class.
+         
+        This shows that character of the identity, considered as a
+        $r$-component vector in the space of representation, is
+        orthogonal to the other characters. We have to extend this to
+        all classes.
+        
+        Now consider the class vectors:
+        \begin{defi}[Class vector $\mathcal{K}_a$]
+        \nomenclature{Class vector $\mathcal{K}_a$}{\nomrefpage.}
+            \begin{equation}
+                \mathcal{K}_a = \sum_{g\in K_a} g
+            \end{equation}
+            where $a$ represents the conjugacy class labeled
+            by $K_a$.
+        \end{defi}
+        It has the following property: it is invariant under
+        conjugation
+        \begin{equation}
+            h\mathcal{K}_a h^{-1} = \mathcal{K}_a
+        \end{equation}
+        since a conjugacy are those elements that can be related by a
+        conjugation. From this, we have obviouisly
+        \begin{equation}
+            g\mathcal{K}_a \mathcal{K}_b g^{-1} = \mathcal{K}_a
+            \mathcal{K}_b
+        \end{equation}
+        Thus $\mathcal{K}_a \mathcal{K}_b$ is also a set related to
+        each other 
+    \end{proof}
+% 1. 自共轭 iff 特征 实数
+% 2. 非自共轭 至少一个群元 复数 -》 成对出现
+% 3. 实表示 是 自共轭
+% 4. 特征 实数 不一定 实表示 (so 有 自共轭 但非 实的表示)
+% 5. thm 5 on pp. 68.
