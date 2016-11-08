@@ -75,7 +75,7 @@ This is intended for storing my drafts of my works. It is messy and will never b
 		Introduces **Noetherian module** and Noetherian ring. 
 		From S.Lang's Algebra.
 
-8. Quantum Field Theory in a Nutshell
+8. Quantum Field Theory in a Nutshell (inside *QFT*)
 
     Notes for the book *Quantum Field Theory in a Nutshell* by A. Zee.
 
@@ -130,3 +130,24 @@ This is intended for storing my drafts of my works. It is messy and will never b
 16. Latex Packages
 
     The packages I write to speed out latex writting.
+
+17. Gravity and Entanglement
+
+    Notes about a lecture. However, this note may not be updated in
+    the future.
+
+18. Lattice Green function
+
+    Notes for calculating lattice Green function. However, this not is
+    unlikely to be updated in the future.
+
+19. Notes of Connecting Few-body and Many-body Pictures of Fractional
+    Quantum Hall Physics
+
+    Notes about a conference named just like above. The detailed
+    link can be found inside the note.
+
+20. Notes of Various papers.
+
+21. Useful (anti)Commutative Relationships
+
