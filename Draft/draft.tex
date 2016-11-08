@@ -7,40 +7,16 @@
 % http://creativecommons.org/licenses/by-nc-sa/4.0/).
 \documentclass{article}
 
-\usepackage{float}  % For H in figures
-\usepackage{amsmath, amssymb} % For math
-\usepackage{bbm} % for numbers with mathbb
-\numberwithin{equation}{subsection} % have the enumeration go to the subsection level.
-									% See:https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
-\usepackage{graphicx}   % need for figures
-\usepackage{cite} % For bibligraphy
-\usepackage{fancyref} % For lazy reference \fref
-\usepackage[unicode]{hyperref} % For hyperlink everything.
-\usepackage{CJKutf8} % For Chinese characters
-%\usepackage{ dsfont } % For double struck fonts
-\usepackage[T1]{fontenc}
-\usepackage{listings}
-
-\usepackage{amsthm}
-\newtheorem{defi}{Definition}[section]
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{lemma}{Lemma}[section]
-\newtheorem{remark}{Remark}[section]
-\newtheorem{prop}{Proposition}[section]
-\newtheorem{coro}{Corollary}[section]
-\theoremstyle{definition}
-\newtheorem{ex}{Example}[section]
-
-\usepackage{tensor}  % For tensor indices
-\usepackage[all]{xy} % For drawing category diagrams
-\usepackage{mathrsfs}
+% For drawing category diagrams
+% TODO: Clear the place where I used this obsolete XY-pic package
+\usepackage[all]{xy} 
 
 % My own physics package
 % The following line load the package xparse with additional option to
 % prevent the annoying warnings, which are caused by the package
 % "physics" loaded in package "physics-taper".
 \usepackage[log-declarations=false]{xparse}
-\usepackage{physics-taper}
+\usepackage{physicist-taper}
 
 \title{Draft}
 \date{\today}

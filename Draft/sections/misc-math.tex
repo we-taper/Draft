@@ -218,3 +218,32 @@ Here I prove a simple fact that:
     Hence by thoey of differential equations (I don't quite remember
     the specific theorem), one has $f(x)=e^{f'(0)x}$.
 \end{proof}
+    
+\subsection{Common Pitfalls}
+\label{sec:Common Pitfalls}
+    \subsubsection{Tensors}
+    \label{sec:Tensors}
+    
+    The $k$-th component $\psi_k$ of the transpose of $(A\phi)^i = A^i_k
+    \phi^k$ is still $A^i_k \phi^k$, although we have to be careful about
+    the position of the index.
+
+    \subsubsection{Transpose}
+    \label{sec:Transpose}
+    
+    In matrix theory, if we ahave the following structure:
+    $$\braket{x,y} := x y$$
+    here $x,y$ are regarded as two column vectors in vector space $V$.
+    Then the transpose of a linear transformation $A:V\to V$ is defined
+    as
+    \begin{defi}[Transpose]
+    \nomenclature{Transpose}{\nomrefpage.}
+        $\tensor[^t]{A}{}:V^* \to V^*$ is such that:
+        \begin{equation}
+            \braket{x,Ay} = \braket{\tensor[^t]{A}{}x,y}
+        \end{equation}
+        for any $x,y\in V$.
+    \end{defi}
+
+    In my notation, it maps $x^n\to A^m_n x^m$, or $x_n\to A^m_n x_m$.
+    (My notation is non-standard, but I think it expresses the idea).
