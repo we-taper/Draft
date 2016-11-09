@@ -68,7 +68,10 @@
 \maketitle
 \abstract{
 This is a collection of important formulae in Fundamentals of Physics
-Extended Version by Halliday and Resnick.
+Extended Version by Halliday and Resnick, and some other formulae from
+other sources. Although this was initially intended to be preparation
+for GRE physics exam, I found such a review quite useful and will
+continue to update this document whenever I found something useful.
 }
 \tableofcontents
 
@@ -91,16 +94,7 @@ Extended Version by Halliday and Resnick.
     \end{tabular}
 \end{table}
 
-\paragraph{Rotation matrix}
-Active rotation in the counter-clockwise $\theta$:
-\begin{equation}
-    \left(
-    \begin{array}{cc}
-        \cos{\theta} & -\sin{\theta} \\
-        \sin{\theta} & \cos{\theta} \\
-    \end{array}
-    \right)
-\end{equation}
+\include{sections/math}
 
 \section{Classical mechanics}
 \label{sec:Classical-mechanics}
@@ -914,6 +908,16 @@ they are travelling.}
 \section{Quantum Mechanics}
 \label{sec:Quantum-Mechanics}
 
+\paragraph{de Broglie Waves}
+(\href{https://en.wikipedia.org/wiki/Matter_wave}{Wikipedia - Matter
+Wave})
+\begin{align}
+    \lambda &= \frac{h}{p} \\
+    p &= \frac{h}{\lambda} = \hbar\frac{2\pi}{\lambda} = \hbar k \\
+    p &= \frac{hf}{c} \\
+    f &= \frac{E}{h} \\
+    E &= hf = \hbar2\pi f = \hbar\omega
+\end{align}
 \paragraph{Photon} (\textbf{pp.1077 ch38 of \cite{book}})
 \begin{align}
     & E = h f \\

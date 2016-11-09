@@ -1,0 +1,23 @@
+\paragraph{Rotation matrix}
+Active rotation in the bbb counter-clockwise $\theta$:
+\begin{equation}
+    \left(
+    \begin{array}{cc}
+        \cos{\theta} & -\sin{\theta} \\
+        \sin{\theta} & \cos{\theta} \\
+    \end{array}
+    \right)
+\end{equation}
+
+\subsection{Fourier Transformation}
+\label{sec:Fourier-Transformation}
+From
+\href{http://mathworld.wolfram.com/DeltaFunction.html}{Delta Function
+- Wolfram Mathworld}.
+\begin{align}
+    \delta(x) &= \mathcal{F}_k[1](x) = \int_{-\infty}^{\infty}
+        e^{-2\pi i kx} \dd k \\
+    1 &= \mathcal{F}^{-1}[\delta(x)](k) = \int_{-\infty}^{\infty}
+        \delta(x) e^{2\pi ikx}\dd x= 1
+\end{align}
+

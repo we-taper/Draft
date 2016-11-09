@@ -147,3 +147,27 @@ equation, is
 \label{sec:Special-techniques-in-Electrostatistics}
 
 For the book \cite{griffiths-EM}, pp. 120 of section 3.1.6. 
+\subsection{Miscellaneous}
+\label{sec:Miscellaneous}
+
+\paragraph{Transpose in Q.M.}
+
+Transpose is somehow rare in quantum mechanics. Consider a complete
+basis $\ket{n}$. By definition of adjoint (dagger), one has
+\begin{equation}
+    \braket{ An|m }=\braket{n | A^\dagger m}
+\end{equation}
+Also, one has
+\begin{equation}
+    \braket{ An|m } = \braket{ m|An }^*
+\end{equation}
+so
+\begin{equation}
+    \braket{ n|A^\dagger m } = \braket{ m|An }^* = \braket{ m|A|n }^*
+\end{equation}
+By this one sees that the operator $\dagger$ is transpose conjugate.
+Therefore, the transpose of an operator $A$ is an operator
+$\tensor[^t]{A}{}$ such
+\begin{equation}
+    \braket{ n|\tensor[^t]{A}{}|m } = \braket{ m|A|n }
+\end{equation}
