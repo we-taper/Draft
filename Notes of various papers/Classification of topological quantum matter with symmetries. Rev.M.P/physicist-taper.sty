@@ -1,0 +1,70 @@
+% Package that contains most of the preamble in my daily writing.
+% In addition, it extends the physics package to suite my taste
+% ---------------- Outline -----------------
+% @1. General LaTeX Adjustment
+% @2. Mathematical addones
+% @3. Physical Addons
+% @4. My Own Shortcuts
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{physicist-taper}[2016/11/08 Minor update]
+
+% @1. General LaTeX Adjustment -----------------------------------
+\RequirePackage{float}  % For H in figures
+\RequirePackage{graphicx}   % need for figures
+\RequirePackage{cite} % need for bibligraphy.
+\RequirePackage[unicode]{hyperref}  % make every cite a link
+\RequirePackage{CJKutf8} % For Chinese characters
+\RequirePackage{fancyref} % For easy adding figure,equation etc in reference. Use \fref or \Fref instead of \ref
+% A list of nomenclatures.
+\RequirePackage{nomencl}
+
+% @2. Mathematical Addons -----------------------------------
+\RequirePackage{amsmath} % For math
+\RequirePackage{amssymb}
+\RequirePackage{mathrsfs}
+\numberwithin{equation}{subsection} % have the enumeration go to the subsection level.
+                                    % See:https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
+
+% for numbers with mathbb
+\RequirePackage{dsfont} 
+
+% Quick Mathmetical Common Operators
+\DeclareDocumentCommand\Ker{}{\operatorname{Ker}}
+\DeclareDocumentCommand\id{}{\mathds{1}}
+\DeclareDocumentCommand\Tr{}{\operatorname{Tr}}
+\DeclareDocumentCommand\det{}{\operatorname{det}}
+
+% For drawing diagrams
+\RequirePackage{tikz-cd}
+
+% For tensor indices
+\usepackage{tensor}  
+
+% Following is for theorems etc environments
+% http://tex.stackexchange.com/questions/45817/theorem-definition-lemma-problem-numbering && https://en.wikibooks.org/wiki/LaTeX/Theorems
+\RequirePackage{amsthm}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\theoremstyle{definition}
+\newtheorem{defi}{Definition}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{ex}{Example}[section]
+\newtheorem{fact}{Fact}[section]
+\newtheorem{key}{Key Point}[section]
+
+% @3. Physical Addons -----------------------------------------------
+\RequirePackage{physics}
+
+% Stop the ugly braket defined by package "physics", and replace it
+% with what is defined in package "braket"
+\RequirePackage{braket}
+
+
+% @4. My Own Shortcuts ------------------------------------------------
+% For highlighting
+\RequirePackage{xcolor,soul}
+\newcommand{\hlMath}[1]{\colorbox{yellow!80}{$\displaystyle#1$}}
+
