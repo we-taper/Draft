@@ -498,6 +498,7 @@ have
         \begin{equation}
             \sum_{i\in\text{ I.R.}} \chi^{i,1}\chi^{i,a} = N
             \delta_{a,e}
+            \label{eq:20161031-x1xa-Ndelta}
         \end{equation}
         Here $i$ denotes different irreducible representations, $a$
         for conjugacy classes. The delta function is $1$ only when $a$
@@ -521,15 +522,79 @@ have
         conjugation
         \begin{equation}
             h\mathcal{K}_a h^{-1} = \mathcal{K}_a
+            \label{eq:20161031-hKh-K}
         \end{equation}
-        since a conjugacy are those elements that can be related by a
+        since a conjugacy class are those elements that can be related by a
         conjugation. From this, we have obviouisly
         \begin{equation}
             g\mathcal{K}_a \mathcal{K}_b g^{-1} = \mathcal{K}_a
             \mathcal{K}_b
         \end{equation}
-        Thus $\mathcal{K}_a \mathcal{K}_b$ is also a set related to
-        each other 
+        Thus $\mathcal{K}_a \mathcal{K}_b$ is also a vector whose
+        components are related to
+        each other with conjating like relations. It is then a linear
+        combination of class vectors:
+        \begin{equation}
+            \label{eq:20161031-algebra-like-relation}
+            \mathcal{K}_a\mathcal{K}_b = \sum_c c_{abc} \mathcal{K}_c
+        \end{equation}
+        where $c_{abc}$ are coefficients.
+        (it is mentioned that such a form will make those classes an
+        algebra, named class algebra\nomenclature{class
+        algebra}{\nomrefpage}, but now I will not talk on that.
+
+        Now, consider the class vectors $\mathcal{K}_a$ in certain
+        irreducible representation $\mu$:
+        \begin{equation}
+            D^a_{(\mu)} := \sum_{g\in \mathcal{K}_a} D_{(\mu)}(g)
+        \end{equation}
+        It commutes with all $D_{(\mu)}(h)$, $h\in G$, since
+        $$D_{(\mu)}(h) \sum_{g\in \mathcal{K}_a} D_{(\mu)}(g)
+        D_{(\mu)}(h^{-1})= \sum_{g\in \mathcal{K}_a} D_{(\mu)}(g)$$
+        Then by Schur's lemma, $D^a_{(\mu)}= \lambda^a_\mu
+        \id$.
+        Take the trace of $D^a_{(\mu)}$, one will easily find:
+        \begin{equation}
+            \label{eq:20161031-lambda-is}
+            \lambda^a_\mu = \frac{n_a\chi^a_{\mu}}{\chi^1_\mu}
+        \end{equation}
+        Meanwhile, by the algebra like relation
+        \ref{eq:20161031-algebra-like-relation}, one finds:
+        \begin{equation}
+            \lambda^a_\mu \lambda^b_\mu = \sum_c c_{abc} \lambda^c_\mu
+        \end{equation}
+        combine this with the expression for $\lambda$:
+        \ref{eq:20161031-lambda-is}, one has:
+        \begin{equation}
+            n_a n_b \chi^a_\mu \chi^b_\mu = \chi^1_\mu\sum_c
+            c_{abc}n_c\chi^c_\mu
+        \end{equation}
+        Now, one can see this pattern and I would not expatiate on
+        it. The only remaining elements are equation
+        \ref{eq:20161031-x1xa-Ndelta} and the fact that
+        \begin{equation}
+            c_{abe} = \delta_{b,a^{-1}} n_a
+        \end{equation}
+        where $e$ is the unit element in group $G$, and $a^{-1}$ is
+        the inverse class of $a$. This is like saying that only the
+        product of $a$ with its inverse class can have unit elements.
+        With these one can easily calculate and get
+        \begin{equation}
+            \sum_{\mu \in \text{I.R.}} \chi^{a*}_\mu\chi^b_\mu = 
+            \frac{|G|}{n_a} \delta^{ab}
+        \end{equation}
+        So we have:
+        \begin{equation}
+            \sqrt{\frac{n_a}{|G|}}(\chi^a_1,\chi^a_2,\cdots,\chi^a_r)
+        \end{equation}
+        a series of $k$ orthonomal $r$-dimensional vectors. Hence
+        \begin{equation}
+            k\leq r
+        \end{equation}
+        Then, together with previous result, we have:
+        \begin{equation}
+            r = k
+        \end{equation}
     \end{proof}
 % 1. 自共轭 iff 特征 实数
 % 2. 非自共轭 至少一个群元 复数 -》 成对出现
