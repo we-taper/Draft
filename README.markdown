@@ -151,3 +151,6 @@ This is intended for storing my drafts of my works. It is messy and will never b
 
 21. Useful (anti)Commutative Relationships
 
+22. UltiSnips
+
+    Snippets to speed up typing, using UltiSnips plugin for Vim.

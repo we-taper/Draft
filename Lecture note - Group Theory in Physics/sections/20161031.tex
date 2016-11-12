@@ -240,6 +240,7 @@ for all $g\in G$, then F is a multiple of the identity, $F = \lambda
     \begin{equation}
         \sum_{h\in G} D^{i}_{\mu\rho}(h^{-1})D^j_{\nu \lambda}(h) =
         \frac{N}{d_j} \delta_{ij} \delta_{\mu\nu}\delta_{\rho\lambda}
+        \label{eq:20161031-ortho-dd-1}
     \end{equation}
     $N$ is the order of the group, and $d_j$ is the
     dimension of representation $D^j(G)$. If in addition, the two
@@ -247,6 +248,7 @@ for all $g\in G$, then F is a multiple of the identity, $F = \lambda
     \begin{equation}
         \sum_{h\in G} D^{i*}_{\mu\rho}(h)D^j_{\nu \lambda}(h) =
         \frac{N}{d_j} \delta_{ij} \delta_{\mu\nu}\delta_{\rho\lambda}
+        \label{eq:20161031-ortho-dd-2}
     \end{equation}
 \end{thm}
 \begin{proof}
@@ -582,6 +584,7 @@ have
         \begin{equation}
             \sum_{\mu \in \text{I.R.}} \chi^{a*}_\mu\chi^b_\mu = 
             \frac{|G|}{n_a} \delta^{ab}
+            \label{eq:20161031-ortho-character}
         \end{equation}
         So we have:
         \begin{equation}
@@ -596,6 +599,102 @@ have
             r = k
         \end{equation}
     \end{proof}
+    Another proof provided by the book \cite{book}.
+    \begin{defi}[Group function]
+    \nomenclature{Group function}{\nomrefpage.}
+        A $\mathbb{C}$-linear function $F:\mathbb{C}[G]\to
+        \mathbb{C}$ is called a group function.
+    \end{defi}
+    He first shows that:
+    \begin{thm}
+        The matrix elements of unitary irreducible representations of
+        finite groups may form an complete orthogonal basis of group
+        algebra. Any group function can be expanded in terms of them.
+    \end{thm}
+    \begin{proof}
+        Let $D^j_{\mu\nu}(g)$, where $g\in G$, $j$ labels irreducible
+        representations, $\mu\nu$ labels matrix element, be one such
+        element. Then we have, for any function $F:G\to \mathbb{C}$,
+        \begin{align}
+            F(h) &= \sum_{j,\mu\nu} C^j_{\mu\nu} D^j_{\mu\nu}(h) \\
+            C^j_{\mu\nu} &= \frac{d_j}{|G|}
+            \sum_{h\in G} D^j_{\mu\nu}(h)^* F(h)
+            \label{eq:20161031-cjmv}
+        \end{align}
+        This can be easily get using the orthonomal relationship.
+        Also notes that we have $\sum_j d^2_j = |G| =
+        \operatorname{Dim}(\mathbb{C}[G])$, confirming that the
+        dimension of basis agree with the dimension of group algebra.
+    \end{proof}
+    \begin{defi}[Class function]
+    \nomenclature{Class function}{\nomrefpage.}
+        A class function is a group function $f$, whose satisfies:
+        \begin{equation}
+            f(s g s^{-1}) = f(g)
+        \end{equation}
+        for any $s,g\in G$.
+    \end{defi}
+    Similarly, we have:
+    \begin{thm}
+        The character $\chi^j(g)$ ,where $j$ labels irreducible
+        representation, $g\in G$, of unitary irreducible representations of
+        finite groups may form an complete orthogonal basis of class
+        functions.
+    \end{thm}
+    \begin{proof}
+        This is easy if one realize that, since $f(sgs^{-1}=f(g)$ for
+        any $s,g\in G$, one has
+        \begin{equation}
+            f(g) = \frac{1}{|G|} \sum_{s\in G} f(s g s^{-1})
+        \end{equation}
+        The rest is to use result mentioned in proving the group
+        function basis above. One finally get:
+        \begin{equation}
+            f(g) = \sum_j \left(\frac{1}{d_j}\sum_\mu
+            C^j_{\mu\mu}\right) \chi^j(g)
+        \end{equation}
+        where $C^j_{\mu\mu}$ is defined in equation
+        \ref{eq:20161031-cjmv}.
+        Or we can write it in another way:
+        \begin{align}
+            F(g) &= \sum_j C_j \chi^j(g) \\
+            C_j &= \frac{1}{|G|} \sum_{h\in G}\chi^j(h)^* F(h)
+        \end{align}
+        the formula for $C_j$ is also easily found by simply
+        calculating $\sum_{h\in G}\chi^j(h)^* F(h)$.
+    \end{proof}
+    Note that the above result is enough to show that the number of
+    irreducible representations is the same as the dimension of
+    class functions (consider it as a vector space).
+
+    The book \cite{book} also rephrase it in page 63, as:
+    \begin{quote}
+        Define two matrices $U_{m,n}$ and $V_{m,n}$, whose elements
+        are defined by:
+    \begin{align}
+        U_{g,j\mu\nu} &:= \sqrt{\frac{d_j}{|G|}} D^j_{\mu\nu}(g) \\
+        V_{a,j} &:= \sqrt{\frac{n_a}{|G|}} \chi^j_a
+    \end{align}
+    The two matrices are unitary. This is true by equation
+    \ref{eq:20161031-ortho-dd-2} and equation
+    \ref{eq:20161031-ortho-character}. Note here $g\in G$, $j$ labels
+    different unitary irreducible representations, $\mu,\nu$ labels
+    the matrix element in that representation, $a$ labels conjugacy
+    classes. The labels $j\mu\nu$ together form the second index of
+    matrix $U_{m,n}$. For convenience, I type all the orthonomal
+    relationship together:
+    \begin{align}
+        &\text{Equation \ref{eq:20161031-ortho-dd-2}:} \nonumber \\
+        & \sum_{h\in G} D^{i*}_{\mu\rho}(h)D^j_{\nu \lambda}(h) =
+        \frac{N}{d_j} \delta_{ij} \delta_{\mu\nu}\delta_{\rho\lambda}
+        \\
+        &\text{Equation \ref{eq:20161031-ortho-character}:} \nonumber \\
+        & \sum_{\mu \in \text{I.R.}} \chi^{a*}_\mu\chi^b_\mu = 
+            \frac{|G|}{n_a} \delta^{ab} 
+    \end{align}
+
+    \end{quote}
+    
 % 1. 自共轭 iff 特征 实数
 % 2. 非自共轭 至少一个群元 复数 -》 成对出现
 % 3. 实表示 是 自共轭
