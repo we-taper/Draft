@@ -1,0 +1,119 @@
+\subsection{Finding Representation}
+\label{sec:Finding-Representation}
+One important work in group theory is to find all its irreducible
+representations. The book \cite{book} suggests we first find the
+characters of irreducible representations, and list them in a
+character table, and then find the matrix of those irreducible
+representations.
+
+He also notes that, a unfaithful representation of a group is
+equivalent to a faithful representation of a certain quotient group.
+Since quotient group is less complex than the original group, finding
+irreducible representation of normal subgroups is very useful for
+analysing a group.
+
+\begin{fact}
+    Also, a the direct product of two irreducible representations is also
+    a representation. If the dimension of one of the representation is
+    $1$, then their product is still a irreducible representation.
+\end{fact}
+\subsection{Self-conjugate representation and Real Representation}
+\label{sec:Self-conjugate-representation-and-Real-Representation}
+
+It's easy to see that for any representation $D$, conjugating ever
+matrix $D(g)^*$ will give another representation. We define
+\begin{defi}[Conjugate Representation]
+\nomenclature{Conjugate Representation}{\nomrefpage.}
+    The conjugate representation of a given representation $D$ is obtained
+    by complex conjugate all its matrices $D(g)^*,\,g\in G$.
+\end{defi}
+\begin{defi}[Self-conjugate Representation]
+\nomenclature{Self-conjugate Representation}{\nomrefpage.}
+    A representation $D$ is called self-conjugate if and only if it is
+    equivalent (but not necessarily equal) to its conjugate
+    representation $D^*$.
+\end{defi}
+\begin{fact}
+    The character of a self-conjugate representation is a real
+    function. Since (assume $XD(g)X^{-1}=D^*(g)$):
+    $$
+        \Tr(XD(g)X^{-1}) = \Tr(X^{-1}XD(g)) = \Tr(D(g)) = \Tr(D^*(g))
+        = \Tr(D(g))^*
+    $$
+\end{fact}
+
+We have a similar concept of real representation:
+\begin{defi}[Real representation]
+\nomenclature{Real representation}{\nomrefpage.}
+    A representation $D$ is called real if and only if it is
+    equivalent to a representation $D^\text{real}$, such that for any
+    $g\in G$, the matrix $D^\text{real}(g)$ is real.
+\end{defi}
+
+Observe that a real representation is obviously self-conjugate, but a
+self-conjugate representation is not necessarily real. We have two
+indicator for its exact classifications.
+
+Firstly,
+\begin{thm}
+    Let $D$ be a unitary irreducible representation of a finite group.
+    Let $D^*$ be its conjugate representation. Assume that $D$ is
+    self-conjugate. Let $X$ be the matrix that relates the two. Then
+    $X$ is either symmetric or anti-symmetric. $X$ is symmetric if and
+    only if $D$ is real. $X$ is anti-symmetric if and only if $D$ is
+    self-conjugate but is not real.
+\end{thm}
+
+Secondly, 
+\begin{thm}
+    for any irreducible representation $D$ of finite group:
+    \begin{align}
+        \frac{1}{|G|}\sum_{g\in G} \chi(g^2) = \begin{cases}
+            1, & \text{$D$ is real} \\
+            -1, & \text{$D$ is self-conjugate but is not real} \\
+            0, & \text{$D$ is not self-conjugate}
+        \end{cases}
+    \end{align}
+\end{thm}
+
+The proof of these two facts are presented in page 68 of \cite{book}.
+Note that there is more general version of the second fact, called
+\textit{Frobenius–Schur indicator}, see
+\href{https://en.wikipedia.org/wiki/Frobenius%E2%80%93Schur_indicator}
+{Wikipedia page}.
+
+\subsection{Subduced Representation}
+\label{sec:Subduced-Representation}
+\marginpar{To be finished.}
+Let $G$ be a group. Let $\mathcal{C}_a$ denotes it conjugacy classes.
+Let $D^j$ be its irreducible representations, with dimension $m_j$,
+character $\chi^j_a$. Assume it has a subgroup $H=\{T_1=E,
+T_2,\cdots,T_h\}$, where $h=|H|$. Let $n=|G|/h$ be its index. Denotes
+its coset by $R_rH$. With $R_1:=E$, any element in $G$ can be denotes
+as $R_r T_t$ (assume $R_r$ is chosen). Let $\bar{\mathcal{C}}_\beta$
+denotes conjugacy classes of the subgroup $H$, with character
+$\bar{\chi}^k_\beta$, dimension $\bar{m}_k$.
+
+% \begin{thm}[Frobenius Theorem]
+%     % TODO
+% \end{thm}
+% \begin{proof}
+%     Assume that $D^j(T_t)$ can be decomposed into:
+%     \begin{align}
+%         X^{-1}D^j(T_t)X &= \oplus_k a_{jk}\bar{D}^k(T_t) \\
+%         m_j = \sum_k a_{jk} \bar{m}_k
+%     \end{align}
+%     It is easy to prove that
+%     \begin{equation}
+%         a_{jk} = \frac{1}{|H|} \sum_{T_t\in H} \bar{\chi}^k(T_t)^*
+%         \chi^j(Tt) 
+%         = \frac{1}{|H|} \sum_\beta \bar{n}_\beta
+%         (\bar{\chi}^k_\beta)^* \chi^j_\beta
+%     \end{equation}
+%     (Notice that, since character is invariant in conjugate class, we
+%     can also label the conjugacy class of $\chi^j_\alpha$ with
+%     $\beta$, where $\beta$ labels the conjugacy of subgroup.)
+% \end{proof}
+
+
+

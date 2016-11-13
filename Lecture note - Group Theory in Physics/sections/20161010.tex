@@ -78,45 +78,53 @@ This is clearly an equivalence relationship. By this we can define
 conjugate class, denoted by $C=\{R_1,\cdots\}$, then we have the
 characterization $C = \{ s^{-1} R_i s|\forall s\in G\}$, for any
 $R_i$. We then have the following facts (all are obvious):
-\begin{fact}$ $
-
-    \begin{enumerate}
-        \item The unit class formed just by the unit element.
-        \item The inverse class formed by just all the inverse element.
-            $C^{-1} = \{ R_i^{-1}\}$. If $C\cap
-            C^{-1}\neq\varnothing$, then $C=C^{-1}$, $C$ is called
-            self-inverse\nomenclature{self-inverse
-            class}{\nomrefpage}.
-        \item The order of elements in a class is just the same.
-        \item For $\forall T,S\in G$, $TS$ and $ST$ are conjugate to each
-            other. This means that all elements symmetric on the
-            multiplication table is conjugate to each other.
-        \item For two elements $R$, $R'$ conjugate to each other, both
-            can be expressed by the products of two elements in two
-            different way. (Isn't this too obvious to mention.)
-        \item Let $G$ be a rotation group. Suppose it has an axis of the
-            order of $n$, with its operation denoted as $R$,, we can get
-            a new axis by the following steps. (Supose we have another
-            rotation $S$),
-
-            \begin{enumerate}
-                \item  $S^{-1}$, rotate $m$ back to $n$.
-                \item  $R$, rotate about n around $2\pi/n$,
-                \item  $S$ rotate $n$ to $m$
-            \end{enumerate}
-
-            Result: $S^{-1}RS$ rotate around a new axis $m$ about
-            $2\pi/n$. So $R'=S^{-1}RS$ and $R$ is calle the equivalent
-            axis. 
-            
-            Also, if $m=-n$, then they are called polar axis to each
-            other.
-
-        \item $C_n$, which is an abel group, every element form a
-            conjugate class by itself. Specifically, $e$ and $R^{n/2}$
-            are self inverse, if $n$ is even.
-    \end{enumerate}
+\begin{fact}
+The unit class formed just by the unit element.
 \end{fact}
+\begin{fact}
+    The inverse class formed by just all the inverse element.  $C^{-1}
+    = \{ R_i^{-1}\}$. If $C\cap C^{-1}\neq\varnothing$, then
+    $C=C^{-1}$, $C$ is called self-inverse\nomenclature{self-inverse
+    class}{\nomrefpage}.
+\end{fact}
+\begin{fact}
+    The order of elements in a class is just the same.
+\end{fact}
+\begin{fact}
+    For $\forall T,S\in G$, $TS$ and $ST$ are conjugate to each other.
+    This means that all elements symmetric on the multiplication table is
+    conjugate to each other.
+\end{fact}
+\begin{fact}
+    For two elements $R$, $R'$ conjugate to each other, both can be
+    expressed by the products of two elements in two different way. (Isn't
+    this too obvious to mention.)
+\end{fact}
+\begin{fact}
+    \label{fact:20161010-srs}
+    Let $G$ be a rotation group. Suppose it has an axis of the
+    order of $n$, with its operation denoted as $R$,, we can get a
+    new axis by the following steps. (Supose we have another
+    rotation $S$),
+    \begin{enumerate}
+        \item  $S^{-1}$, rotate $m$ back to $n$.
+        \item  $R$, rotate about n around $2\pi/n$,
+        \item  $S$ rotate $n$ to $m$
+    \end{enumerate}
+
+    Result: $S^{-1}RS$ rotate around a new axis $m$ about
+    $2\pi/n$. So $R'=S^{-1}RS$ and $R$ is calle the equivalent
+    axis. 
+    
+    Also, if $m=-n$, then they are called polar axis to each
+    other.
+\end{fact}
+\begin{fact}
+    $C_n$, which is an abel group, every element form a conjugate
+    class by itself. Specifically, $e$ and $R^{n/2}$ are self inverse,
+    if $n$ is even.
+\end{fact}
+
 \begin{prop}
     \label{prop:20161010.conjugate_subgroup}
     For an normal subgroup, every conjugate element is also
