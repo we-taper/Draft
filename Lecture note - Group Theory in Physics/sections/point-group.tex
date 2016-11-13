@@ -58,11 +58,13 @@ nontrivial invariant subgroup. When $n$ can be factorized as $n_1n_2$,
 both not equals $1$, then $C_n$ is the product of $C_m$ and $C_n$,
 both are invariant subgroup.
 
-\paragraph{Irreducible representation} Since it has $n$ elements and
-$n$ conjugacy classes, with $\sum_{j=1}^n d_j^2 = n$, each irreducible
-representation is $1$-dimensional. Let $R$ denotes the generator of
-rotation by $2\pi/n$, then by calculating $D^j(R)^n=D^j(1)$, one can
-easily find that for each irreducible representation $j$:
+\paragraph{Irreducible representation} (\textbf{pp.64-65 of \cite{book}})
+
+Since it has $n$ elements and $n$ conjugacy classes, with
+$\sum_{j=1}^n d_j^2 = n$, each irreducible representation is
+$1$-dimensional. Let $R$ denotes the generator of rotation by
+$2\pi/n$, then by calculating $D^j(R)^n=D^j(1)$, one can easily find
+that for each irreducible representation $j$:
 \begin{equation}
     D^j(R) = \exp(-i2\pi j/N)
 \end{equation}
@@ -74,15 +76,23 @@ representations of $C_n$. The table of characters may be found on page
 Note that since all representations are $1$-dimensional, their
 products will keep being irreducible. So having two set of irreducible
 representations of $C_n$ and $C_m$, will give us all the irreducible
-representations of $C_{nm}$.
-\subsection{Dihedral Group}
+representations of $C_{nm}$. For example:
+% TODO pdf scan of C_6.
+
+\subsection{Dihedral Group \texorpdfstring{$D_n$}{}}
 \label{sec:Dihedral-Group}
 \begin{defi}[Dihedral Group $D_n$]
 \nomenclature{Dihedral Group $D_n$}{\nomrefpage.}
-    Dihedral group $D_n$ is the symmetric group of regular $n$-gons.
+    Dihedral group $D_n$ is the symmetric group of regular $n$-gons
+    for $n\geq 3$. For $n=1/2$, it is usually not defined. I found that
+    in book \cite{book}, $D_2$ is isomorphic to Klein Group, $D_1$ is
+    of course the trivial group.
 \end{defi}
 
-\paragraph{Conjugacy Class}
+But we can have another more mathematical definition of Dihedral
+group:
+\marginpar{To be added}
+\paragraph{Conjugacy Classes}
 There is some important difference between the case when $n$ is odd
 and when $n$ is even. When $n$ is odd, the $2$-fold axis are all
 linked with the vortices of the $n$-polygon. On the contrary, when $n$
@@ -109,22 +119,102 @@ are:
 \begin{fact}
     When $n$ is odd (Let $n=2n'+1$): The identity class, the class of
     all $2$-fold axis. The class of $\{ T^m, T^{-m}\}$, where
-    $m=1,2,\cdots, n'$. (Why $m\leq n'$, think about the case when
+    $m=1,2,\cdots, n'$. (Why $m\leq n'$? Think about the case when
     $n=5,n'=2$.). In total $n'+2=\frac{n+3}{2}$ conjugacy
     classes/irreducible representations. All conjugacy classes are
     self-conjugate.
 \end{fact}
 \begin{fact}
     When $n$ is even (Let $n=2n'$): The identity class, the two
-    classes of all $2$-fold axis, as discussed before. The class of
+    classes of all $2$-fold axis, as discussed above. The class of
     $\{ T^m, T^{-m}\}$, where $m=1,2,\cdots, n'$. In total
     $n'+3=\frac{n+6}{2}$. All conjugacy classes are self-conjugate.
 \end{fact}
 
-\paragraph{Invariant Subgroups}
+\paragraph{Invariant Subgroups} (\textbf{pp.30 of \cite{book}})
 By the distinction between edge and vortices type of $2$-fold axises
-discussed before, one can see that the difference in invariant
-subgroup when $n$ is odd or even. More Specifically, when $n=5$ is odd,
+discussed before, one can see that there is difference in invariant
+subgroup when $n$ is odd or even. For example, when $n=5$ is odd,
 $D_5$ has only $C_5$ as a notrivial subgroup. But when
 $n=6$ is even, it has $C_6$ (then $C_2$ and $C_3$), two copies of
 $D_3$ (each formed by edge and vortex type of $2$-fold axis).
+
+More generally, there importnat subgroup of index for $D_n$. When $n$
+is odd (let $n'2n'+1$), there are one subgroup of index $2$, i.e.
+$C_n'$. When $n$ is even (let $n'=n/2$), there are three invariant
+subgroup of index $2$: $C_n'$, $D_n$, and $D_n'$. Denote $n$ $2$-fold
+axis as $S_j$, rotation around $n$-fold axis by $2\pi/n$ as $T$,
+then:
+\begin{align}
+    D_n &= \{E, T^2,T^4,\cdots,T^{2n-2},S_0,S_2,\cdots,S_{2n-2}\} \\
+    D_n' &= \{E, T^2,T^4,\cdots,T^{2n-2},S_1,S_3,\cdots,S_{2n-1}\}
+\end{align}
+Note that this list is not complete. For example, $D_6$ contains other
+nontrivial invariant subgroups, listed in page 30 of \cite{book}.
+
+\paragraph{Character Table} (\textbf{pp.66 of \cite{book}})
+
+For $D_2$, it is isomorphic to the group
+$\{1,\sigma,\tau,\sigma\tau\}$, where $\sigma$ is spatial inversion,
+$\tau$ is time-reversal. Notice that this group is abelian, so it
+obvious has $4$ irreducible representations. It is easy to get its
+character table, which may be found on page 66, table 3.6 of
+\cite{book}.
+
+For $D_3$, it is non-abelian. As discussed previously, it has $3$
+conjugacy classes, so it has 3 irreducible representations. Notice
+that $D_3/C_3 \cong C_2$, so it inherets the two simple irreducible
+representations of $C_2$. This gives two lines in the character
+table. Also, $6-1^2-1^2=2^2$, so we have one $2$-dimensional
+irreducible representation left.  Next, by fact
+\ref{fact:character-of-identity}, we can determine one element in the
+character for $2$-dimensional irreducible representation. The rest two
+empty blanks can be filled using the orthogonal relations for the
+character table.
+%TODO Add the scanned example.
+
+For general $D_n$, see the part for irreducible representations.
+
+\paragraph{Irreducible representation} (\textbf{pp.71-74 of \cite{book}}) 
+
+The general procedure is to use the invariant subgroup of index $2$
+mentioned above to get the $1$-dimensional representations. And use
+the relation $\sum_j m_j^2 = |D_n|$ and $\sum_j 1 = $ number of
+conjugacy class to "guess" the dimensional of remaining irreducible
+representations. Finally use subgroup $C_n$ to construct those
+representations (induced representation) and reduce these into
+irreducible ones. But how to reduce them into irreducible one is
+actually the most difficult part, in my opinion.
+
+For odd $n$, let $n=2n'+1$. We have:
+\begin{align}
+    \sum_{j=1}{n'+2} m_j^2 = 4n'+2
+\end{align}
+
+There is two $1$-dimensional irreducible representations, formed using
+the invariant subgroup $C_{2n'+1}$. Since $4n'+2 = 2^2 n'+2$, one
+guesses that the remaining ones are $n$ $2$-dimensional irreducible
+representation. They are constructed (construction process could be
+found in \cite{book}) to be (notice $D_{2n'+1}$ is generated by
+$T_{2n'+1}$, the rotation $2\pi/(2n'+1)$, and $C'_2$, any one of the
+$2$-fold reflection):
+\begin{align}
+    \bar{D}^{E_j}(C_{2n'+1}) &=\left( \begin{array}{cc}
+    \cos(\frac{2j\pi}{2n'+1}) & -\sin(\frac{2j\pi}{2n'+1}) \\
+    \sin(\frac{2j\pi}{2n'+1}) & \cos(\frac{2j\pi}{2n'+1}) \\
+        \end{array} \right) \\
+    \bar{D}^{E_j}(C'_{2}) &= \left( \begin{array}{cc}
+                 1 & 0 \\
+                 0 & -1 \\ 
+                 \end{array} \right)
+\end{align}
+where $j=1,2,\cdots,n$.
+
+The case for even $n$ is simialr (let $n'=n/2$). Except that here one
+as three invariant subgroup of index $2$ (see dicusson about invariant
+subgroup above). So it has three $1$-dimensional irreducible
+representations, and $n-1$ $2$-dimensional irreducible representations.
+
+When $n$ is odd, let $n=2n'$. (TBD)
+
+%TODO Finish it.
