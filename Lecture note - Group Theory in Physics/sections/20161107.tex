@@ -1,5 +1,6 @@
 \subsection{Finding Representation}
 \label{sec:Finding-Representation}
+% TODO Polish the arragement of this section.
 One important work in group theory is to find all its irreducible
 representations. The book \cite{book} suggests we first find the
 characters of irreducible representations, and list them in a
@@ -40,14 +41,33 @@ matrix $D(g)^*$ will give another representation. We define
     equivalent (but not necessarily equal) to its conjugate
     representation $D^*$.
 \end{defi}
-\begin{fact}
-    The character of a self-conjugate representation is a real
-    function. Since (assume $XD(g)X^{-1}=D^*(g)$):
-    $$
-        \Tr(XD(g)X^{-1}) = \Tr(X^{-1}XD(g)) = \Tr(D(g)) = \Tr(D^*(g))
-        = \Tr(D(g))^*
-    $$
-\end{fact}
+Note that the character of a self-conjugate representation is a real
+function. Since (assume $XD(g)X^{-1}=D^*(g)$):
+$$
+    \Tr(XD(g)X^{-1}) = \Tr(X^{-1}XD(g)) = \Tr(D(g)) = \Tr(D^*(g))
+    = \Tr(D(g))^*
+$$
+In fact, we have
+\begin{thm}
+    A represents is self-conjugate if and only if its character is
+    real-valued.
+\end{thm}
+\begin{proof}
+    If it is self-conjugate, clearly it is real-valued. On the other
+    hand, if the character is real-valued, then by
+    \begin{equation}
+        \chi_{D^*(g)} = \Tr(D^*(g)) = \Tr(D(g))^* = \chi^*_{D(g)}
+        = \chi_{D(g)}
+    \end{equation}
+    The conjugate representation has the same character, hence is
+    equivalent to original representation by theorem \ref{thm:20161031-character-determine-rep}
+\end{proof}
+
+Fun fact. Since all representation of finite group are equivalent to a
+unitary one, if for en element $g\in G$ its character $\chi(g)$ is
+complex, then its inverse $g^{-1}$ has character $\chi(g)^*$.
+Therefore, for a representation which is not self-conjugate, its
+character will has complex value existing in pairs, unless $g=g^{-1}$.
 
 We have a similar concept of real representation:
 \begin{defi}[Real representation]
@@ -91,7 +111,7 @@ Note that there is more general version of the second fact, called
 
 \subsection{Subduced Representation}
 \label{sec:Subduced-Representation}
-\marginpar{To be finished.}
+\marginpar{To be finished.} %TODO
 Let $G$ be a group. Let $\mathcal{C}_a$ denotes it conjugacy classes.
 Let $D^j$ be its irreducible representations, with dimension $m_j$,
 character $\chi^j_a$. Assume it has a subgroup $H=\{T_1=E,
