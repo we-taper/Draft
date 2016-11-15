@@ -1,0 +1,141 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physicist-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physicist-taper}
+
+\title{Solution for HW6 20161109}
+\date{\today}
+\author{Taper}
+
+\begin{document}
+
+\maketitle
+\abstract{
+\begin{CJK}{UTF8}{gbsn}陈鸿翔（11310075）\end{CJK}
+}
+%\tableofcontents
+\section{Validate that \texorpdfstring{$\Tr=\sum \lambda_i$ with
+$\sigma_x$}{}}
+The characteristic equations is
+\begin{align*}
+    &\det \left( \begin{array}{cc}
+        -\lambda & 1 \\
+        1 & -\lambda \\
+    \end{array} \right) = 0 \\
+    &\Rightarrow \lambda^2 -1 = 0 \\
+    &\Rightarrow \lambda = \pm 1 \\
+    &\Rightarrow \lambda_1 + \lambda_2 = 0
+\end{align*}
+Meanwhile, we have $\Tr(\sigma_x) = 0+0 = 0$, confirming theorem.
+
+\section{Prove \texorpdfstring{$[X,Y]=[Y,Z]=[X,Z]=0$}{}}
+% \int \dd x\ket{x}\bra{x} x
+% \int \dd y\ket{y}\bra{y} y
+% \int \dd z\ket{z}\bra{z} z
+\begin{align*}
+    [X,Y] &= \int \dd x\ket{x}\bra{x} x \int \dd y\ket{y}\bra{y} y
+        - \int \dd y\ket{y}\bra{y} y \int \dd x\ket{x}\bra{x} x \\
+        &= \iint \dx\dy (xy - yx) \ket{x}\bra{x}\ket{y}\bra{y} \\
+        &= \iint \dx\dy \, 0 \ket{x}\bra{x}\ket{y}\bra{y} \\
+        &= 0
+\end{align*}
+Similarly,
+
+\begin{align*}
+    [Y,Z] &= \int \dd y\ket{y}\bra{y} y \int \dd z\ket{z}\bra{z} z
+        - \int \dd z\ket{z}\bra{z} z \int \dd y\ket{y}\bra{y} y \\
+        &= \iint \dy\dz (yz - zy) \ket{y}\bra{y}\ket{z}\bra{z} \\
+        &= \iint \dy\dz \, 0 \ket{y}\bra{y}\ket{z}\bra{z} \\
+        &= 0
+\end{align*}
+
+
+\begin{align*}
+    [X,Z] &= \int \dd x\ket{x}\bra{x} x \int \dd z\ket{z}\bra{z} z
+        - \int \dd z\ket{z}\bra{z} z \int \dd x\ket{x}\bra{x} x \\
+        &= \iint \dx\dz (xz - zx) \ket{x}\bra{x}\ket{z}\bra{z} \\
+        &= \iint \dx\dz \, 0 \ket{x}\bra{x}\ket{z}\bra{z} \\
+        &= 0
+\end{align*}
+
+\section{Prove}
+\subsection{Translation operator is unitary}
+\begin{proof}
+Since
+\begin{align*}
+    \ket{T_a \beta} \equiv T_a \ket{\beta} &= T_a \int \dd[3]{x}
+    \ket{x} \braket{x|\beta} \\
+        &=  \int \dd[3]{x} \ket{x+b} \braket{x|\beta}
+\end{align*}
+So
+\begin{align*}
+    \bra{T_a \beta} = \int \dd[3]{x} \braket{x|\beta}^* \bra{x+b}
+\end{align*}
+Then 
+\begin{align*}
+    \braket{T_a \beta|\gamma } &= \int \dd[3]{x} \braket{x|\beta}^* \bra{x+b}
+        \int \dd[3]{x'} \braket{x'|\gamma} \ket{x'}\\
+        &= \iint\dd[3]{x}\dd[3]{x'}\delta(x+a-x')
+        \braket{x|\beta}^*\braket{x'|\gamma} \\
+        &= \iint\dd[3]{x}\dd[3]{x'}\delta(x-(x'-a))
+        \braket{x|\beta}^*\braket{x'|\gamma} \\
+        &= \int \dd[3]{x} \braket{x|\beta}^* \bra{x}
+        \int \dd[3]{x'} \braket{x'|\gamma} \ket{x'-a}\\
+        &= \int \dd[3]{x} \braket{x|\beta}^* \bra{x}
+        \left(T_{-a} \int \dd[3]{x'} \braket{x'|\gamma} \ket{x'}\right)\\
+        &= \braket{\beta | T_{-a} \gamma}
+\end{align*}
+So
+\begin{equation}
+    T_a^\dagger = T_{-a}
+\end{equation}
+So, with the result of section~\ref{sec:3.3}, we have
+\begin{align*}
+    T_a T_a^\dagger = T_a T_{-a} = T_{a-a} = T_0 = \id
+\end{align*}
+\end{proof}
+Hence it is unitary.
+\subsection{\texorpdfstring{$[T_a,T_b]=0$}{}}
+\begin{proof}
+Notice that
+\begin{align*}
+    T_{a+b} \ket{\alpha} = T_{a+b} \int \dd[3]{x} \ket{x} \braket{x|\alpha}
+    &=  \int \dd[3]{x} \ket{x+(a+b)} \braket{x|\alpha} \\
+    &=  \int \dd[3]{x} \ket{x+(b+a)} \braket{x|\alpha} \\
+    &=  T_{b+a} \int \dd[3]{x} \ket{x} \braket{x|\alpha} \\
+    &=  T_{b+a} \ket{\alpha}
+\end{align*}
+So $T_{a+b} = T_{b+a}$. Then use the result of section \ref{sec:3.3},
+we have
+\begin{align*}
+    [T_a,T_b] = T_a T_b - T_b T_a = T_{a+b} - T_{b+a} = T_{a+b} -
+    T_{a+b} = 0
+\end{align*}
+\end{proof}
+
+\subsection{\texorpdfstring{$T_a T_b = T_{a+b}$}{}}
+\label{sec:3.3}
+\begin{proof}
+\begin{align*}
+    T_a T_b \ket{\alpha} &= T_a T_b \int \dd[3]{x} \ket{x}
+        \braket{x|\alpha} \\
+        &=  T_a \int \dd[3]{x} \ket{x+b} \braket{x|\alpha} \\
+        &=  \int \dd[3]{x} \ket{x+b+a} \braket{x|\alpha} \\
+        &=  \int \dd[3]{x} \ket{x+(a+b)} \braket{x|\alpha} \\
+        &=  T_{a+b} \int \dd[3]{x} \ket{x} \braket{x|\alpha}
+\end{align*}
+So $T_a T_b = T_{a+b}$.
+\end{proof}
+
+\end{document}
