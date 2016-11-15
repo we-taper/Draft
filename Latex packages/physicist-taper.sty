@@ -3,13 +3,11 @@
 % ---------------- Outline -----------------
 % @1. General LaTeX Adjustment
 % @2. Mathematical addones
-% % @2.1 Quick Mathmetical Common Operators
 % @3. Physical Addons
-% @4. Decorating Document
+% @4. My Own Shortcuts
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{physicist-taper}[2016/11/15 Minor update]
-
 
 % @1. General LaTeX Adjustment -----------------------------------
 \RequirePackage{float}  % For H in figures
@@ -20,6 +18,9 @@
 \RequirePackage{fancyref} % For easy adding figure,equation etc in reference. Use \fref or \Fref instead of \ref
 % A list of nomenclatures.
 \RequirePackage{nomencl}
+\DeclareDocumentCommand\nomen{m}{
+	\textbf{#1}\nomenclature{#1}{\nomrefpage}
+}
 
 % @2. Mathematical Addons -----------------------------------
 \RequirePackage{amsmath} % For math
@@ -31,21 +32,18 @@
 % for numbers with mathbb
 \RequirePackage{dsfont} 
 
-% % @2.1 Quick Mathmetical Common Operators
+% Quick Mathmetical Common Operators
 
-% % %  Algebra Operators
+% %  Algebra Operators
+
 \DeclareDocumentCommand\Ker{}{\operatorname{Ker}}
+\DeclareDocumentCommand\Aut{}{\operatorname{Aut}}
+\DeclareDocumentCommand\End{}{\operatorname{End}}
+\DeclareDocumentCommand\Hom{}{\operatorname{Hom}}
+
 \DeclareDocumentCommand\id{}{\mathds{1}}
 \DeclareDocumentCommand\Tr{}{\operatorname{Tr}}
 \DeclareDocumentCommand\det{}{\operatorname{det}}
-\DeclareDocumentCommand\Aut{}{\operatorname{Aut}}
-\DeclareDocumentCommand\End{}{\operatorname{End}}
-
-% % % Differential Operators
-\RequirePackage{physics} % To provide some symbols
-\DeclareDocumentCommand\dx{}{\dd x}
-\DeclareDocumentCommand\dy{}{\dd y}
-\DeclareDocumentCommand\dz{}{\dd z}
 
 % For drawing diagrams
 \RequirePackage{tikz-cd}
@@ -67,16 +65,15 @@
 \newtheorem{fact}{Fact}[section]
 \newtheorem{key}{Key Point}[section]
 
-
 % @3. Physical Addons -----------------------------------------------
-% \RequirePackage{physics} This package is required but is loaded above.
+\RequirePackage{physics}
 
 % Stop the ugly braket defined by package "physics", and replace it
 % with what is defined in package "braket"
 \RequirePackage{braket}
 
 
-% @4. Decorating Document ------------------------------------------------
+% @4. My Own Shortcuts ------------------------------------------------
 % For highlighting
 \RequirePackage{xcolor,soul}
 \newcommand{\hlMath}[1]{\colorbox{yellow!80}{$\displaystyle#1$}}

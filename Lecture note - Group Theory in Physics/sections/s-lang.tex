@@ -1,0 +1,190 @@
+\section{Representationas and Semisimplicity}
+\label{sec:Representationas-and-Semisimplicity}
+
+Now I digress to read chapter 18 of the book \cite{lang-algebra}.
+
+Let $R$ be a commutative ring and $G$ a group. Let $E$ be a
+$R$-module.
+
+For convenience, given a representation $\rho:G\to \Aut_R(E)$, let
+$\sigma\ni G$, $x\in E$, we write $\sigma x$ instead of
+$\rho(\sigma)x$.
+
+An $R$-module $E$, together with a representation $\rho$, will be
+called a \textbf{$G$-module}\nomenclature{$G$-module}{\nomrefpage} or
+\textbf{$G$-space}\nomenclature{$G$-space}{\nomrefpage}, or also a
+\textbf{$(G,R)$-module}\nomenclature{$(G,R)$-module}{\nomrefpage}.
+
+If $E$, $F$ are $G$-modules, we define a
+\textbf{$G$-homomorphism}\nomenclature{$G$-homomorphism}{\nomrefpage}
+$f:E\to F$ as a $R$-linear map such that $f(\sigma x) = \sigma f(x)$
+for all $x\in G$ and $\sigma\in G$.
+
+\begin{equation}
+    \begin{tikzcd}[column sep=small]
+        E \ar[rr,"f"] &
+        \ar[d,phantom, "\#", near start] & F \\
+        & G\ar[ul,"\rho"]\ar[ur,"\rho'"] &  \,
+    \end{tikzcd}
+\end{equation}
+
+We make $R$ into a $G$-module by making $G$ act trivially on $R$, i.e.
+we have a trivial representation on $R$, itself regarded as a
+$R$-module.
+
+\begin{key}
+Now the we discuss a systematically way to construct a new
+representation from a given one. More specifically, we want to make
+$\Hom_R(E,F)$ into a $G$-module, i.e. construct a representation from
+$G$ to $\Hom_R(E,F)$.
+
+First, we define the action of $G$ on $\Hom_R(E,F)$ by (let $f\in
+\Hom_R(E,F)$, $f: E\to F$).
+\begin{equation}
+    ([\sigma] f) (x) = \sigma (f(\sigma^{-1}x))
+\end{equation}
+We verify that this is an operation/action of $G$ on $\Hom_R(E,F)$:
+\begin{align*}
+    ([e] f) (x) &= e (f(e^{-1}x)) = f(x) \\
+    ([a] [b] f )(x) &= [a] bf(b^{-1}x) = ab f(b^{-1}a^{1}x) =
+    abf((ab)^{-1}x) \\
+    &= ([ab] f)(x)
+\end{align*}
+\end{key}
+
+\begin{fact}
+\label{fact:g-hom-sg-g}
+For convenience we write $([\sigma]f)(x)$ simply as $[\sigma]f(x)$.
+Also, 
+\begin{align*}
+    f(\sigma x)=\sigma f(x) \Leftrightarrow [\sigma]f(x) = \sigma
+    f(\sigma^{-1}x) = \sigma\sigma^{-1}f(x) = f(x)
+\end{align*}
+So $f$ is a $G$-homomorphism if and only if $[\sigma]f=f$ for all
+$\sigma\in G$.
+\end{fact}
+\begin{remark}
+    This is the first time I understand why $\sigma^{-1}$ is so
+    important. Without it, we don't have the beautiful fact above.
+\end{remark}
+\begin{defi}[Dual representation $\rho^\vee$]
+\nomenclature{Dual representation $\rho^\vee$}{\nomrefpage.}
+When $F=R$ (so with trivial action), then $\Hom_R(E,F)=E^\vee$ is the
+dual module. If we have $\rho:G\to \Aut_R(E)$, a representation of $G$
+on $E$, then the action we just defined gives the dual
+representation (also called \nomen{contragredient} in the literature).
+\end{defi}
+More specifically, $\sigma$ acts trivially on $R$, so
+\begin{align}
+    \rho^\vee: & G\to \Aut_R(E^\vee)  \\
+               & \sigma \mapsto [\sigma] f = f(\sigma^{-1}x) \nonumber
+\end{align}
+
+Suppose now that the modules $E$,$F$ are free and finite dimensional
+over $R$ (recall that a module is free when it has a basis). Let
+$\rho$ be a representation of $G$ on $E$, $M$ be the matrix of
+$\rho(\sigma)$ with respect to a basis, $M^\vee$ be the matrix of
+$\rho^\vee (\sigma)$ with respect to the dual basis. Then
+\begin{align*}
+    [\sigma] f: x &\mapsto f(\sigma^{-1} x) \\
+    x^i &\mapsto \sum_{ij} f_i(M^{-1})^i_j x^j \\
+    \Longrightarrow [\sigma]: f &\mapsto f\sigma^{-1} \\
+    f_j &\mapsto \sum_i f_i(M^{-1})^i_j \\
+    \left(\begin{array}{c}
+        f_1 \\
+        f_2 \\
+        \cdots 
+\end{array}\right) &\mapsto (M^{-1})^T  \left(\begin{array}{c}
+        f_1 \\
+        f_2 \\
+        \cdots 
+\end{array}\right) 
+\end{align*}
+Hence
+\begin{equation}
+    M^\vee = (M^{-1})^T
+\end{equation}
+
+Next we discuss the tensor product instead of Hom. Let $E$,$E'$ be
+$(G,R)$-modules. We form their tensor product $E\otimes E'$, taken over
+$R$. then we define an action of $G$ on $E\otimes E'$ by (let
+$\sigma\in G$):
+\begin{equation}
+    \sigma (x\otimes x') := \sigma x \otimes \sigma x'
+\end{equation}
+
+\begin{fact}
+\label{fact:Ev-F--Hom-G}
+Suppose that $E$, $F$ are free and finite dimensional over $R$. Then
+the $R$-isomorphism
+\begin{align}
+    E^\vee \otimes F &\overset{g}{\cong} \Hom_R(E,F) \\
+    f_i \otimes x^j &\overset{g}{\cong} A^j_i = (f_i x^j)
+    \label{eq:fx-g-aji}
+\end{align}
+is a $G$-isomorphism.
+\end{fact}
+\begin{proof} 
+In this proof, we will use Einstein summation
+convention. We see that
+\begin{align}
+    \sigma (f_i\otimes x^j) = (\sigma^\vee f_i )\otimes (\sigma x^j) =
+    f_k (M_E^{-1})^k_i \otimes (M_F)^j_l x^l 
+\end{align}
+So
+\begin{align}
+    g(\sigma (f_i\otimes x^j)) = g(f_k (M_E^{-1})^k_i \otimes 
+    (M_F)^j_l x^l) = (M^{-1}_E)^k_i A_k^l (M_F)^j_l
+\end{align}
+Meanwhile, for $h\in \Hom_R(E,F)$,
+\begin{align}
+    [\sigma] h: x &\mapsto \sigma h(\sigma^{-1} x) \\
+    x^i &\mapsto \sigma h^i_k (M_E^{-1})^k_j x^j \\
+    &= (M_F)^i_l h^l_k (M_E^{-1})^k_j x^j
+\end{align}
+So $G$ acts on $h\in \Hom_R(E,F)$ is
+\begin{align}
+    [\sigma]: h^i_j &\mapsto  (M_F)^i_l h^l_k (M_E^{-1})^k_j
+\end{align}
+So, consider $g(f_i\otimes x^j)\in \Hom_R(E,F)$, we have
+\begin{align*}
+    [\sigma] [g (f_i\otimes x^j)] = [\sigma] A^j_i = (M_F)^j_l A^l_k
+    (M_E^{-1})^k_i
+\end{align*}
+Hence
+\begin{equation}
+    \label{eq:g-iso-sggs}
+    g(\sigma (f_i\otimes x^j )) = [\sigma] [g(f_i\otimes x^j)]
+\end{equation}
+\end{proof}
+
+Whether $E$ is free or not, we define the \nomen{$G$-invariant
+submodule of $E$} to be \nomen{$\operatorname{inv}_G(E)$}$=
+R$-submodule of elements $x\in E$ such that $\sigma x=x$ for all
+$\sigma\in G$. If $E,F$ are free, we have an $R$-isomorphism
+\begin{equation}
+    \operatorname{inv}_G (E^\vee\otimes F) \cong \Hom_G(E,F)
+\end{equation}
+\begin{proof}
+    I give only a finite dimensional proof (for no proof is provided
+    in Lang's book \cite{lang-algebra}. In finite dimensional case,
+    this fact is closely related to the fact \ref{fact:Ev-F--Hom-G}:
+    \begin{equation*}
+        E^\vee \otimes F \overset{g}{\cong} \Hom_R(E,F)
+    \end{equation*}
+
+    Let me use the notation used before. The isomorphism is actually
+    the $g$ defnied for equation \ref{eq:fx-g-aji}.
+
+    On one hand, for $f_i\otimes x^j \in \operatorname{inv}_G
+    (E^\vee\otimes F)$, denote $g(f_i\otimes x^j)$ by $A^j_i$. Then
+    $g(\sigma (f_i\otimes x^j)) = g(f_i\otimes x^j) = A^j_i$ for any
+    $\sigma\in G$. By equation \ref{eq:g-iso-sggs}, we have
+    $[\sigma]A^j_i = A^j_i$, hence by fact \ref{fact:g-hom-sg-g}
+    (notice that $A^j_i\in \Hom_R(E,F)$), $A^j_i\in \Hom_G(E,F)$.  The
+    converse is similar.
+
+    I think that for infinite dimensional cases, we might replace
+    $\sum$ with $\int$ and use the same logic here.
+\end{proof}
+

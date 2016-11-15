@@ -7,7 +7,7 @@
 % @4. My Own Shortcuts
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{physicist-taper}[2016/11/14 Minor update]
+\ProvidesPackage{physicist-taper}[2016/11/15 Minor update]
 
 % @1. General LaTeX Adjustment -----------------------------------
 \RequirePackage{float}  % For H in figures
@@ -18,6 +18,9 @@
 \RequirePackage{fancyref} % For easy adding figure,equation etc in reference. Use \fref or \Fref instead of \ref
 % A list of nomenclatures.
 \RequirePackage{nomencl}
+\DeclareDocumentCommand\nomen{m}{
+	\textbf{#1}\nomenclature{#1}{\nomrefpage}
+}
 
 % @2. Mathematical Addons -----------------------------------
 \RequirePackage{amsmath} % For math
@@ -32,12 +35,15 @@
 % Quick Mathmetical Common Operators
 
 % %  Algebra Operators
+
 \DeclareDocumentCommand\Ker{}{\operatorname{Ker}}
+\DeclareDocumentCommand\Aut{}{\operatorname{Aut}}
+\DeclareDocumentCommand\End{}{\operatorname{End}}
+\DeclareDocumentCommand\Hom{}{\operatorname{Hom}}
+
 \DeclareDocumentCommand\id{}{\mathds{1}}
 \DeclareDocumentCommand\Tr{}{\operatorname{Tr}}
 \DeclareDocumentCommand\det{}{\operatorname{det}}
-\DeclareDocumentCommand\Aut{}{\operatorname{Aut}}
-\DeclareDocumentCommand\End{}{\operatorname{End}}
 
 % For drawing diagrams
 \RequirePackage{tikz-cd}
