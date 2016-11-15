@@ -7,7 +7,7 @@
 % @4. My Own Shortcuts
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{physicist-taper}[2016/11/08 Minor update]
+\ProvidesPackage{physicist-taper}[2016/11/14 Minor update]
 
 % @1. General LaTeX Adjustment -----------------------------------
 \RequirePackage{float}  % For H in figures
@@ -30,10 +30,14 @@
 \RequirePackage{dsfont} 
 
 % Quick Mathmetical Common Operators
+
+% %  Algebra Operators
 \DeclareDocumentCommand\Ker{}{\operatorname{Ker}}
 \DeclareDocumentCommand\id{}{\mathds{1}}
 \DeclareDocumentCommand\Tr{}{\operatorname{Tr}}
 \DeclareDocumentCommand\det{}{\operatorname{det}}
+\DeclareDocumentCommand\Aut{}{\operatorname{Aut}}
+\DeclareDocumentCommand\End{}{\operatorname{End}}
 
 % For drawing diagrams
 \RequirePackage{tikz-cd}

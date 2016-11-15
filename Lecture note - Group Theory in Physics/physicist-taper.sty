@@ -7,7 +7,7 @@
 % @4. My Own Shortcuts
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{physicist-taper}[2016/11/02 Major update]
+\ProvidesPackage{physicist-taper}[2016/11/14 Minor update]
 
 % @1. General LaTeX Adjustment -----------------------------------
 \RequirePackage{float}  % For H in figures
@@ -30,13 +30,20 @@
 \RequirePackage{dsfont} 
 
 % Quick Mathmetical Common Operators
+
+% %  Algebra Operators
 \DeclareDocumentCommand\Ker{}{\operatorname{Ker}}
 \DeclareDocumentCommand\id{}{\mathds{1}}
 \DeclareDocumentCommand\Tr{}{\operatorname{Tr}}
 \DeclareDocumentCommand\det{}{\operatorname{det}}
+\DeclareDocumentCommand\Aut{}{\operatorname{Aut}}
+\DeclareDocumentCommand\End{}{\operatorname{End}}
 
 % For drawing diagrams
 \RequirePackage{tikz-cd}
+
+% For tensor indices
+\usepackage{tensor}  
 
 % Following is for theorems etc environments
 % http://tex.stackexchange.com/questions/45817/theorem-definition-lemma-problem-numbering && https://en.wikibooks.org/wiki/LaTeX/Theorems
@@ -58,6 +65,7 @@
 % Stop the ugly braket defined by package "physics", and replace it
 % with what is defined in package "braket"
 \RequirePackage{braket}
+
 
 % @4. My Own Shortcuts ------------------------------------------------
 % For highlighting
