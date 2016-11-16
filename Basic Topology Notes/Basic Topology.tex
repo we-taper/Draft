@@ -1,0 +1,102 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physicist-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physicist-taper}
+
+\makenomenclature
+
+% Show the keys for labels, replace options with "final" when done
+% with editing.
+\usepackage[draft,notref]{showkeys}
+
+\title{Notes of Basic Topolgy}
+\date{\today}
+\author{Taper}
+
+
+\begin{document}
+
+
+\maketitle
+\abstract{
+    A note of Basic Topology, based on \textit{Basic Topology} by M.A.
+    Armstrong.
+}
+\tableofcontents
+There are several parts that I will skipped for convenience. Those
+include chapter 1 - Introduction, chapter 2 - Continuity, chapter 3 -
+Compactness and Connectedness, and chapter 4 - Identification Spaces.
+Below is some especially confusing part that I would like to note:
+
+\section{Special Notes}
+\label{sec:Special-Notes}
+\paragraph{Basic facts about maps}
+Assuming domain $f=X$, codomain $f=Y$.
+\begin{align}
+    f(U\cup V) &= f(U)\cup f(V) \\
+    f(U\cap V) &= f(U)\cap f(V) \\
+    f(U^c) &\supseteq f(U)^c,\,\text{i.e. } f(U)^c \subseteq f(U^c) \\
+    f^{-1}(U\cup V) &= f^{-1}(U)\cup f^{-1}(V) \\
+    f^{-1}(U\cap V) &= f^{-1}(U)\cap f^{-1}(V) \\
+    f^{-1}(U^c) &= [f^{-1}(U)]^c
+\end{align}
+\paragraph{Smallest the Largest Topolgy}
+The set of all possible topolgies on $X$ is partially ordered by
+inclusion. For a certain characteristics $\mathcal{C}$, it is possible
+to have the smallest or the largest one. 
+
+The \nomen{smallest topolgy} $\mathcal{T}_\text{min}$ is the one such
+that, for any $\mathcal{T}'$ satisfying $\mathcal{C}$,
+$\mathcal{T}_\text{min}\subseteq \mathcal{T}'$. The \nomen{largest
+topolgy} $\mathcal{T}_\text{max}$ is the one such that, for any
+$\mathcal{T}'$ satisfying $\mathcal{C}$, $\mathcal{T}'\subseteq
+\mathcal{T}_\text{max}$.
+
+For example, assuming we have
+\begin{equation}
+    f: X\to Y
+\end{equation}
+where $f$ is any function.
+
+If $X$ has topolgy $\mathcal{T}_X$, we ask then what kind of topolgy on
+$Y$ will make $f$ a continuous function. First, all $f^{-1}(V)$, with
+$V\in \mathcal{T}_Y$ should be open in $X$. So, the easiest choice is to
+make $\mathcal{T}_{Y,\text{min}}=\{\varnothing,Y\}$, this is the
+smallest topolgy.  Also, any set $V\in Y$ such that $f^{-1}(V)\notin
+\mathcal{T}_X$ should not be in $\mathcal{T}_Y$. Then the largest
+topolgy is $\mathcal{T}_{Y,\text{max}}=\{ V\subset Y| f^{-1}(V)\in
+\mathcal{T}_X\}$.
+
+If $Y$ has topolgy $\mathcal{T}_Y$, we also ask what kind of topolgy
+on $X$ will make $f$ a continuous function. First, all $V\in
+\mathcal{T}_Y$, their preimage $f^{-1}(V)$ must be in $\mathcal{T}_X$.
+So the smallest topolgy is
+$\mathcal{T}_{X,\text{min}}=\{f^{-1}(V)|V\in\mathcal{T}_Y\}$.
+\section{Anchor}
+\label{sec:Anchor}
+
+\begin{thebibliography}{1}
+    \bibitem{book} M.A. Armstrong. Basic Topology. 2ed.
+\end{thebibliography}
+\printnomenclature
+\section{License}
+The entire content of this work (including the source code
+for TeX files and the generated PDF documents) by 
+Hongxiang Chen (nicknamed we.taper, or just Taper) is
+licensed under a 
+\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative 
+Commons Attribution-NonCommercial-ShareAlike 4.0 International 
+License}. Permissions beyond the scope of this 
+license may be available at \url{mailto:we.taper[at]gmail[dot]com}.
+\end{document}
