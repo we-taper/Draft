@@ -1,3 +1,39 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physicist-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physicist-taper}
+
+\makenomenclature
+
+% Show the keys for labels, replace options with "final" when done
+% with editing.
+\usepackage[draft,notref]{showkeys}
+
+\title{Representation theory of Finite Groups}
+\date{\today}
+\author{Taper}
+
+
+\begin{document}
+
+
+\maketitle
+\abstract{
+A note for correspoding chapter in S. Lang's book.
+}
+\tableofcontents
+
 \section{Representationas and Semisimplicity}
 \label{sec:Representationas-and-Semisimplicity}
 
@@ -188,3 +224,109 @@ $\sigma\in G$. If $E,F$ are free, we have an $R$-isomorphism
     $\sum$ with $\int$ and use the same logic here.
 \end{proof}
 
+\begin{defi}[Sum $\rho\oplus \rho'$]
+\nomenclature{Sum $\rho\oplus \rho'$}{\nomrefpage.}
+If $\rho: G\to \Aut_R(E)$, $\rho':G\to \Aut_R(E')$ are two
+representation of $G$, we define their sum $\rho\oplus \rho'$ to be
+the representation on the direct sum $E\oplus E'$, with $\sigma\in G$
+acting componentwise.
+\end{defi}
+
+Give $G$, observe the $G$-isomorphism classes of representations have
+an additive monoid structure under the above direct sum, and also have
+an associative multiplicative structure under the tensor product. With
+the notation of representations, we denote this product by
+\nomen{$\rho\otimes \rho'$}. This product is distributive with respect
+to the addition (i.e. direct sum), by their definition.
+
+\begin{defi}[Trace $\Tr_G$]
+\nomenclature{Trace $\Tr_G$}{\nomrefpage.}
+    If $G$ is a finite group, and $E$ is a $G$-module, then we can
+    define the trace $\Tr_G:E\to E$ which is an $R$-homomorphism,
+    namely
+    \begin{equation}
+        \Tr_G(x) = \sum_{\sigma\in G} \sigma x
+    \end{equation}
+\end{defi}
+\begin{fact}
+$\Tr_G$ belongs to $ \operatorname{inv}_G (E)$, i.e. is
+fixed under the operation of any $\sigma\in G$:
+\begin{align*}
+    \tau \Tr_G(x) = \sum_{\sigma\in G} \tau \sigma x =
+    \sum_{\sigma'\in G} \sigma' x
+\end{align*}
+\end{fact}
+Let $E,F$ be twn $G$-modules, and $f:E\to F$ is an $R$-homomorphism of
+$G$-modules, then we can easily extend this definition to define
+\nomen{$\Tr_G(f)$} by
+\begin{align}
+    \Tr_G(f)&:E\to F \\
+    \Tr_G(f) &= \sum_{\sigma\in G} [\sigma] f \nonumber
+\end{align}
+Also, $\Tr_G(f)$ is invariant under any $\sigma\in G$, so it is a
+$G$-homomorphism, i.e.  $\Tr_G(f)\in \Hom_G(E,F)$.
+
+\begin{prop}
+    Let $G$ be a finite group and let $E,E',F,F'$ be $G$-modules, let
+    \begin{equation*}
+        E'\overset{\phi}{\to} E\overset{f}{\to} 
+            F \overset{\psi}{\to} F'
+    \end{equation*}
+    be $R$-homomorphism, and asume that $\phi,\psi$ are
+    $G$-homomorphisms. Then 
+    \begin{equation}
+        \Tr_G(\psi\circ f\circ\phi) = \psi\circ\Tr_G(f)\circ\phi
+    \end{equation}
+\end{prop}
+\begin{proof}
+    Proof is provided on the book \cite{lang-algebra}. The essential
+    point is that
+    \begin{equation}
+        [\sigma] (\psi\circ f\circ\phi) = \sigma \psi \sigma^{-1}
+        \sigma f \sigma^{-1} \sigma \phi \sigma^{-1} =
+        [\sigma]\psi\circ [\sigma]f\circ [\sigma]\phi 
+    \end{equation}
+\end{proof}
+
+\begin{thm}[Maschke]
+    Let $G$ be a finite group of order $n$, and let $k$ be a field
+    whose characteristic does not divide $n$. then the group ring
+    $k[G]$ is semisimple.
+\end{thm}
+Recall the an object is called \nomen{semisimple} if it is the direct
+sum of simple objects. A \nomen{simple} object is some ireducible
+building blocks, without being too simple to be simple. \footnote{
+    As remarked in nLab
+    (\href{https://ncatlab.org/nlab/show/too+simple+to+be+simple}{link}),
+    There is a general principle in mathematics that "A trivial object
+    is too simple to be simple". For example, $1$ is not a prime
+number.} A \nomen{simple ring} is a nonzero ring who has no two-sided ideals
+other than the zero ideal and itself.\footnote{ I did not find the
+    definition for a simple ring on Lang's book \cite{lang-algebra}.
+Rather, I found it online.}
+
+The proof of this theorem is provided in page 666, section 18.1 of
+\cite{lang-algebra}. I do not understand it. So I do not put it down
+here.
+
+\section{Anchor}
+\label{sec:Anchor}
+
+\begin{thebibliography}{1}
+    \bibitem{book} Zhongqi Ma, Group Theory in Physics
+    \bibitem{Ludeling} Lecture Notes for physics751: Group Theory (for
+    Physicists), by C Ludeling.
+    \href{http://www.th.physik.uni-bonn.de/nilles/people/luedeling/grouptheory/data/grouptheorynotes.pdf}{Link}
+    \bibitem{lang-algebra} Serge Lang. Algebra. Revised 3rd. Springer.
+\end{thebibliography}
+\printnomenclature
+\section{License}
+The entire content of this work (including the source code
+for TeX files and the generated PDF documents) by 
+Hongxiang Chen (nicknamed we.taper, or just Taper) is
+licensed under a 
+\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative 
+Commons Attribution-NonCommercial-ShareAlike 4.0 International 
+License}. Permissions beyond the scope of this 
+license may be available at \url{mailto:we.taper[at]gmail[dot]com}.
+\end{document}
