@@ -7,13 +7,13 @@
 % http://creativecommons.org/licenses/by-nc-sa/4.0/).
 \documentclass{article}
 
-% My own physics package
-% The following line load the package xparse with additional option to
-% prevent the annoying warnings, which are caused by the package
-% "physics" loaded in package "physicist-taper".
-\usepackage[log-declarations=false]{xparse}
-\usepackage{physicist-taper}
-
+\usepackage{amsmath} % For math
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+% For drawing diagrams
+\RequirePackage{tikz-cd}
+\usepackage{hyperref}
+\usepackage{nomencl}
 \makenomenclature
 
 \title{Examples}
@@ -23,12 +23,12 @@
 
 \begin{document}
 
-
 \maketitle
 \abstract{
 Nothing here.
 }
 \tableofcontents
+\nomenclature{aa}{aaa}
 \begin{center}
     Bad diagrams
 \end{center}
@@ -44,7 +44,7 @@ $$
     \end{tikzcd}
 $$
 \begin{center}
-    A good diagram
+    Good diagrams
 \end{center}
 $$
     \begin{tikzcd}[column sep=small]
@@ -53,12 +53,18 @@ $$
         & G &  \,
     \end{tikzcd}
 $$
+$$ \begin{tikzcd}[column sep=small]
+& G &  \, \\
+E \ar[ur,"f"]\ar[rr,"\rho" below=3] &
+\ar[u,phantom, "\#"] 
+& F\ar[ul,"\rho'" right=3]
+\end{tikzcd} $$
 
 \section{Anchor}
 \label{sec:Anchor}
 
 \begin{thebibliography}{1}
-    %\bibitem{book} 
+    \bibitem{book}  s
 \end{thebibliography}
 \printnomenclature
 \section{License}

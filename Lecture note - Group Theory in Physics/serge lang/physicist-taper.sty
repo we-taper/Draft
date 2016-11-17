@@ -16,8 +16,9 @@
 \RequirePackage[unicode]{hyperref}  % make every cite a link
 \RequirePackage{CJKutf8} % For Chinese characters
 \RequirePackage{fancyref} % For easy adding figure,equation etc in reference. Use \fref or \Fref instead of \ref
+
 % A list of nomenclatures.
-\RequirePackage{nomencl}
+\usepackage{nomencl}
 \DeclareDocumentCommand\nomen{m}{
 	\textbf{#1}\nomenclature{#1}{\nomrefpage}
 }

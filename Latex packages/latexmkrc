@@ -1,0 +1,17 @@
+add_cus_dep('nlo', 'nls', 0, 'makenlo2nls');
+sub makenlo2nls {
+my $cwd = cwd();
+my $base = $_[0];
+# Normalize the filenames to use / to separate the directory
+# components, since both \ and / are allowed under MSWin:
+$base =~ s(\\)(/)g;
+$cwd =~ s(\\)(/)g;
+# Remove any initial string equal to the name of current
+# working directory (and the following separator):
+$base =~ s(^$cwd/)();
+# Normalize the filename back to standard MSWin:
+$base =~ s(/)(\\)g;
+# Quote the filenames in the command line
+# (to give safety against special characters):
+system("makeindex \"$base.nlo\" -s nomencl.ist -o \"$base.nls\"");
+}

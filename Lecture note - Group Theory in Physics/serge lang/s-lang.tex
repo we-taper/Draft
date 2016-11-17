@@ -138,6 +138,7 @@ $\rho^\vee (\sigma)$ with respect to the dual basis. Then
 \end{align*}
 Hence
 \begin{equation}
+    \label{eq:M-dual-M-1T}
     M^\vee = (M^{-1})^T
 \end{equation}
 
@@ -309,6 +310,121 @@ The proof of this theorem is provided in page 666, section 18.1 of
 \cite{lang-algebra}. I do not understand it. So I do not put it down
 here.
 
+\section{Characters}
+\label{sec:Characters}
+Assuming in this section that, $G$: a finite group. $k$: a field of
+characteristic not dividing $|G|$. $E,F$: finite dimensional $k$-spaces.
+$n=|G|$.
+
+\begin{defi}[Character $\chi$]
+\nomenclature{Character $\chi$}{\nomrefpage.}
+    The character $\chi$ of a representation $\rho:k[G]\to \End_k(E)$
+    is defined as
+    \begin{align}
+        \chi: k[G] &\to k \\
+        \alpha &\mapsto \Tr(\rho(\alpha))
+    \end{align}
+    We sometimes write it as $\chi_\rho$ or $\chi_E$.
+\end{defi}
+The \nomen{trivial character} is sometimes denoted as \nomen{$\chi_0$}
+or \nomen{$1_G$}.
+
+\begin{remark}
+By the $k$-linearity of trace function, we observe that characters are
+determined by its values on $G$.
+\end{remark}
+
+\begin{defi}[Isomorphic Representations]
+\nomenclature{Isomorphic Representations}{\nomrefpage.}
+    Two representations $\rho,\phi$ of $G$ on spaces $E,F$ are
+    isomorphic if and only if  there is a $G$-isomorphism between $E$
+    and $F$.
+\end{defi}
+\begin{equation} \begin{tikzcd}[column sep=small]
+    & G\ar[dl,"\rho" left=3]\ar[dr,"\phi"] &  \, \\
+        E \ar[rr,"\rho" below=3] &
+            \ar[u,phantom, "\#"] 
+                & F
+\end{tikzcd} \end{equation}
+\begin{align}
+    f(\rho(\sigma)) &= \phi(\sigma) f, \, \forall \sigma\in G
+\end{align}
+In matrix notation, 
+\begin{equation}
+    F \rho_\sigma = \phi_\sigma F,\, \forall\sigma\in G
+\end{equation}
+\textbf{Note}: In everything that follows, we are interested only in
+isomorphism classes of representations.
+
+If $E,F$ are $G$-spaces, then their direct sum $E\oplus F$ is also a
+$G$-space, the operation of $G$ being componentwise. If $x\oplus y\in
+E\oplus F$ with $x\in E,\,y\in F$, then $\sigma(x\oplus y)=\sigma
+x\oplus \sigma y$.
+
+Similarly, the tensor product $E\otimes_k F=E\otimes F$ is a
+$G$-space, the operation $G$ being given by $\sigma(x\otimes y)=\sigma
+x\otimes \sigma y$.
+
+\begin{prop}
+    \label{prop:character-ring}
+    If $e,F$ are $G$-spaces, then
+    \begin{align}
+        \chi_E +\chi_F &= \chi_{E\oplus F} \\
+        \chi_E\chi_F   &= \chi_{E\otimes F}
+    \end{align}
+    If $\chi^\vee$ denotes the character of the dual representation on
+    $E^\vee$, then
+    \begin{align}
+        \chi^\vee(\sigma) = \chi(\sigma^{-1})
+    \end{align}
+    In particular, when $k=\mathbb{C}$, then
+    \begin{equation}
+        \chi^\vee(\sigma) = \overline{\chi(\sigma)}
+    \end{equation}
+\end{prop}
+\begin{proof}
+    The first relation is obvious.
+
+    The second relation holds from the following observation,
+    \begin{align*}
+        \sigma(v_i \otimes w_j) = \sigma v_i \otimes \sigma w_j =
+        A_{i\nu} v_v \otimes B_{j\mu} w_\mu
+    \end{align*}
+    So its character is
+    \begin{equation*}
+        \chi_{E\otimes F}(\sigma) = A_{ii} B_{jj} =
+        \chi_E(\sigma)\chi_F(\sigma)
+    \end{equation*}
+    The third relation follows from that the matrix of dual
+    representation is the matrix $(M^{-1})^T$, see equation
+    \ref{eq:M-dual-M-1T}.
+
+    The last relation will be proved in corollary % TODO
+\end{proof}
+
+We now extend the definition of \nomen{character} to a function of
+$G$, which can be written in a linear combination of characters of
+representations with arbitrary integer coefficients. Then, the
+previous characters are very special. Such characters associated with
+representations will be called \nomen{effective characters}. Note
+that everything we have defined of course depends on the field $k$,
+and we shall add \textbf{over} $\mathbf{k}$ to ouirexpressions if we
+need to specify the field $k$.
+
+\begin{remark}
+    By proposition \ref{prop:character-ring}, all the characters form
+    a ring structure.
+\end{remark}
+
+By a \nomen{simple} or \nomen{irreducible character} of $G$ one means
+the character of a simple representation, i.e., the character
+associated with a simple $k[G]$-module.
+
+
+
+
+
+
 \section{Anchor}
 \label{sec:Anchor}
 
@@ -319,7 +435,6 @@ here.
     \href{http://www.th.physik.uni-bonn.de/nilles/people/luedeling/grouptheory/data/grouptheorynotes.pdf}{Link}
     \bibitem{lang-algebra} Serge Lang. Algebra. Revised 3rd. Springer.
 \end{thebibliography}
-\printnomenclature
 \section{License}
 The entire content of this work (including the source code
 for TeX files and the generated PDF documents) by 
@@ -329,4 +444,7 @@ licensed under a
 Commons Attribution-NonCommercial-ShareAlike 4.0 International 
 License}. Permissions beyond the scope of this 
 license may be available at \url{mailto:we.taper[at]gmail[dot]com}.
+
+
+\printnomenclature
 \end{document}
