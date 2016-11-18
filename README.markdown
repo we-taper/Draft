@@ -166,4 +166,4 @@ This work is licensed under a
 Creative Commons Attribution-ShareAlike 4.0 International License
 </a>.
 
-Copyright (C) 2016      Chen Hongxiang
+Copyleft (C) 2016      Chen Hongxiang
