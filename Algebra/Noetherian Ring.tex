@@ -7,33 +7,23 @@
 % http://creativecommons.org/licenses/by-nc-sa/4.0/).
 \documentclass{article}
 
-\usepackage{float}  % For H in figures
-\usepackage{amsmath, amssymb} % For math
-\usepackage{mathtools} % dcases*, see https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics#The_cases_environment
-\numberwithin{equation}{subsection} % have the enumeration go to the subsection level.
-									% See:https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
-\usepackage{graphicx}   % need for figures
-\usepackage{cite} % For bibligraphy
-\usepackage{fancyref} % For lazy reference \fref
-\usepackage[unicode]{hyperref} % For hyperlink everything.
-\usepackage{braket} 
-\usepackage[T1]{fontenc}
-\usepackage{listings}
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physicist-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physicist-taper}
 
-\usepackage{amsthm}
-\newtheorem{defi}{Definition}[section]
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{lemma}{Lemma}[section]
-\newtheorem{remark}{Remark}[section]
-\newtheorem{prop}{Proposition}[section]
-\newtheorem{coro}{Corollary}[section]
-\theoremstyle{definition}
-\newtheorem{ex}{Example}[section]
+\makenomenclature % For an index of symbols.
 
-\usepackage[all]{xy} % For drawing category diagrams
-\usepackage{mathrsfs}
-\usepackage{nomencl} % For a index of symbols.
-\makenomenclature % For a index of symbols.
+% Show the keys for labels, replace options with "final" when done
+% with editing.
+\usepackage[draft,notref]{showkeys}
+
+% For the xymatrices I created before I learn to
+% use tikzcd for diagrams.
+\usepackage[all]{xy} 
+
 \title{Noetherian Ring}
 \date{\today}
 \author{we.taper}
@@ -60,6 +50,7 @@ Let $A$: ring. $M$ is a left $A$-module if and only if
             a(x+y) = ax + ay
         \end{align}
 \end{enumerate}
+    This captures the notion of being \textit{linear}.
 \end{defi}
 
 By definition of an operation, we have $1x = x$. Also, it can be easily
@@ -75,8 +66,16 @@ derived that $a(-x) = -ax$, and $0x=0$.
             with the additional structure of $K$ being a field.
         \item Let $V$ be a vector space. 
             Let $R$ be the ring of all linear maps of $V$ into itself.
-            Then $V$ is also a module over $R$.
+            Then $V$ is also a module over $R$, since $R$ are just
+            linear maps.
     \end{enumerate}
+\end{ex}
+\begin{ex}
+    One can also pass the module structure $M$ from function whose
+    codomain is $M$. For example, when $M$ is an $A$-module and $S$ is
+    an nonempty set. The set of all maps $\mathrm{Map}(S,M)$ can be
+    made into an $A$-module. Let $a\in A$, $a$ acts on 
+    $f\in \mathrm{Map}(S,M)$ by $(af)(s) := a(f(s))$.
 \end{ex}
 
 \begin{defi}[Submodule]
