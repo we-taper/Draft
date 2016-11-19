@@ -155,6 +155,10 @@ This is intended for storing my drafts of my works. It is messy and will never b
 
     Snippets to speed up typing, using UltiSnips plugin for Vim.
 
+23. Fun facts
+
+    Interesting facts that may or maynot be useful. About physics and
+    mathematics.
 #License
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
