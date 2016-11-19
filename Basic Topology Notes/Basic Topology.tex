@@ -480,6 +480,7 @@ A bit more examples about matrices:
 \end{thm}
 \begin{fact}
     $\mathrm{SO}(2)\cong S^1$ and $\mathrm{SO}(3)\cong P^3$.
+    Here $\cong$ means isomorphisms of topological groups.
 \end{fact}
 \begin{remark}
     These two facts established on page 77. The first one can be eaily
@@ -492,11 +493,138 @@ A bit more examples about matrices:
         \end{array}\right) \cong e^{i\theta}
     \end{equation}
 
-    The second one has a physical picture. The $P^3$ lies in
-    $\mathbb{H}$ (TBD). % TODO understand this. Related: Geometric algebra
-    % https://en.wikipedia.org/wiki/Geometric_algebra 
+    The second one is proved mathematical in book \cite{book}. But it
+    has a physical argument. Remember we have the the homogeneous
+    coordinates for $P^3$, such as $[1,\theta_x,\theta_y,\theta_z]$.
+    As indicated in my labels, the three free coordinates $\theta_i$
+    can be regarded as rotation in 3-dimensional space. This rotation
+    preserves the orientation, so it is in $\mathrm{SO}$, not in
+    $\mathrm{O}$. 
 \end{remark}
 
+\subsection{Orbit Space}
+\label{sec:Orbit-Space}
+\begin{defi}[Group Action on Topology Space]
+\nomenclature{Group Action on Topology Space}{\nomrefpage.}
+    A topological group $G$ is said to act as a group of
+    homeomorphisms on a space $X$ if each group element (let $g,h\in G$)
+    induces a homeomorphism of the space in such a way that:
+    \begin{enumerate}
+        \item $(hg)(x) = h(g(x)),\, \forall x\in X$;
+        \item $e(x)=x,\, \forall x\in X$, where $e=gg^{-1}$;
+        \item the function $G\times X\to X$,$(g,x)\mapsto g(x)$ is
+            continusous.
+    \end{enumerate}
+\end{defi}
+
+The subset of $X$, consisting of $g(x)$ for all $g\in G$, is called an
+\nomen{orbit} of $x\in X$, written $O(x)$. Thought, it more convenient to
+write it just as \nomen{$Gx$}, as in textbooks of abstract algebra.
+
+\begin{fact}
+    A common fact in abstract algebra here is: each orbit $Gx$ is
+    disjoint. If two $Gx\cap Gy\neq \varnothing$, then $Gx=Gy$.
+\end{fact}
+
+By above fact, orbits partitions $X$, hence we can form the
+Identification space, with every elements in $X$ identified with their
+brothers in the same orbit. The result is \nomen{orbit space $X/G$}.
+
+\begin{ex}
+    \label{ex:R-over-Z-T}
+    $\mathbb{Z}$ acts on $\mathbb{R}$ by addition $x\mapsto x+n$,
+    $x\in \mathbb{R},\,n\in\mathbb{Z}$. It partitioned $\mathbb{R}$
+    into intervals, for each $x\in X$, $x\sim x+n,\forall n\in
+    \mathbb{Z}$. The orbit space $\mathbb{R}/\mathbb{Z}$ is
+    homeomorphic to $S^1$.
+\end{ex}
+
+An action $G$ on $X$ is called \nomen{transitive}, if and only if the
+orbit space $X/G$ is the trivial point $\{1\}$. Or equivalently, the
+only orbit is the whole space, i.e. $Gx=G,\,\forall x\in G$.
+
+\begin{ex}
+    The orthogonal action $O(n)$ on $S^{n-1}$ is transitive.
+    Physically, this is saying that $\forall x\in S^{n-1}$, it can be
+    rotated into $\forall y\in S^{n-1}$. A mathematical proof is on
+    page 79 of \cite{book}
+\end{ex}
+
+\paragraph{A lot of examples from book \cite{book}}$ $
+
+\begin{ex}
+    Extending example \ref{ex:R-over-Z-T}:
+\begin{equation}
+    \mathbb{E}^2/(\mathbb{Z}\times\mathbb{Z}) = T\text{ (torus)}
+\end{equation}
+    Here $=$ means homeomorphism.
+\end{ex}
+\begin{ex}
+    \begin{equation}
+        S^n/\mathbb{Z}_2 = P^n
+    \end{equation}
+    Here $=$ means homeomorphism.
+\end{ex}
+\begin{ex}[Three ways of $\mathbb{Z}_2$ acting on $T$]
+    The detailed procedure is to be found on page 91 of \cite{book}.
+    Here's a picture to visualize the action:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{pics/3-ways-Z2-on-T.PNG}
+        \caption{$ $}
+    \end{figure}
+    The results are (a) a sphere; (b) a torus; (c) a Klein bottle.
+\end{ex}
+\begin{ex}
+    If $G$ is a topological group, and $H$ is
+    $\mathcal{TPG}$-subgroup. Then, the left cosets of right cosets
+    can be canonically seen as orbits. See more on page 81, example 4.
+\end{ex}
+\begin{ex}
+\begin{align}
+    \mathrm{O}(n)/\mathrm{O}(n-1) &= S^{n-1} \\
+    \mathrm{SO}(n)/\mathrm{SO}(n-1) &= S^{n-1}
+\end{align}
+    Here $=$ means homeomorphism. The first is established
+    mathematically in page 82 of \cite{book}. The second is mentioned
+    there, indicating a similar proof.
+
+    Here I give an argument. Consider a unit vector $y$ in $S^{n-1}$, if
+    we want to rotate another unit vector $e_1$ to $y$, since the
+    action is transitive, we can easily find a $A\in \mathrm{O}(n)$ to
+    do this. But in addition, we can also find that $A\cdot B$, where
+    $B\in \mathrm{O}(n-1)$ rotates the space around $e_1$ (thus
+    leaving $e_1$ un-affected) also do our job. So there is an
+    $\mathrm{O}(n-1)$ redundancy in $\mathrm{O}(n)\to S^{n-1}$.
+    Similar for the second relation.
+\end{ex}
+
+\begin{thm}
+    Let $G$ acts on $X$ and suppose that both $G$ and $X/G$ are
+    connected, then $X$ is connected.
+\end{thm}
+\begin{fact}
+    Using the theorem above, one can deduce that: $\mathrm{SO}(1)$ is
+    connected, $S^{n-1}$ is connected, so $\mathrm{SO}(n)$ is
+    connected.
+\end{fact}
+
+Next, the book \cite{book} (page 82 to 85) introduces several three
+spaces (\nomen{Lens space}, \nomen{irrational flow} on $T$ torus,
+\nomen{fundamental region} or in my word \textit{space filling
+shapes}) and two group \nomen{Euclidean group} (page 84) and
+\nomen{plane-crystallographic group} (page 85). To save time, I leave
+here only some pictures:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pics/irrational-flow.png}
+    \caption{Irrational Flow on $T$}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pics/space-filling-shapes.png}
+    \caption{Space-filling Shapes}
+\end{figure}
 \section{Anchor}
 \label{sec:Anchor}
 
