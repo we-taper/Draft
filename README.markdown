@@ -1,5 +1,7 @@
 # Draft
-This is intended for storing my drafts of my works. It is messy and will never be organised or documented.
+This is intended for storing my drafts of my works. It is messy and will never be organised or documented. Feel free to subscribe to it:
+
+[![rss](https://cloud.githubusercontent.com/assets/6148706/20462606/377b9338-af5d-11e6-90b1-362048452c18.png) Subscribe to feed](https://github.com/we-taper/Draft/commits/master.atom)
 
 # An Outline of Notes of Drafts Included
 
