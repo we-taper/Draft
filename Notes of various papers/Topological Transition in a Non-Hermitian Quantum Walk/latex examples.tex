@@ -1,0 +1,142 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physicist-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physicist-taper}
+
+\makenomenclature
+
+\title{Examples}
+\date{\today}
+\author{Taper}
+
+
+\begin{document}
+
+\maketitle
+\abstract{
+Nothing here.
+}
+\tableofcontents
+\section{Nomenclature}
+
+\nomenclature{aa}{aaa}
+
+\section{Diagram}
+
+\begin{center}
+    Bad diagrams
+\end{center}
+$$
+    \begin{tikzcd}[column sep=small]
+        E \ar[dr,"f"]\ar[rr,"\rho"]\ar[drr, phantom, "\#", very near
+        start] & & F\ar[dl,"\rho'"] \\
+        & G &  \,
+    \end{tikzcd}
+    \begin{tikzcd}[column sep=small]
+        E \ar[dr,"f"]\ar[rr,"\rho"]\ar[drr, phantom, "\#"] & & F\ar[dl,"\rho'"] \\
+        & G &  \,
+    \end{tikzcd}
+$$
+\begin{center}
+    Good diagrams
+\end{center}
+$$
+    \begin{tikzcd}[column sep=small]
+        E \ar[dr,"f"]\ar[rr,"\rho"] &
+        \ar[d,phantom, "\#", near start] & F\ar[dl,"\rho'"] \\
+        & G &  \,
+    \end{tikzcd}
+$$
+$$ \begin{tikzcd}[column sep=small]
+& G &  \, \\
+E \ar[ur,"f"]\ar[rr,"\rho" below=3] &
+\ar[u,phantom, "\#"] 
+& F\ar[ul,"\rho'" right=3]
+\end{tikzcd} $$
+
+\section{Table}
+
+\begin{table}[ht]
+	\centering
+	\caption{Classification}
+	\label{tab:classification}
+	\vspace{+0.5pt}
+	\rowcolors{1}{white}{lightgrey}
+	\tabulinesep=1.2mm
+	\begin{tabu}{  X[l] X[l] X[l] X[l] }
+		\textit{Symmetry} & \textit{Spatial Dimension} &
+		\textit{Result} & \textit{Other Keywords} \\
+		\hline
+		T & 0 & An intger: the number of particle-occupied Kramers
+		doublet states & \\
+		T & 1 & None & \\
+		T & 2 & $\mathbb{Z}_2$ & \\
+		T & 3 & $\mathbb{Z}_2$ & $3D$ crystals have additional
+		$3\mathbb{Z}_2$ invariant$ \Rightarrow$ "weak topological
+		insulators \\
+		Q(?) & 2 & Characterized by $\mu$ in units of $e^2/h$ & TKNN \\
+		Q(?) & even  d & Topological invariant ($k$-th Chern number) \\
+		Q(?) & 0 &  number of single-particle states with negative
+		energy ($E< E_F = 0$), which are filled with electrons. \\
+		T\& Q \\
+		No T \& No Q & 0 & $\mathbb{Z}_2$ \\
+		No T \& No Q & 1 &$\mathbb{Z}_2$ &"majorana chain"  \\
+		No T \& No Q & 2 & Topological number is integer. & Even-odd
+		effects. \\
+		\bottomrule
+	\end{tabu}
+\end{table}
+\textbf{Tentative Schedule:}
+\begin{table}[H]
+	\centering
+	\caption{caption}
+	\label{tab:label}
+	%   \begin{tabu}{ *4c }
+	\begin{tabu}{ p{15 pt} X[l] X[l] X[r] }
+		$\#$ & & & Due date \\
+		\hline
+		\multicolumn{3}{p{\getTabuwidth}}{1. Summarise the review paper} & December, 2016 \\
+		\multicolumn{3}{p{\getTabuwidth}}{2. Learn related mathematical tools (homotopy thoery, group
+			cohomology, etc.)} & April, 2017 \\
+		\multicolumn3{p{\getTabuwidth}}{3. Play with toy models such
+			as the $1D$ quantum walk model} &
+		Faburary, 2017 \\
+		\multicolumn3{p{\getTabuwidth}}{4. Possible research topics:} & July, 2017 \\
+		4.1 &  \multicolumn2{p{\getTabuwidth}}{classifying topological materials in new symmetry
+			groups, such as the space groups;} & \multirow{4}{*}{ As above }\\
+		4.2 &  \multicolumn2{p{\getTabuwidth}}{finding new ways to classify in the non-interacting picture;} & \\
+		4.3 &  \multicolumn2{p{\getTabuwidth}}{experiment about the
+			effectiveness of existing;} & \\
+		4.4 &  \multicolumn2{p{\getTabuwidth}}{explorer approaches to the
+			classification in interacting.} & \\
+		\bottomrule
+	\end{tabu}
+\end{table}
+\section{Anchor}
+\label{sec:Anchor}
+
+\begin{thebibliography}{1}
+    \bibitem{book}  s
+\end{thebibliography}
+\printnomenclature
+\section{License}
+The entire content of this work (including the source code
+for TeX files and the generated PDF documents) by 
+Hongxiang Chen (nicknamed we.taper, or just Taper) is
+licensed under a 
+\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative 
+Commons Attribution-NonCommercial-ShareAlike 4.0 International 
+License}. Permissions beyond the scope of this 
+license may be available at \url{mailto:we.taper[at]gmail[dot]com}.
+\end{document}
