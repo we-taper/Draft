@@ -364,6 +364,7 @@ Section~\ref{sec:Orthogonality-Relations-and-Counting-Irreducible-Representation
 it is esay to see we have
 \begin{coro}
     \begin{equation}
+        \label{eq:20161031-character-ortho-1}
         \sum_{h\in G} \chi^{i}(h^{-1})\chi^j(h) = N \delta_{ij}
     \end{equation}
     Or when the representations are unitary:
@@ -682,15 +683,25 @@ have
     different unitary irreducible representations, $\mu,\nu$ labels
     the matrix element in that representation, $a$ labels conjugacy
     classes. The labels $j\mu\nu$ together form the second index of
-    matrix $U_{m,n}$. For convenience, I type all the orthonomal
-    relationship together:
-    \begin{align}
-        &\text{Equation \ref{eq:20161031-ortho-dd-2}:} \nonumber \\
-        & \sum_{h\in G} D^{i*}_{\mu\rho}(h)D^j_{\nu \lambda}(h) =
-        \frac{N}{d_j} \delta_{ij} \delta_{\mu\nu}\delta_{\rho\lambda}
-        \\
-        &\text{Equation \ref{eq:20161031-ortho-character}:} \nonumber \\
-        & \sum_{\mu \in \text{I.R.}} \chi^{a*}_\mu\chi^b_\mu = 
-            \frac{|G|}{n_a} \delta^{ab} 
-    \end{align}
+    matrix $U_{m,n}$. 
     \end{quote}
+
+\subsection{Collect Formulae}
+\label{sec:Collect-Formulae}
+
+For convenience, I type all the orthonomal relationship together:
+
+Equation \ref{eq:20161031-ortho-dd-2}:
+\begin{equation*}
+    \sum_{h\in G} D^{i*}_{\mu\rho}(h)D^j_{\nu \lambda}(h) =
+    \frac{N}{d_j} \delta_{ij} \delta_{\mu\nu}\delta_{\rho\lambda}
+\end{equation*}
+Equation \ref{eq:20161031-ortho-character}:
+\begin{equation*}
+    \sum_{\mu \in \text{I.R.}} \chi^{a*}_\mu\chi^b_\mu = 
+        \frac{|G|}{n_a} \delta^{ab}
+\end{equation*}
+Equation \ref{eq:20161031-nxx-is-Ndelte}:
+\begin{equation*}
+    \sum_a n_a \chi^{i,a}(\chi^{j,a})^* = N\delta^{ij}
+\end{equation*}

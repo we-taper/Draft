@@ -1,0 +1,156 @@
+
+Now we consider the classification of wavefunctions using the
+symmetric groups we have known. In general, we need a symmetry, its
+symmetry group, and the (irreducible) representation matrices.
+During the classification, the representation space is the space
+spanned by the set of degenerate wave functions $\psi_\rho$
+($\rho=1,\cdots,m$), $\mathcal{L}_E=\operatorname{span}\{\psi_\rho\}$.
+
+assuming we have
+\begin{equation}
+    H\psi_\rho(x) = E\psi_\rho(x)
+\end{equation}
+
+The $\psi_\rho$ satisfies orthogonal relations.
+Now we do a spatial transformation, and assume this transformation
+satisfy the symmetry of the Hamiltonian ($HP_R = P_R H$). Thn we have:
+\begin{equation}
+    P_R(\psi_\rho(x)) = \psi_\rho(R^{-1} x) = \sum_\lambda \psi_\lambda
+    D_{\lambda\rho}(x)
+\end{equation}
+In this way, we obtain a representations of our symmetry. Usually,
+$P_R$ is unitary, and since our basis $\psi_\rho$ is orthonormal, the
+matrix $D$ is unitary. Now we want to find those irreducible
+representations, so we do:
+\begin{align}
+    X^{-1} D(R) X = \oplus_j a_j D^j(R)
+\end{align}
+where $R\in G$, $D^j$ labels those irreducible representations, $X$ is
+some matrix that we do not know now.
+
+$a_j$ can be calculated using previous orthogonal relationships. More
+specifically, we have
+\begin{equation}
+    a_j = \frac{1}{|G|} \sum_{R\in G} (\chi^j(R))^* \chi(R)
+\end{equation}
+
+Now we are interested in geting $X$. Notice that
+\begin{align*}
+    X^{-1} D(R) X = \oplus_j a_j D^j(R)
+\end{align*}
+tells us something about $X$. Let $X=X_{a,b}$. Here $1\leq a \leq m$.
+$b$ can be labeled by $j,\mu,\gamma$, i.e. the irreducible
+representation it is inside ($j$), did this irreducible representation
+repeats more than one time ($\gamma$), which element is it ($\mu$). So
+we have the new basis $\Psi$ related to the odd basis $\psi$ as
+\begin{align}
+    P_R(\Psi^j_{\mu\gamma}(x)) &= \sum_\nu
+    \Psi^j_{\nu\gamma}(x)D^j_{\nu\mu}(R) \\
+    \Psi^j_{\mu\gamma} &= \sum_{\rho} \psi_\rho X_{\rho,j\mu\gamma} \\
+    \psi_\rho &= \sum_{j\mu\gamma} \psi^{j}_{\mu\gamma}
+    (X^{-1})_{j\mu\gamma,\rho}
+\end{align}
+
+we have the theorem
+\begin{thm}[W-E]
+    \begin{itemize}
+        \item Those belong to different irreducible representations
+            are orthogonal
+        \item Those belong to the same irreducible representation, but
+            in different row are orthogonal
+        \item Those belong to the same irreducible representation, the
+            same row, has inner product independent of the index
+    \end{itemize}
+\end{thm}
+
+Let $\psi^j_\mu$ and $\phi^k_\rho$ belong to $D^j_\mu$ and $D^k_\rho$.
+Then 
+$P_R \psi^j_\mu= \sum_\nu \psi^j_\nu D^j_{\nu\mu}(R)$,
+$P_R \phi^k_\rho= \sum_\lambda \psi^k_\lambda D^j_{\lambda\nu}(R)$
+
+Define $X^{jk}_{\rho\mu} := \braket{\phi^k_\rho|\psi^j_\mu}$.
+
+\begin{align}
+    \braket{\phi^k_\rho|P_R\psi^j_\mu} = \sum_\nu
+    \braket{\phi^k_\rho|\psi^j_\nu} D^j_{\nu\mu}(R) = (X^{jk}
+    D^j(R))_{\rho\mu} \\
+    \braket{P^{-1}\phi^k_\rho|\psi^j_\mu} = \braket{
+    \sum_\lambda\phi^k_\lambda D^k_{\lambda\rho}(R^{-})|\psi^j_\nu}
+    \\
+    = \sum_\lambda [D^k_{\lambda\rho}(R^{-1})]^*
+    \braket{\phi^k_\lambda|\psi^j_\mu} 
+    = \sum_\lambda D^k_{\rho\lambda}
+    \braket{\phi^k_\lambda|\psi^j_\mu}
+    = \sum_\lambda X^{kj}_{j\mu} = (D^k(R)X^{kj})_{\rho\mu}
+\end{align}
+
+Comparing two sides, we have
+\begin{equation}
+    D^k(R) X^{kj} = X^{kj}D^j(R)
+\end{equation}
+So by Schur lemma, we have when $k\neq j$
+\begin{equation}
+    X^{kj} = 0
+\end{equation}
+when $k=j$
+\begin{equation}
+    X^{jk} = \lambda\id
+\end{equation}
+the constant $\lambda$ is denoted as $\bra{k}\ket{j}$
+so
+\begin{equation}
+    X^{jk} = \bra{k} \ket{j} \id
+\end{equation}
+In all
+\begin{equation}
+    \braket{\phi^k_\rho|\psi^j_\mu} = \delta_{jk} \delta_{\rho\mu}
+    \bra{k} \ket{j}
+\end{equation}
+
+\subsection{Canonical Degeneracy}
+\label{sec:Canonical-Degeneracy}
+\begin{defi}[Canonical/Accidential Degeneracy]
+\nomenclature{Canonical/Accidential Degeneracy}{\nomrefpage.}
+    Assume $H$ has $M$-fold degeneracy, wit corresponding
+    representations $D(G)$. If the representation is irreducible, then
+    the degeneracy is called canonical, otherwise it is called
+    accidential.
+\end{defi}
+
+Assume we have $[P_R,H_0]=0$, $[P_R,H_1]=0$. 
+\begin{align}
+    P_R \psi^j_\mu = \sum_\nu \psi^j_\nu D^j_{\nu\mu}(R)\\
+    H_0 \psi^j_\mu = E^j \psi^j_\mu \\
+    P_R H_1 \psi^j_\mu = H_1 P_R \psi^j_\mu = H_1 \sum_\nu \psi^j_\nu
+    D^j_{\nu\mu}(R) = \sum_\nu (H_1\psi^j_\nu) D^j_{\nu\mu}(R) \\
+\end{align}
+By theorem
+\begin{align}
+    \braket{\psi^j_\nu|H_1 \psi^j_\nu} = \bra{j}\ket{j}\id = \Delta
+    E^j \delta_{\nu\mu}
+\end{align}
+So the first order correction does not remove the degeneracy. For the
+higher order correction, the case will be the same. Here only an
+argument is given. We consider the process $H_0 + \lambda H_1$, from
+$\lambda=0$ to $\lambda=1$, in this process, if $\lambda$ varies
+adiabatically, then the degenerate function will keep their degeneracy
+in the gradually process if the Hamiltonian is good enough. 
+
+For \textbf{accidental degeneracy}, for $j\neq i$
+\begin{align}
+    \braket{\psi^i_\nu|H_1 \psi^i_\mu} = \delta_{\nu\mu} \Delta E^i \\
+    \braket{\psi^j_\nu|H_1 \psi^j_\mu} = \delta_{\nu\mu} \Delta E^j \\
+\end{align}
+In general, $\Delta E^i$ and $\Delta E^j$ is not the same. If they are
+the same, then there may be additional symmetry that we have not yet
+discovered.
+
+For $j=i$, 
+\begin{equation}
+P_R \psi^j_{\nu a} = \sum_\nu \psi^j_{\nu a} D^j_{\nu\mu}(R)
+\end{equation}
+\begin{align}
+    \braket{\psi^j_{\mu a} | H_1 |\psi^j_{\nu b}}  = 
+\end{align}
+
+Example
