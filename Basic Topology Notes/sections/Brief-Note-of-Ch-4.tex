@@ -1,0 +1,490 @@
+\subsection{Identification topology}
+\label{sec:Identification topology}
+
+\begin{defi}[Identification Topology]
+\nomenclature{Identification Topology}{\nomrefpage.}
+Let $X$ be a topological space and let $\mathscr{P}$ be a family of
+disjoint nonempty subsets of $X$ such that $\cup \mathscr{P}=X$. Such
+a family is usually called a partition of $X$. Let $Y$ be a new space
+whose points are the members of $\mathscr{P}$. Let $\pi:X\to Y$ sends
+each point of $X$ to the subset of $\mathscr{P}$. Define a topolgy
+$\mathcal{T}_Y$ on $Y$ to be the largest topolgy such that the $\pi$
+is continuous. This $\mathcal{T}_Y$ is called the idetification topolgy.
+And $Y$ is called the \nomen{identification space}.
+\end{defi}
+\begin{center} \begin{tikzcd}[]
+    X\ar[r]\ar[rd] & Y\ar[d,equal] \\
+    & \mathscr{P}
+\end{tikzcd} \end{center}
+\begin{thm}
+    Let $Y$ be an idetification space defined as above and let $Z$ be
+    an arbitrary topological space. A function $f:Y\to Z$ is
+    continuous if and ony if the composition $f\circ \pi:X\to Z$ is
+    continuous.
+\end{thm}
+\begin{center} \begin{tikzcd}[]
+    X\ar[r,"\pi"]\ar[rd]\ar[rr,"f\circ\pi",bend left=30] & Y\ar[d,equal]\ar[r,"f"] & Z \\
+    & \mathscr{P}
+\end{tikzcd} \end{center}
+\begin{defi}[Identification Map]
+\nomenclature{Identification Map}{\nomrefpage.}
+    Let $f:X\to Y$ be an onto continuous map and suppose that the topolgy on $Y$
+    is the largest for which $f$ is continuous. Then we call $f$ an
+    identification map.
+\end{defi}
+The naming "identification map" is because:
+\begin{thm}
+    Any function $f:X\to Y$ gives rise to a partition of $X$ whose
+    members are the subsets $\{f^{-1}(y)\}$, where $y\in Y$. Let $Y_*$
+    denote the identification space associated with this partition,
+    and $\pi:X\to Y_*$ the usual continuous map. 
+    $$ \begin{tikzcd}[]
+        X\ar[r,"f"]\ar[d,"\pi"] & Y \\
+        \{f^{-1}(y)\} \ar[r,equal] & Y_*
+    \end{tikzcd} $$
+    If $f$ is an identification map, then:
+    \begin{enumerate}
+        \item the spaces $Y$ and $Y_*$ are homeomorphic;
+        \item a function $g:Y\to Z$ is continuous if and only if the
+            composition $g\circ f:X\to Z$ is continuous.
+    \end{enumerate}
+    $$ \begin{tikzcd}[]
+        X\ar[r,"f"]\ar[d,"\pi"]\ar[rr,"g\circ f",bend left] 
+            & Y\ar[d,equal,"~"]\ar[r,"g"] & Z \\
+        \{f^{-1}(y)\} \ar[r,equal] & Y_*
+    \end{tikzcd} $$
+\end{thm}
+\begin{thm}
+    Let $f:X\to Y$ be an onto continuous map. If $f$ maps open sets of
+    $X$ to open sets of $Y$, or closed sets to closed sets, then $f$
+    is an identification map, i.e. $\mathcal{T}_y$ is the largest
+    topolgy such that $f$ is continuous.
+\end{thm}
+\begin{coro}
+    \label{coro:idmap-coro}
+    Let $f:X\to Y$ be an onto continuous map. If $X$ is compact and
+    $Y$ is Hausdorff, then $f$ is an identification map.
+\end{coro}
+
+\begin{defi}[Torus]
+\nomenclature{Torus}{\nomrefpage.}
+Torus is the unit square $[0,1]\times[0,1]$, with 1. opposite edge
+identified; 2. four edge points identified.
+\end{defi}
+\begin{remark}
+    The identification map and corollary \ref{coro:idmap-coro} can be
+    used to show that torus is homeomorphic to two copies of
+    circles:$S^1\times S^1$. This is mentioned in page 68 of
+    \cite{book}.
+\end{remark}
+\begin{defi}[Cone $\textrm{CX}$]
+\nomenclature{Cone $\textrm{CX}$}{\nomrefpage.}
+    The cone of any space $\textrm{CX}$ is formed from $X\times I$, where
+    $I$ is the unit interval $[0,1]$, with certain identification. The
+    identification shrinks all points in one surface into one point.  This
+    is discussed in page 68 of \cite{book}.
+\end{defi}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{pics/{Cone-of-a-circle}.pdf}
+    \caption{Cone of a Circle (Wikipedia)}
+\end{figure}
+\begin{remark}
+    There is another definition of cone $\textrm{CX}$ when $X$ in imbeded into
+    $\mathbb{E}^n$, may be found on page 68 of \cite{book}. Cone
+    constructed in this way is called a geometric cone. It is made up
+    of all straight line segments that join $v=(0,0,\cdots,1)\in
+    \mathbb{E}^{n+1}$ to some point of $X$.
+\end{remark}
+\begin{lemma}
+    The geometric cone on $X$ is homeomorphic to $\textrm{CX}$.
+\end{lemma}
+\begin{defi}[Quotient Space]
+\nomenclature{Quotient Space}{\nomrefpage.}
+    Let $X$ be a topological space, $A$ be its subspace. Then $X/A$
+    menas the $X$ with subspace $A$ identified to a point.
+    \begin{enumerate}
+        \item the set $A$.
+        \item the individual points of $X\setminus A$.
+    \end{enumerate}
+\end{defi}
+\begin{remark}
+    In this notation, $\textrm{CX}$ becomes $(X\times I)/(X\times\{1\})$.
+\end{remark}
+\begin{fact}
+    \begin{equation}
+        B^n/S^{n-1} \cong S^n
+    \end{equation}
+    where $\cong$ menas homeomorphic. This is proved on page 69.
+    Intuitively, this is like wrap a lower dimension ball surround the
+    higher dimension ball.
+\end{fact}
+
+\begin{defi}[$f\cup g$]
+\nomenclature{$f\cup g$}{\nomrefpage.}
+    Let $X,Y$ $f\cup g$ subsets of a topological space and give each of
+    $X,Y$, and$X\cup Y$ the induced topolgy. If $f:X\to Z$ and
+    $g:Y\to Z$ are functions which agree on the intersection of $X$
+    and $Y$, we can define
+    \begin{align}
+        f\cup g &: X\cup Y \to Z  \\
+        (f\cup g)(x) &= f(x),\, x\in X \nonumber \\
+        (f\cup g)(x) &= g(x),\, x\in Y \nonumber
+    \end{align}
+    We say that $f\cup g$ are formed by 'glueing together' the
+    functions $f$ and $g$.
+\end{defi}
+\begin{lemma}[Glueing lemma (closed)]
+    If $X$ and $Y$ are closed in $X\cup Y$, and if both $f$ and $g$
+    are continuous, then $f\cup g$ are continuous.
+\end{lemma}
+Similarly, 
+\begin{lemma}[Glueing lemma (open)]
+    If $X$ and $Y$ are open in $X\cup Y$, and if both $f$ and $g$
+    are continuous, then $f\cup g$ are continuous.
+\end{lemma}
+
+These two lemmas are seen as a special case of the following theorem,
+explained in page 70.
+
+Define \nomen{$X+Y$} to be the disjoint union of spaces $X,Y$. Define
+$j:X+Y \to X\cup Y$ which restrict to either $X$ or $Y$ is just the
+inclusion in $X\cup Y$.
+\begin{thm}
+    If $j$ is an identification map, and if both $f:X\to Z$ and
+    $g:X\to Z$ are continuous, then $f\cup g:X\cup Y\to Z$ is
+    continuous.
+\end{thm}
+$$ \begin{tikzcd}[]
+    X+Y \ar[r,"j"] & X\cup Y\ar[r,"f\cup g"] & Z \\
+    X\ar[rru,"f"] & Y\ar[ru,"g",bend right]
+\end{tikzcd}$$
+
+This can be generalized as follows. Let $X_\alpha,\alpha\in A$ be a
+family of subsets of a topological space and give each $X_\alpha$ and
+the union $\cup X_\alpha$, the induced topolgy. Let $Z$ be a space and
+suppose we are given maps $f_\alpha:X_\alpha\to Z$, one for each
+$\alpha$ in $A$, such that if $\alpha,\beta\in A$,
+$$ 
+\eval{f_\alpha}_{X_\alpha\cap X_\beta} = \eval{f_\beta}_{X_\alpha\cap X_\beta}
+$$
+Define function $F:\cup X_\alpha\to Z$ by glueing together $f_\alpha$.
+Let $\oplus X_\alpha$ be the disjoint unin of spaces $X_\alpha$. Let
+$j:\oplus X_\alpha \to \cup X_\alpha$ be similarly defined.
+\begin{thm}
+    If $j$ is an identification map, and if each $f_\alpha$
+    is continuous, then $F$ is continuous.
+\end{thm}
+\textbf{Note}: When $j$ is the identification map, then $\cup
+X_\alpha$ has the identification topolgy instead of the subspace
+topology. The two will be quite different, as discussed on page 70 to
+71 of \cite{book}.
+
+\begin{defi}[Projective space $P^n$]
+\nomenclature{Projective space}{\nomrefpage.}
+    A discussion of real $P^n$ may be found on page 71.
+\end{defi}
+
+\paragraph{\nomen{Attaching maps} and $X\cup_f Y$} Let:
+\begin{equation}
+    Y \supseteq A \overset{f}{\to} X
+\end{equation}
+where $X,Y$ are topological spaces, $f$ is continuous. We identify the
+disjoint union $X+Y$ using $f$, partitioning them into:
+\begin{enumerate}
+    \item pairs of points $\{a,f(a)\}$ where $a\in A$;
+    \item individual points of $Y\setminus A$;
+    \item individual points of $X\setminus \Im(f)$.
+\end{enumerate}
+The result identification space is denoted $X\cup_f Y$, and $f$ is
+called the attaching map. This process can also be viewed as:
+\begin{equation}
+    X\cup_f Y = (X\amalg Y)/\{f(A)\sim A\}
+\end{equation}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{pics/Attaching-Space.jpg}
+    \caption{Attaching Space (credit:
+        \href{https://ncatlab.org/nlab/show/Top}{nLab}}
+\end{figure}
+\begin{ex}
+    $P^2$ can be seen as attaching a closed disc $D$ to the boundary
+    of $M$, a Mobius strip, as discussed in page 72 of \cite{book}.
+    Geometrically, this simply shrinks the boundary of $M$ into a
+    point. And an ant travelling around this point can point out the
+    direction just as in $P^2$.
+\end{ex}
+\begin{remark}
+    It is remarked that properties such as compactness, connectedness,
+    and path-connectedness is inherited in identification. However,
+    Hausdorff-ness is not. An counter example can be found in page 72 of
+    \cite{book}.
+\end{remark}
+
+\subsection{Topological Groups}
+\label{sec:Topological-Groups}
+
+In simple words, \nomen{topological groups} are objects that has both
+a topolgy on it and a group structure in it. And the two structures
+must be compatible. Specifically, the multiplication map $a\cdot b$
+and the inverse map $a\to a^{-1}$ are continuous. Homomorphisms
+between are both group-homomorphisms and topological-homomorphisms
+(continuous maps). Isomorphisms are both group-isomorphisms and
+topolgy-isomorphisms (homeomorphisms). A sub-(topological group) is
+both a subgroup and has subspace topolgy. For convenience of language,
+use \nomen{$\mathcal{TPG}$} denotes the category of topological groups.
+\footnote{This notation is nowhere popular or accepted. I use it to
+only to save space and time.}
+\begin{ex}
+    The $\mathbb{R}$ is a topological group. 
+    The $\mathbb{Z}$ with discrete topology form the sub-(topological
+    group) of $\mathbb{R}$. The quotient $\mathbb{R}/\mathbb{Z}$ forms
+    a topological group. The map $f: \mathbb{R}\to S^1$ induces a
+    homeomorphism $\mathbb{R}/\mathbb{Z} \cong S^1$, which is also a
+    group isomorphisms, i.e. it is a $\mathcal{TPG}$-isomorphism.
+\end{ex}
+\begin{ex}
+    Similarly, $R^n$.
+\end{ex}
+
+\begin{ex}
+    The circle is also one. The group structure is combination of
+    degrees.
+\end{ex}
+\begin{ex}
+    Any group with discrete topology.
+\end{ex}
+\begin{ex}
+    The torus considered as the product of two circles. (Take the
+    producttopology and the product group structure.
+\end{ex}
+\begin{ex}
+    Three sphere $S^3$ considered as the unit sphere in the space of
+    quaterions $\mathbb{H}$.
+
+    Remember this? :
+    $$ \begin{tikzcd}[column sep=small]
+        & i\ar[dr] &  \, \\
+    k \ar[ur] &
+    \ar[u,phantom, "\#"] 
+    & j\ar[ll]
+    \end{tikzcd} $$
+    The unit sphere are unit quaterions, see more
+    \href{https://en.wikipedia.org/wiki/Versor}{Versor}.
+\end{ex}
+\begin{ex}
+    The \nomen{orthogonal group} $\mathrm{O}(n)$, of $n\times n$
+    orthogonal real matrices. It is easy to check that
+    $\mathrm{O}(n-1)$ is a sub-$\mathcal{TPG}$ of $\mathrm{O}(n)$.
+\end{ex}
+
+\begin{defi}[Left translation $L_x$]
+\nomenclature{Left translation $L_x$}{\nomrefpage.}
+    For $x\in G$, the function
+    \begin{align}
+        L_x: G &\to G \\
+          g &\mapsto xg
+    \end{align}
+    is called a left translation by $x$. Similarly we have
+    \nomen{right translation $R_x$}.
+\end{defi}
+\begin{fact}
+    $L_x$ and $R_x$ are homeomorphisms (But not group-isomorphisms).
+\end{fact}
+\begin{remark}
+    This shows that a topological group has a certain homogeneity as a
+    topological space. For if $x,y\in G$, then $L_{yx^{-1}}$ maps $x$
+    to $y$ and is a homeomorphism. Therefore \textit{$G$ exhibits the
+    same topological structure locally near each point}.
+\end{remark}
+\begin{thm}
+    Let $G$ is a topological group, let $K$ be a connected component of $G$
+    which contains the identity element. Then $K$ is a closed normal
+    subgroup of $G$.
+\end{thm}
+\begin{fact}
+    If $G=\mathrm{O}(n)$, then $K=\mathrm{SO}(n)$.
+\end{fact}
+\begin{thm}
+    In a connected topological group, any neighbourhood of the
+    identity element is a set generates the whole group.
+\end{thm}
+The two theorems above is summarised as
+
+\begin{table}[H]
+    \centering
+    \caption{caption}
+    \begin{tabu}{l c l}
+        topology            & $\Rightarrow$ & group/topology \\
+        \hline
+        $e$ + connected     & $\Rightarrow$ & closed \& normal subgroup \\
+        $e$ + neighbourhood & $\Rightarrow$ & generator \\
+        \bottomrule
+    \end{tabu}
+\end{table}
+
+A bit more examples about matrices:
+\begin{ex}
+    \nomen{$\mathbb{M}(n)$} the $n\times n$ matrices, is not a
+    topological group. But its subspace
+    \nomen{$\mathrm{GL(n)}$}, specifically,
+    $\mathrm{GL(n,\mathbb{R})}$ or $\mathrm{GL(n,\mathbb{C})}$, is a
+    topological group. This is demonstrated in page 76, theorem 4.12.
+\end{ex}
+\begin{fact}
+    $\mathrm{GL(n)}$ is not compact. It has two idsjoint nonempty open
+    sets: those with positive and those with negative determinants.
+\end{fact}
+\begin{thm}
+    $\mathrm{O}(n)$ and $\mathrm{SO}(n)$ are closed and compact.
+    $\mathrm{SO}(n)$ is a sub-$\mathcal{TPG}$ of $\mathrm{O}(n)$.
+\end{thm}
+\begin{fact}
+    $\mathrm{SO}(2)\cong S^1$ and $\mathrm{SO}(3)\cong P^3$.
+    Here $\cong$ means isomorphisms of topological groups.
+\end{fact}
+\begin{remark}
+    These two facts established on page 77. The first one can be eaily
+    guess. Since a rotation is obviously determined by a rotation
+    degree on $S^1$. Mathematically we have
+    \begin{equation}
+        \left(\begin{array} {cc}
+            \cos\theta & -\sin\theta \\
+            \sin\theta & \cos\theta 
+        \end{array}\right) \cong e^{i\theta}
+    \end{equation}
+
+    The second one is proved mathematical in book \cite{book}. But it
+    has a physical argument. Remember we have the the homogeneous
+    coordinates for $P^3$, such as $[1,\theta_x,\theta_y,\theta_z]$.
+    As indicated in my labels, the three free coordinates $\theta_i$
+    can be regarded as rotation in 3-dimensional space. This rotation
+    preserves the orientation, so it is in $\mathrm{SO}$, not in
+    $\mathrm{O}$. 
+\end{remark}
+
+\subsection{Orbit Space}
+\label{sec:Orbit-Space}
+\begin{defi}[Group Action on Topology Space]
+\nomenclature{Group Action on Topology Space}{\nomrefpage.}
+    A topological group $G$ is said to act as a group of
+    homeomorphisms on a space $X$ if each group element (let $g,h\in G$)
+    induces a homeomorphism of the space in such a way that:
+    \begin{enumerate}
+        \item $(hg)(x) = h(g(x)),\, \forall x\in X$;
+        \item $e(x)=x,\, \forall x\in X$, where $e=gg^{-1}$;
+        \item the function $G\times X\to X$,$(g,x)\mapsto g(x)$ is
+            continuous.
+    \end{enumerate}
+\end{defi}
+
+The subset of $X$, consisting of $g(x)$ for all $g\in G$, is called an
+\nomen{orbit} of $x\in X$, written $O(x)$. Thought, it more convenient to
+write it just as \nomen{$Gx$}, as in textbooks of abstract algebra.
+
+\begin{fact}
+    A common fact in abstract algebra here is: each orbit $Gx$ is
+    disjoint. If two $Gx\cap Gy\neq \varnothing$, then $Gx=Gy$.
+\end{fact}
+
+By above fact, orbits partitions $X$, hence we can form the
+Identification space, with every elements in $X$ identified with their
+brothers in the same orbit. The result is \nomen{orbit space $X/G$}.
+
+\begin{ex}
+    \label{ex:R-over-Z-T}
+    $\mathbb{Z}$ acts on $\mathbb{R}$ by addition $x\mapsto x+n$,
+    $x\in \mathbb{R},\,n\in\mathbb{Z}$. It partitioned $\mathbb{R}$
+    into intervals, for each $x\in X$, $x\sim x+n,\forall n\in
+    \mathbb{Z}$. The orbit space $\mathbb{R}/\mathbb{Z}$ is
+    homeomorphic to $S^1$.
+\end{ex}
+
+An action $G$ on $X$ is called \nomen{transitive}, if and only if the
+orbit space $X/G$ is the trivial point $\{1\}$. Or equivalently, the
+only orbit is the whole space, i.e. $Gx=G,\,\forall x\in G$.
+
+\begin{ex}
+    The orthogonal action $O(n)$ on $S^{n-1}$ is transitive.
+    Physically, this is saying that $\forall x\in S^{n-1}$, it can be
+    rotated into $\forall y\in S^{n-1}$. A mathematical proof is on
+    page 79 of \cite{book}
+\end{ex}
+
+\paragraph{A lot of examples from book \cite{book}}$ $
+
+\begin{ex}
+    Extending example \ref{ex:R-over-Z-T}:
+\begin{equation}
+    \mathbb{E}^2/(\mathbb{Z}\times\mathbb{Z}) = T\text{ (torus)}
+\end{equation}
+    Here $=$ means homeomorphism.
+\end{ex}
+\begin{ex}
+    \begin{equation}
+        S^n/\mathbb{Z}_2 = P^n
+    \end{equation}
+    Here $=$ means homeomorphism.
+\end{ex}
+\begin{ex}[Three ways of $\mathbb{Z}_2$ acting on $T$]
+    The detailed procedure is to be found on page 91 of \cite{book}.
+    Here's a picture to visualize the action:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{pics/3-ways-Z2-on-T.PNG}
+        \caption{$ $}
+    \end{figure}
+    The results are (a) a sphere; (b) a torus; (c) a Klein bottle.
+\end{ex}
+\begin{ex}
+    If $G$ is a topological group, and $H$ is
+    $\mathcal{TPG}$-subgroup. Then, the left cosets of right cosets
+    can be canonically seen as orbits. See more on page 81, example 4.
+\end{ex}
+\begin{ex}
+\begin{align}
+    \mathrm{O}(n)/\mathrm{O}(n-1) &= S^{n-1} \\
+    \mathrm{SO}(n)/\mathrm{SO}(n-1) &= S^{n-1}
+\end{align}
+    Here $=$ means homeomorphism. The first is established
+    mathematically in page 82 of \cite{book}. The second is mentioned
+    there, indicating a similar proof.
+
+    Here I give an argument. Consider a unit vector $y$ in $S^{n-1}$, if
+    we want to rotate another unit vector $e_1$ to $y$, since the
+    action is transitive, we can easily find a $A\in \mathrm{O}(n)$ to
+    do this. But in addition, we can also find that $A\cdot B$, where
+    $B\in \mathrm{O}(n-1)$ rotates the space around $e_1$ (thus
+    leaving $e_1$ un-affected) also do our job. So there is an
+    $\mathrm{O}(n-1)$ redundancy in $\mathrm{O}(n)\to S^{n-1}$.
+    Similar for the second relation.
+\end{ex}
+
+\begin{thm}
+    Let $G$ acts on $X$ and suppose that both $G$ and $X/G$ are
+    connected, then $X$ is connected.
+\end{thm}
+\begin{fact}
+    Using the theorem above, one can deduce that: $\mathrm{SO}(1)$ is
+    connected, $S^{n-1}$ is connected, so $\mathrm{SO}(n)$ is
+    connected.
+\end{fact}
+
+Next, the book \cite{book} (page 82 to 85) introduces several three
+spaces (\nomen{Lens space}, \nomen{irrational flow} on $T$ torus,
+\nomen{fundamental region} or in my word \textit{space filling
+shapes}) and two group \nomen{Euclidean group} (page 84) and
+\nomen{plane-crystallographic group} (page 85). To save time, I leave
+here only some pictures:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pics/irrational-flow.png}
+    \caption{Irrational Flow on $T$}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pics/space-filling-shapes.png}
+    \caption{Space-filling Shapes}
+\end{figure}
+
+

@@ -1,0 +1,333 @@
+
+\subsection{Homotopic maps}
+\label{sec:Homotopic-maps}
+
+By a \nomen{loop} we mena a continuous map $\alpha:I\to X$ such that
+$\alpha(0)=\alpha(1)$. We can view is also as a continuous map
+$\alpha:S^1 \to X$. It is said to be based at the point
+$\alpha(0)$. Two loops $\alpha$ and $\beta$ with the same \nomen{base
+point} can be multiplied, and their product is defined on page 87.
+A visualization is here:
+% cd 1 todo
+
+But this product is not sufficient to become a group. At least, the
+multiplication is not associative:
+% cd 2 todo
+
+But clearly the two result are exactly if we do care how long they
+occupy on the interval $I$, if the interval $I$ is considered as a
+time parameter. So we define the following homotopy relation between
+loops. If we can find a family $\{f_r\}$ of maps, one for each $r\in
+[0,1]$, such that $f_0=\alpha$, $f_1=\beta$, then we say that the
+loops $\alpha$ and $\beta$ are homotopic. Schematically,
+% cd 3 todo
+
+This relation can be generalized to any continuous maps:
+\begin{defi}[Homotopic]
+\nomenclature{Homotopic}{\nomrefpage.}
+    Let $f,g: X \to Y$ be continuous maps. Then $f$ is homotopic to
+    $g$ if there exists a map $F:X \times I\to Y$ such that $F(x,O) =
+    f(x)$ and $F(x,1) = g(x)$ for alt points $x\in X$.
+\end{defi}
+
+The map $F$ is called a \nomen{homotopy} from $f$ to $g$, and we write
+\nomen{$f\simeq_F g$}. In addition, if $f$ and $g$ agree on some
+$A\subset X$, we may wish to deform $f$ to $g$ without altering the
+values of $f$ on $A$. In this case we ask for a homotopy $F$ from $f$
+to $g$ with the additional property that 
+\begin{equation}
+    F(a,t)=f(a) \text{ for all $a\in A$, for all $t\in I$}
+\end{equation}
+when such a homotopy exists, we say the \nomen{$f$ is homotopic to $g$
+relative to $A$} and write \nomen{$f\simeq_F g$ rel $A$}.
+% cd 4 todo
+
+
+When $f$ and $g$ are loops, then the homotopic relation for loops are
+just saying that $f\simeq g$ rel $\{0,1\}$.
+
+% fig 5.1 p 88 todo
+
+\begin{ex}
+    The author shows on page 88 of \cite{book} that: when $C$ is a
+    convex subset of a euclidean space, let $f,g:X\to C$ be continuous
+    maps, then $f\simeq_F g$, where $F$ is $F(x,t)=(1-t)f(x)+tg(x)$.
+    Note that if $f$ and $g$ agree on a subset $A$ of $X$, then this
+    homotopy is a homotopy relative to $A$. This $F$ is called a
+    \nomen{straight-line homotopy}.
+\end{ex}
+\begin{ex}
+    Let $f,g:X\to S^n$ be continuous maps. We can take $S^n$ to be the
+    unit sphere in $\mathbb{E}^{n+1}$, and think of $f,g$ as
+    continuous maps into $\mathbb{E}^{n+1}$, then we may form a
+    straight-line homotopy from $f$ to $g$ by:
+    \begin{equation}
+        F(x,t) = \frac{(1-t)f(x)+tg(x)}{||(1-t)f(x)+tg(x)||}
+    \end{equation}
+    But why we are  % yes why! TODO
+\end{ex}
+\begin{ex}
+    This is example is best illustrated by pictures:
+    % fig 5.2 todo
+    Geometrieally, $\alpha$ winds eaeh of the segments
+    $[O,\frac{1}{2}]$, $[\frac{1}{2},\frac{3}{4}]$, $[\frac{3}{4}, 1]$
+    once round the eirc1e, the first two being wound in an
+    anticlockwise direetion, and the third clockwise. The loop $\beta$
+    simply winds the whole interval $[0,1]$ once round the circle
+    anticlockwise.
+
+    The book\cite{book} gives a homotopy $F$ between $\alpha$ and
+    $\beta$ on page 89. But it is best to imagine $\alpha$ and $\beta$
+    being metal coils, and this $F$ just describes the process when
+    one magically strach and unfold the coil from $\alpha$ to $\beta$.
+
+    Notice that this coil is connected head to tail, so it is
+    essential that there is not pole inside the coil in order that one
+    can unfold the coil from $\alpha$ to $\beta$.
+\end{ex}
+
+I think we already feel this, but the book proves it on page 90, that
+
+\begin{lemma}
+    The relation of 'homotopy' is an equivalence relation on the set
+    of all maps from $X$ to $Y$.
+\end{lemma}
+
+Also
+\begin{lemma}
+    The relation of 'homotopy relative to a subset $A$ of $X$' is an
+    equivalence relation on the set of all maps from $X$ to $Y$ which
+    agree with some give map on $A$.
+\end{lemma}
+
+The book also mentions that
+\begin{lemma}
+    Homotopy behaves well with respect to composition of maps
+\end{lemma}
+which means precisely that:
+\begin{itemize}
+    \item If $f\simeq_F g$ rel $A$, then $hf\simeq_{hF} hg$ rel $A$.
+        $$ \begin{tikzcd}[]
+            A\subset X \ar[r,"f",bend left]\ar[r,"g",bend right]
+                & Y \ar[r,"h"] & Z
+        \end{tikzcd}$$
+    \item If $g\simeq_G h$ rel $B$, then $gf\simeq_F hf$ rel $f^{-1}B$
+        via the homotopy $F(x,t)=G(f(x),t)$.
+        $$ \begin{tikzcd}[]
+            X\ar[r,"f"] & Y \ar[r,"g",bend left]\ar[r,"h",bend right]
+             & Z \\
+            f^{-1}B\ar[u,phantom,"\subset"
+            {anchor=south,rotate=90,left=0,near end}]
+                &
+            B\ar[u,phantom,"\subset" {anchor=south,rotate=90,left=0,near
+            end}] & \, 
+        \end{tikzcd}$$
+\end{itemize}
+
+
+
+
+From this on, I will follow the lecture by professor Li Qin.
+
+\subsection{Review}
+\label{sec:Review}
+From last lecture, we have shown:
+\begin{ex}
+    For $n\geq 2$,
+    $$ \pi_1 (S^n) = \{e\} $$
+\end{ex}
+\begin{ex}
+    $$ \pi_1 (\mathbb{R}^n) = \{e\}$$
+\end{ex}
+
+\begin{thm}
+    $$\pi_1 (S^1) = \mathbb{Z} $$
+\end{thm}
+
+\begin{proof}
+    Given any integer $n\in \mathbb{Z}$, we give a loop by associatng
+    each $n$ 
+    \begin{align*}
+        \pi : \mathbb{R} \to S^1 \\
+        t \mapsto e^{2\pi it}
+    \end{align*}
+    Define 
+    \begin{align}
+        \gamma_n : [0,1] \to \mathbb{R} \\
+        s\mapsto n s
+    \end{align}
+    Then $\phi_n:= \pi\circ \gamma_n$ has the property that
+    $\phi_n(0)=1$, $\phi_n(1)=1$. So we obtain 
+    \begin{equation}
+        \phi: \mathbb{Z} \to \pi_1  (S^1)
+    \end{equation}
+    Geometrically, we $\phi_n$ loops around $S^1$ in $n$ turns.
+
+    We need to prove that $\phi$ is a isomorphism. This is done by:
+    \begin{enumerate}
+        \item Prove that $\phi$ is a homomorphism;
+        \item Prove that $\phi$ is bijective.
+    \end{enumerate}
+    First,
+    \begin{align*}
+        \gamma_n: s \mapsto n s \\
+        \gamma_m: s\mapsto m s\\
+    \end{align*}
+    We need
+    \begin{align*}
+        \braket{\pi\circ \gamma_{m+n}} =
+        \braket{\pi\circ\gamma_m}\braket{\pi\circ \gamma_n}\\
+    \end{align*}
+    Define $\sigma:[0,1]\to \mathbb{R}$, $s\mapsto \gamma_n(s)+m$,
+    this is a translation of real line. Then $\pi\circ \sigma =
+    \pi\circ \gamma_n$. Then
+    \begin{align*}
+        \braket{\pi\circ\gamma_m}\braket{\pi\circ \gamma_n}
+        = \braket{\pi\circ\gamma_m} \braket{\pi\circ\sigma}
+        = \braket{\pi\circ(\gamma_m\circ \sigma)}
+    \end{align*}
+    $\gamma_{m+n}$ has the same domain and codomain of $\gamma_m \circ
+    \sigma$, and they obviously share the same start and the same end
+    point. Therefore these two path are homotopic relative to
+    $\{0,1\}$.
+    Therefore
+    \begin{equation}
+        \braket{\pi\circ \gamma_{m+n}} =
+        \braket{\pi\circ(\gamma_m\circ\sigma)}
+    \end{equation}
+    Or
+    \begin{equation}
+        \phi_{m+n} = \phi_{m}\phi_n
+    \end{equation}
+
+    Second, we need to show that this map is surjective. Notice that
+    $\pi:\mathbb{R}\to S^1$, $t\mapsto e^{2\pi i t}$, is like a
+    projection of a circulatory path onto a circle $S^1$. This map is
+    locally homeomorphic. We can find a cover of $S^1$ as the
+    combination of
+    \begin{align*}
+        U = S^1\setminus \{-1\} \\
+        V = S^1\setminus \{1\}
+    \end{align*}
+    Then $\pi^{-1}(V)$ are the intervals on $\mathbb{R}$ excluding the
+    whole integer points. Similarly, $\pi^{-1}(U)$ are those intervals
+    on $\mathbb{R}$ excluding those half-integer points. In each of those
+    intervals the map $\pi$ is bijective.
+    Now we need a lemma:
+    \begin{lemma}[Path-lifting lemma]
+        \begin{equation}
+            \begin{tikzcd}[]
+                \, & \mathbb{R}\ar[d,"\pi"] \\
+                {[0,1]}\ar[r,"\sigma"]\ar[ru,"f"] & S^1
+            \end{tikzcd}
+        \end{equation}
+        Assuming we have $\pi$ and $\sigma$, both are continuous maps.
+        More specifically, $\sigma$ is a path in $S^1$ which begins at the
+        point $1$. Then there is a unique path $\tilde\sigma$ in
+        $\mathbb{R}$ which begins at $0$ and satisfies $\pi\circ
+        \tilde\sigma = \sigma$.
+    \end{lemma}
+    \begin{proof}
+        By Lebesgue lemma, we can divide the interval $[0,1]$ fine enough
+        such that each part  is maped to only one of the cover $U$ or $V$.
+        We thus break a path % TODO
+    \end{proof}
+    Note that $\tilde\sigma(0)=0$, $\tilde\sigma(1)$ is an integer.
+    Now for any loop $\gamma:[0,1]\to S^1$ based at $1$, we can find a
+    lifting $\tilde\gamma:[0,1]\to \mathbb{R}$ such that
+    $\tilde\gamma(0)=0$,$\tilde\gamma(1)=n$, and $\gamma = \pi\circ
+    \tilde\gamma$. Then $\tilde\gamma \cong \gamma_n$ rel $\{0,1\}$,
+    also $\braket{\pi\circ\tilde\gamma}=\braket{\pi\circ\gamma_n}$.
+    Hence for any path $\gamma$ we find a $n$ such that
+    $\gamma=\phi(n)$. So the map is surjective.
+
+    We need another lemma to prove that it is injective.
+    \begin{lemma}[Homotopy-lifting lemma]
+        If $F:[0,1]\times[0,1]\to S^1$ is a map such that
+        $F(0,t)=F(1,t)=1$ for $0\leq t\leq 1$, then there exists a
+        unique $\tilde F: [0,1]\times[0,1]\to \mathbb{R}$ such that
+        \begin{align}
+            \pi\circ \tilde F = F \\
+            \tilde F(0,t) =0,\, 0\leq t\leq 1
+        \end{align}
+    \end{lemma}
+    % TODO Graph here.
+    \begin{proof}
+        We need the Lebesgue lemma. Let $S^1=U\cup V$ as before.
+    \end{proof}
+    Now we proof that the map $\phi$ is injective. Suffice to prove
+    that $\Ker(\phi)$ is trivial. Suppose $\phi(n)=\pi\circ \gamma_n$
+    is homotopic to the constant loop. Then choose a homotopy $F$
+    from $\pi\circ\gamma_n$ to the constant loop. By the
+    homotopy-lifting lemma we can find $\tilde F: [0,1]\times[0,1]\to
+    \mathbb{R}$ such that $\pi\circ \tilde F = F$. Also $\tilde
+    F(0,t)=0$.
+    % TODO  We can find the vertical bottom is 0 and verticl height is
+    % gamma_n. Right line is integers and can only be 0 Hence gamma_n
+    % starts at 0 and ends at 0
+    One can find that $\gamma_n\cong 0$. This completes the proof of
+    injectivity. Hence completes the whole proof.
+\end{proof}
+
+We have an application,
+\begin{thm}[Brow Fixed Point theorem] % TODO brower? broer?
+    A contiuous map $f:B^2\to B^2$ ($B^2:2D$-closed dicks) must have a
+fixed point. That is, $\exists x\in B^2$ such that $f(x)=x$.
+\end{thm}
+\begin{proof}
+    Assuming that this theorem is false, that is $\forall x\in B^2$,
+    $x\neq f(x)$, then we have a straight path from $f(x)$ to $x$. We can
+    extends this path to cuts the boundary of $B^2$ at $h(x)$. This is
+    for all $x\in B^2$, hence we have a map $h: B^2 \to S^1$. Also,
+    $h|_{S^1}$ is obvious an identity map. But $S^1$ can be included
+    inside $B^2$, so we have:
+    \begin{equation}
+        S^1 \to B^2 \to S^1 % TODO add function labels
+    \end{equation}
+    Hence we have a series of homomorphism of fundamental groups:
+    \begin{equation}
+        \pi_1 (S^1) \to \pi_1 (B^2) \to \pi_1(S^1)
+    \end{equation}
+    and the composite is identity map. But observe that $B^2$ is a
+    convex set and hence its fundamental group is trivial. But $S^1$
+    has non-trivial fundamental group.
+\end{proof}
+\begin{remark}
+    This theorem can be extended to higher dimensional case. But the
+    proof cannot be the same because for higher dimension $\pi_1(S^n)$
+    is no longer non-trivial.
+\end{remark}
+
+Another application, which we need a theorem to help:
+\begin{thm}
+    \begin{equation}
+        \pi_1 (X\times Y, (x_0,y_0)) = \pi_1 (X,x_0) \otimes \pi_1
+        (X,y_0)
+    \end{equation}
+\end{thm}
+\begin{proof}
+    We use the projection maps: $P_1$ and $P_2$.
+    Then, the map
+    \begin{align*}
+        (P_1)_*: \pi_1 (X\times Y) \to \pi_1(X) \\
+        (P_2)_*: \pi_1 (X\times Y) \to \pi_1(Y)
+    \end{align*}
+    and their composition formed into
+    \begin{align*}
+        \braket{\alpha}\mapsto
+        (\braket{P_1\circ\alpha},\braket{P_2\circ\alpha})
+    \end{align*}
+    this map is surjective, injective, and is homomorphism.
+    because any %TODO
+\end{proof}
+
+\begin{fact}
+By this theorem, the two objects $S^2$ and $S^1\times S^1$ is not
+homeomorphic, since their fundamental groups are not the same (the
+former is trivial and the later is $\mathbb{Z}\times\mathbb{Z}$).
+\end{fact}
+
+
+% TODO homework: pro 13 of page 95.
+
+

@@ -20,6 +20,9 @@
 \date{\today}
 \author{Taper}
 
+\tikzset{
+	upprright/.style={anchor=south,rotate=90,left=0,near end}
+}
 
 \begin{document}
 
@@ -64,6 +67,26 @@ E \ar[ur,"f"]\ar[rr,"\rho" below=3] &
 \ar[u,phantom, "\#"] 
 & F\ar[ul,"\rho'" right=3]
 \end{tikzcd} $$
+
+$$ \begin{tikzcd}[]
+X\ar[r,"f"] & Y \ar[r,"g",bend left]\ar[r,"h",bend right]
+& Z \\
+f^{-1}B\ar[u,phantom,"\subset"
+{anchor=south,rotate=90,left=0,near end}]
+&
+B\ar[u,phantom,"\subset" {anchor=south,rotate=90,left=0,near
+      	end}] & \, 
+\end{tikzcd}$$
+
+Or, with something "tikzset" in the preamble, we can
+
+
+$$ \begin{tikzcd}[]
+	X\ar[r,"f"] & Y \\
+	f^{-1}B\ar[u,phantom,"\subset" upprright]
+		& B\ar[u,phantom,"\subset" {anchor=south,rotate=90,left=0,near
+		end}] 
+\end{tikzcd}$$
 
 \section{Table}
 
