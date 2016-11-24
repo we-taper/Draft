@@ -1,13 +1,15 @@
-% LaTeX Curriculum Vitae Template
-%
-% Copyright (C) 2004-2009 Jason Blevins <jrblevin@sdf.lonestar.org>
-% http://jblevins.org/projects/cv-template/
-%
-% You may use use this document as a template to create your own CV
-% and you may redistribute the source code freely. No attribution is
-% required in any resulting documents. I do ask that you please leave
-% this notice and the above URL in the source code if you choose to
-% redistribute this file.
+% Thanks for this person who created this wonderful template. In honor
+% of his efforts, I include his copyright notice here:
+% % LaTeX Curriculum Vitae Template
+% %
+% % Copyright (C) 2004-2009 Jason Blevins <jrblevin@sdf.lonestar.org>
+% % http://jblevins.org/projects/cv-template/
+% %
+% % You may use use this document as a template to create your own CV
+% % and you may redistribute the source code freely. No attribution is
+% % required in any resulting documents. I do ask that you please leave
+% % this notice and the above URL in the source code if you choose to
+% % redistribute this file.
 
 \documentclass[letterpaper]{article}
 
@@ -105,6 +107,7 @@
 \begin{minipage}{0.44\linewidth}
   %\href{http://www.physics.upenn.edu/}{University of Pennsylvania} \\
   %Department of Physics and Astronomy \\
+    % Is this appropriate? Ask the CV center by Eki TODO
   No 1088, Xueyuan Rd., Xili, Nanshan District,\\
   Shenzhen,Guangdong,\\
   China \\
@@ -117,12 +120,6 @@ Email:
     & \href{mailto:we.taper[at]gmail.com}{\tt we.taper[AT]gmail.com} \\
 Homepage: 
     & \href{http://github.com/we-taper/me/}{\tt http://github.com/we-taper/me/} \\
-Github: 
-    & \href{http://www.github.com/we-taper/}{\tt
-    http://www.github.com/we-taper/} \\
-Personal Notes: 
-    & \href{https://github.com/we-taper/Draft/}{\tt
-    https://github.com/we-taper/Draft/} \\
 \end{tabular}
 \end{minipage}
 
@@ -133,21 +130,27 @@ Personal Notes:
 %\rule{\linewidth}{.7pt}}
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
 %\hline
-{\bf\large South University of Science and Technology of China
-    (SUSTC)} & Shenzhen, Guangdong\\
-Bachelar of Science.~in Physics, May 2017 \\
+{\bf\large Southern University of Science and Technology of China
+    (SUSTech)} & Shenzhen, Guangdong\\
+Bachelar of Science~in Physics, July 2017 \\
 Advisor: Prof. Wu.~Jiansheng \\
 Graduation Paper: \\
 {\textit{Classification of Topological Insulators }(in
-progress)}\\ %TODO 
+progress)}\\ 
 Research Interests: \\
 {\textit{Condensed Matter Theory, Mathematical Physics, Statistical
-Mechanics, Biophysics}}\\ % TODO add anything
-GPA: 3.76/4.00. %TODO Major GPA: \hl{TBA}/4.00.
+Mechanics, Biophysics}}\\
+GPA: 3.76/4.00. Major GPA: 3.77/4.00. Major rank: 7/43  \\
+% todo see examples
+
 \\
+
+{\bf\large Guangzhou Tieyi Middle School} & Guangzhou, Guangdong \\
+High School, June 2013 \\
+
 % {\bf\large Harvard University} & Cambridge, MA\\
 % A.B./A.M.~in Physics {\em magna cum laude}, June 2007
-%Dissertation: {\em }
+% Dissertation: {\em }
 \end{tabular*}
 %\section*{Employment}
 
@@ -159,6 +162,11 @@ GPA: 3.76/4.00. %TODO Major GPA: \hl{TBA}/4.00.
 % TODO Comment the above line and uncomment the following line when
 % DONE
 % \vspace{-10 pt}
+$ $
+\subsection*{Skills in addition to the regular physics curriculum}
+% \vspace{-5pt}
+% \hrule height .4pt
+% \smallskip
 \begin{table}[h]
     \centering
     \rowcolors{1}{white}{lightgrey}
@@ -168,30 +176,32 @@ GPA: 3.76/4.00. %TODO Major GPA: \hl{TBA}/4.00.
         \textit{Computer Technology} \\
     \hline
     %\taburowcolors[1]3{lightblue .. yellow}
-    \textbf{Conversant} & Topological Insulators and Superconductors 
+    \textbf{Conversant} 
+    & Topological Insulators and Superconductors 
         & Abstract Algebra, Advanced Linear Algebra 
             & Programming Language (Java, Matlab), Vim \\
 
-    \textbf{Familiar} & Classical Field Theory, Solid State Theory
-        & Differential Geometry, Complex Geometry,  
-            & Programming Language (Python, Ruby, Bash), Linux System
+    \textbf{Experienced} 
+    & Solid State Theory
+        & (Real) Differential Geometry, Complex Geometry, Sheaf
+        Cohomology 
+            & Programming Language (Python, Ruby), Linux System
             Adminstration\\
 
-    \textbf{Acquainted} & Quantum Many-body Theory 
-        & Sheaf Cohomology, Discrete Mathematics 
-            & Program Algorithm Design, RESTful Programming, \\
+    \textbf{Acquainted} 
+    & Quantum Many-body Theory 
+        & Discrete Mathematics 
+            & Program Algorithm Design,  \\
     \bottomrule
     \end{tabu}
 \end{table}
-\subsection*{Soft Skills}
-\vspace{-5pt}
-\hrule height .4pt
-\smallskip
+\subsection*{Soft skills}
 \begin{itemize}
     \item $\bullet$ Confident presentation skills.
 \end{itemize}
 
-\section*{Talks and Presentations}
+% todo todo stops this stupid breaking of page.
+\section*{Activities}
 \vspace{-8pt}
 \hrule height .7pt
 \smallskip
@@ -212,169 +222,56 @@ GPA: 3.76/4.00. %TODO Major GPA: \hl{TBA}/4.00.
 \subsection*{poster presentations}
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
 {\em\large My Panopticon} & December 2014\\
-{\small English Class: South University of Science and Technology of China} \\
+{\small English Class: SUSTech} \\ % TODO add details
 \\
 {\em\large A Review On Carbon Nanotube} & January 2014 \\
-{\small General Chemistry Class: South University of Science and
-Technology of China } \\
+{\small General Chemistry Class: SUSTech } \\
 \\
 {\em\large Advances in Origami} & November 2013\\
-{\small English Class: South University of Science and Technology of China} \\
+{\small English Class: SUSTech} \\
 \\
+
 % {\em\large smectic topology, topography, and tomography} & june 2009\\
 % {\small liquid crystals gordon research conference: colby-sawyer
 % college} \\
 % \\
 \end{tabular*}
 
-% \section*{teaching experience}
-% \vspace{-8pt}
-% \hrule height .7pt
-% \smallskip
-% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-% {\em\large teaching assistant:} general physics laboratory, 
-% mathematical methods & fall 2007-spring 2011\\ 
-% of physics i and ii, graduate statistical mechanics  \\
-% {\small university of pennsylvania} \\
-% \\
-% {\em\large halpern room tutor} & fall 2007-fall 2008\\
-% {\small University of Pennsylvania}\\
-% \\
-% {\em\large Physics Question Center Tutor} & Fall 2004-Spring 2006\\
-% {\small Harvard University}\\
-% \end{tabular*}
+\subsection*{other activities}
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+{\em\large Caring for primary school children} & 2014 \\
+{\small SUSTC Volunteer Association} \\
+\\
+{\em\large Asia-Pacific Robotics Championship China Qualifier -
+High School} &  October 2011\\
+{\small Taipei Yong-Le Elementary School}
+\end{tabular*}
 
-% \section*{Professional Service}
-% \vspace{-8pt}
-% \hrule height .7pt
-% \smallskip
-% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-% {\large Co-organizer}  & Fall 2013-\\
-% {\small Soft and Biological Matter Seminar: Leiden University} \\
-% \\
-% {\large Co-founder, lecturer}  & Spring 2010-Summer 2010\\
-% {\small Graduate student topological insulators reading group: 
-% University of Pennsylvania} \\
-% \\
-% {\large Vice-President of Finance}  & Summer 2009-Spring 2010\\
-% {\large Department Representative}  & Fall 2008-Spring 2009 \\
-% {\small SASgov (graduate student government): University of Pennsylvania} \\
-% \end{tabular*}
+\section*{Social Connections} % Is this the right title? TODO
+\vspace{-8pt}
+\hrule height .7pt
+\smallskip
+\smallskip
+\smallskip
+Note: I am often nicknamed \textit{we.taper} or just \textit{taper} on
+the Internet.
 
-% \section*{Conferences and Workshops Attended}
-% \vspace{-8pt}
-% \hrule height .7pt
-% \smallskip
-% \vspace{-12pt}
-% \begin{longtable}{@{\extracolsep{\fill}}lr@{}}%{\textwidth}{l@{\extracolsep{\fill}}r}
-% APS March Meeting & March 2015\\
-% %\\
-% Physics@FOM & January 2015\\
-% %\\
-% \\
-% Lorentz Center workshop: Topological Mechanics & October 2014\\
-% %\\
-% ACS Colloids and Surface Science Symposium & June 2014\\
-% %\\
-% Physics@FOM & January 2014\\
-% %\\
-% \\
-% APS March Meeting & March 2013\\
-% %\\
-% Physics@FOM & January 2013\\
-% %\\
-% \\
-% PCTS workshop: Through the looking glass & December 2012\\
-% %\\
-% Lorentz Center workshop: Modern Perspectives on Thin Sheets &
-% September 2012\\
-% %\\
-% KITP miniprogram: Knotted fields & June-July 2012\\
-% %\\
-% APS March Meeting & March 2012\\
-% %\\
-% \\
-% Boulder School in Condensed Matter and Materials Physics & July 2011\\
-% %\\
-% Liquid Crystals Gordon Research Conference & June 2011 \\
-% %\\
-% IMA Hot Topics Workshop: Strain Induced Shape Formation & May 2011\\
-% %\\
-% APS March Meeting & March 2011\\
-% %\\
-% Aspen Winter Conference: Materials and the Imagination  &
-% January 2011\\
-% %\\
-% \\
-% Princeton/Penn/NYU Soft Matter Meeting  &
-% December 2010\\
-% %\\
-% Clay Mathematics Institute Summer School: Probability and &
-% July-August 2010\\
-% Statistical Physics in Two and more Dimensions \\
-% %\\
-% UMass Amherst Soft Solids and Complex Fluids Summer School& June 2010 \\
-% %\\
-% CUNY ITS: Taming Complexity  & April 2010 \\
-% %\\
-% APS March Meeting  & March 2010 \\
-% %\\
-% \\
-% Princeton Summer School on Condensed Matter Physics & August 2009 \\
-% %\\
-% Liquid Crystals Gordon Research Conference & June 2009 \\
-% %\\
-% UMass Amherst Soft Solids and Complex Fluids Summer School& June 2009 \\
-% %\\
-% UWisc Hougen Symposium on Frontiers of Liquid Crystals  & April 2009 \\
-% %\\
-% APS March Meeting  & March 2009 \\
-% %\\
-% %\end{tabular*}
-% %
-% \\
-% %\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-% 100th Statistical Mechanics Conference  & December 2008 \\
-% %\\
-% UMass Amherst Soft Solids and Complex Fluids Summer School& June 2008 \\
-% %\\
-% Mid-Atlantic Soft Matter Meeting & June 2008\\
-% %\\
-% APS March Meeting  & March 2008 \\
-% %\\
-% \\
-% Mid-Atlantic Soft Matter Meeting & December 2007
-% \end{longtable}
-
-%\subsection*{Professional Memberships}
-
-%\section*{Conferences and Workshops Attended}
-%\section*{}
-
-%\section*{References}
-%\vspace{-8pt}
-%\hrule height .7pt
-%\smallskip
-%\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-%{\large Randall D. Kamien}  & Thesis Advisor \\
-%{\small University of Pennsylvania} \\
-%\\
-%{\large Tom C. Lubensky}  & Research Reference \\
-%{\small University of Pennsylvania} \\
-%\\
-%{\large Douglas J. Durian}  & Research Reference \\
-%{\small University of Pennsylvania} \\
-%\\
-%\end{tabular*}
-%
-% Footer
-%\begin{center}
-%  \begin{footnotesize}
-%    Last updated: \today \\
-%    \href{\footerlink}{\texttt{\footerlink}}
-%  \end{footnotesize}
-%\end{center}
-
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+Github
+    & \href{http://www.github.com/we-taper/}{\tt
+    http://www.github.com/we-taper/} \\
+Physics StackExchange
+    &
+\href{http://physics.stackexchange.com/users/45384}{\tt
+http://physics.stackexchange.com/users/45384}
+    \\
+Personal Notes 
+    & \href{https://github.com/we-taper/Draft/}{\tt
+    https://github.com/we-taper/Draft/} \\
+My high school VEX team information on VexDB &
+    \href{https://vexdb.io/organisations/view/Guangzhou_Tieyi_Middle_School}
+    {https://goo.gl/tR16Mr} \\
+\end{tabular*}
 
 \section*{Hobbies}
 \vspace{-8pt}
@@ -385,14 +282,17 @@ Technology of China } \\
         genras of music, from classics to punk. Each suits different
         emotions.
 
-        $\,$ Favorites:
+        $\quad$ Favorites:
         Symphony No. 5 (Beethoven), Goldberg Variations (J.S. Bach),
         Guangling San (Unknown), Civial War (Gun N' Roses), Hotel
         California (Eagles).
+
     \item $\bullet$ Handicrafts. Favorites: Lego, Zhezhi
         (also called Origami by the Japanese).
-        % TODO add the hobby about VEX robotics
 \end{itemize}
+
+
+
 \section*{Honors and Awards}
 \vspace{-8pt}
 \hrule height .7pt
@@ -401,31 +301,24 @@ Technology of China } \\
     %TODO adjust the date accordingly.
 {\em\large Excellent Student Scholarship }(\yen 1500) &
 October 2016 \\
-{\small South University of Science and Technology of China}\\
+{\small SUSTech}\\
 \\
 {\em\large College Start-up scholarship }(\yen 6000) &
 October 2016 \\
-{\small South University of Science and Technology of China}\\
+{\small SUSTech}\\
 \\
 {\em\large College Start-up scholarship }(\yen 6000) &
 October 2015 \\
-{\small South University of Science and Technology of China}\\
+{\small SUSTech}\\
 \\
 {\em\large Second Place in Debating Competition} &
 January 2015 \\
-{\small Student Debating Union, South University of Science and Technology of China}\\
+{\small Student Debating Union, SUSTech}\\
 \\
 {\em\large College Start-up scholarship }(\yen 6000)&
 October 2014 \\
-{\small South University of Science and Technology of China}\\
+{\small SUSTech}\\
 \\
-% {\em\large Werner B. Teutsch Prize} ``Awarded annually to the graduate
-% student who, & Fall 2008 \\
-% by his or her performance in the first year courses, shows the most
-% promise for\\
-% outstanding achievement in research''\\
-% {\small University of Pennsylvania} \\
-% \\
 \end{tabular*}
 
 \end{document}
