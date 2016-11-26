@@ -29,6 +29,13 @@
 \definecolor{lightblue}{RGB}{217,224,250}
 \definecolor{lightgrey}{RGB}{211,211,211}
 
+% For multi-row/column in tables
+% The following command get the nature width of a tabu environment.
+% It can be used as in \multicolumn{n}{p{\getTabuwidth}}, since tabu \
+% does not provide an implementation of \multicolumn{n}{X}
+\newcommand{\getTabuwidth}{\dimexpr2\tabucolX+2\tabcolsep+\arrayrulewidth\relax}
+\usepackage{multirow}
+
 % @2. Mathematical Addons -----------------------------------
 \RequirePackage{amsmath} % For math
 \RequirePackage{amssymb}
@@ -44,6 +51,12 @@
 \DeclareDocumentCommand\id{}{\mathds{1}}
 \DeclareDocumentCommand\Tr{}{\operatorname{Tr}}
 \DeclareDocumentCommand\det{}{\operatorname{det}}
+
+% For common sets
+\DeclareDocumentCommand\Z{}{\mathbb{Z}}
+\DeclareDocumentCommand\R{}{\mathbb{R}}
+\DeclareDocumentCommand\C{}{\mathbb{C}}
+\DeclareDocumentCommand\E{}{\mathbb{E}}
 
 % For drawing diagrams
 \RequirePackage{tikz-cd}

@@ -124,22 +124,107 @@ which means precisely that:
         \end{tikzcd}$$
 \end{itemize}
 
+\subsection{Construction of the fundamental group}
+\label{sec:Construction-of-the-fundamental-group}
 
+\begin{thm}
+    The set of homotopy classes of loops in $X$ based at $p\in X$
+    forms a group under the multiplication
+    $\braket{\alpha}\cdot\braket{\beta}=\braket{\alpha\cdot\beta}$.
+    The identity and inverse elements are defined on page 92 and 93 of
+    \cite{book}.
+\end{thm}
+\begin{remark}
+    Notice that the fundamental group dependes heavily on the base
+    point. Especially when the space $X$ is disconnected. A natural
+    intuition is that when the space is path-connected, then any two
+    paths can be connected. If two points can be connected, then two
+    loops based on different points can be connected. That why we have
+    the following.
+\end{remark}
+\begin{thm}
+    If $X$ is a path-connected then $\pi_1(X,p)$ $\pi_1(X,q)$ are
+    isomorphic for any two points $p,q\in X$.
+\end{thm}
+\begin{proof}
+    The proof is on page 94 of \cite{book}.
+\end{proof}
+\begin{defi}[$f_*$]
+\nomenclature{$f_*$}{\nomrefpage.}
+Suppose we have a continuous map $f:X\to Y$, $f$ can induce a map
+($p\in X,q\in Y$ and $q=f(p)$).
+    \begin{align}
+        f_* : \pi_1(X,p) &\to \pi_1(Y,q) \\
+        \braket{\alpha} &\mapsto \braket{f\circ \alpha}
+    \end{align}
+This map is actually a homomorphism.
+\end{defi}
+\begin{fact}
+By construction, we have for
+$$ \begin{tikzcd}[]
+    X\ar[r,"f"] & Y\ar[r,"g"] & Z
+\end{tikzcd}$$
+\begin{align}
+    (g\circ f)_* = g_* \circ f_*
+\end{align}
+\end{fact}
+\begin{fact}
+With a homeomorphism $h:X\to Y$ and the above fact, we see that
+homeomorphic spaces have isomorphic fundamental groups.
+\end{fact}
+\subsection{Sectin 5.3}
+\label{sec:Sectin-5.3}
+This section calculates the following facts:
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c c c}
+        \hline
+        \#&  Space                           & Fundamental group \\
+          \hline
+        1 &  Conves subset of $\mathbb{E}^n$ & \{e\} \\
+        2 &  Circle                          & $\mathbb{Z}$ \\
+        3 & $S^1$                           & $\mathbb{Z}$ \\
+        4 & $S^n,\, n\geq 2$                & \{e\} \\
+        5 & Torus $S^1\times S^1$           & $\Z\times\Z$ \\
+        6 & $P^n,, n\geq 2$                 & $\Z_2$ \\
+        7 & Klein bottle                    & $\{a,b|a^2=b^2\}$ \\
+        8 & Len space $L(p,q)$              & $\Z_p$ \\
+          \hline
+    \end{tabular}
+\end{table}
 
+\paragraph{Convex subset of $\E^n$} is on page 96 of \cite{book}.
+\begin{defi}[simply connected]
+\nomenclature{simply connected}{\nomrefpage.}
+    A path-connected space whose fundamental group is trivial is said
+    to be simply connected.
+\end{defi}
 
-From this on, I will follow the lecture by professor Li Qin.
+\paragraph{The $n$-sphere $S^n$} is on page 99. To prove it, we
+require a theorem:
+\begin{thm}
+    Let $X$ be a space which can be written as the union of two simply
+    connected open sets $U,V$ in such a way that $U\cap V$ is
+    path-connected. Then $X$ is simply connected.
+\end{thm}
+\begin{proof}
+    Proof is on page 99 of \cite{book}. It requires the Lebesgue lemma
+    \ref{thm:lebesgue-lemma}. A picture illustrating the proof is
+    provided here:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]
+        {pics/n-sphere-is-simply-con.PNG}
+    \end{figure}
+\end{proof}
+Then, the two cover of $S^n$ are simply $U=S^n-\{x\}$ and
+$V=S^n-\{y\}$, where $x,y$ are two distinct points on $S^n$. Since $U$
+and $V$ are homeomorphic to $\E^n$, $S^n$ is simply-connected.
 
-\subsection{Review}
-\label{sec:Review}
-From last lecture, we have shown:
-\begin{ex}
-    For $n\geq 2$,
-    $$ \pi_1 (S^n) = \{e\} $$
-\end{ex}
-\begin{ex}
-    $$ \pi_1 (\mathbb{R}^n) = \{e\}$$
-\end{ex}
-
+\subsection{Continued Section 5.3}
+\label{sec:Continued-Section-5.3}
+In this section, I will follow the lecture by professor Li Qin.
+We show that
 \begin{thm}
     $$\pi_1 (S^1) = \mathbb{Z} $$
 \end{thm}
@@ -215,6 +300,7 @@ From last lecture, we have shown:
     intervals the map $\pi$ is bijective.
     Now we need a lemma:
     \begin{lemma}[Path-lifting lemma]
+        \label{thm:path-lifting-lemma-1}
         \begin{equation}
             \begin{tikzcd}[]
                 \, & \mathbb{R}\ar[d,"\pi"] \\
@@ -223,14 +309,26 @@ From last lecture, we have shown:
         \end{equation}
         Assuming we have $\pi$ and $\sigma$, both are continuous maps.
         More specifically, $\sigma$ is a path in $S^1$ which begins at the
-        point $1$. Then there is a unique path $\tilde\sigma$ in
-        $\mathbb{R}$ which begins at $0$ and satisfies $\pi\circ
+        point $1\in S^1$. Then there is a unique path $\tilde\sigma$ in
+        $\mathbb{R}$ which begins at $0\in \R$ and satisfies $\pi\circ
         \tilde\sigma = \sigma$.
     \end{lemma}
     \begin{proof}
-        By Lebesgue lemma, we can divide the interval $[0,1]$ fine enough
-        such that each part  is maped to only one of the cover $U$ or $V$.
-        We thus break a path % TODO
+        The proof is on page 97 to 98 of \cite{book}. The class gives
+        me enough intuition to understand the proof.
+
+        The intuition is that, by Lebesgue lemma, we can divide the
+        interval $[0,1]$ fine enough such that each divided part  is
+        maped to only one of the cover $U$ or $V$.  We thus break a
+        path $\sigma$ into small paths $\sigma_i$. Each $\sigma_i$ can
+        be lifted into a path $\tilde\sigma_i$ in $\R$. But such
+        lifting can be arbitrary because the inverse of $\pi$ is not a
+        good function. To resolve this ambiguity, one requires the
+        first path should starts with $0\in\R$, and the second should
+        be continuously connected to the first, and so is the third,
+        fourth, etc. This fixes the ambiguity and the paths
+        $\tilde\sigma_i$ when connected give the required path
+        $\tilde\sigma$.
     \end{proof}
     Note that $\tilde\sigma(0)=0$, $\tilde\sigma(1)$ is an integer.
     Now for any loop $\gamma:[0,1]\to S^1$ based at $1$, we can find a
@@ -239,38 +337,41 @@ From last lecture, we have shown:
     \tilde\gamma$. Then $\tilde\gamma \cong \gamma_n$ rel $\{0,1\}$,
     also $\braket{\pi\circ\tilde\gamma}=\braket{\pi\circ\gamma_n}$.
     Hence for any path $\gamma$ we find a $n$ such that
-    $\gamma=\phi(n)$. So the map is surjective.
+    $\gamma=\phi(n)$. So \textit{the map is surjective}.
+
+
 
     We need another lemma to prove that it is injective.
     \begin{lemma}[Homotopy-lifting lemma]
         If $F:[0,1]\times[0,1]\to S^1$ is a map such that
         $F(0,t)=F(1,t)=1$ for $0\leq t\leq 1$, then there exists a
-        unique $\tilde F: [0,1]\times[0,1]\to \mathbb{R}$ such that
+        unique $\widetilde F: [0,1]\times[0,1]\to \mathbb{R}$ such that
         \begin{align}
-            \pi\circ \tilde F = F \\
-            \tilde F(0,t) =0,\, 0\leq t\leq 1
+            \pi\circ \widetilde F = F \\
+            \widetilde F(0,t) =0,\, 0\leq t\leq 1
         \end{align}
     \end{lemma}
-    % TODO Graph here.
+    % TODO Graph here. DC 1
     \begin{proof}
-        We need the Lebesgue lemma. Let $S^1=U\cup V$ as before.
+        The proof is on page 98 of \cite{book}. The idea is exactly
+        the same as in lemma~\ref{thm:path-lifting-lemma-1}.
     \end{proof}
     Now we proof that the map $\phi$ is injective. Suffice to prove
     that $\Ker(\phi)$ is trivial. Suppose $\phi(n)=\pi\circ \gamma_n$
     is homotopic to the constant loop. Then choose a homotopy $F$
     from $\pi\circ\gamma_n$ to the constant loop. By the
-    homotopy-lifting lemma we can find $\tilde F: [0,1]\times[0,1]\to
-    \mathbb{R}$ such that $\pi\circ \tilde F = F$. Also $\tilde
-    F(0,t)=0$.
-    % TODO  We can find the vertical bottom is 0 and verticl height is
-    % gamma_n. Right line is integers and can only be 0 Hence gamma_n
-    % starts at 0 and ends at 0
+    homotopy-lifting lemma we can find $\widetilde F: [0,1]\times[0,1]\to
+    \mathbb{R}$ such that $\pi\circ \widetilde F = F$. Also
+    $\widetilde F(0,t)=0$.
+    We can find the vertical bottom is $0$ and verticl top is
+    $\gamma_n$. Right line is integers and can only be $0$ Hence
+    $\gamma_n$ starts at $0$ and ends at $0$.
     One can find that $\gamma_n\cong 0$. This completes the proof of
     injectivity. Hence completes the whole proof.
 \end{proof}
 
 We have an application,
-\begin{thm}[Brow Fixed Point theorem] % TODO brower? broer?
+\begin{thm}[Brouwer Fixed Point theorem] % TODO brower? broer?
     A contiuous map $f:B^2\to B^2$ ($B^2:2D$-closed dicks) must have a
 fixed point. That is, $\exists x\in B^2$ such that $f(x)=x$.
 \end{thm}
@@ -318,7 +419,7 @@ Another application, which we need a theorem to help:
         (\braket{P_1\circ\alpha},\braket{P_2\circ\alpha})
     \end{align*}
     this map is surjective, injective, and is homomorphism.
-    because any %TODO
+    The detail can be found on page page 101 of \cite{book}.
 \end{proof}
 
 \begin{fact}
@@ -327,7 +428,158 @@ homeomorphic, since their fundamental groups are not the same (the
 former is trivial and the later is $\mathbb{Z}\times\mathbb{Z}$).
 \end{fact}
 
-
 % TODO homework: pro 13 of page 95.
 
+\subsection{Homotopy Type}
+\label{sec:Homotopy-Type}
+
+Notice that a homeomorphic map will make two space have the same
+fundamental group, but two space having the same fundamental group may
+not be homeomorphic. For example, the plane and the $S^2$ both have
+the same $\pi_1=\{e\}$, but the plane is not compact while the
+$2$-sphere is, i.e. they are not homeomorphic.
+
+Notice also that homeomorphic requires $fg^{-1}=\id$, whereas under
+homotopic relation, we may require $fg^{-1}\cong\id$. Therefore we may
+also define a new type of relationship between topological spaces:
+
+\begin{defi}[Homotopy type]
+\nomenclature{Homotopy type}{\nomrefpage.}
+    Two spaces $X$ and $Y$ have the same homotopy type, or they are
+    homotopy equivalent, if there exist maps:
+    $$ \begin{tikzcd}[]
+        X\ar[r,"f",bend left] & Y\ar[l,"g",bend left]
+    \end{tikzcd}$$
+    such that $g\circ f\cong \id_X$, and $f\circ g\cong\id_Y$.
+\end{defi}
+\begin{fact}
+This relationship must be an equivalence relation on topological
+spaces, as confirmed by lemma (5.16) on page 103 of \cite{book}.
+\end{fact}
+
+\begin{defi}[Deformation retraction]
+\nomenclature{Deformation retraction}{\nomrefpage.}
+    Let $A$ be a subspace of $X$. Let a homotopy $G:X\times I\to X$ which
+    is relative to $A$ and for which
+    $$ \begin{cases}
+        G(x,0)=x & \\
+        G(x,1)\in A
+    \end{cases}$$
+    for all $x\in X$. Then $G$ will be called a deformation retraction
+    of $X$ onto $A$.
+\end{defi}
+\begin{remark}
+    If there is a deformation retraction of $X$ onto $A$, then of
+    course $X$ and $A$ have the same homotopy type.
+\end{remark}
+Following is an example of a deformation retraction:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pics/deformation-retraction.PNG}
+    \caption{Three Deformation Retractions (from \cite{book})}
+\end{figure}
+
+Exmaples from the book:
+\begin{ex}
+    Homeomorphic spaces have the same homotopy type.
+\end{ex}
+\begin{ex}
+    Any convex subset of a euclidean space is homotopy equivalent to a
+    point.
+\end{ex}
+\begin{ex}
+    $\E^n\setminus \{0\}$ has the homotopy type of $S^{n-1}$. This is
+    shown on page 104 of \cite{book}, and is illustrated there by:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{pics/En-0-and-S-n-1.PNG}
+        \caption{$E^n\setminus\{0\}$ and $S^{n-1}$}
+    \end{figure}
+\end{ex}
+
+\begin{thm}
+    If $f\cong_F g:X\to Y$ then $g_*:\pi_1(X,p)\to \pi_1(Y,g(p))$ is
+    equal to the composition
+    \begin{equation} \begin{tikzcd}[]
+        \pi_1(X,p)\ar[r,"f_*"]&\pi_1(Y,f(p))\ar[r,"\gamma_*"]
+            &\pi_1(Y,g(p))
+    \end{tikzcd} \end{equation}
+    where $\gamma$ is the path joining $f(p)$ to $g(p)$ in $Y$ defined
+    by $\gamma(s)=F(p,s)$.
+\end{thm}
+\begin{proof}
+    Proof can be found on page 105 of \cite{book}.
+\end{proof}
+
+\begin{thm}
+    If two path-connected spaces are of the same homotopy type, then
+    they have isomorphic fundamental group.
+\end{thm}
+\begin{proof}
+    Proof can be found on page 106 of \cite{book}. Here's a note using
+    the notation in that book:
+    $$ \begin{tikzcd}[]
+        X\ar[r,"f",bend left] & Y\ar[l,"g",bend left]
+    \end{tikzcd}$$
+    It should be noticed that the continuity allows one to identify the
+    diagram:
+    $$ \begin{tikzcd}[]
+        \pi_1(X,p)\ar[r,"(gf)_*"]\ar[rr,"\id",bend right]
+            &\pi_1(X,gf(p))\ar[r,"\gamma^{-1}_*"]
+            &\pi_1(X,p)
+    \end{tikzcd} $$
+    with the diagram:
+    $$ \begin{tikzcd}[]
+        \pi_1(X)\ar[r,"(gf)_*"]\ar[rr,"\id",bend right]
+            &\pi_1(X)\ar[r,"\gamma^{-1}_*"]
+            &\pi_1(X)
+    \end{tikzcd} $$
+\end{proof}
+
+\begin{fact}
+Using above fact, we can find that the M\"obius strip, the cylinder,
+the punctured plane $\E^2\setminus\{0\}$, and the solid torus, all
+have the homotopy type of a circle $S^1$, and consequiently have $\Z$
+as fundamental group.
+\end{fact}
+\begin{fact}
+    Also, $\E^n\setminus\{0\}$ deformation-retracts onto $S^{n-1}$ and
+    is therefore a simply connected space when $n\geq 3$.
+\end{fact}
+
+\begin{defi}[Contractible]
+\nomenclature{Contractible}{\nomrefpage.}
+    A space $X$ is called contractible if the identity map $\id_X$ is
+    homotopic to the constant map at some point of $X$.
+\end{defi}
+\begin{thm}$ $
+
+    \begin{enumerate}
+        \item A space is contractible if and only if it has the
+            homotopy type of a point.
+        \item A contractible space is simply connected.
+        \item Any two maps into a contractible space are homotopic.
+        \item If $X$ is contractible, then $\id_X$ is homotopic to the
+            constant map at $x$ for any $x\in X$.
+    \end{enumerate}
+\end{thm}
+\begin{ex}
+    Here is a contractible space that is really hard to imagin. It is
+    called the topologist's dunce hat. It is formed by identifying the
+    sides of a triangle in the manner indicated in the following
+    figure:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\linewidth]{pics/topo-dunce-hat.PNG}
+        \caption{Topologist's dunce hat}
+        \label{fig:topo-d-hat}
+    \end{figure}
+    You may imagin identify a pair of sides, then identify the
+    identitied edge to the resting side. The direction for identifying
+    is really important.
+    This space is contractible. Despite some hard words said by the
+    book, it is really simple to see on figure~\ref{fig:topo-d-hat}.
+    Draw any loop on it and shrink it. Noticing that all edges are
+    identified, though in some odd direction.
+\end{ex}
 
