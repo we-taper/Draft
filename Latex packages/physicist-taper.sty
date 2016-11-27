@@ -23,9 +23,9 @@
 }
 
 % For better tables with automatically wraping
-\usepackage{tabu}
-\usepackage{booktabs}
-\usepackage[table]{xcolor} % For automatically coloring rows.
+\RequirePackage{tabu}
+\RequirePackage{booktabs}
+\RequirePackage[table]{xcolor} % For automatically coloring rows.
 \definecolor{lightblue}{RGB}{217,224,250}
 \definecolor{lightgrey}{RGB}{211,211,211}
 
@@ -34,7 +34,15 @@
 % It can be used as in \multicolumn{n}{p{\getTabuwidth}}, since tabu \
 % does not provide an implementation of \multicolumn{n}{X}
 \newcommand{\getTabuwidth}{\dimexpr2\tabucolX+2\tabcolsep+\arrayrulewidth\relax}
-\usepackage{multirow}
+\RequirePackage{multirow}
+
+% For better fancier quotations
+\RequirePackage{csquotes}
+\RequirePackage[most]{tcolorbox}
+\definecolor{block-gray}{gray}{0.85}
+\newtcolorbox{myquote}{colback=block-gray,grow to right by=-10mm,grow to left by=-10mm,
+boxrule=0pt,boxsep=0pt,breakable}
+
 
 % @2. Mathematical Addons -----------------------------------
 \RequirePackage{amsmath} % For math

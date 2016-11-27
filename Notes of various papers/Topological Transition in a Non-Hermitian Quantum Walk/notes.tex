@@ -14,6 +14,7 @@
 \usepackage[log-declarations=false]{xparse}
 \usepackage{physicist-taper}
 
+
 \makenomenclature % For an index of symbols.
 
 % Show the keys for labels, replace options with "final" when done
@@ -35,6 +36,7 @@ As suggested by the title.
 \tableofcontents
 \section{General}
 \label{sec:General}
+
 This paper discusses in general a model charaterised by the follwoing
 picture
 \begin{figure}[H]
@@ -49,6 +51,62 @@ The equation of motion is
     i\hbar \dot{\psi}^R_m = \tilde{\varepsilon}_R\psi^R_m + v\psi^L_m
     +v'\psi^L_{m-1}
 \end{align}
+
+where
+\begin{equation}
+    \tilde\varepsilon_R = \varepsilon_R - i\hbar \gamma/2
+\end{equation}
+
+\subsection{I can get}
+\label{sec:I-can-get}
+
+\begin{equation}
+    \ket{\psi} = \sum_m \ket{\psi_m^L} + \ket{\psi_m^R}
+\end{equation}
+\begin{equation}
+    \frac{\partial }{\partial t}\braket{\psi|\psi}
+    = -\sum_m \gamma \braket{\psi^R_m|\psi^R_m}
+\end{equation}
+(All leakage from "R" site!)
+(draft page 1 to 2)
+
+\colorbox{red}{Strange:}
+\begin{equation}
+    \sum_m P_m = 1
+\end{equation} (draft page 3)
+\subsection{Result}
+\label{sec:Result}
+
+\begin{myquote} \enquote{
+we find that the average displacement
+of the particle during the course of its decay, $\Delta m =\sum_m mP_m$, 
+is exactly quantized as an integer (0 or 1 unit
+cells), where $P_m$ is the probability distribution for decay from
+different sites.
+
+As in the case of
+the quantum Hall conductance, this quantization results
+from an underlying topological structure; in this case it
+is the winding number of the relative phase between two
+components of the Bloch wave function.
+
+Using the topological origin of this phenomenon, we are able to show
+that the quantization is insensitive to parameters and is
+robust against certain types of noise and decoherence.
+
+The topological transition, which is accompanied by the formation of
+a non-decaying dark state, leads to a prediction of threshold-like
+pumping of nuclear polarization, along with strong suppression of
+current due to the divergence of dwell time at the threshold
+} \end{myquote}
+
+\begin{myquote} \enquote{
+our motivation is to provide a simple
+model of nuclear spin pumping in spin-blockaded double
+quantum dots [9, 10, 11] in the presence of competing
+effects of the hyperfine and spin-orbital interactions, as
+in Ref.[11].
+} \end{myquote}
 \section{Anchor}
 \label{sec:Anchor}
 
