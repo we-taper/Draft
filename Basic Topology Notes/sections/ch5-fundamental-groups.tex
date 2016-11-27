@@ -7,12 +7,19 @@ $\alpha(0)=\alpha(1)$. We can view is also as a continuous map
 $\alpha:S^1 \to X$. It is said to be based at the point
 $\alpha(0)$. Two loops $\alpha$ and $\beta$ with the same \nomen{base
 point} can be multiplied, and their product is defined on page 87.
-A visualization is here:
-% cd 1 todo
-
+A visualization of $\alpha\cdot\beta$ is here:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\linewidth]{pics/multiply-loops.pdf}
+    \caption{Multiply loops}
+\end{figure}
 But this product is not sufficient to become a group. At least, the
 multiplication is not associative:
-% cd 2 todo
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{pics/multiply-loop-not-associative.pdf}
+    \caption{Multiplication of loop is not associative}
+\end{figure}
 
 But clearly the two result are exactly if we do care how long they
 occupy on the interval $I$, if the interval $I$ is considered as a
@@ -20,8 +27,11 @@ time parameter. So we define the following homotopy relation between
 loops. If we can find a family $\{f_r\}$ of maps, one for each $r\in
 [0,1]$, such that $f_0=\alpha$, $f_1=\beta$, then we say that the
 loops $\alpha$ and $\beta$ are homotopic. Schematically,
-% cd 3 todo
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{pics/homotopy-for-loops.pdf}
+    \caption{Homotopy for loops}
+\end{figure}
 This relation can be generalized to any continuous maps:
 \begin{defi}[Homotopic]
 \nomenclature{Homotopic}{\nomrefpage.}
@@ -40,14 +50,20 @@ to $g$ with the additional property that
 \end{equation}
 when such a homotopy exists, we say the \nomen{$f$ is homotopic to $g$
 relative to $A$} and write \nomen{$f\simeq_F g$ rel $A$}.
-% cd 4 todo
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{pics/homotopy-schematic.pdf}
+    \caption{Homotopy Scheme}
+\end{figure}
 
 When $f$ and $g$ are loops, then the homotopic relation for loops are
 just saying that $f\simeq g$ rel $\{0,1\}$.
 
-% fig 5.1 p 88 todo
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{pics/homotopy-for-loops-2.PNG}
+    \caption{Homotopy for loops 2 (pp. 88 of \cite{book})}
+\end{figure}
 \begin{ex}
     The author shows on page 88 of \cite{book} that: when $C$ is a
     convex subset of a euclidean space, let $f,g:X\to C$ be continuous
@@ -68,7 +84,11 @@ just saying that $f\simeq g$ rel $\{0,1\}$.
 \end{ex}
 \begin{ex}
     This is example is best illustrated by pictures:
-    % fig 5.2 todo
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{pics/{loops-to-loops-fig5.2}.PNG}
+        \caption{Loops to loops (pp. 89 of \cite{book})}
+    \end{figure}
     Geometrieally, $\alpha$ winds eaeh of the segments
     $[O,\frac{1}{2}]$, $[\frac{1}{2},\frac{3}{4}]$, $[\frac{3}{4}, 1]$
     once round the eirc1e, the first two being wound in an
@@ -347,11 +367,15 @@ We show that
         $F(0,t)=F(1,t)=1$ for $0\leq t\leq 1$, then there exists a
         unique $\widetilde F: [0,1]\times[0,1]\to \mathbb{R}$ such that
         \begin{align}
-            \pi\circ \widetilde F = F \\
-            \widetilde F(0,t) =0,\, 0\leq t\leq 1
+            \pi\circ \widetilde F &= F \\
+            \widetilde F(0,t) &=0,\, 0\leq t\leq 1
         \end{align}
     \end{lemma}
-    % TODO Graph here. DC 1
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{pics/homotopy-lifting-1.pdf}
+        \caption{Homotopy lifting lemma-1}
+    \end{figure}
     \begin{proof}
         The proof is on page 98 of \cite{book}. The idea is exactly
         the same as in lemma~\ref{thm:path-lifting-lemma-1}.
@@ -364,14 +388,19 @@ We show that
     \mathbb{R}$ such that $\pi\circ \widetilde F = F$. Also
     $\widetilde F(0,t)=0$.
     We can find the vertical bottom is $0$ and verticl top is
-    $\gamma_n$. Right line is integers and can only be $0$ Hence
-    $\gamma_n$ starts at $0$ and ends at $0$.
-    One can find that $\gamma_n\cong 0$. This completes the proof of
-    injectivity. Hence completes the whole proof.
+    $\gamma_n$. Right line is integers and can only be $0$. 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{pics/homotopy-lifting-2.pdf}
+        \caption{Schematic Draft}
+    \end{figure}
+    Hence $\gamma_n$ starts at $0$ and ends at $0$.  One can find that
+    $\gamma_n\cong 0$. This completes the proof of injectivity. Hence
+    completes the whole proof.
 \end{proof}
 
 We have an application,
-\begin{thm}[Brouwer Fixed Point theorem] % TODO brower? broer?
+\begin{thm}[Brouwer Fixed Point theorem]
     A contiuous map $f:B^2\to B^2$ ($B^2:2D$-closed dicks) must have a
 fixed point. That is, $\exists x\in B^2$ such that $f(x)=x$.
 \end{thm}
@@ -383,7 +412,7 @@ fixed point. That is, $\exists x\in B^2$ such that $f(x)=x$.
     $h|_{S^1}$ is obvious an identity map. But $S^1$ can be included
     inside $B^2$, so we have:
     \begin{equation}
-        S^1 \to B^2 \to S^1 % TODO add function labels
+        S^1 \to B^2 \to S^1
     \end{equation}
     Hence we have a series of homomorphism of fundamental groups:
     \begin{equation}
@@ -391,7 +420,9 @@ fixed point. That is, $\exists x\in B^2$ such that $f(x)=x$.
     \end{equation}
     and the composite is identity map. But observe that $B^2$ is a
     convex set and hence its fundamental group is trivial. But $S^1$
-    has non-trivial fundamental group.
+    has non-trivial fundamental group. It is then impossible to form
+    such a chain of homomorphism whose product is identity map.
+    Contradiction!
 \end{proof}
 \begin{remark}
     This theorem can be extended to higher dimensional case. But the
