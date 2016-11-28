@@ -80,7 +80,9 @@ just saying that $f\simeq g$ rel $\{0,1\}$.
     \begin{equation}
         F(x,t) = \frac{(1-t)f(x)+tg(x)}{||(1-t)f(x)+tg(x)||}
     \end{equation}
-    But why we are  % yes why! TODO
+    Notice that the ball $B^{n+1}$ is a convex set, so the numerator
+    lies inside the ball. When normalized (as in $F(x,t)$), the
+    numerator is a point on the sphere.
 \end{ex}
 \begin{ex}
     This is example is best illustrated by pictures:
@@ -487,7 +489,15 @@ also define a new type of relationship between topological spaces:
 This relationship must be an equivalence relation on topological
 spaces, as confirmed by lemma (5.16) on page 103 of \cite{book}.
 \end{fact}
-
+\begin{remark}
+    The topological spaces $X$ and $Y$ are not necessarily
+    path-connected! But we have:
+\end{remark}
+\begin{fact}
+    If $X$ and $Y$ have the same homotopy type then $X$ is
+    path-connected if and only if $Y$ is path-connected. (This is
+    noted in a footnote on page 107 of \cite{book}.)
+\end{fact}
 \begin{defi}[Deformation retraction]
 \nomenclature{Deformation retraction}{\nomrefpage.}
     Let $A$ be a subspace of $X$. Let a homotopy $G:X\times I\to X$ which
@@ -543,7 +553,7 @@ Exmaples from the book:
 \end{proof}
 
 \begin{thm}
-    If two path-connected spaces are of the same homotopy type, then
+    If two \hl{path-connected} spaces are of the same homotopy type, then
     they have isomorphic fundamental group.
 \end{thm}
 \begin{proof}
@@ -568,7 +578,7 @@ Exmaples from the book:
 \end{proof}
 
 \begin{fact}
-Using above fact, we can find that the M\"obius strip, the cylinder,
+Using the above fact, we can find that the M\"obius strip, the cylinder,
 the punctured plane $\E^2\setminus\{0\}$, and the solid torus, all
 have the homotopy type of a circle $S^1$, and consequiently have $\Z$
 as fundamental group.
@@ -595,7 +605,7 @@ as fundamental group.
     \end{enumerate}
 \end{thm}
 \begin{ex}
-    Here is a contractible space that is really hard to imagin. It is
+    Here is a contractible space that is really hard to imagine. It is
     called the topologist's dunce hat. It is formed by identifying the
     sides of a triangle in the manner indicated in the following
     figure:
@@ -605,7 +615,7 @@ as fundamental group.
         \caption{Topologist's dunce hat}
         \label{fig:topo-d-hat}
     \end{figure}
-    You may imagin identify a pair of sides, then identify the
+    You may imagine identifying a pair of sides, then identify the
     identitied edge to the resting side. The direction for identifying
     is really important.
     This space is contractible. Despite some hard words said by the
@@ -614,3 +624,51 @@ as fundamental group.
     identified, though in some odd direction.
 \end{ex}
 
+\begin{remark}
+    An identity function $\id_X$ on a contractible space $X$
+    is homotopic to constant function $\id_p$ on a point $p\in X$. But
+    this homotopy may not keep the point $p$ fixed. That is, we do not
+    necessarily have $\id_X\cong\id_p$~rel $p$.
+
+    An example on page l08 of \cite{book}. In a space called
+    the topologist's comb:
+    \begin{align*}
+        K &= \{\frac{1}{n}|n\in\N\setminus\{0\}\} \\
+        \text{comb space}&=(\{0\} \times [0,1] ) \cup (K \times [0,1]) \cup ([0,1] \times \{0\})
+    \end{align*}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{pics/comb-space.PNG}
+        \caption{Topologist's Comb (from Wikipedia)}
+    \end{figure}
+    We cannot continuously defrom the identity function $\id_X$ to the
+    constant function on $p=(0,1)$. Intuitively, there are infinite
+    points around $p$ that are infinitesimally close to it. But the
+    identity function must shrink from all these infinite points to
+    the base line $[0,1]$ without afftecting the value on $p$. This
+    sounds unlikely.
+
+    Analytically, the argument is provided by
+    \href{http://math.stackexchange.com/users/172604/pedro}{Pedro} in
+    his Math.SE
+    \href{http://math.stackexchange.com/a/952989/184811}{post}:
+
+    \begin{myquote} \enquote{
+        \textbf{Idea:} Take the sequence $x_n=(\frac{1}{n},1)$, it
+        converges to $x_0$. If existed such homotopy $H(x,t)$ then the
+        sequences $H(x_{n},t)$ would still converge to $x_{0}$.
+
+        You have for each neighborhood $U$ of $x_0$ a number
+        $N_{(U,t)}$ and $\epsilon_{(U,t)}$ such that $H(x_n,s)\in U$
+        for $n>N_{(U,t)}$ and $|t-s|<\epsilon_{(U,t)}$.
+
+        Covering the interval $I$ with
+        $(t-\epsilon_{(U,t)},t+\epsilon_{(U,t)})$ and taking a finite
+        subcover you obtain a number $N$ such that $H(x_n,t)\in U$ for
+        any $n>N$ and $t\in[0,1]$.
+
+        Now you can use disconnectedness of a small neighborhood to
+        show that the homotopy can't take the elements of the sequence
+        to $x_0$. 
+    } \end{myquote}
+\end{remark}
