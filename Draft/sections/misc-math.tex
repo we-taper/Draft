@@ -247,3 +247,16 @@ Here I prove a simple fact that:
 
     In my notation, it maps $x^n\to A^m_n x^m$, or $x_n\to A^m_n x_m$.
     (My notation is non-standard, but I think it expresses the idea).
+
+\subsection{Matrix Exponentials}
+\label{sec:Matrix-Exponentials}
+I found these formulae from Wikipedia page:
+\href{https://en.wikipedia.org/wiki/Baker%E2%80%93Campbell%E2%80%93Hausdorff_formula}{Baker–Campbell–Hausdorff formula}.
+\paragraph{The Zassenhaus formula}
+\begin{align}
+    e^{t(X+Y)} &= e^{tX}~ e^{tY} ~e^{-\frac{t^2}{2} [X,Y]} ~
+    e^{\frac{t^3}{6}(2[Y,[X,Y]]+ [X,[X,Y]] )} \nonumber\\
+    & \times
+      e^{\frac{-t^4}{24}([[[X,Y],X],X] + 3[[[X,Y],X],Y] + 3[[[X,Y],Y],Y]) }
+    \times\cdots
+\end{align}
