@@ -1,0 +1,123 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physicist-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physicist-taper}
+
+\title{Solution for HW7}
+\date{\today}
+\author{Taper}
+
+\begin{document}
+
+\maketitle
+\abstract{
+\begin{CJK}{UTF8}{gbsn}陈鸿翔（11310075）\end{CJK}
+}
+%\tableofcontents
+\section{Prove}
+\label{sec:Prove}
+$$  [x,p^n] = in\hbar p^{n-1} $$
+
+\begin{proof}
+    \begin{align*}
+        [x,p^n] &= p[x,p^{n-1}] + [x,p]p^{n-1} 
+            = p[x,p^{n-1}]+i\hbar p^{n-1} \\
+        &= p[x,p^{n-2}]+ i\hbar p^{n-1} + i\hbar p^{n-1} \\
+        &\cdots \\
+        &= ni\hbar p^{n-1}
+    \end{align*}
+\end{proof}
+$$ [p,x^n] = -in\hbar x^{n-1} $$
+\begin{proof}
+\begin{align*}
+    [p,x^n] &= x[p,x^{n-1}] + [p,x]x^{n-1} = x[p,x^{n-1}]  -i\hbar x^{n-1}
+    \\
+    &= x[p,x^{n-1}] -i\hbar x^{n-1} - i\hbar x^{n-1} \\
+    &\cdots \\
+    &= -in\hbar x^{n-1}
+\end{align*}
+\end{proof}
+
+$$ [x,f(p)] = i\hbar \frac{\partial f(p)}{\partial p} $$
+\begin{proof}
+    Any smooth function of $p$ can be taylor-expanded into a series of
+    the form $\sum_n c_n p^n$, since the commutator is linear and 
+    $[x,p^n]=i\hbar np^{n-1}$, one see the result will be of the form
+    $i\hbar \sum_n c_{n} n p^{n-1}$, which is exactly the expansion of
+    the taylor expansion of $\frac{\partial f(p)}{\partial p}$. This
+    observation concludes the proof.
+\end{proof}
+
+$$ [p,g(x)] = -i\hbar \frac{\partial f(x)}{\partial x} $$
+
+\begin{proof}
+    The proof is exactly the same of the one above, if one do a
+    transformation $x\to p$, $p\to x$, and $i\to -i$.
+\end{proof}
+
+\section*{Problem 2}
+\label{sec:Problem 2}
+\begin{align}
+    A=\left( \begin{array}{ccc}
+         a & 0 & 0 \\
+         0 & -a & 0 \\
+         0 & 0 & -a \\
+    \end{array} \right), B=\left( \begin{array}{ccc}
+                             b & 0 & 0 \\
+                             0 & 0 & \text{ib} \\
+                             0 & -\text{ib} & 0 \\
+                        \end{array} \right)
+\end{align}
+The eigenvalues of $A$ are obviously $a,-a,-a$. The eigenvalues of $B$
+is found by characteristic equations $\mathrm{Det}(B-\lambda \id)=0$ to be
+$\{-b,b,b\}$. So $B$'s spectrum is degenerate too.
+
+It can be found that
+\begin{equation*}
+    AB = \left( \begin{array}{ccc}
+         a b & 0 & 0 \\
+         0 & 0 & -i a b \\
+         0 & i a b & 0 \\
+        \end{array} \right), \\
+    BA = \left( \begin{array}{ccc}
+         a b & 0 & 0 \\
+         0 & 0 & -i a b \\
+         0 & i a b & 0 \\
+        \end{array} \right), \\
+\end{equation*}
+
+The eigenvectors of $A$ are easy to guess, they are
+just the three natural basis $\{e_1,e_2,e_3\}$. 
+
+It is easy to find (by solving $BX=\lambda_i X$) $B$'s eigenvectors:
+$$
+\begin{pmatrix}
+    1\\ 0\\ 0
+\end{pmatrix}
+\begin{pmatrix}
+    0\\ -i\\ 1
+\end{pmatrix}
+\begin{pmatrix}
+    0\\ i\\ 1
+\end{pmatrix}
+$$
+Since both are degenerate, we can linearly combine the degenerate
+eigenvectors of $A$ to form that of $B$, but since $A$'s eigenvectors
+are natural basis, and in the only non-degenerate case, the two matrix
+share the same eigenvector (notice also that those degenerate
+eigenvectors of $B$ does not "mess up" with the non-degenerate
+eigenvector). So we do not have to do anything and those
+$B$'s eigenvectors will also diagolize $A$. They are the required
+eigenvectors.
+\end{document}
