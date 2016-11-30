@@ -1,0 +1,156 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physicist-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physicist-taper}
+
+\title{Solution for HW8}
+\date{\today}
+\author{Taper}
+
+\begin{document}
+
+\maketitle
+\abstract{
+\begin{CJK}{UTF8}{gbsn}陈鸿翔（11310075）\end{CJK}
+}
+%\tableofcontents
+\section*{Problem 1}
+Observe that the matrix
+$$ \begin{pmatrix}
+    1 & 1 \\
+    1 & -1 
+\end{pmatrix}$$
+Has eigenvalues $\{-\sqrt{2},\sqrt{2}\}$, and eigenvectors
+$$
+\begin{pmatrix}
+    1-\sqrt{2}\\ 1
+\end{pmatrix},\quad \begin{pmatrix}
+                        1+\sqrt{2}\\ 1
+                    \end{pmatrix}
+$$
+So the eigenvalues and eigenvectors of $H$ are
+\begin{align}
+    & E_+=-\sqrt{2}a,\quad
+    &\ket{E_+}=\frac{1}{\sqrt{4-2\sqrt{2}}}\left[
+        (1-\sqrt{2})\ket{1} + \ket{2} \right] \\
+    & E_-=\sqrt{2}a,\quad
+    &\ket{E_-}=\frac{1}{\sqrt{4+2\sqrt{2}}}\left[
+        (1+\sqrt{2})\ket{1} + \ket{2} \right]
+\end{align}
+
+\section*{Problem 2}
+\begin{proof}
+
+Write them using Pauli matrices:
+$$
+S_x = \frac{\hbar}{2} \sigma_x,\, S_y =\frac{\hbar}{2} \sigma_y,
+\, S_y = \frac{\hbar}{2}\sigma_z $$
+
+So we have
+$$[S_i,S_j] = \frac{\hbar^2}{4}[\sigma_i,\sigma_j]$$
+$$\{S_i,S_j\} = \frac{\hbar^2}{4}\{\sigma_i,\sigma_j\}$$
+Now let's calculate:
+\begin{table}[H]
+    \centering
+    \begin{tabu}{c c c c}
+        $i$ & $j$ & $[\sigma_i,\sigma_j]$ & $\{\sigma_i,\sigma_j\}$ \\
+        \hline
+        $x$ & $x$ & 0 & $ \begin{pmatrix}
+                            2 & 0 \\ 0 & 2
+                            \end{pmatrix}=2\id $ \\
+        $y$ & $y$ & 0 & $ \begin{pmatrix}
+                            2 & 0 \\ 0 & 2
+                            \end{pmatrix}=2\id $ \\
+        $z$ & $z$ & 0 & $ \begin{pmatrix}
+                            2 & 0 \\ 0 & 2
+                            \end{pmatrix}=2\id $ \\
+        $x$ & $y$ & $ \begin{pmatrix}
+                            2i & 0 \\ 0 & -2i
+                      \end{pmatrix}=2i\sigma_z$ 
+            & $ \begin{pmatrix}
+                0 & 0 \\ 0 & 0
+            \end{pmatrix} $ \\
+        $z$ & $x$ & $ \begin{pmatrix}
+                            0 & 2 \\ -2 & 0
+                      \end{pmatrix}=2i\sigma_y$ 
+            & $ \begin{pmatrix}
+                0 & 0 \\ 0 & 0
+            \end{pmatrix} $ \\
+        $y$ & $x$ & $ \begin{pmatrix}
+                            0 & 2i \\ 2i & 0
+                      \end{pmatrix}=2i\sigma_z$ 
+            & $ \begin{pmatrix}
+                0 & 0 \\ 0 & 0
+            \end{pmatrix} $ \\
+            \hline
+    \end{tabu}
+\end{table}
+% note: tedious calculation performed by the following Mathematica Code:
+%   \begin{lstlisting}[language=matlab]
+%       i := 2
+%       j := 3
+%       PauliMatrix[i] // MatrixForm 
+%       PauliMatrix[j] // MatrixForm
+%       PauliMatrix[i].PauliMatrix[j] - 
+%       PauliMatrix[j].PauliMatrix[i] // MatrixForm
+%       PauliMatrix[i].PauliMatrix[j] + 
+%       PauliMatrix[j].PauliMatrix[i] // MatrixForm
+%   \end{lstlisting}
+The rest can be calculated using simple rules like $[A,B]=-[B,A]$ and
+$\{A,B\}=\{B,A\}$. The above table tells us the relation
+$[\sigma_i,\sigma_j]=2i\varepsilon_{ijk}\sigma_k$,
+$\{\sigma_i,\sigma_j\}=2\delta_{ij}$. Hence
+$$[S_i,S_j]=\frac{\hbar^2}{2}i\varepsilon_{ijk}\sigma_k=
+i\hbar\varepsilon_{ijk}S_k$$
+$$\{S_i,S_j\}=\frac{\hbar^2}{2}\delta_{ij}=i\hbar\delta_{ij}$$
+\end{proof}
+
+\section*{Problem 3}
+The Heisenberg equation
+\begin{equation*}
+    i\hbar \frac{\dd }{\dd t}A(t) = [A(t),H(t)]
+\end{equation*}
+tells us that
+\begin{align*}
+    &i\hbar \frac{\dd}{\dd t} S_x(t) = [S_x(t),\omega S_z]
+    = -\omega i\hbar S_y \\
+    &i\hbar \frac{\dd}{\dd t} S_y(t) = [S_y(t),\omega S_z]
+    = \omega i\hbar S_x \\
+    &i\hbar \frac{\dd}{\dd t} S_z(t) = [S_z(t),\omega S_z] = 0 \\
+\end{align*}
+Next
+\begin{align*}
+    &\frac{\dd^2}{\dd t^2}S_x(t) = -\omega (\omega S_x) \\
+    &\frac{\dd^2}{\dd t^2}S_y(t) = \omega (-\omega S_y)
+\end{align*}
+One see that the solution of $S_x$ and $S_y$ is inextricably related.
+Then we fix $S_x$ first.
+\begin{align}
+    &S_x = A e^{i\omega t} + Be^{-i\omega t} \\
+    &S_x(0) = A+B \nonumber\\
+    &\frac{\dd}{\dd t}S_x(0) = -\omega S_y(0) = Ai\omega- Bi\omega
+    \nonumber\\
+    \Rightarrow
+    &A = \frac{1}{2}(S_x(0)+iS_y(0)),\quad B=\frac{1}{2}(S_x(0)-iS_y(0))
+\end{align}
+Similary, we have
+\begin{align}
+    &S_y = C e^{i\omega t} + De^{-i\omega t} \nonumber\\
+    &C = \frac{1}{2}(S_y(0)-iS_x(0)),\quad B=\frac{1}{2}(S_y(0)+iS_x(0))
+\end{align}
+The rest is 
+\begin{equation}
+S_z(t)=S_z(0)
+\end{equation}
+\end{document}
