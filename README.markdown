@@ -97,9 +97,10 @@ This is intended for storing my drafts of my works. It is messy and will never b
     that I got from Fei Ye's lecture, which is certainly not contained
     in the textbook.
 
-11. Matlab Home
-    
-    Here stores all sorts of small self-written scripts for Matlab program.
+11. Programs 
+
+    Here store various small programs/scripts for expedate calculation
+    using computer's power.
 
 12. Notes for Advanced Quantum Mechanics
 

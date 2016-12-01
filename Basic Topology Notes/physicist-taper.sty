@@ -43,6 +43,9 @@
 \newtcolorbox{myquote}{colback=block-gray,grow to right by=-10mm,grow to left by=-10mm,
 boxrule=0pt,boxsep=0pt,breakable}
 
+% For including codes in LaTeX
+\RequirePackage{listings}
+
 
 % @2. Mathematical Addons -----------------------------------
 \RequirePackage{amsmath} % For math
@@ -59,7 +62,7 @@ boxrule=0pt,boxsep=0pt,breakable}
 \DeclareDocumentCommand\id{}{\mathds{1}}
 \DeclareDocumentCommand\Tr{}{\operatorname{Tr}}
 \DeclareDocumentCommand\det{}{\operatorname{det}}
-
+\DeclareDocumentCommand\dim{}{\operatorname{dim}}
 % For common sets
 \DeclareDocumentCommand\Q{}{\mathbb{Q}} % Set of rational numbers
 \DeclareDocumentCommand\N{}{\mathbb{N}} % Set of Natural numbers
