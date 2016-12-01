@@ -1,0 +1,566 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     18111,        557]
+NotebookOptionsPosition[     16703,        506]
+NotebookOutlinePosition[     17049,        521]
+CellTagsIndexPosition[     17006,        518]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+  "A", " ", "program", " ", "designed", " ", "to", " ", "illustrate", " ", 
+   "how", " ", "to", " ", "decompose", " ", "any", " ", "matrix", " ", "of", 
+   " ", "2", "x2", " ", "into", " ", "Pauli", " ", 
+   RowBox[{"matrices", "."}]}], "Section"]], "Input",
+ CellChangeTimes->{{3.6893295248842144`*^9, 3.6893295248842144`*^9}, {
+  3.6894576859300447`*^9, 3.6894576907539806`*^9}},
+ EmphasizeSyntaxErrors->True],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{"Author", ":", " ", 
+   RowBox[{"we", ".", "taper"}]}], "Subsection"], "\n", 
+ StyleBox[
+  RowBox[{
+   RowBox[{"Date", ":", 
+    RowBox[{"Nov", " ", "28"}]}], ",", " ", "2016"}], "Subsection"]}], "Input",
+ CellChangeTimes->{{3.6893295695511217`*^9, 3.689329599148652*^9}},
+ EmphasizeSyntaxErrors->True],
+
+Cell[BoxData[
+ RowBox[{"Author", ":", 
+  RowBox[{"we", ".", "taper"}]}]], "Output",
+ CellChangeTimes->{3.6893306608597927`*^9, 3.689330786212825*^9}]
+}, Open  ]],
+
+Cell["The Pauli Matrices are:", "Text",
+ CellChangeTimes->{{3.666248731608412*^9, 3.666248761560072*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"PauliMatrix", "[", "k", "]"}], "//", "MatrixForm"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"k", ",", "4"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.6662484648311076`*^9, {3.666248652148038*^9, 3.6662486523041363`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"0", "1"},
+       {"1", "0"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+        "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]], ",", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"0", 
+        RowBox[{"-", "\[ImaginaryI]"}]},
+       {"\[ImaginaryI]", "0"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+        "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]], ",", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"1", "0"},
+       {"0", 
+        RowBox[{"-", "1"}]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+        "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]], ",", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"1", "0"},
+       {"0", "1"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+        "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.666232324376193*^9, 3.6662451671046867`*^9, 3.6662458357425175`*^9, 
+   3.666246316860362*^9, 3.666246400156226*^9, 3.6662486534399447`*^9, 
+   3.6662507868345575`*^9, 3.6662510442104735`*^9, 3.6663003430328455`*^9, 
+   3.666301517585189*^9, 3.6663015766555862`*^9, 3.666301728399356*^9, 
+   3.666305753001334*^9, 3.666305815423272*^9, 3.6663059690376463`*^9, 
+   3.666306024263242*^9, 3.666306067205099*^9, 3.666306395432143*^9, 
+   3.666953211084624*^9, {3.666953249390477*^9, 3.666953271900414*^9}, 
+   3.667119999165459*^9, 3.6893294713759937`*^9, 3.6893306609444294`*^9, 
+   3.689330786297186*^9}]
+}, Open  ]],
+
+Cell["\<\
+I will convert every 2x2 matrix into a 4x1 vector. For example PauliMatrix[1] \
+is converted into:\
+\>", "Text",
+ CellChangeTimes->{{3.689329934757468*^9, 3.689329981368966*^9}, {
+  3.689330017512151*^9, 3.689330017559167*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Flatten", "[", 
+   RowBox[{"PauliMatrix", "[", "2", "]"}], "]"}], "//", 
+  "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.689329999099619*^9, 3.6893300132481604`*^9}, {
+  3.6893312888647904`*^9, 3.6893312890136228`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", 
+   TagBox[GridBox[{
+      {"0"},
+      {
+       RowBox[{"-", "\[ImaginaryI]"}]},
+      {"\[ImaginaryI]"},
+      {"0"}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}},
+        "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Column], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.6893300144475284`*^9, 3.6893306609600554`*^9, 
+  3.6893307863128104`*^9, 3.689331289828996*^9}]
+}, Open  ]],
+
+Cell["\<\
+Collecting all such vectors together gives us (be careful that the fourth \
+element is the identity matrix):\
+\>", "Text",
+ CellChangeTimes->{{3.6893300313083553`*^9, 3.689330036569039*^9}, {
+  3.6893301170103073`*^9, 3.6893301358684397`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"transformationM", ":=", 
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"0", "0", "1", "1"},
+     {"1", 
+      RowBox[{"-", "\[ImaginaryI]"}], "0", "0"},
+     {"1", "\[ImaginaryI]", "0", "0"},
+     {"0", "0", 
+      RowBox[{"-", "1"}], "1"}
+    }], "\[NoBreak]", ")"}]}]], "Input",
+ CellChangeTimes->{{3.6893300865579033`*^9, 3.689330106690472*^9}}],
+
+Cell["Then any 4x4 matrice:", "Text",
+ CellChangeTimes->{{3.6893301786267653`*^9, 3.689330184158933*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"inputMatrix", "=", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"El", 
+        RowBox[{"v", "+", 
+         RowBox[{"vv", "*", 
+          SuperscriptBox["\[ExponentialE]", 
+           RowBox[{"\[ImaginaryI]", "*", "k"}]]}]}]},
+       {
+        RowBox[{"v", "+", 
+         RowBox[{"vv", "*", 
+          SuperscriptBox["\[ExponentialE]", 
+           RowBox[{
+            RowBox[{"-", "\[ImaginaryI]"}], "*", "k"}]]}]}], 
+        RowBox[{"Er", "-", 
+         RowBox[{"\[ImaginaryI]\[HBar]\[Gamma]", "/", "2"}]}]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+        "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6893301958929906`*^9, 3.6893302083681245`*^9}}],
+
+Cell["\<\
+can be expanded into a linear combination of Pauli matrices. The procedure is \
+displayed below.
+First convert the inputed matrix into vector form:\
+\>", "Text",
+ CellChangeTimes->{{3.6893302175872235`*^9, 3.689330234285678*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"inputVector", ":=", 
+   RowBox[{"Flatten", "[", "inputMatrix", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"inputVector", "//", "MatrixForm"}]}], "Input",
+ CellChangeTimes->{{3.6893307015260887`*^9, 3.689330704925268*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", 
+   TagBox[GridBox[{
+      {"El"},
+      {
+       RowBox[{"v", "+", 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{"\[ImaginaryI]", " ", "k"}]], " ", "vv"}]}]},
+      {
+       RowBox[{"v", "+", 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{
+           RowBox[{"-", "\[ImaginaryI]"}], " ", "k"}]], " ", "vv"}]}]},
+      {
+       RowBox[{"Er", "-", 
+        FractionBox["\[ImaginaryI]\[HBar]\[Gamma]", "2"]}]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}},
+        "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Column], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{
+  3.689330245440111*^9, 3.6893306610069304`*^9, {3.689330781133565*^9, 
+   3.689330786350569*^9}}]
+}, Open  ]],
+
+Cell["\<\
+Then calculate the coefficient for new basis (consisting of Kronecker \
+products of Pauli Matrices) by standard procedure in Linear Algebra:\
+\>", "Text",
+ CellChangeTimes->{{3.68933025454629*^9, 3.689330258945283*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"cof", "=", 
+    RowBox[{
+     RowBox[{"Inverse", "[", "transformationM", "]"}], ".", "inputVector"}]}],
+    ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Show", " ", "you", " ", "the", " ", 
+    RowBox[{"answer", ":"}]}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FullSimplify", "[", "cof", "]"}], " ", "//", 
+  "MatrixForm"}]}], "Input",
+ CellChangeTimes->{{3.689330274789151*^9, 3.689330275242079*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", 
+   TagBox[GridBox[{
+      {
+       RowBox[{"v", "+", 
+        RowBox[{"vv", " ", 
+         RowBox[{"Cos", "[", "k", "]"}]}]}]},
+      {
+       RowBox[{
+        RowBox[{"-", "vv"}], " ", 
+        RowBox[{"Sin", "[", "k", "]"}]}]},
+      {
+       RowBox[{
+        FractionBox["1", "4"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", " ", "El"}], "-", 
+          RowBox[{"2", " ", "Er"}], "+", "\[ImaginaryI]\[HBar]\[Gamma]"}], 
+         ")"}]}]},
+      {
+       RowBox[{
+        FractionBox[
+         RowBox[{"El", "+", "Er"}], "2"], "-", 
+        FractionBox["\[ImaginaryI]\[HBar]\[Gamma]", "4"]}]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}},
+        "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Column], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.6893302770203314`*^9, 3.689330661106739*^9, 
+  3.689330786466504*^9}]
+}, Open  ]],
+
+Cell["Let\[CloseCurlyQuote]s check the validity of such procedure:", "Text",
+ CellChangeTimes->{{3.689330390489916*^9, 3.6893303938868127`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"checkThis", "=", 
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {"0", "0"},
+      {"0", "0"}
+     }], "\[NoBreak]", ")"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+  "Print", "[", 
+   "\"\<The following expression compute \
+\!\(\*OverscriptBox[UnderscriptBox[\(\[CapitalSigma]\), \(i = 1\)], \
+\(4\)]\)\!\(\*SubscriptBox[\(cof\), \(i\)]\)*(corresponding matrix in Pauli \
+Matrices)=\>\"", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Do", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"checkThis", "=", 
+      RowBox[{"checkThis", "+", 
+       RowBox[{
+        RowBox[{"cof", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], "*", 
+        RowBox[{"PauliMatrix", "[", "i", "]"}]}]}]}], ";"}], 
+    "\[IndentingNewLine]", ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", "4", ",", "1"}], "}"}]}], 
+   "\[IndentingNewLine]", "]"}], " ", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"checkAgain", " ", "=", " ", 
+     RowBox[{"checkAgain", "+", 
+      RowBox[{
+       RowBox[{"cof", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], "*", 
+       RowBox[{"\[Sigma]", "[", 
+        RowBox[{"[", 
+         RowBox[{"1", ",", "1"}], "]"}], "]"}]}]}]}], ";"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FullSimplify", "[", "checkThis", "]"}], "//", 
+  "MatrixForm"}]}], "Input",
+ CellChangeTimes->{{3.689330416301242*^9, 3.689330431380763*^9}, {
+  3.68933049344779*^9, 3.689330498085405*^9}, {3.6893305596089497`*^9, 
+  3.6893306236097918`*^9}}],
+
+Cell[BoxData["\<\"The following expression compute \
+\\!\\(\\*OverscriptBox[UnderscriptBox[\\(\[CapitalSigma]\\), \\(i = 1\\)], \
+\\(4\\)]\\)\\!\\(\\*SubscriptBox[\\(cof\\), \\(i\\)]\\)*(corresponding matrix \
+in Pauli Matrices)=\"\>"], "Print",
+ CellChangeTimes->{{3.6893306323492107`*^9, 3.6893306611258554`*^9}, 
+   3.689330786482113*^9}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"El", 
+      RowBox[{"v", "+", 
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"\[ImaginaryI]", " ", "k"}]], " ", "vv"}]}]},
+     {
+      RowBox[{"v", "+", 
+       RowBox[{
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          RowBox[{"-", "\[ImaginaryI]"}], " ", "k"}]], " ", "vv"}]}], 
+      RowBox[{"Er", "-", 
+       FractionBox["\[ImaginaryI]\[HBar]\[Gamma]", "2"]}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.6893306323648195`*^9, 3.6893306611606445`*^9}, 
+   3.689330786528989*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FullSimplify", "[", 
+   RowBox[{"Flatten", "[", "checkThis", "]"}], "]"}], "//", 
+  "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.689330918015027*^9, 3.6893309444915676`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", 
+   TagBox[GridBox[{
+      {"El"},
+      {
+       RowBox[{"v", "+", 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{"\[ImaginaryI]", " ", "k"}]], " ", "vv"}]}]},
+      {
+       RowBox[{"v", "+", 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{
+           RowBox[{"-", "\[ImaginaryI]"}], " ", "k"}]], " ", "vv"}]}]},
+      {
+       RowBox[{"Er", "-", 
+        FractionBox["\[ImaginaryI]\[HBar]\[Gamma]", "2"]}]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}},
+        "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Column], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.68933092535894*^9, 3.6893309452940063`*^9}}]
+}, Open  ]]
+},
+WindowSize->{1302, 271},
+WindowMargins->{{Automatic, 18}, {113, Automatic}},
+FrontEndVersion->"10.3 for Microsoft Windows (64-bit) (October 9, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 448, 9, 96, "Input"],
+Cell[CellGroupData[{
+Cell[1031, 33, 338, 9, 59, "Input"],
+Cell[1372, 44, 149, 3, 31, "Output"]
+}, Open  ]],
+Cell[1536, 50, 105, 1, 30, "Text"],
+Cell[CellGroupData[{
+Cell[1666, 55, 299, 8, 31, "Input"],
+Cell[1968, 65, 3156, 82, 44, "Output"]
+}, Open  ]],
+Cell[5139, 150, 237, 5, 30, "Text"],
+Cell[CellGroupData[{
+Cell[5401, 159, 256, 6, 31, "Input"],
+Cell[5660, 167, 817, 24, 74, "Output"]
+}, Open  ]],
+Cell[6492, 194, 253, 5, 30, "Text"],
+Cell[6748, 201, 371, 10, 74, "Input"],
+Cell[7122, 213, 105, 1, 30, "Text"],
+Cell[7230, 216, 1154, 31, 48, "Input"],
+Cell[8387, 249, 239, 5, 49, "Text"],
+Cell[CellGroupData[{
+Cell[8651, 258, 266, 6, 52, "Input"],
+Cell[8920, 266, 1175, 35, 88, "Output"]
+}, Open  ]],
+Cell[10110, 304, 229, 4, 30, "Text"],
+Cell[CellGroupData[{
+Cell[10364, 312, 489, 13, 72, "Input"],
+Cell[10856, 327, 1294, 40, 106, "Output"]
+}, Open  ]],
+Cell[12165, 370, 144, 1, 30, "Text"],
+Cell[CellGroupData[{
+Cell[12334, 375, 1558, 44, 197, "Input"],
+Cell[13895, 421, 341, 5, 56, "Print"],
+Cell[14239, 428, 1073, 30, 69, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15349, 463, 212, 5, 31, "Input"],
+Cell[15564, 470, 1123, 33, 102, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
