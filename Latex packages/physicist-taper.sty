@@ -16,6 +16,11 @@
 \RequirePackage[unicode]{hyperref}  % make every cite a link
 \RequirePackage{CJKutf8} % For Chinese characters
 \RequirePackage{fancyref} % For easy adding figure,equation etc in reference. Use \fref or \Fref instead of \ref
+
+% Resolve the warning when including higher version pdf fils
+% TODO check this line when updating LaTeX version
+\pdfminorversion=7
+
 % A list of nomenclatures.
 \RequirePackage{nomencl}
 \DeclareDocumentCommand\nomen{m}{
@@ -62,7 +67,7 @@ boxrule=0pt,boxsep=0pt,breakable}
 \DeclareDocumentCommand\id{}{\mathds{1}}
 \DeclareDocumentCommand\Tr{}{\operatorname{Tr}}
 \DeclareDocumentCommand\det{}{\operatorname{det}}
-
+\DeclareDocumentCommand\dim{}{\operatorname{dim}}
 % For common sets
 \DeclareDocumentCommand\Q{}{\mathbb{Q}} % Set of rational numbers
 \DeclareDocumentCommand\N{}{\mathbb{N}} % Set of Natural numbers
