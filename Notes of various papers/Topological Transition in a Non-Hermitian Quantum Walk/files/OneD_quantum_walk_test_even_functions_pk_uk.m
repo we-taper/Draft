@@ -50,6 +50,7 @@ for k= k_range
     pk(index)=psi'*psi;
 end;
 plot(k_range,pk);
+xlabel('k'); ylabel('p_k');
 title('Testing p_k');
 
 % Then test uk in both two dimension (t,k)
@@ -100,5 +101,5 @@ end
 X=transpose(X); Y=transpose(Y);
 figure;
 mesh(X,Y,uk);
-xlabel('t');ylabel('k');
+xlabel('t');ylabel('k');zlabel('u_k');
 title('Test u_k');

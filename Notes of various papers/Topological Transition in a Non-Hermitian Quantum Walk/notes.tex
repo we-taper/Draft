@@ -455,7 +455,21 @@ numerical check (see file
 unfortunately my guess seems to be wrong. I have given arbitrary
 numbers to time $t$, $v$, $v'$, energies $\varepsilon_R$ and
 $\varepsilon_L$, and the resulted $p_k$ is always even in $k$, the
-resulted $u_k$ is always constantly $0$ in both time variable $t$ and $k$.
+resulted $u_k$ is always constantly $0$ in both variables $t$ and $k$.
+So $\partial_t u_k$ is trivially even in $k$. Below are to typical
+outputs:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{pics/Sample-output-for-p_k.eps}
+    \caption{Sample output for $p_k$}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{pics/Sample-output-for-u_k.eps}
+    \caption{Sample output for $u_k$}
+\end{figure}
 
 This motivates me to calculate it analytically. The results is
 contained in files \\
