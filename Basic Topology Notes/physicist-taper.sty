@@ -16,6 +16,11 @@
 \RequirePackage[unicode]{hyperref}  % make every cite a link
 \RequirePackage{CJKutf8} % For Chinese characters
 \RequirePackage{fancyref} % For easy adding figure,equation etc in reference. Use \fref or \Fref instead of \ref
+
+% Resolve the warning when including higher version pdf fils
+% TODO check this line when updating LaTeX version
+\pdfminorversion=7
+
 % A list of nomenclatures.
 \RequirePackage{nomencl}
 \DeclareDocumentCommand\nomen{m}{
@@ -70,7 +75,8 @@ boxrule=0pt,boxsep=0pt,breakable}
 \DeclareDocumentCommand\R{}{\mathbb{R}} % Set of real numbers
 \DeclareDocumentCommand\E{}{\mathbb{E}} % Euclidean Space
 \DeclareDocumentCommand\C{}{\mathbb{C}} % Set of Complex Numbers
-
+\let\oldemptyset\emptyset   % Replace the ugly emptyset symbol with a better one
+\let\emptyset\varnothing
 % For drawing diagrams
 \RequirePackage{tikz-cd}
 

@@ -194,14 +194,14 @@ is the point:
 \end{equation}
 \end{defi}
 Then, the general process is:
-The new space $K_2$ is such that
+The new space $K_1$ is such that
 \begin{enumerate}
     \item The vertices of $K_1$ are bary centers of \textbf{ALL}
         simplexes of $K$. Note the the bary center of a $0$-simplex
-        is just itself. So in general, $K_1$ has more vortices of
+        is just itself. So in general, $K_1$ has more vertices of
         $K$.
     \item A collection $\hat{A}_0,\cdots,\hat{A}_k$ of such bary
-        centers will form a vortex of a $k$-simplex in $K_1$ if and
+        centers will form a vertex of a $k$-simplex in $K_1$ if and
         only if there is a permutation $\sigma$ of $\{0,1,\cdots,k\}$
         such that
         \begin{equation}
@@ -215,3 +215,160 @@ The new space $K_2$ is such that
         \includegraphics[width=0.9\linewidth]{pics/ch6-scanned-notes-1/p9.pdf}
     \end{figure}
 \end{remark}
+
+Now we give a precise description of how this Bary center division
+will work. We first describe precisely two characteristics of a
+simplicial complex. 
+
+\begin{defi}[dimension of a simplicial complex]
+\nomenclature{dimension of a simplicial complex}{\nomrefpage.}
+    The dimension of a simplicial complex $K$ is the maximum of the
+    dimensions of all its simplexes.
+\end{defi}
+\begin{defi}[mesh $\mu(K)$]
+\nomenclature{mesh $\mu(K)$}{\nomrefpage.}
+    The mesh of a simplicial complex $K$ is the maximum of the
+    diameters of all its simplexes.
+\end{defi}
+
+As we expected, the mesh (which carries the intuition of the smallness
+of one simplicial complex) of a simplicial complex will decrease. The
+following lemma confirmed this.
+
+\begin{lemma}
+    The sollection of simplexes described above forms a simplicial
+    complex. If it is denoted by $K^1$, and is called the first
+    barycentric subdivision of $K$, then $K^1$ has the following
+    properties:
+    \begin{enumerate}
+        \item each simplex of $K^1$ is contained in a simplex of $K$;
+        \item Their topology are the same: $|K^1|=|K|$
+        \item If the dimension of $K$ is $n$, then
+            \begin{equation}
+                \mu(K^1)\leq \frac{n}{n+1}\mu(K)
+            \end{equation}
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    The proof can be found in page 126 to 127 of \cite{book}. But the
+    proof of the last point is not so clear and is illustrated here:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{pics/ch6-notes-2/explain1.pdf}
+\end{figure}
+\end{proof}
+\begin{remark}
+    Notice that the number $\frac{n}{n+1}<1$, hence after an infinite
+    number of Barycentric subdivision, the mesh (averaged diameter) of
+    a simplicial complex $K^m$ will goes to zero!
+\end{remark}
+\subsection{Section 6.3 Simplicial approximation}
+\label{sec:Simplicial-approximation}
+
+The purpose here is to approximate any continuous map $f:A\to B$ with
+linear map, in a way that is compatible with the triangulations on
+both $A$ and $B$.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\linewidth]{pics/ch6-notes-2/exp2.png}
+\end{figure}
+\begin{defi}[Simplicial map]
+\nomenclature{Simplicial map}{\nomrefpage.}
+    Let $K$ and $L$ be simplicial complexes. A continuous map $s:K\to
+    L$ is called simplicial, if it takes simplexes of $K$
+    \textit{linearly} to simplexes of $L$. Specifically, being
+    \textit{linear} means that:
+    
+    For $\forall A\in K$, we have $B=s(A)\in L$. Also, if
+    $A=\{v_0,\cdots,v_k\}$, then $B=\{s(v_0),\cdots,s(v_k)\}$.
+    Lastly, if $x=\sum_{i=0}^k \lambda_i v_i$ is a a point in $A$, with
+    $\lambda_i\geq 0$ and $\sum_{i=0}^k\lambda_i=1$, then
+    $$s(x) = \sum_{i=0}^k \lambda_i s(v_i)$$
+
+    In a word, $s$ maps simplexes to simplexes, vertices, to vertices,
+    and points linearly to points.
+\end{defi}
+\begin{remark}
+    It is easy to see that the a simplicial map is uniquely determined
+    by its value on all the vertices. By this, there can only be a
+    finite number of such kind of maps, since there are only a finite
+    number of vertices.
+\end{remark}
+
+Now we want to find such linear maps to approximate a give function
+$f:|K|\to |L|$. Given a point $x\in |K|$, we define the
+\nomen{carrier of $f(x)$} to be the unique simplex of $L$ that contain
+$f(x)$ as its interior point.
+
+\begin{defi}[Simplicial Approximation]
+\nomenclature{Simplicial Approximation}{\nomrefpage.}
+    A simplicial map $s:|K|\to |L|$ is called a simplicial approximation of
+    $f:|K|\to |L|$ if and only if $s(x)\in$ carrier of $f(x)$,
+    $\forall x\in |K|$.
+\end{defi}
+\begin{ex}
+    Trivial examples:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pics/ch6-notes-2/ex3.png}
+\end{figure}
+\end{ex}
+\begin{ex}
+    Now we show that when simplicial approximation does not exits. The
+    set up is as follows:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{pics/ch6-notes-2/ex4.png}
+    \end{figure}
+    Hence, there is no simplicial approximation of $f$. But, it will
+    be shown below that, if we divide $K$ small enough
+    ($K^1,K^2,\cdots$), we will eventually be able to find a
+    simplicial approximation of $f$ in some $K^n$.
+\end{ex}
+
+\begin{thm}[Simplicial approximation theorem]
+    \label{thm:SAT}
+    Let $f:|K|\to |L|$ be a continuous map between polyhedras formed
+    by simplicial complexes $|K|$ and $|L|$. If $m$ is chosen large
+    enough, then there is a simplicial approximation $s:|K^m|\to|L|$
+    to $f:|K^m|\to|L|$.
+\end{thm}
+The proof will use a lemma. Define the \nomen{open star} $v$ of a
+simplicial complex $K$, as the union of the interiors of those
+simplexes of $K$ having $v$ as a vertex. This union is denoted by
+\nomen{$\operatorname{star}(v,K)$}. An example is:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\linewidth]{pics/ch6-notes-2/ex5.png}
+    \caption{Example of star}
+\end{figure}
+So it really feels like a star spreading out from $v$. We have
+
+\begin{lemma}
+    Vertices $v_0,v_1,\cdots,v_k$ of a simplicial complex $K$ are the
+    vertices of a simplex of $K$ if and only if the intersection of
+    their open stars is nonempty, i.e. 
+    $$\cup_0^k \operatorname{star}(v_i,K)\neq\emptyset$$
+\end{lemma}
+\begin{proof}
+    The proof can be found in page 130 of \cite{book}. It is quite
+    trivial.
+\end{proof}
+Then we have the \textbf{proof of theorem \ref{thm:SAT}}:
+\begin{proof}
+    The proof is found in page 130 to 131 of \cite{book}. The idea is
+    that if for each vertex $u$ of $K$, we can find a vertex $v$ of
+    $L$ such that
+    \begin{equation}
+        f(\operatorname{star}(u,K))\subseteq\operatorname{star}(v,L)
+        \label{eq:proof-temp} \tag{*} 
+    \end{equation}
+    Then the simplicial map $s(u)=v$ will be easily verified to be a
+    simplicial approximation of $f$. 
+    
+    To make such (*) happen, we naturally have to divide $K^m$ small
+    enough. We can achieve such small division is guaranteed by the
+    Lebesgue lemma \ref{lemma:lebesgue-lemma}, since each subdivision
+    makes the averaged diameter smaller.
+\end{proof}
+
