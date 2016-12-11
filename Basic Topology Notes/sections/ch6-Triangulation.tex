@@ -372,3 +372,77 @@ Then we have the \textbf{proof of theorem \ref{thm:SAT}}:
     makes the averaged diameter smaller.
 \end{proof}
 
+\subsection{6.4 The edge group of a complex}
+\label{sec:edge-group}
+
+The definition of edge group is so similar to that of fundamental
+group (actually, edge group is made to simplify computation of
+fundamental group). Therefore, I will not waste too much words here.
+One with reasonable intuition could just skim through this section.
+
+The following excerpt from book \cite{book} best captures the idea:
+
+\begin{myquote} \enquote{
+We calculated the fundamental groups of one or two spaces in Chapter
+5, but our calculations, though efficient for the examples given
+there, were rather \textit{ad hoc}. If we agree to work with triangulable
+spaces, we can be much more systematic. We shall show how to read off
+generators and relationst for the fundamental group from a
+triangulation of the space.
+
+Let $X$ be a path-connected triangulable space, take a specific
+triangulation $h:|K|\to X$, and replace $X$ by $|K|$ (we are at
+liberty to do this since the funda- mental group is a topological
+invariant). Now the advantage of a polyhedron $|K|$ is that the
+elements of its fundamental group can be represented by loops which
+are made up of edges of $K$. Using such 'edge loops' we shall
+construct a group, called the edge group of the complex $|K|$, which
+can be computed and wh ich is isomorphie to the fundamental group of
+$|K|$.
+} \end{myquote}
+
+The edge pathes $v_0,v_1,\cdots,v_k$, edge loops
+$v,v_1,\cdots,v_{k-1},v$ are defined similar to pathes and loops.
+The equivalence relation between edge loops are defined as represented
+by the following drawing:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pics/ch6-notes-2/edge-group1.png}
+\end{figure}
+
+The equivalence class of edge pathes and edge loops are denoted
+$\{v_0,v_1,\cdots,v_k\}$, and $\{v,v_1,\cdots,v_{k-1},v\}$,
+respectively. The multiplication of edge loops is defined simply as
+\begin{equation}
+    \{v,v_1,\cdots,v\}\{v,w_1,\cdots,v\} =
+    \{v,v_1,\cdots,v,w_1,\cdots,v\}
+\end{equation}
+
+It is trivially verified that such edge loops form a group, called the
+\nomen{edge group based at $v$, $E(K,v)$}. It is also trivially
+verified that such group does not depend on the choice of base point
+$v$, since $|K|$ is path-connected.
+
+\begin{thm}
+    $E(K,v)$ is isomorphie to $\pi_1(|K|,v)$
+\end{thm}
+\begin{proof}
+    The proof can be found on page 133 of \cite{book}. The essential
+    idea is that an edge loop is just a loop. And a loop is just a
+    continuous map $f:I\to |K|$, we can easily use the simplicial
+    approximation $s:I^m\to |K|$ of $f$ (with appropriately $m$), to
+    find a corresponding edge loop.
+
+    The uniqueness of the loop corresponding to an edge loop is found
+    again by treating $L:=I^2$ as a simplicial complex and apprximate
+    again the homotopy $F:L\to |K|$. The resulted $S$ will again gives
+    us a equivalence relation to the constant edge loop. (Note, we
+    have to use the fact the simplicial maps preserves the equivalence
+    relation between edge pathes). The following pictorially
+    produces the proof:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{pics/ch6-notes-2/L.png}
+    \end{figure}
+\end{proof}
+
