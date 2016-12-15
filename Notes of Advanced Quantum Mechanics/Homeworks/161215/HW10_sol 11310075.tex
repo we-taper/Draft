@@ -1,0 +1,115 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physicist-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physicist-taper}
+
+\title{Solution for HW10}
+\date{\today}
+\author{Taper}
+
+\begin{document}
+\maketitle
+\abstract{
+\begin{CJK}{UTF8}{gbsn}陈鸿翔（11310075）\end{CJK}
+}
+%\tableofcontents
+\section*{Problem 1}
+\begin{tabular}{l|r}
+    Classcal & $2^2=4$ \\
+    Boson    & $3$ \\
+    Fermion & $1$
+\end{tabular}
+
+\section*{Problem 2}
+Notice two facts:
+\begin{equation}
+    (\vec{\sigma}\vdot\vec{a})(\vec{\sigma}\vdot\vec{b})
+    = \vec{a}\vdot\vec{b}+i\vec{\sigma}\vdot(\vec{a}\cross\vec{b})
+\end{equation}
+which is Eq.(3.2.39) on Sakurai's Modern Quantum Mechanics. Also
+\begin{equation}
+    \Tr(\vec{a}\vdot\vec{\sigma})=0
+\end{equation}
+This is because the trace function is linear and all pauli matrices
+have zero trace.
+
+Then:
+\begin{align*}
+    \Tr(\rho_A\rho_B)
+    &=
+    \frac{1}{4}\Tr(
+        1+(\vec{n}_A+\vec{n}_B)\vdot\vec{\sigma}
+        + (\vec{n}_A\vdot\vec{\sigma})(\vec{n}_B\vdot\vec{\sigma})
+    )\\
+    &=
+    \frac{1}{4}\left\{
+        1+\Tr(
+            \vec{n}_A\vdot\vec{n}_B +
+            i\vec{\sigma}\vdot(\vec{n}_A\cross\vec{n}_B)
+    )\right\}\\
+    &=\frac{1}{4}(1+\vec{n}_A\vdot\vec{n}_B)
+\end{align*}
+%todo am i wrong?
+
+\section*{Problem 3}
+Denote $\ket{a'}$ as $ \begin{pmatrix}
+    1\\0
+\end{pmatrix}$, and $\ket{a''}$ as $ \begin{pmatrix}
+    0\\1
+\end{pmatrix}$. Then
+\begin{equation}
+    H= \begin{pmatrix}
+        0 & \delta \\
+        \delta & 0
+    \end{pmatrix}
+\end{equation}
+The eigenvectors and eigenvalues can be easily guessed:
+\begin{align}
+    \ket{+}&=\frac{1}{\sqrt{2}}\begin{pmatrix}
+        1\\1
+    \end{pmatrix}, \lambda_+ = \delta
+    \\
+    \ket{-}&=\frac{1}{\sqrt{2}}\begin{pmatrix}
+        1\\-1
+    \end{pmatrix}, \lambda_- = -\delta
+\end{align}
+
+For time evolution:
+
+Since $\ket{a'}=\frac{\sqrt{2}}{2} (\ket{+}+\ket{-})$, under time
+evolution it will be
+\begin{equation}
+    \ket{a'(t)} = \frac{\sqrt{2}}{2} \left(
+        e^{-i\delta t/\hbar}\ket{+}
+        + e^{i\delta t/\hbar}\ket{-}
+    \right)
+    = \frac{1}{2}
+    \begin{pmatrix}
+        e^{it\delta/\hbar}+e^{-it\delta/\hbar} \\
+        e^{-it\delta/\hbar}-e^{it\delta/\hbar} \\
+    \end{pmatrix}
+    = \begin{pmatrix}
+        \cos(t\delta/\hbar) \\ -i\sin(t\delta/\hbar)
+    \end{pmatrix}
+\end{equation}
+
+For probability:
+
+The probability is clearly: $\sin^2(t\delta/\hbar)$.
+
+\begin{remark}
+    This is actually the famous Rabi frequency, see more at:
+    \url{https://en.wikipedia.org/wiki/Rabi_cycle}.
+\end{remark}
+\end{document}
