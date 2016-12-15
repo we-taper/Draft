@@ -397,7 +397,7 @@ invariant). Now the advantage of a polyhedron $|K|$ is that the
 elements of its fundamental group can be represented by loops which
 are made up of edges of $K$. Using such 'edge loops' we shall
 construct a group, called the edge group of the complex $|K|$, which
-can be computed and wh ich is isomorphie to the fundamental group of
+can be computed and wh ich is isomorphic to the fundamental group of
 $|K|$.
 } \end{myquote}
 
@@ -424,7 +424,7 @@ verified that such group does not depend on the choice of base point
 $v$, since $|K|$ is path-connected.
 
 \begin{thm}
-    $E(K,v)$ is isomorphie to $\pi_1(|K|,v)$
+    $E(K,v)$ is isomorphic to $\pi_1(|K|,v)$
 \end{thm}
 \begin{proof}
     The proof can be found on page 133 of \cite{book}. The essential
@@ -442,7 +442,206 @@ $v$, since $|K|$ is path-connected.
     produces the proof:
     \begin{figure}[H]
         \centering
-        \includegraphics[width=1\linewidth]{pics/ch6-notes-2/L.png}
+        \includegraphics[width=0.9\linewidth]{pics/ch6-notes-2/L.png}
     \end{figure}
 \end{proof}
+
+\begin{remark}
+    This theorem already tells us that the Edge group $E(K,v)$ is
+    indepedent on the choice of base point $v$, since our polyhedron
+    $|K|$ is always assumed to be path-connected.
+\end{remark}
+
+Based on this edge group, we will try to calculate more explicitly the
+structure of this group. Here we provide a way to get the generators
+and relations directly from the edge group.
+
+\begin{key}
+    The intuition is that the structure of this group is
+    determined only by those $1$-simplexes, $2$-simplexes, and the
+    equivalence relations between edge pathes. All higher dimensional
+    simplexes are not relevent to this group structure.
+\end{key}
+
+We let \nomen{$L$} the subcomplex of a simplicial complex $K$. This
+subcomplex $L$ is required to contain all the vertices of $K$ and such
+that its polyhedron $|L|$ is path-connected and simply-connected. Can
+we find such a subcomplex? The intuitive answer is yes due to the
+path-connectedness nature of $|K|$. The rigorous answer needs the help
+of a concept \nomen{tree}. A tree $T$ is a one-dimensional subcomplex of
+$K$ whose polyhedron $|T|$ is both path-connected and
+simply-connected. The following lemma affirms that we can find our $L$
+to be exactly the maximal tree in $K$:
+\begin{lemma}
+    A maximal tree contains all the vertices of $K$.
+\end{lemma}
+\begin{proof}
+    We first observe that a tree must exists, unless the dimension of
+    $K$ is $0$ (in which case, there is entirely no need for the
+    following discussions, and the lemma is still true because there is
+    not even a maximal tree!). Let $T$ be a maximal tree in $K$, which
+    means that if $T'$ is a tree and contains $T$, than $T'=T$. 
+    The next step is simply and is expatiated on page 134 of
+    \cite{book}. The idea is to grow a tree by adding more vertices,
+    which is possible because $|K|$ is path-connected and a path can
+    be easily turned into an edge path. Note that add a
+    simply-connected space in this way will keep the space
+    simply-connected, just do not add a vertices twice too creat a
+    loop. 
+    
+    Obviously one will get a tree which is maximal and contains all
+    the vertices.  Such a process also affirms that the maximal tree
+    will exist (but may not be unique).
+\end{proof}
+
+\begin{ex}
+    Here is the maximal tree of the triangulation of two-torus:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\linewidth]{pics/ch6-notes-3/ex1-maximal-tree.png}
+    \end{figure}
+\end{ex}
+
+\begin{ex}
+    The maximal tree is usually not unique!
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\linewidth]{pics/ch6-notes-3/ex2-maxi-tree-not-unique.png}
+    \end{figure}
+\end{ex}
+
+
+Now since $|L|$ is simply-connected, it will not contribute to the
+edge group. What contributes to the edge group is those edges that are
+not in this $|L|$. This motivates us to define a new group:
+
+\begin{defi}[$G(K,L)$]
+\nomenclature{$G(K,L)$}{\nomrefpage.}
+    Let $L$ be the maximal tree in $K$ (assume $|K|$ is
+    path-connected). Then $G(K,L)$ is defined by generators $g_{ij}$
+    for each \textbf{ordered} pair of vertices $v_i,v_j$ such that
+    $\{v_i,v_j\}$ spans a simplex ($0$-simplex or $1$-simplex) in $K$.
+    Those generators are subject to the following conditions:
+    \begin{enumerate}
+        \item $g_{ij}=1$, the identity element, if and only if
+            $\{v_i,v_j\}$ spans a simplex in $L$.
+        \item $g_{ij}g_{jk}=g_{ik}$ if and only if $\{v_i,v_j,v_k\}$
+            spans a simplex ($0$ or $1$ or $2$ simplex) in $K$.
+    \end{enumerate}
+\end{defi}
+
+\begin{ex}
+    \label{ex:torus-GLKgroup}
+    Again, for torus:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\linewidth]{pics/ch6-notes-3/ex3-L-in-triangle.png}
+    \end{figure}
+\end{ex}
+\begin{ex}
+    \label{ex:ex4-L-in-two-torus}
+    And for another:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\linewidth]{pics/ch6-notes-3/ex4-L-in-two-torus.png}
+    \end{figure}
+    Note that this does not gives a triangulation of two-torus! 
+    The reason will be explained later in
+    example~\ref{ex:pi1-two-torus}.
+\end{ex}
+More generally, we have
+\begin{thm}
+    $G(K,L)\cong E(K,v)$, as a group isomorphism.
+\end{thm}
+\begin{proof}
+    The proof in page 135 to 136 of \cite{book} constructs the
+    following homomorphisms:
+
+    $$\begin{tikzcd}[]
+        G(K,L)\ar[r,"\phi",shift left] & 
+            E(K,v)\ar[l,"\theta", shift left]
+    \end{tikzcd}$$
+
+    It is pretty simple to get these two maps and confirms that their
+    composites are identity functions on each space.
+\end{proof}
+
+\begin{remark}
+    We have now the following chain of homomorphisms:
+    $$ \pi_1(|K|,v)\cong E(K,v) \cong G(K,L) $$
+\end{remark}
+\begin{coro}
+    For any path-connected, triangulable space, its fundamental group
+    is finitely presented, i.e., the fundamental group has only a
+    finite number of generators and a finite number of relations.
+\end{coro}
+
+For example, we have demonstrated in example~\ref{ex:torus-GLKgroup}
+that its $G(K,L)\cong \Z_2$, which is just its fundamental group.
+
+In addition, armed with this tool, we can answer an additional
+question. We want to know what is the fundamental group of two torus
+connected together:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{pics/ch6-notes-3/pic-two-torus.png}
+\end{figure}
+
+This can be done using the following theorem:
+
+\begin{thm}[Van Kampen's theorem]
+    Let $J$, $K$ be two simplicial complexes in some Euclidean space
+    which intersect in a common subcomplex, and suppose all $|J|$,
+    $|K|$, $|J\cap K|$ are path-connected. Let $j,k$ be the inclusion
+    maps:
+    $$ \begin{tikzcd}[]
+        \lvert J\cap K\rvert \ar[r,"j",hook] & \lvert J\rvert
+    \end{tikzcd}$$
+    $$ \begin{tikzcd}[]
+        \lvert J\cap K\rvert \ar[r,"k",hook] & \lvert K\rvert
+    \end{tikzcd}$$
+    Take a vertice $v\in J\cap K$ as the base point. The fundamental
+    group $\pi_1(|J\cup K|, v)$ is obtained from the free product
+    $\pi_1(|J|,v)*\pi_1(|K|,v)$ by adding the relations
+    $j_*(z)=k_*(z)$ for all $z\in\pi_1(|J\cap K|,v)$.
+\end{thm}
+\begin{proof}
+    The proof can be found on page 137 to 138 of \cite{book}. Please
+    do read the paragraph just before this theorem to get a picture of
+    the proof.
+
+    Note also that a $2$-simplex cannot possiblly cross the
+    intersection part $J\cap K$. Please check why I mention this when
+    reading the proof on the book \cite{book}.
+\end{proof}
+
+\begin{ex}
+    \label{ex:pi1-two-torus}
+    Here's how to find the fundamental group for two-torus connected:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{pics/ch6-notes-3/ex-pi1-two-torus.png}
+\end{figure}
+    The result confirms that the triangulation of a two-torus is as
+    simple as in example~\ref{ex:ex4-L-in-two-torus}.
+\end{ex}
+
+\begin{ex}
+    Next we consider the projective space $\R P^2$, the space is
+    homeomorphic to half the sphere $S^2$, with the antipodal points
+    on the boundary identified:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\linewidth]{pics/ch6-notes-3/rp2.png}
+    \end{figure}
+    Then it can be regarded as a 2-disc with it boundary attached to
+    the boundary of a M\"obius strip. This construction will tell us
+    that the fundamental group of $\R P^2$ is $\Z_2$.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{pics/ch6-notes-3/rp2-pi1.png}
+        \caption{Page 139, Fig 6.16 of \cite{book}}
+    \end{figure}
+\end{ex}
 
