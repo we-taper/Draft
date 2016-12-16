@@ -41,8 +41,8 @@ which is Eq.(3.2.39) on Sakurai's Modern Quantum Mechanics. Also
 \begin{equation}
     \Tr(\vec{a}\vdot\vec{\sigma})=0
 \end{equation}
-This is because the trace function is linear and all pauli matrices
-have zero trace.
+This is because the trace function is "almost" linear and all pauli
+matrices have zero trace.
 
 Then:
 \begin{align*}
@@ -54,13 +54,14 @@ Then:
     )\\
     &=
     \frac{1}{4}\left\{
-        1+\Tr(
+        \Tr(1+
             \vec{n}_A\vdot\vec{n}_B +
             i\vec{\sigma}\vdot(\vec{n}_A\cross\vec{n}_B)
     )\right\}\\
-    &=\frac{1}{4}(1+\vec{n}_A\vdot\vec{n}_B)
+    &=\frac{1}{4}\Tr(1+\vec{n}_A\vdot\vec{n}_B)
+    \\
+    &=\frac{1}{2}(1+\vec{n}_A\vdot\vec{n}_B)
 \end{align*}
-%todo am i wrong?
 
 \section*{Problem 3}
 Denote $\ket{a'}$ as $ \begin{pmatrix}
