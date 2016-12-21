@@ -3,6 +3,10 @@ This is intended for storing my drafts of my works. It is messy and will never b
 
 [![rss](https://cloud.githubusercontent.com/assets/6148706/20462606/377b9338-af5d-11e6-90b1-362048452c18.png) Subscribe to feed](https://github.com/we-taper/Draft/commits/master.atom)
 
+**Note**: The note is written on the basis of my knowledge. Therefore, sometime I might assume the the reader has already be familiar with special knowledge. For example, I might add something from condensed matter physics to notes in topology. I might also be too tacit because I have already been familiar with other similar concepts. For example, I might be too tacit about homology group in topology because I have already learnt cohomology groups in Cech Cohomology.
+
+That said, if there is really trouble in reading these notes, feel free to email me.
+
 # An Outline of Notes of Drafts Included
 
 1. **Finished**
@@ -61,34 +65,35 @@ This is intended for storing my drafts of my works. It is messy and will never b
 
 4. Useful **(anit)Commutative relationships**
 
-5. **feynman diagram**
+5. **feynman diagram** (in dormant state, perhaps I will not update it).
 
 	Notes for studying Feynman diagram. Currently stopped at defining
 	Green function.
 
-6. Note of Sheaf Theory
+6. Note of Sheaf Theory (in dormant state, perhaps I will not update it). 
 
     Notes taken to understand sheaf cohomology. (Scattered and
     incomplete.)
 
-7. Algebra
+7. Algebra (in dormant state, perhaps I will not update it). 
 	* Noetherian Ring
 
 		Introduces **Noetherian module** and Noetherian ring. 
 		From S.Lang's Algebra.
 
 8. Quantum Field Theory in a Nutshell (inside *QFT*)
+(in dormant state, perhaps I will not update it). 
 
     Notes for the book *Quantum Field Theory in a Nutshell* by A. Zee.
 
 
-9. Quantum Information
+9. Quantum Information (in dormant state, perhaps I will not update it). 
     
     Here is the notes of Preskill's **Quantum Computation** course in
     Caltech. It is very ineresting. I focus on the part of quantum
     Information theory.  
 
-10. Group Theory in Physics
+10. Group Theory in Physics (in dormant state, perhaps I will not update it). 
 
     Here is the course taught by Professor Fei Ye, about group theory's
     application in physics. This course, although is targeted at
@@ -128,24 +133,22 @@ This is intended for storing my drafts of my works. It is messy and will never b
     contains several useful physics formulae, with links to their
     sources.
 
-15. My C.V.
-
 16. Latex Packages
 
     The packages I write to speed out latex writting.
 
-17. Gravity and Entanglement
+17. Gravity and Entanglement [dead]
 
     Notes about a lecture. However, this note may not be updated in
     the future.
 
-18. Lattice Green function
+18. Lattice Green function [dead]
 
     Notes for calculating lattice Green function. However, this not is
     unlikely to be updated in the future.
 
 19. Notes of Connecting Few-body and Many-body Pictures of Fractional
-    Quantum Hall Physics
+    Quantum Hall Physics [dead]
 
     Notes about a conference named just like above. The detailed
     link can be found inside the note.
@@ -162,7 +165,8 @@ This is intended for storing my drafts of my works. It is messy and will never b
 
     Interesting facts that may or maynot be useful. About physics and
     mathematics.
-#License
+
+# License
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
 <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
