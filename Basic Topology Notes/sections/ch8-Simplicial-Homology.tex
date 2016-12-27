@@ -304,7 +304,7 @@ Then I will turn attention to specific examples.
 
 
 \subsection{Section 8.4 Simplicial maps}
-\label{sec:Simplicial maps}
+\label{sec:Simplicial-maps}
 
 Now we extend a simplicial map $K\to L$ to a homomorphism between
 homology groups. This is easily done by first constructing
@@ -336,3 +336,137 @@ it is nature to define $s(\sigma)=0$ in this case. It is verifed (page
 185 of \cite{book}) that this map is well defined, is a homomorphism,
 and has the property $s\partial=\partial s$. So $s$ induces a
 homomorphism $s_*:H_q(K)\to H_q(L)$.
+
+\subsection{Section 8.5 Stellar Subdivision and Section 8.6 Invariance}
+\label{sec:Stellar-Subdivision-Invariance}
+
+Let me draw a \textbf{general blueprint}. We aims to
+show that simplicial homology groups are actually a topological
+property. The ultimate aim is to prove these theorems
+
+\begin{thm}
+    Any continuous function $f:|K|\to |L|$ induces a homomorphism
+    $f_*:H_q(K)\to H_q(L)$ in for each $q \geq 0$.
+\end{thm}
+
+\begin{thm}
+    If $f$ is the identity map of $|K|$, then each 
+    $f_*:H_q(K)\to H_q(K)$ is the identity homomorphism, and if we
+    have two maps
+    $$ \begin{tikzcd}[]
+        \lvert K\rvert\ar[r,"f"] & \lvert L\rvert\ar[r,"g"] 
+        & \lvert M\rvert
+    \end{tikzcd}$$
+    then $(g\circ f)_* = g_*\circ f_*: H_q(K)\to H_q(M)$
+    for all $q\geq 0$.
+\end{thm}
+
+\begin{thm}
+    If $f,g:|K|\to |L|$ are homotopic maps, then $f_*=g_*:H_q(K)\to
+    H_q(L)$ for all $q$.
+\end{thm}
+
+\begin{coro}
+    If $|K|$ and $|L|$ have the same homotopy type, then $K$ and $L$
+    have isomorphic homology groups.
+\end{coro}
+
+These theorems can be found on page 189 of the book\cite{book}. But
+unfortunately, this course is too limited to talk about their proof in
+detail. So here we provide the general picture. The starting point
+will be of course, approximating a continuous function $f$ with a
+simplicial map $s$. But in doing so, we have to do barycentric
+subdivision on the codomain. So if we can ensure that the homology
+groups are unaltered in barycentric subdivision, then of course
+simplicial maps will preserve homology groups, as we have seen in
+section~\ref{sec:Simplicial-maps}. And it is nature, though it
+requires proof, that the function $f$ approximated by $s$ will also
+have the same property of preserving simplicial maps.
+
+This section (section 8.5) deals with proving that the barycentric
+subdivision does not alter Homology groups. But it uses a simpler
+step. In general, a lot more vertices will be introduced in one
+barycentric subdivision. But we can look at a simper notion first,
+i.e. a \nomen{stellar subdivision}. Stellar meanings relating to
+stars, and a stellar subdivision quite resembles a star's shining
+lines. A first example is given on top of page 186 of \cite{book}.
+Here I reproduced the figure 8.6 in a more "star" like depiction:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{pics/ch8/stellar-subd-ex.pdf}
+\end{figure}
+
+The benefit of stellar subdivision is that one can do a complete
+barycentric subdivision through performing a series of steller subdivision
+in a specific order. Amazingly the book\cite{book} do not provide a
+proof of this, except that it gives an example using figure 8.7 on
+page 186. But the proof should be easy. 
+
+I have omitted a precise description of stellar subdivision here,
+because it is best understood along with the process to obtain a
+barycentric subdivision through stellar subdivision. They are found in
+page 186 of \cite{book}. Just keep in mind that $A_0<A_1<\cdots<A_k$,
+for a simplex $\{\hat{A}_0,\hat{A}_1,\cdots,\hat{A}_k\}$ in a
+barycentric subdivision.
+
+Then the book proves that
+\begin{thm}
+    If $K'$ is obtained from $K$ by a single stellar subdivision, then
+    $K'$ and $K$ have isomorphic Homology groups
+\end{thm}
+and hence
+\begin{coro}
+    Barycentric subdivision does not change the Homology groups of a
+    complex
+\end{coro}
+
+The proof can be in page 186 to 188 of \cite{book}. I also omit the
+proof here, but I warn anyone who wish to study the prooves in the
+next section to study the proofs here carefully, because a important
+map (subdivision chain map) will be constructed here.
+
+As an effort to prevent this tacit talk from being a transient memory,
+I will mention several applications.
+
+\begin{remark}
+    First, Homology group is a homotopic property. This means we can
+    calculate the Homology group of a big complex space by shrinking
+    it into a simple space.
+\end{remark}
+
+\begin{key}
+    The Homology groups of $S^n$ are:
+    $$ H_0(S^n)=H_n(S^n)=\Z $$
+    $$ H_q(S^n)=0,\text{for $q\neq 0,n$} $$
+\end{key}
+\begin{thm}
+    $S^m$ is not homotopic to $S^n$ if $m\neq n$.
+\end{thm}
+\begin{proof}
+    Obviously.
+\end{proof}
+
+\begin{thm}
+    Two Euclidean spaces are homeomorphic if and only if they have the
+    same dimension
+\end{thm}
+\begin{proof}
+    As mentioned in
+    example~\ref{ex:Euclidean-space-and-sphere-homotopy}, the 
+    homotype type of $S^{m-1}$ and $\E^{m}\setminus\{0\}$ are the
+    same. If there is a homotopic equivalence from $\E^m\to \E^n$, it
+    would induces homotopic equivalence on $S^m$ and $S^n$. Hence
+    $\E^m$ is homotopic to $\E^n$ if and only if $m=n$.
+\end{proof}
+
+\begin{thm}[Brouwer fixed-point theorem]
+    A map from $B^n$ to itself must leave at least one point fixed.
+\end{thm}
+\begin{proof}
+    The proof is exactly as it is in
+    theorem~\ref{thm:brouwer-fixpoint-B2}, except that we have to use
+    Homology groups instead of the fundamental group to distinguish
+    different spheres.
+\end{proof}
+
