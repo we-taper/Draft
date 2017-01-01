@@ -1,0 +1,102 @@
+
+Professor Li Qin skipped many parts before. In this chapter, he also
+mentioned only important theorems in the first two sections.
+
+The language in this note will be quite loose. Proofs will be omitted,
+so will some theorems, as this was how my teacher taught me. I am not
+sure if there are more valuable techniques in these sections. Hence
+this can be only regarded as a guideline/introduction to the book.
+% todo: ask why he mentioned only this few parts
+
+\subsection{Section 9.1 Maps of spheres}
+\label{sec:Maps-of-spheres}
+
+In this section, we restrict our attention only on spheres $S^n$. The
+goal is investigate the homotopy classes of continuous functions
+between spheres. We will see, in the end, that we can obtain some
+information by examining the how these continuous functions acting on
+a simple triangulation of sphere.
+
+We first define the degree of a continuous function $f:S^n\to S^n$.
+Since $H_n(S^n)=\Z$, we define \nomen{$\operatorname{deg}f$} to be the number
+$f_*(1)$, in $f_*:H_n(S^n)\to H_n(S^n)$. Or, equivalently, the number
+$\lambda$ such that $f([z])=\lambda[z]$, where $[z]$ is the generator
+of $H_n(S^n)=\Z$.
+
+Then we discover several facts:
+\begin{fact}
+    The degree does not depend on the choice of triangulation of
+    sphere.
+\end{fact}
+\begin{fact}
+    Homotopic continuous functions have the same degree.
+\end{fact}
+\begin{fact}
+    $\operatorname{deg}(f\circ g)=\operatorname{deg}f\times
+    \operatorname{deg}g$
+\end{fact}
+\begin{fact}
+    By above fact, if $f$ is a homeomorphism,
+    $\operatorname{deg}f=\pm 1$.
+\end{fact}
+\begin{fact}
+    Obvious, the degree of identity map of $S^n$ is $1$, that of
+    constant map is $0$. Hence the identity map is not homotopic to
+    the constant map.
+\end{fact}
+
+The above facts can be found in page 195 of \cite{book}.
+
+Since degree is triangulation independent, we will now stick to a very
+convenient triangulation constructed in page 196 of \cite{book}. It is
+the most straightforward one, and is denoted by \nomen{$\Sigma$}
+(remember, we have constructed similar things in chapter 8, denoted
+$\Sigma^n$). The vertices are $v_i=(0,\cdots,0,1,0,\cdots,0)$, for
+$i=1,2,\cdots,n+1$, and the only $1$ is on the $i$-th coordinate.
+Similary we have $v_{-i}=0,\cdots,0,-1,0,\cdots,0)$. Whenever
+$\abs{i_1}<\abs{i_2}<\cdots<|i_s|$, with $1\leq s \leq n+1$, the
+vertices $v_{i_1},v_{i_2},\cdots,v_{i_s}$ spans a simplex in $\Sigma$.
+The collection of all such simplexes constitutes the simplicial
+complex $\Sigma$. A graphical illustration can be found on page 196 of
+\cite{book}.
+
+The degree of a continuous function $f$ can than be easily determined
+on this triangulation. But I will only mention that this is
+demonstrated in theorem (9.1) on page 196 of \cite{book}.
+
+Then we discover a sequel of facts, each depending on the previous
+one:
+\begin{fact}
+    The antipodal map of $S^n$ has degree $(-1)^{n+1}$
+\end{fact}
+\begin{fact}
+    A continuous function $f:S^n\to S^n$ which has no fixed points
+    must have degree $(-1)^{n+1}$.
+\end{fact}
+\begin{fact}
+    If $n$ is even, and if $f:S^n\to S^n$ is homotopic to the
+    identity, then $f$ has a fixed point.
+\end{fact}
+
+Using this we can derive an interesting theorem:
+\begin{thm}[Hairy ball theorem]
+    $S^n$ admits a continuous nonvanishing vector field if and only if
+    $n$ is odd.
+\end{thm}
+\begin{proof}
+    Let $v$ be a vector field on $S^n$, for each $v(\vb{x})$, it can
+    be regarded just as a normal vector in $\E^{n+1}$ since each
+    tangent space is locally a $\R^{n+1}$.
+
+    The continuous function:
+    $$f(\vb{x}) = \frac{\vb{x}+v(\vb{x})}{||\vb{x}+v(\vb{x})||}$$
+    is homotopic (hint, add a parameter $t$ in front of $v(\vb{x})$), 
+    to identity map. Hence $f(\vb{x})$ admits a fix point, i.e. there
+    is a point $\vb{x}$ such that $v(\vb{x})=0$.
+\end{proof}
+
+Notice that in proof above, the function $f(\vb{x})$ actually help us
+regard a vector filed as a speed field, a field that moves each point
+on the sphere infinitesimally.
+
+%TODO ntoes for the next section.
