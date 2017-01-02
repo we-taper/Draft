@@ -99,4 +99,63 @@ Notice that in proof above, the function $f(\vb{x})$ actually help us
 regard a vector filed as a speed field, a field that moves each point
 on the sphere infinitesimally.
 
-%TODO ntoes for the next section.
+And yet another theorem left out by the teacher:
+\begin{thm}
+    If $n$ is even, then only $\Z_2$ and the trivial group can act freely on
+    $S^n$.
+\end{thm}
+\begin{proof}
+    Suppose a group $G$, which is not the trivial group, acts freely on $S^n$.
+    Pick two elements $f,g$ of $G\setminus\{1\}$, they must have not fixed
+    points, so they have $(-1)^{n+1}=-1$ degree. This means their composite
+    $f\circ g$ have a degree of $(-1)\times(-1)=1$, whence we see that $f\circ
+    g$ has fixed point. So $f\circ g= 1$. To repeat, $f\circ g=1$ for any
+    $f,g\in G\setminus{1}$. So $G\cong \Z_2$.
+\end{proof}
+\begin{remark}
+    Physically, this means that most reasonable symmetries, acting on $S^{2n}$ (such
+    as a sphere $S^2$, the most common one in physics), are not free. They are
+    subject to certain constraints such that there is always some point fixed
+    when rotating the sphere.
+\end{remark}
+\subsection{Section 9.2 The Eular-Poincar\'e formula}
+\label{sec:The-Eular-Poincare-formula}
+
+Since we have skipped too many sections in the beginning, we lost a historical
+background for this section. Therefore, I will be tacit in this section.
+
+The first chapter of book\cite{book} introduced yet another topological invariant
+to our list: the Euler characteristics. This section proves that the Eular
+characteristics is actually a homotopy invariant.
+
+The \nomen{Eular characteristics $\chi(K)$} of a simplicial complex is by
+definition:
+\begin{equation}
+    \chi(K)=\sum_{q=0}^n (-1)^q \alpha_q
+\end{equation}
+where $n$ is the dimension of the simplicial complex $K$, $\alpha_q$ is the
+number of $q$-simplexes in $K$. This sections defines the number $\beta_q$ as
+the \textbf{$q$th Betti number of $K$}\nomenclature{$q$th Betti number of $K$,
+$\beta_q$}{\nomrefpage}. It is the rank of free abelian part of $H_q(K)$
+\footnote{
+    recall that every finitely generated abelian group is isomorphic to a direct
+    sum of primary cyclic groups (the torsion part) and infinite cyclic groups
+    (the free part). A primary cyclic group is one whose order is a power of a
+    prime. See more at
+    \href{https://en.wikipedia.org/wiki/Finitely_generated_abelian_group}{wikipedia}.
+}. If we allow, in the definition of homology groups, the coefficients being
+rational, we can form $H_q(K,\Q)$, and we have $\beta_q$ is just the dimension
+of $H_q(K,\Q)$ as a vector space over $\Q$ (lemma (9.9) in \cite{book}). Then
+this section will shows:
+\begin{thm}[Euler-Poincar\'e formula]
+\begin{equation}
+    \chi(K)=\sum_{q=0}^n (-1)^q \beta_q
+\end{equation}
+\end{thm}
+and obviously
+\begin{coro}
+    Simplicial complexes whose polyhedra are homotopy equivalent have the same
+    Euler characteristic.
+\end{coro}
+
+
