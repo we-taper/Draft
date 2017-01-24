@@ -9,6 +9,30 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{physicist-taper}[2016/11/08 Minor update]
 
+% Search "bad-latex-design" in this package for explanation of the following line.
+\PassOptionsToPackage{table}{xcolor}
+
+\DeclareOption{draft}{
+	\PassOptionsToPackage{draft}{showkeys}
+	
+}
+
+\DeclareOption{final}{
+	\PassOptionsToPackage{disable}{todonotes}
+	\PassOptionsToPackage{final}{showkeys}
+}
+
+\ExecuteOptions{draft}
+\ProcessOptions
+
+
+% Use this for commenting the file. Put comments inside commmand \todo{}
+\RequirePackage{todonotes}
+% Show the keys for labels, replace options with "final" when done
+% with editing.
+\RequirePackage[notref]{showkeys}
+
+
 % @1. General LaTeX Adjustment -----------------------------------
 \RequirePackage{float}  % For H in figures
 \RequirePackage{graphicx}   % need for figures
@@ -30,7 +54,11 @@
 % For better tables with automatically wraping
 \RequirePackage{tabu}
 \RequirePackage{booktabs}
-\RequirePackage[table]{xcolor} % For automatically coloring rows.
+% For automatically coloring rows. We need package xcolor with option "table".
+% However, since xcolor was loaded by commands above, we should use 
+% \PassOptionsToPackage instead of \RequirePackage. And \PassOptionsToPackage
+% must be placed in the "Option Declearation" region of this package.
+% % This comment has ID: bad-latex-design
 \definecolor{lightblue}{RGB}{217,224,250}
 \definecolor{lightgrey}{RGB}{211,211,211}
 
