@@ -1,0 +1,347 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physicist-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physicist-taper}
+\usepackage[
+    disable
+]{todonotes}
+\makenomenclature % For an index of symbols.
+
+% Show the keys for labels, replace options with "final" when done
+% with editing.
+\usepackage[
+    %draft,
+    final,
+    notref
+]{showkeys}
+\usepackage{CJKutf8}
+\title{Wigner theorem and Time reversal}
+\date{\today}
+\author{Taper}
+
+
+\begin{document}
+\maketitle
+
+\abstract{
+    In this article, we use the Wigner theorem to argue the general behavior of
+    a symmetry operator, based on which we will discuss how the time-reversal
+    operator should act. And finally, we present the time-reversal operator's
+    exact form in spins using results from representations of $SU(2)$.
+}
+\tableofcontents
+
+% Representative operators and quantum mechanical selection rules 3.6
+% Todo: this is my original plan. Finish it if I have time.
+% Let $G$ be a group. We discuss how it act on quantum mechanical states and how
+% this might determine the structure of quantum mechanics.
+
+\section{Introduction}
+\label{sec:Introduction}
+
+We note that quantum mechanical states lives in the Hilbert space
+$\mathscr{H}$.  Therefore, a
+symmetry will transform the vectors in Hilbert space. But a quantum mechanical
+state $\ket{\phi}$ is distinguished from a vector $\phi\in\mathscr{H}$, in that
+any nonzero multiple of it $\lambda\phi (\forall \lambda\in\C^*)$, the states it
+represent is the same $\ket{\phi}=\ket{\lambda\phi}$. Even when we require that
+the vector should be unit, we still have a phase freedom $\lambda=e^{i\theta}$.
+Therefore, the action
+(i.e. representation) of a symmetry on $\mathscr{H}$ is not so easily obtained.
+It should respect this freedom of $\lambda$.
+
+To all reasonable symmetries on the Hamiltonian space $\mathscr{H}$, there is a
+theorem discussed below. In a simple word the theorems says that any 
+representation of a symmetry group on $\mathscr{H}$ is either unitary or
+anti-unitary. The operator $U$ obtained from representation is uniquely
+determined if we have fixed some $\phi'=U\phi$, where $\phi'$ is the vector after
+a symmetry operation has been performed on $\phi$.
+
+\section{Wigner's Theorem on Symmetry}
+\label{sec:Wigner-Theorem}
+
+This theorem is proved on appendix D of \cite{sternberg1995group}. Here I will only
+present the theorem and explain how we may interpret and use it physically.
+
+\paragraph{Quantum Mechanical State}
+In quantum mechanics, we speak of a state as a vector $\phi$ and often ignore
+its length. But if we want to formulate quantum mechanics precisely we will need
+to specify a state precisely. Therefore we define a a \nomen{quantum mechanical
+state} as a projection $P$ onto a one-dimensional subspace of $\mathscr{H}$.
+This coincide with physical description because two vectors in $\mathscr{H}$
+represent the same state when they are in the same one-dimensional subspace.
+Therefore, we have one-to-one relationships between states, one-dimensional
+subspaces, and projections. Explicitly, in Dirac notation, $P=\ket{p}\bra{p}$.
+Then we have,
+\begin{equation}
+    \Tr{PQ} = \sum_n \braket{n|p}\braket{p|q}\braket{q|n} = \braket{p|q}
+    \sum_n \braket{q|n}\braket{n|p} = \abs{\braket{p|q}}^2
+\end{equation}
+In this way, the \nomen{transition probability} of two states $P,Q$, will then
+be $\Tr(PQ)$, and is denoted by \nomen{$P\cdot Q$}.
+
+\paragraph{Quantum Mechanical Map}
+A quantum mechanical map, $T$, is roughly speaking, a map that does not alter
+the physical feature of the system. It is the name that the book
+\cite{sternberg1995group} gave to symmetry transformations. In quantum mechanics, the
+only thing we can measure is of the form $\abs{\braket{p|q}}^2$, i.e. the
+probabilities.  Therefore, a quantum mechanical map is, more precisely, a map
+from the states of a Hilbert space $\mathscr{H}$ to the states of a Hilbert
+space $\mathscr{H}'$.  such that for any two states $P,Q$, the transition
+probability $\Tr{PQ}$ is unchanged:
+\begin{equation}
+    (TP)\cdot(TQ) = P\cdot Q
+\end{equation}
+
+\begin{thm}[Wigner's Theorem]
+    Given a quantum mechanical map $T$, there exists a map,
+    $U$ from vectors of $\mathscr{H}$ to vectors of $\mathscr{H}'$, such that
+    \begin{align}
+        P_{U\phi} &= TP_{\phi} \\
+        U(\xi+\eta)&=U\xi + U\eta,\text{ for any }\xi,\eta\in\mathscr{H} \\
+        \braket{U\xi,U\eta} &= \kappa(\braket{\xi,\eta}) \label{eq:conserv-prob}
+    \end{align}
+    where $\kappa$ is a function that is either identity
+    $\kappa(\lambda)=\lambda$ for $\lambda\in\C$, or is complex conjugate
+    $\kappa(\lambda)=\bar{\lambda}$ for $\lambda\in\C$. Also, 
+    \begin{equation}
+        U(\lambda\xi) = \kappa(\lambda) U\xi,\quad \forall\lambda\in\C
+    \end{equation}
+\end{thm}
+
+\begin{remark}
+    When the quantum mechanical map $T$ is bijective and onto, then the map $U$
+    is unitary if $\kappa(\lambda)=\lambda$, or anti-unitary if
+    $\kappa(\lambda)=\bar{\lambda}$. For a symmetry $T$, this means that we can
+    always find a way to represent it in the form of $U$, an unitary or
+    anti-unitary operator.
+\end{remark}
+
+But of course the theorem tells us nothing about how to construct this operator
+$U$. The proof of it in book\cite{sternberg1995group} did give a construction. Some of it
+is explained below.
+
+\textbf{Determine} $\mathbf{\kappa}$:
+
+Assume we have three states $P_1,P_2,P_3$, and so we have three vectors
+$\phi_1,\phi_2,\phi_3$ of norm $1$ in $\mathscr{H}$, for each state. Define a
+function:
+\begin{equation}
+    \Delta(P_1,P_2,P_3) \equiv 
+        \braket{\phi_1|\phi_2}\braket{\phi_2|\phi_3}\braket{\phi_3|\phi_1}
+\end{equation}
+This function is obviously independent of the choice of the unit vectors
+$\phi_i$, i.e. it is independent of the phase of $\phi_i$.
+
+If $\dim\mathscr{H}=1$, then $\kappa$ is not determined. But there is
+really nothing interesting to be considered here.
+
+If $\dim\mathscr{H}>1$, then $\kappa$ is determined by the following equality:
+\begin{align}
+    \kappa(\Delta(P_1,P_2,P_3)) &= 
+    \kappa(
+        \braket{\phi_1|\phi_2}\braket{\phi_2|\phi_3}\braket{\phi_3|\phi_1}
+    ) \\
+    &= \braket{U\phi_1|U\phi_2}\braket{U\phi_2|U\phi_3}\braket{U\phi_3|U\phi_1}
+\end{align}
+where the second line is determined by the action of $T$.
+
+Note that we can pick $P_1,P_2,P_3$ such that
+$\Delta(P_1,P_2,P_3)$ is not real. For example, when $\dim\mathscr{H}=2$, then
+$\Delta(P_1,P_2,P_3)$ can be made into the form 
+$(\sum_{i=1}^2 x_i^*y_i)(\sum_{i=1}^2 y_i^*z_i)(\sum_{i=1}^2 z_i^*x_i)$. It
+is simple to make this not real. In general, we choose two orthogonal unit
+vectors $\phi,\psi$ (since $\dim\mathscr{H}>1$), and let $\phi_1=\phi$,
+$\phi_2=(\phi-\psi)/\sqrt{2}$, $\phi_3=(\phi+(1-i)\psi)/\sqrt{3}$. Then
+\begin{align*}
+    \Delta(P_1,P_2,P_3) &=
+    \braket{\phi|\frac{\phi-\psi}{\sqrt{2}}}
+    \braket{\frac{\phi-\psi}{\sqrt{2}}|\frac{\phi+(1-i)\psi}{\sqrt{3}}}
+    \braket{\frac{\phi+(1-i)\psi}{\sqrt{3}}|\phi} \\
+    &= \frac{1}{\sqrt{2}}\cdot \frac{1}{\sqrt{6}}(1-1+i)\cdot\frac{1}{\sqrt{3}}
+    =\frac{i}{6}
+\end{align*}
+
+\textbf{Determine} $\mathbf{U}$:
+
+Initially, $U$ has a phase freedom, i.e., for the same map $T$, $U$ is only
+determined up to multiplication of a complex scalar of norm $1$. This can be
+seen from equation~\ref{eq:conserv-prob}. But we can fix it by choosing a gauge.
+
+Given any unit vector $\phi\in\mathscr{H}$, and any unit vector
+$\phi'\in\mathscr{H}$ with
+\begin{equation}
+    P_{\phi'}=TP_\phi
+\end{equation}
+we can always choose $U$ such that
+\begin{equation}
+    U\phi = \phi'
+\end{equation}
+And having made such a choice, $U$ will be completely determined. 
+
+However, the method given in the proof (in \cite{sternberg1995group}) is in most cases
+useless. It proceeds in the mathematician's aspect that we can readily say how the
+map $T$ acts on Hilbert space $\mathscr{H}$. But in reality, the method is too
+mathematical to be useful. The important thing we can get from above discussion
+is that $U$ can be uniquely found when we fixed a gauge. Then, we usually fixed
+a basis, and argue physically how the $U\phi$ will be. Below is an example.
+
+\section{Time reversal operator}
+\label{sec:Time-reversal-operator}
+
+To get the time reversal operator, we can first look at the following
+equality (let $T$ denotes the time reversal operator):
+\begin{align}
+    \left(1-\frac{iH}{\hbar}\delta t\right) T \ket{\alpha}
+    = T\left(1-\frac{iH}{\hbar}(-\delta t)\right)\ket{\alpha}
+    \label{eq:TRoper.fromClas2Quam.phyPic}
+\end{align}
+This follows from the following picture: the time evolution of a time reversed
+state is equivalent to the original state at an earlier time. Recall that
+$\left(1-\frac{iH}{\hbar}\delta t\right)$ produces an infinitesimal time
+translation.
+
+From equality \ref{eq:TRoper.fromClas2Quam.phyPic}, one finds:
+\begin{align}
+    -iHT = T i H
+\end{align}
+
+Wigner's theorem shows that $T$ could either unitary or anti-unitary.
+Now we show that \textbf{$T$ must be anti-linear}, hence anti-unitary. Because if
+one assumes that $T$ is linear, then we have
+$$ TH = -HT $$
+Then one will find that the energy spectrum for time
+reversal symmetric system will always has symmetric energy spectrum (i.e. with
+both positive and negative energy), which is not true.
+
+So we have:
+\begin{itemize}
+    \item $T$ is anti-unitary
+    \item $T H=HT$ for a time reversal symmetric state.
+\end{itemize}
+
+Now we write $T= UK$, where $K$ is the complex conjugation operator that
+acts only on coefficient and have $K\lambda\ket{\phi} =
+\bar{\lambda}\ket{\phi}$.
+Be careful that it is highly dependent on the basis
+chosen. So $U$ will depend on the basis too. To get $T$ in a
+basis $\ket{e_i}$, obviously we only need to consider the result of
+$U\ket{e_i}$. This however, is hard to determine. However we can argue
+that in case when the basis has some classical connection, then by the
+Correspondence Principle we have, for example:
+\begin{align}
+    T \hat{p} T^{-1}&= -\hat{p} \\
+    T \hat{x} T^{-1}&= \hat{x} \\
+    T \mathbf{J} T^{-1}&= -\mathbf{J}
+\end{align}
+with these one can easily find:
+\begin{align}
+    T \ket{p} &= \ket{-p} \\
+    T \ket{x} &= \ket{x} \\
+    [x_i, p_j]T \ket{} &= i\hbar \delta_{ij} T\ket{}
+\end{align}
+where $\ket{}$ stands for any ket. Then clearly, $T$ is just complex conjugation
+for wave function $\Psi(x)$. But $T$ acts on $\Psi(p)$ will produces
+$\Psi^*(-p)$. The case for eigenstate of spin is a little complicated, which
+will be discussed in next section.
+
+\section{Time reversal operator in system with spin 
+\texorpdfstring{$j$}{}}
+\label{sec:Time-reversal-operator-in-spin-j}
+
+Now label a spin state $\ket{j,m}$, where $j$ is the spin quantum number, and
+$m$ is the secondary spin quantum number, where $m=-j,-j+1,\cdot,j$.
+Since the commutation relation of Pauli matrices $\sigma$ are the same as the
+spin operator $J$, we postulate that representations of $SU(2)$ acts on spin produces
+rotations in spins. Also, physically we require that a time-reversal is equal to
+a $\pi$ rotation around $y$ axis. Therefore, we have
+\begin{align}
+    T = \eta D(\vb{e_2},\pi)K
+\end{align}
+where $\eta$ accounts for the undetermined phase of $T$, $D$ is some
+representation of $SU(2)$ and $D(\vb{e_2},\pi)$ is the operator of rotation by $\pi$ in
+the $y$ axis. $K$ accounts for the complex conjugation.
+
+If the spin is $j$, when we have, by representation theory of $SU(2)$:
+\begin{align}
+    T_{\nu\mu} = \eta d^j_{\nu\mu} K
+\end{align}
+where $d^j_{\nu\mu}(\omega)\equiv D^j_{\nu\mu}(\vb{e_2},\omega)$.
+
+Using this we can prove a very useful formula:
+\begin{thm} \begin{align}
+    \label{eq:TRoper.TRoper.square_minus}
+    T^2=
+    \begin{cases}
+        -1 & \text{ if $j$ is a half-integer} \\
+        1 & \text{ if $j$ is an integer}
+    \end{cases}
+\end{align} \end{thm}
+\begin{proof}
+    Using group representation theory, this is almost straightforward to prove.
+    Notice that rotation among $y$ axis is determined by the the matrix
+    $d^j_{\nu\mu}(\omega)\equiv D^j_{\nu\mu}(\vb{e_2},\omega)$. This matrix is
+    real and orthogonal. So
+    $$T^2=\eta D(\vb{e_2},\pi) K \eta D(\vb{e_2},\pi) K = \eta\eta^* d^j(2\pi)K^2 = d^j(2\pi)$$
+    Note also that $d^j_{\nu\mu}(2\pi) = (-1)^{2j}\delta_{\nu\mu}$. Therefore,
+    when $j$ is a half integer, $T^2=-1$, and when $j$ is an integer, $T^2=1$.
+\end{proof}
+
+This theorem has a important consequence, as will be shown below:
+
+\begin{thm}[Kramer's theorem]
+    For a system with halt-integer $j$ spin, the degree of degeneracy for every
+    eigenstate is at least two.
+\end{thm}
+\begin{proof}
+    Let $\ket{n}$ be an energy eigenstate. If the system is time
+    reversal symmetric, i.e. $[H,T]=0$, then $T \ket{n}$ is
+    another energy eigenstate with the same energy. Supposing there is
+    no degeneracy, then we have
+    $$ \ket{n} = e^{i\eta}T\ket{n}$$
+    for some arbitrary $\eta\in \mathbb{R}$. Apply $T$ on both sides, then
+    we have
+    \begin{align*}
+        e^{-i\eta} T^2 \ket{n} &= \pm e^{-i\eta}\ket{n} \\
+        &= T \ket{n} = e^{-i\eta} \ket{n}
+    \end{align*}
+    Clearly this is a contradiction unless $T^2=1$. But we have shown that
+    $T^2=-1$ for half-integer spin. Therefore, 
+    $$ \ket{n} \neq e^{i\eta}T\ket{n}$$
+\end{proof}
+
+\section{Concluding Remark}
+\label{sec:Concluding-Remark}
+
+The proof above is amazingly short, embodying the amazingly powerful application
+of group representation theory in quantum mechanics. However, it took some trial
+and effort to establish the Wigner theorem and the irreducible representations
+of $SU(2)$. Hope we can learn more about group representation in the future.
+\nocite{ma2007group}
+
+\todo{improve reference in this doc}
+\bibliography{cite}
+\bibliographystyle{alpha}
+
+
+\section{License}
+The entire content of this work (including the source code
+for TeX files and the generated PDF documents) by 
+Hongxiang Chen (nicknamed we.taper, or just Taper) is
+licensed under a 
+\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative 
+Commons Attribution-NonCommercial-ShareAlike 4.0 International 
+License}. Permissions beyond the scope of this 
+license may be available at \url{mailto:we.taper[at]gmail[dot]com}.
+\end{document}
