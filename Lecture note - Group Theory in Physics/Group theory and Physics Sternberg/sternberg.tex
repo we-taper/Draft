@@ -1,0 +1,140 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physicist-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physicist-taper}
+\makenomenclature % For an index of symbols.
+
+\title{Notes of Group Theory and Physics}
+\date{\today}
+\author{Taper}
+
+
+\begin{document}
+
+
+\maketitle
+\abstract{
+    Notes of Group Theory and Physics written by Sternberg \cite{Sternberg1994}.
+}
+\tableofcontents
+
+\section{The Classification of the finite subgroups of
+\texorpdfstring{$\mathrm{SO}(3)$}{} (1.8)}
+\label{sec:Classification-of-finite-subgroups-of-SO3}
+
+Previous section established one important formula for this section. Suppose a
+group $G$ acts on a set $M$. Define the \nomen{fix point set}
+$\operatorname{FP}(a)$ of an element $a\in G$ as the set of all $m\in M$ such
+that $am=m$, i.e. left invariant under $a$. Denote \nomen{$G_m$} for $m\in M$ as the
+isotropy subgroup of $m$. Then we have
+\begin{equation}
+    \sum_{a\neq e} \#\operatorname{FP}(a) =
+    \sum_{\text{orbits}}\frac{\#G}{\#G_m}(\#G_m-1)
+    \label{eq:fp-orbit-formula}
+\end{equation}
+The proof is on section 1.7 of \cite{Sternberg1994}.
+
+This section classifies all possible finite subgroups of $\mathrm{SO}(3)$. The
+classification of finite subgroups of $\mathrm{O}(3)$ is on the next section.
+We basically study the action of $G=\mathrm{SO}(3)$ on $M=S^2$, the unit sphere.
+The first interesting discovery is
+\begin{thm}[(Euler)]
+    When the dimension $n$ is odd, any $a\in \mathrm{SO}(n)$ leaves at least one
+    non-zero vector invariant, i.e. any $a\in \mathrm{SO}(n)$, $\Ker(a-I)\neq
+    \emptyset$, or there is always a $\vb{v}\neq 0$, such that $a\vb{v}=\vb{v}$.
+\end{thm}
+This implies that any rotation in odd dimensional space is a rotation about some
+fixed axis (since $a\vb{v}=\vb{v}$ implies
+$(a\vb{p})\vdot\vb{v}=(a\vb{v})\vdot(a\vb{p})=\vb{v}\vdot\vb{p}=0$).
+
+Then the book analyses the formula counting fix point sets and
+orbits~\ref{eq:fp-orbit-formula}. Use new symbols for three numbers:
+\begin{table}[H]
+    \centering
+    \label{tab:three-symbols-for-3-numbers}
+    \begin{tabular}{c l}
+        $n$ & $=$ $\# G$ \\
+        $r$ & $=$ $\text{number of orbits of $G$}$ \\
+        $n_i$ & $=$ $\# G_m \text{, where $m\in i$th orbit.}$
+    \end{tabular}
+\end{table}
+
+Then we have
+\begin{equation}
+    2-\frac{2}{n} = r-\sum_{1}^{r} \frac{1}{n_i}
+\end{equation}
+
+This equation can be simplified by considering the practical numerical values of
+$n$, $r$ and $n_i$, with $n_i \leq n$. By eliminating case by case, he finally arrived
+at five sets of possible values:
+\begin{table}[H]
+\centering
+\label{tab:label}
+\caption{Finite rotation groups}
+\begin{tabular}{l l l l l l}
+    \hline
+    $r$ & $(n_1,n_2,n_3)$ & $\# G$ & Schoenflies & Hermann-Mauguin & Note
+    \\
+    \hline
+    \hline
+    2 & (n,n,0) & n & $C_n$ & $n$ & Cyclic group \\
+    3 & $(2,2,k), k\geq 2$ & $2k$ & $D_k$ & $222$ for $D_2$, $k2$ otherwise & Dihedral group \\
+    3 & $(2,3,3)$ & 12  & $T$  & 23& of regular tetrahedron \\
+    3 & $(2,3,4)$ & 24 & $O$ & 432 & of regular octahedron \\
+    3 & $(2,3,5)$ & 60 & $I$ & not mentioned & of icosahedron \\
+    \hline
+\end{tabular}
+\end{table}
+For details about derivation please visit pp. 28 to 31 of \cite{Sternberg1994}.
+
+But we need to exclude some subgroups from the list of crystallographic groups.
+The result is that, on the first row, $n$ is restricted to be $1,2,3,4$ and $6$;
+on the second row, $k$ is restricted to be $2,3,4$ and $6$. And $I$ is excluded
+from the list of crystallographic groups. 
+
+The reason is the common one on Solid States classes about possible space-filling
+polygons (see pp.31 of \cite{Sternberg1994}). Also, a good proof about possible
+rotation angles in three-dimension for a lattice is provided on pp.31 to 32 of
+\cite{Sternberg1994}. The key is that the rotation matrix could be
+made of integers, and hence its characteristic (trace) should be an integer.
+
+Next the author mentioned the \nomen{atomic hypothesis}, an interesting
+historical account of our view on crystals. The essence is that because only
+above mentioned angles occurred in rotational symmetries of crystals, we can
+presume that a crystal is not a continuum, but is "built up from discrete
+subunits in a regular repetitive pattern" (pp.32).
+
+He also mentions the \nomen{law of rational indices} which found a basis for
+modern way of labeling different faces of a lattice (the $(100)$ side, etc.).
+But this law is too long to be typed here.
+
+In sum, we have only following finite subgroups of $\mathrm{SO}(3)$ that is
+interested for crystals:
+
+$$ C_1, C_2, C_3, C_4, C_6, D_2, D_3, D_4, D_6, T, O $$
+
+\bibliography{cite}
+\bibliographystyle{alpha}
+
+\printnomenclature
+\section{License}
+The entire content of this work (including the source code
+for TeX files and the generated PDF documents) by 
+Hongxiang Chen (nicknamed we.taper, or just Taper) is
+licensed under a 
+\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative 
+Commons Attribution-NonCommercial-ShareAlike 4.0 International 
+License}. Permissions beyond the scope of this 
+license may be available at \url{mailto:we.taper[at]gmail[dot]com}.
+\end{document}
