@@ -1,0 +1,140 @@
+% Package that contains most of the preamble in my daily writing.
+% In addition, it extends the physics package to suite my taste
+% ---------------- Outline -----------------
+% @1. General LaTeX Adjustment
+% @2. Mathematical addones
+% @3. Physical Addons
+% @4. My Own Shortcuts
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{physicist-taper}[2016/11/08 Minor update]
+
+% Search "bad-latex-design" in this package for explanation of the following line.
+\PassOptionsToPackage{table}{xcolor}
+
+\DeclareOption{draft}{
+	\PassOptionsToPackage{draft}{showkeys}
+	
+}
+
+\DeclareOption{final}{
+	\PassOptionsToPackage{disable}{todonotes}
+	\PassOptionsToPackage{final}{showkeys}
+}
+
+\ExecuteOptions{draft}
+\ProcessOptions
+
+
+% Use this for commenting the file. Put comments inside commmand \todo{}
+\RequirePackage{todonotes}
+% Show the keys for labels, replace options with "final" when done
+% with editing.
+\RequirePackage[notref]{showkeys}
+
+
+% @1. General LaTeX Adjustment -----------------------------------
+\RequirePackage{float}  % For H in figures
+\RequirePackage{graphicx}   % need for figures
+\RequirePackage{cite} % need for bibligraphy.
+\RequirePackage[unicode]{hyperref}  % make every cite a link
+\RequirePackage{CJKutf8} % For Chinese characters
+\RequirePackage{fancyref} % For easy adding figure,equation etc in reference. Use \fref or \Fref instead of \ref
+
+% Resolve the warning when including higher version pdf fils
+% TODO check this line when updating LaTeX version
+\pdfminorversion=7
+
+% A list of nomenclatures.
+\RequirePackage{nomencl}
+\DeclareDocumentCommand\nomen{m}{
+	\textbf{#1}\nomenclature{#1}{\nomrefpage}
+}
+
+% For better tables with automatically wraping
+\RequirePackage{tabu}
+\RequirePackage{booktabs}
+% For automatically coloring rows. We need package xcolor with option "table".
+% However, since xcolor was loaded by commands above, we should use 
+% \PassOptionsToPackage instead of \RequirePackage. And \PassOptionsToPackage
+% must be placed in the "Option Declearation" region of this package.
+% % This comment has ID: bad-latex-design
+\definecolor{lightblue}{RGB}{217,224,250}
+\definecolor{lightgrey}{RGB}{211,211,211}
+
+% For multi-row/column in tables
+% The following command get the nature width of a tabu environment.
+% It can be used as in \multicolumn{n}{p{\getTabuwidth}}, since tabu \
+% does not provide an implementation of \multicolumn{n}{X}
+\newcommand{\getTabuwidth}{\dimexpr2\tabucolX+2\tabcolsep+\arrayrulewidth\relax}
+\RequirePackage{multirow}
+
+% For better fancier quotations
+\RequirePackage{csquotes}
+\RequirePackage[most]{tcolorbox}
+\definecolor{block-gray}{gray}{0.85}
+\newtcolorbox{myquote}{colback=block-gray,grow to right by=-10mm,grow to left by=-10mm,
+boxrule=0pt,boxsep=0pt,breakable}
+
+% For including codes in LaTeX
+\RequirePackage{listings}
+
+
+% @2. Mathematical Addons -----------------------------------
+\RequirePackage{amsmath} % For math
+\RequirePackage{amssymb}
+\RequirePackage{mathrsfs}
+\numberwithin{equation}{subsection} % have the enumeration go to the subsection level.
+                                    % See:https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
+
+% for numbers with mathbb
+\RequirePackage{dsfont} 
+
+% Quick Mathmetical Common Operators
+\DeclareDocumentCommand\Ker{}{\operatorname{Ker}}
+\DeclareDocumentCommand\id{}{\mathds{1}}
+\DeclareDocumentCommand\Tr{}{\operatorname{Tr}}
+\DeclareDocumentCommand\det{}{\operatorname{det}}
+\DeclareDocumentCommand\dim{}{\operatorname{dim}}
+% For common sets
+\DeclareDocumentCommand\Q{}{\mathbb{Q}} % Set of rational numbers
+\DeclareDocumentCommand\N{}{\mathbb{N}} % Set of Natural numbers
+\DeclareDocumentCommand\Z{}{\mathbb{Z}} % Set of integers
+\DeclareDocumentCommand\R{}{\mathbb{R}} % Set of real numbers
+\DeclareDocumentCommand\E{}{\mathbb{E}} % Euclidean Space
+\DeclareDocumentCommand\C{}{\mathbb{C}} % Set of Complex Numbers
+\let\oldemptyset\emptyset   % Replace the ugly emptyset symbol with a better one
+\let\emptyset\varnothing
+% For drawing diagrams
+\RequirePackage{tikz-cd}
+
+% For tensor indices
+\RequirePackage{tensor}  
+
+% Following is for theorems etc environments
+% http://tex.stackexchange.com/questions/45817/theorem-definition-lemma-problem-numbering && https://en.wikibooks.org/wiki/LaTeX/Theorems
+\RequirePackage{amsthm}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{coro}{Corollary}[section]
+\theoremstyle{definition}
+\newtheorem{defi}{Definition}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{ex}{Example}[section]
+\newtheorem{fact}{Fact}[section]
+\newtheorem{key}{Key Point}[section]
+
+% @3. Physical Addons -----------------------------------------------
+\RequirePackage{physics}
+
+% Stop the ugly braket defined by package "physics", and replace it
+% with what is defined in package "braket"
+\RequirePackage{braket}
+
+
+% @4. My Own Shortcuts ------------------------------------------------
+% For highlighting
+\RequirePackage{xcolor,soul}
+\newcommand{\hlMath}[1]{\colorbox{yellow!80}{$\displaystyle#1$}}
+

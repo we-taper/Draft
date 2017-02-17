@@ -1,0 +1,142 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physicist-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physicist-taper}
+
+\makenomenclature % For an index of symbols.
+
+\title{Quantum Field Theory in Condensed Matter Physics}
+\date{\today}
+\author{Taper}
+
+
+\begin{document}
+
+\maketitle
+\abstract{
+This is my study notes of various books, listed in the reference.
+\nocite{Nagaosa1999}
+}
+\tableofcontents
+
+\section{Second Quantization}
+\label{sec:Second-Quantization}
+
+The \cite{Nagaosa1999} introduces second quantization in a heuristic, non-rigorous
+way. It starts from conjecturing that
+
+\begin{itemize}
+    \item $N_n\approx \hat{N}_n$, 
+        
+        $N_n$ represents $N_n$ times repreatance of the experiments done in on a
+        single particle. $\hat{N}_n$ represents the results from one experiments
+        done on a system of $\hat{N}_n$ non-interacting particles. 
+        
+        This equality means that we expect these two kinds of experiments to be
+        approximately equivalent.
+\end{itemize}
+
+With such spirit, we first examine the single-particle state and tries to
+promote something to many-body picture. In single particle state, we have
+\begin{equation}
+    \psi(\vb{r},t) = \sum_n a_n(t) \phi_n(\vb{r})
+\end{equation}
+as decomposing any wave function into orthonormal basis and concentrate the
+dynamics property on the coefficients $a_n(t)$. And we could found
+\footnote{Eq (1.2.5) to eq(1.2.10) of \cite{Nagaosa1999}}
+\begin{align}
+    \frac{\dd a_n(t)}{\dd t} &= 
+        \frac{\partial \braket{\hat{H}}}{\partial (i\hbar a^*_n)} \\
+    \frac{\dd (i\hbar a_n^*(t))}{\dd t} &= 
+        -\frac{\partial \braket{\hat{H}}}{\partial a_n}
+\end{align}
+where $\braket{H}=\braket{\psi|H|\psi}$. 
+These equations are analogous to Hamilton's canonical equations with $a_n
+\Leftrightarrow x$, and $i\hbar a^*_n\Leftrightarrow p$. Then propose that we
+can promote $a_n$ and $a_n^*$ as operators. The promotion is not analysed but we
+can give a quick analogy as:
+
+\begin{itemize}
+    \item $N_n\equiv N\abs{a_n}^2$ is promoted to $\hat{N_n}$, which is an
+        observable that counts the total number of particles in state $n$.
+    \item $\sqrt{N}a_n \rightarrow \hat{A}_n$,
+        $\sqrt{N}a^*_n\rightarrow\hat{A}_n^\dagger$. So that
+        $\hat{N}_n=\hat{A}_n^\dagger\hat{A}_n$.
+\end{itemize}
+
+And 
+\begin{equation}
+    \begin{cases}
+        [\hat{A}_n,\hat{A}_m^\dagger] = \delta_{n,m},
+        [\hat{A}_n,\hat{A}_m]=[\hat{A}_n^\dagger,\hat{A}_n^\dagger]=0,& \text{for bosons} \\
+        \{\hat{A}_n,\hat{A}_n^\dagger\} = \delta_{n,m},
+        \{\hat{A}_n,\hat{A}_m\}=\{\hat{A}_n^\dagger,\hat{A}_n^\dagger\}=0,& \text{for fermions}
+    \end{cases}
+\end{equation}
+and many other usual commutative/anti-commutative relations.
+
+The \textit{wave picture} starts from promoting $\psi$ and $\psi^*$ into
+\nomen{field operators}:
+\begin{align}
+    \hat{\psi}(\vb{r}) &\equiv \sum_n \hat{A}_n \phi_n (\vb{r}) \\
+    \hat{\psi}^\dagger(\vb{r}) &\equiv \sum_n \hat{A}_n^\dagger \phi_n^* (\vb{r})
+\end{align}
+This definition is again analogous to the single particle picture.
+Calculation\footnote{Page 15 of \cite{Nagaosa1999}} shows for bosons
+\begin{align}
+    [\hat{\psi}(\vb{r}),\hat{\psi}^\dagger(\vb{r}')] &= \delta(\vb{r}-\vb{r}') \\
+    [\hat{\psi}(\vb{r}),\hat{\psi}(\vb{r}')] &=
+        [\hat{\psi}^\dagger(\vb{r}),\hat{\psi}^\dagger(\vb{r}')] = 0
+\end{align}
+with commutators $[]$ replaced with anti-commutators $\{\}$ for fermions. The
+\nomen{particle density operator} is defined as
+$n(\vb{r})=\hat{\psi}^\dagger(\vb{r})\hat{\psi}(\vb{r})$. 
+and the rest are old things.
+
+The operator new to me is the \nomen{phase operator} $\hat{\theta}_n$ for bosons
+\footnote{The phase for fermions is complicated and is delegated to the task of
+chapter 5 of \cite{Nagaosa1999}.}. It has the property that:
+\begin{align}
+    \hat{A}_n^\dagger &= \sqrt{\hat{N}_n} e^{-i\hat{\theta}_n/\hbar} \\
+    \hat{A}_n         &= \sqrt{\hat{N}_n} e^{i\hat{\theta}_n/\hbar} \\
+    [\hat{N}_n,\hat{\theta}_n] &= i\hbar \label{eq:Ntheta}
+\end{align}
+It is shonw that equation~\ref{eq:Ntheta} leads to
+$[\hat{A}_n,\hat{A}_n^\dagger]=1$. It is shown also that
+\begin{align}
+    \exp(\frac{i}{\hbar}\hat{\theta}_n) (\hat{N}_n)^m
+        \exp(-\frac{i}{\hbar}\hat{\theta}_n) &= (\hat{N}_n+1)^m \\
+    \exp(\frac{i}{\hbar}\hat{\theta}_n) \ket{N_n} &\propto \ket{N-1}
+    \label{eq:eithetaN}
+\end{align}
+It is concluded, because of the above equation~\ref{eq:eithetaN} and that there
+is not state $\ket{-1}$, the $\hat{\theta}_n$ \textit{is not Hermitian}.
+\footnote{See page 17 of \cite{Nagaosa1999}}
+
+
+\bibliography{cite}
+\bibliographystyle{alpha}
+
+
+\printnomenclature
+\section{License}
+The entire content of this work (including the source code
+for TeX files and the generated PDF documents) by 
+Hongxiang Chen (nicknamed we.taper, or just Taper) is
+licensed under a 
+\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative 
+Commons Attribution-NonCommercial-ShareAlike 4.0 International 
+License}. Permissions beyond the scope of this 
+license may be available at \url{mailto:we.taper[at]gmail[dot]com}.
+\end{document}
