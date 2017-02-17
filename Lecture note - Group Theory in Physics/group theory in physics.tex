@@ -78,6 +78,106 @@ application in physics.
 
 \section{20161121}
 \input{sections/20161121}
+\section{20161128}
+\label{sec:20161128}
+After some work, I realize that it is impractical to follow the
+teacher's class with notes. Therefore I will write here just some
+important formulae, as a preparation for exams.
+
+Pauli matrices
+\begin{align}
+    &\sigma_1 =\begin{pmatrix}
+        0 & 1\\ 1 & 0
+    \end{pmatrix}\\
+    &\sigma_2 = \begin{pmatrix}
+        0& -i \\ i & 0
+    \end{pmatrix} \\
+    &\sigma_3 = \begin{pmatrix}
+    1 & 0 \\ 0 & -1
+    \end{pmatrix}\\
+    &\sigma_a \sigma_b = \delta_{ab} \id + i\sum_c
+    \varepsilon_{abc}\sigma_c \\
+    &\Tr{\sigma_a} =0 \\
+    &\Tr{\sigma_a \sigma_b} =2\delta_{ab} \\
+    &\exp{-i\omega \sigma_2} =\id \cos{\omega}-i\sigma_2\sin{\omega}
+    = \begin{pmatrix}
+        \cos{\omega} & -\sin{\omega} \\
+        \sin{\omega} & \cos{\omega}
+    \end{pmatrix} \\
+    &R(\vec{e_3},\omega)= \exp{-i\omega T_3}= \begin{pmatrix}
+        \cos{\omega} & -\sin{\omega} & 0 \\
+        \sin{\omega} & \cos{\omega} & 0 \\
+        0 & 0 & 1
+    \end{pmatrix},\quad T_3 = \begin{pmatrix}
+        0 & -i & 0 \\
+        i & 0 & 0 \\
+        0 & 0 & 0
+    \end{pmatrix} \\
+    & R(\vec{e}_1,\omega) = \exp{-i\omega T_1} = \begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & \cos{\omega} & -\sin{\omega} \\
+        0 & \sin{\omega} & \cos{\omega} 
+    \end{pmatrix},\, T_1 = \begin{pmatrix}
+        0 & 0 & 0 \\
+        0 & 0 & -i \\
+        0 & i & 0
+    \end{pmatrix}\\
+    & R(\vec{e}_2,\omega) = \exp{-i\omega T_2} = \begin{pmatrix}
+        \cos{\omega} & 0 & \sin{\omega} \\
+        0 & 1 & 0 \\
+    -\sin{\omega} & 0 & \cos{\omega} 
+    \end{pmatrix},\, T_2 = \begin{pmatrix}
+        0 & 0 & i \\
+        0 & 0 & 0 \\
+        -i & 0 & 0
+    \end{pmatrix}\\
+    & (T_a)_{bc}= -i\varepsilon_{abc} \\
+    & S(\phi,\theta) = \begin{pmatrix}
+    \cos{\phi}\cos{\theta} & -\sin{\phi} & \cos{\phi}\sin{\theta} \\
+    \sin{\phi}\cos{\theta} & \cos{\phi} & \sin{\phi}\sin{\theta} \\
+    -\sin{\theta} & 0 & \cos{\theta}
+    \end{pmatrix} \\
+    & S(\phi,\theta) \begin{pmatrix}
+        0 \\ 0 \\ 1
+    \end{pmatrix} = \begin{pmatrix}
+        \cos{\phi}\sin{\theta} \\ \sin{\phi}\sin{\theta} \\ \cos{\theta}
+    \end{pmatrix} = \begin{pmatrix}
+        n_1 \\ n_2 \\ n_3
+    \end{pmatrix}\\
+    & R(\vec{n},\omega) =
+        S(\phi,\theta)R(\vec{e_3},\omega)S(\phi,\theta)^{-1}
+        =\exp{-i\omega\vec{n}\vdot\vec{T}}
+        = \exp{-i\sum_a \omega_a T_a} \\
+    & R(\vec{n},\omega) = R(-\vec{n},2\pi-\omega) \\
+    & S T_3 S^{-1} = \vec{n}\vdot\vec{T}
+\end{align}
+\begin{fact}
+    The character $\chi$ of $SO(3)$ is a function of $\omega$ only. In
+    fact:
+    \begin{equation}
+        \chi(R(\vec{n},\omega)) = 1+2\cos{\omega}
+    \end{equation}
+\end{fact}
+\begin{enumerate}
+    \item $R\in G$, $\# G=g$
+
+        $ R(1):=R(r_1,r_2,\cdot,r_g)$
+    \item $R(r)S(s)=T(t)$,
+
+        $f(r,s)=t$, $f:(Space)\otimes(Space)\to (Space)$.
+
+        
+
+        $t_j = f_j(r_1,\cdot,r_g,s_1,\cdot,s_g)=f_j(r,s)$
+\end{enumerate}
+
+\begin{align}
+    & P_R\psi(x)=\psi(R^{-1}x) \\
+    & I^{(0)}_j = -i\sum_a 
+        \eval{\frac{\partial (Ax)_a}{\partial \alpha_j}}_{\alpha=0}
+        \frac{\partial }{\partial x_a} \\
+    & P_A\psi(x) = \psi(x)-i\sum_{j=1}^g \alpha_j I^{(0)}_j\psi(x)
+\end{align}
 \section{Anchor}
 \label{sec:Anchor}
 \begin{thebibliography}{1}
