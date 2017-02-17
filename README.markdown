@@ -9,24 +9,28 @@ That said, if there is really trouble in reading these notes, feel free to email
 
 # An Outline of Notes of Drafts Included
 
-1. **Finished**
+## Finished
 
-    Here in this folder, are notes that are considered finished and are not
-    likely to be updated, unless to correct spelling, grammar, etc.
+Here in this folder, are notes that are considered finished and are not
+likely to be updated, unless to correct spelling, grammar, etc.
 
-    * **Light Harvesting** Course Note 
+* **Light Harvesting** Course Note 
 
         Notes taken when I was attending the course *An Introduction to 
         Light Harvesting in Bacteria and Plants*.
 
-    * Notes of **Lectures on the Frontiers of Physics**, a course
+* Notes of **Lectures on the Frontiers of Physics**, a course
     designed for professors to introduce their own fields.
 
-    * Notes of *Physical Challenges of Quantum Computation*, the
+* Notes of *Physical Challenges of Quantum Computation*, the
     dissertation of professor MH. Wong. Although I did not finish it,
     I may not read it anymore.
 
-2. Complex Geometry - index of ...
+## Active
+
+## Dormant
+
+1. Complex Geometry - index of ...
 
     This is intended for keeping a index of notation of the course
     *Introduction to Algebraic Geometry* (which actually teaches
@@ -86,6 +90,7 @@ That said, if there is really trouble in reading these notes, feel free to email
 
     Notes for the book *Quantum Field Theory in a Nutshell* by A. Zee.
 
+8. Quantum Field Theory in Condensed Matter Physics (inside *QFT*) by Nagaosa
 
 9. Quantum Information (in dormant state, perhaps I will not update it). 
     
