@@ -1,0 +1,239 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physicist-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physicist-taper}
+\makenomenclature % For an index of symbols.
+
+\title{Condensed Matter Field Theory notes}
+\date{\today}
+\author{Taper}
+
+
+\begin{document}
+
+
+\maketitle
+\abstract{
+Notes of book \cite{Altland2010a}.
+}
+\tableofcontents
+
+\section{pp.33 eq.1.43}
+\label{sec:Table}
+
+In page 33 of \cite{Altland2010a}, the author derives a difference of action, when we
+have a symmetry transformation paraterized by $\omega_a$:
+
+\begin{align}
+    x_\mu \to x'_\mu &= x_\mu + \frac{\partial x_\mu}{\omega_a}|_{\omega=0} \omega_a(x) \\
+    \phi^i(x) \to \phi'(x') &= \phi^i(x) + \omega_a(x)F^i_a[\phi]
+\end{align}
+
+We have:
+\begin{align}
+    \mathcal{L} &= \mathcal{L}(\phi^i(x),\partial_{x_\mu}\phi^i(x)) \\
+    \mathcal{L}' &= \mathcal{L'}(\phi'^i(x'),\partial_{x'_\mu}\phi'^i(x')) \\
+    &= \mathcal{L}\left(\phi^i+F^i_a\omega_a, 
+                    \left(\delta_{\mu\nu}-\partial_{x_\mu}(\omega_a
+                    \partial_{\omega_a}x_\mu)\right)
+                    \partial_{x_\nu}(\phi^i+F^i_a\omega_a)
+                  \right)
+\end{align}
+And 
+
+\begin{align}
+    \Delta S &= \int \dd[m]{x'} \mathcal{L}' - \int \dd[m]{x} \mathcal{L} 
+    \label{eq:dS-integrand}\\
+    &=
+    \int \dd[m]{x}
+    \left(1+\partial_{x_\mu}\left(\omega_a \partial_{\omega_a}x_\mu\right) \right) 
+    \nonumber\\
+    &\times \mathcal{L}\left(
+                    \phi^i+F^i_a\omega_a, 
+                    \left(\delta_{\mu\nu}-\partial_{x_\mu}\left(\omega_a
+                        \partial_{\omega_a}x_\mu\right)\right)
+                        \partial_{x_\nu}(\phi^i+F^i_a\omega_a)
+                    \right) \nonumber\\
+    &- \int \dd[m]{x}  \mathcal{L}(\phi^i(x),\partial_{x_\mu}\phi^i(x))
+\end{align}
+
+Then he argues that, "for constant parameters $\omega_a$ the action difference
+$\Delta a$ vanishes". Therefore "the leading contribution to the action
+difference of a symmetry transformation must be linear in the derivative
+$\partial_{x_\mu}\omega_a$".
+
+Then he writes that "A straightforward expansion of the formula above
+for $\Delta S$ shows that these terms are given by"
+
+\begin{equation}
+    \Delta S = -\int \dd[m]{x} j^a_\mu (x) \partial_{x_\mu}\omega_a
+\end{equation}
+where $j^a_\mu$ is:
+\begin{equation}
+    j^a_\mu = \left(
+        \frac{\partial \mathcal{L}}{\partial(\partial_{x_\mu}\phi^i)}
+            \partial_{x_\nu}\phi^i
+        -\mathcal{L}\delta_{\mu\nu} \right) \frac{\partial x_\nu}{\partial\omega_a}
+    - \frac{\partial\mathcal{L}}{\partial(\partial_{x_\mu}\phi^i)} F^i_a
+\end{equation}
+
+I am partically confused about how to do the "straightforward expansion". I
+guess I should do $\frac{\partial}{\partial (\partial_{x_\mu}\omega_a)}$ to the
+integrand inside expression for $\Delta S$, though I don't really understand the
+reason. Even so, the integrand contains terms like
+$\partial_{x_\mu}\partial_{\omega_a}x_\mu$, which I don't know how to deal with.
+
+\textbf{Solution}. The reality is a bit more complicated. We first do a first
+order expasion to get the infinitesimal difference:
+
+\begin{align}
+    &\mathcal{L}'-\mathcal{L} \\
+    \approx &
+    \frac{\partial \mathcal{L}}{\partial\phi^i} F^i_a\omega_a
+    +\frac{\partial \mathcal{L}}{\partial(\partial_{x_\mu}\phi^i)}
+        \left[
+        \partial_\mu\left(F^i_a\omega_a\right) 
+            - \partial_\mu\left(\omega_a\frac{\partial x_\nu}{\partial\omega_a}\right)
+                \partial_\nu\left(\phi^i+F^i_a\omega_a\right)
+        \right]
+    \nonumber\\
+    =&\quad
+    \omega_a
+    \left[
+        \frac{\partial \mathcal{L}}{\partial\phi^i}F^i_a 
+        +
+        \frac{\partial \mathcal{L}}{\partial(\partial_{x_\mu}\phi^i)}
+        \left(
+            \partial_\mu F^i_a 
+            - \partial_\mu(\frac{\partial x_\nu}{\partial \omega_a})
+            \partial_\nu(\phi^i+F^i_a\omega_a)
+        \right)
+    \right]
+    \label{eq:l-l-omega}
+    \\
+    +&
+    \partial_\mu\omega_a
+    \left[
+        \frac{\partial \mathcal{L}}{\partial(\partial_{x_\mu}\phi^i)}
+        \left(
+            F^i_a-\frac{\partial x_\nu}{\partial \omega_a}
+            \partial_\nu(\phi^i+F^i_a\omega_a)
+        \right)
+    \right]
+    \label{eq:l-l-pmu-omega}
+\end{align}
+
+We also discover the integrand in Eq.\ref{eq:dS-integrand} to be
+\begin{align}
+    &\left(1+\partial_\mu(
+        \omega_a\frac{\partial x_\mu}{\partial \omega_a})
+        \right)\mathcal{L}'-\mathcal{L} 
+    \\
+    =& 
+    \left(
+    1+\partial_\mu(\omega_a\frac{\partial x_\mu}{\partial \omega_a})
+    \right)
+    (\mathcal{L}'-\mathcal{L})
+    +
+    \left(\partial_\mu(\omega_a\frac{\partial x_\mu}{\partial \omega_a})\right)
+    \mathcal{L}
+    \label{eq:integrand-l-density}
+\end{align}
+For the first term 
+$\left(
+    1+\partial_\mu(\omega_a\frac{\partial x_\mu}{\partial \omega_a})
+\right) (\mathcal{L}'-\mathcal{L}) $, the $(\mathcal{L}'-\mathcal{L})$ already
+has terms of first order of $\omega_a$ and of first order of
+$\partial_\nu\omega_a$. For our purpose, the second order terms
+($\partial_\nu(F^i_a\omega_a)$) from item \ref{eq:l-l-omega} and item
+\ref{eq:l-l-pmu-omega} can be ignored. Also, the item
+$(\partial_\mu(\omega_a\frac{\partial x_\mu}{\partial
+\omega_a}))(\mathcal{L}'-\mathcal{L})$ in eq.\ref{eq:integrand-l-density} can
+also be ignored.
+
+Therefore the integrand in Eq.$\ref{eq:dS-integrand}$ becomes
+
+\begin{align}
+    & (\mathcal{L}'-\mathcal{L})
+    +
+    \left(\partial_\mu(\omega_a\frac{\partial x_\mu}{\partial \omega_a})\right)
+    \mathcal{L} \\
+    = & 
+    \omega_a
+    \left[
+        \frac{\partial \mathcal{L}}{\partial\phi^i}F^i_a 
+        +
+        \frac{\partial \mathcal{L}}{\partial(\partial_{x_\mu}\phi^i)}
+        \left(
+            \partial_\mu F^i_a 
+            - (\partial_\mu\frac{\partial x_\nu}{\partial \omega_a})
+            \partial_\nu(\phi^i+F^i_a\omega_a)
+        \right)
+        +
+        (\partial_\nu \frac{\partial x_\mu}{\partial \omega_a})\mathcal{L}
+    \right]
+    \\
+    +&
+    \partial_\mu\omega_a
+    \left[
+        \frac{\partial \mathcal{L}}{\partial(\partial_{x_\mu}\phi^i)}
+        \left(
+            F^i_a-\frac{\partial x_\nu}{\partial \omega_a}
+            \partial_\nu(\phi^i+F^i_a\omega_a)
+        \right)
+        +
+        \frac{\partial x_\mu}{\partial \omega_a}\mathcal{L}
+    \right]
+\end{align}
+
+Therefore, the term we seek, i.e. the coefficient of $\partial_\mu\omega_a$ is
+\begin{align}
+  & \frac{\partial \mathcal{L}}{\partial(\partial_{x_\mu}\phi^i)}
+    \left(
+        F^i_a-\frac{\partial x_\nu}{\partial \omega_a}
+        \partial_\nu(\phi^i+F^i_a\omega_a)
+    \right)
+    +
+    \frac{\partial x_\mu}{\partial \omega_a}\mathcal{L} \\
+    =&
+    \left(
+        \mathcal{L}\delta_{\mu\nu}
+        -\frac{\partial \mathcal{L}}{\partial(\partial_{x_\mu}\phi^i)}
+            \partial_\nu \phi^i
+    \right) \frac{\partial x_\nu}{\partial \omega_a}
+    +
+    \frac{\partial \mathcal{L}}{\partial(\partial_{x_\mu}\phi^i)}F^i_a
+\end{align}
+which is what we expect in equation 1.43 of \cite{Altland2010a}.
+
+\textbf{Question}: as for why we should ignore the term with $\omega_a$, there
+are two posts (
+    \href{http://physics.stackexchange.com/questions/122965/derivation-of-the-noether-current}{[1]},
+    \href{http://physics.stackexchange.com/questions/99853/on-a-trick-to-derive-the-noether-current}{[2]} )
+might be useful for a thought.
+
+\bibliography{cite}{}
+\bibliographystyle{alpha}
+
+\printnomenclature
+\section{License}
+The entire content of this work (including the source code
+for TeX files and the generated PDF documents) by 
+Hongxiang Chen (nicknamed we.taper, or just Taper) is
+licensed under a 
+\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative 
+Commons Attribution-NonCommercial-ShareAlike 4.0 International 
+License}. Permissions beyond the scope of this 
+license may be available at \url{mailto:we.taper[at]gmail[dot]com}.
+\end{document}
