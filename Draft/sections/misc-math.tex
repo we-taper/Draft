@@ -248,15 +248,60 @@ Here I prove a simple fact that:
     In my notation, it maps $x^n\to A^m_n x^m$, or $x_n\to A^m_n x_m$.
     (My notation is non-standard, but I think it expresses the idea).
 
-\subsection{Matrix Exponentials}
-\label{sec:Matrix-Exponentials}
-I found these formulae from Wikipedia page:
-\href{https://en.wikipedia.org/wiki/Baker%E2%80%93Campbell%E2%80%93Hausdorff_formula}{Baker–Campbell–Hausdorff formula}.
-\paragraph{The Zassenhaus formula}
-\begin{align}
-    e^{t(X+Y)} &= e^{tX}~ e^{tY} ~e^{-\frac{t^2}{2} [X,Y]} ~
-    e^{\frac{t^3}{6}(2[Y,[X,Y]]+ [X,[X,Y]] )} \nonumber\\
-    & \times
-      e^{\frac{-t^4}{24}([[[X,Y],X],X] + 3[[[X,Y],X],Y] + 3[[[X,Y],Y],Y]) }
-    \times\cdots
-\end{align}
+
+\subsection{Matrix Operations}
+    \subsubsection{Matrix Exponentials}
+    \label{sec:Matrix-Exponentials}
+    I found these formulae from Wikipedia page:
+    \href{https://en.wikipedia.org/wiki/Baker%E2%80%93Campbell%E2%80%93Hausdorff_formula}{Baker–Campbell–Hausdorff formula}.
+    \paragraph{The Zassenhaus formula}
+    \begin{align}
+        e^{t(X+Y)} &= e^{tX}~ e^{tY} ~e^{-\frac{t^2}{2} [X,Y]} ~
+        e^{\frac{t^3}{6}(2[Y,[X,Y]]+ [X,[X,Y]] )} \nonumber\\
+        & \times
+          e^{\frac{-t^4}{24}([[[X,Y],X],X] + 3[[[X,Y],X],Y] + 3[[[X,Y],Y],Y]) }
+        \times\cdots
+    \end{align}
+
+    \paragraph{Logarithm of Matrix}
+    The logarithm of  a matrix $A$ is defined when there is a matrix $B$ such that
+    $e^B=A$, then $\ln(A)=B$.
+
+    Using this, we have a formula to calculate the determinant of a some special
+    matrix.
+
+    Let $A = I + B$, and suppose $\det(A)\neq
+    0$. Then, we have:
+    \begin{equation}
+        \det(A) = \exp(\tr(\ln(A)))
+    \end{equation}
+    Since $\exp{\sum_i \ln(\lambda_i)} = \Pi_i \exp(\ln(\lambda_i))=\Pi_i
+    \lambda_i=\det(A)$.
+
+    Next, we recap several series:
+    \begin{align*}
+        \ln(1+x) &= \sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n}x^n \\
+        \exp(x) &= \sum_{n=0}^{\infty} \frac{x^n}{n!}
+    \end{align*}
+    Then we start the calculation:
+    \begin{align*}
+        \ln(I+B) &= \sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n}B^n \\
+        \tr(\ln(I+B)) &= \sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n}\tr(B^n) \\
+        \det(A) &= \exp(\tr(\ln(I+B))) 
+            = \exp(\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n}\tr(B^n)) \\
+            &\approx 1+ \sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n}\tr(B^n) \\
+            &\approx 1+ \tr(B)
+    \end{align*}
+
+    Therefore, we have, for appropriate matrix $B$:
+    \begin{thm}
+    \begin{equation}
+        \det(A) \equiv \det(I+B) \approx 1+\tr(B)
+    \end{equation}
+    \end{thm}
+    
+    A typical situation is that $A$ is the transformation matrix:
+    \begin{equation}
+        A^\mu_\nu = \frac{\partial x'_\mu}{\partial x_\nu} 
+        = \delta^\mu_\nu + \text{(first order matrix $B$)}^\mu_\nu
+    \end{equation}
