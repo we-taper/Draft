@@ -223,6 +223,96 @@ are two posts (
     \href{http://physics.stackexchange.com/questions/99853/on-a-trick-to-derive-the-noether-current}{[2]} )
 might be useful for a thought.
 
+\todo{confusion}
+
+I had great doubt about this problem. Though I have posted an answer on
+\href{http://physics.stackexchange.com/questions/122965/derivation-of-the-noether-current}{[1]},
+I don't think that answer is satisfactory.
+
+\section{Eq. 3.5}
+
+It is not so obvious to get Eq.3.5 in pp.99 of \cite{Altland2010a}. Here is my
+notes.
+
+According to the book, Eq.3.3 is turned into (I set $\hbar=1$ occasionally,
+though sometimes I forgot that I have set $\hbar=1$, orz):
+\begin{align}
+    \bra{q_f} 
+    &\int \dd{q_N}\dd{p_N}\ket{q_N}\braket{q_N|p_N}\bra{p_N}
+        e^{-i\hat{T}\Delta t}e^{-i\hat{V}\Delta t}\times \nonumber\\
+    &   \int \dd{q_{N-1}}\dd{p_{N-1}}\ket{q_{N-1}}\braket{q_{N-1}|p_{N-1}}\bra{p_{N-1}}
+        e^{-i\hat{T}\Delta t}e^{-i\hat{V}\Delta t} \times
+        \dots \nonumber\\
+    &   \int \dd{q_1}\dd{p_1}\ket{q_1}\braket{q_1|p_1}\bra{p_1}
+        e^{-i\hat{T}\Delta t}e^{-i\hat{V}\Delta t} \ket{q_i}
+\end{align}
+Notice that
+\todo{T has only p, V has only q}
+\begin{align}
+    \braket{q|p} &= \frac{\exp(iqp/\hbar)}{\sqrt{2\pi\hbar}} \\
+    \bra{p_N}e^{-i\hat{T}\Delta t} &= \bra{p_N}e^{-iT(p_N)\Delta t} \\
+    e^{-i\hat{V}\Delta t}\ket{q_{N-1}} &= e^{-iV(q_{N-1})\Delta t}\ket{q_{N-1}} \\
+\end{align}
+Also, 
+\begin{align}
+    &\braket{q_N|p_N}\bra{p_N}e^{-i\hat{T}\Delta t}e^{-i\hat{V}\Delta t}\ket{q_{N-1}} 
+    = \frac{e^{iq_N p_N/\hbar}}{\sqrt{2\pi\hbar}}
+        \bra{p_N}e^{-iT(p_N)\Delta t} e^{-iV(q_{N-1})\Delta t}\ket{q_{N-1}}
+    \nonumber\\
+    =& \frac{e^{iq_N p_N/\hbar}}{\sqrt{2\pi\hbar}}
+        \braket{p_N | q_{N-1}}e^{-iT(p_N)\Delta t} e^{-iV(q_{N-1})\Delta t}
+    = \frac{e^{ip_N (q_N-q_{N-1})/\hbar}}{2\pi\hbar}
+        e^{-i[T(p_N)+V(q_{N-1})]\Delta t} 
+\end{align}
+etc. Now we have to pay special attentiont to the start and end. For the start,
+we have a
+$$ \int \dd{q_N} \braket{q_f | q_N} = \int\dd{q_N}\delta(q_N-q_f) $$
+So every $q_N$ is replaced by $q_f$. For the end, we have
+$$ \braket{q_1|p_1}\bra{p_1}e^{-i\hat{T}\Delta t}e^{-i\hat{V}\Delta t} \ket{q_i}
+= e^{-i[T(p_1)+V(q_i)]}\frac{e^{ip_1(q_1-q_i)}}{2\pi\hbar}
+$$
+
+Together we have the whole thing into:
+
+\begin{align}
+    \int & \dd{q_1}\cdots\dd{q_{N-1}}\dd{p_1}\dd{p_N} \frac{1}{(2\pi\hbar)^N}
+    \times \nonumber\\
+  & e^{i\left[p_1(q_1-q_i)+\cdots p_N(q_N-q_{N-1})\right]} \times\nonumber\\
+  & e^{-i\left[T(p_1)+\cdots+T(p_N)+V(q_i)+V(q_1)+\cdots+V(q_{N-1})\right]}
+\end{align}
+which is exactly eq.(3.5) in book.
+\section{Eq 9.4}
+
+The Hamiltonian for particle on a ring is claimed to be (Eq. 9.1 of
+\cite{Altland2010a}, pp. 498):
+\begin{equation}
+    H = \frac{1}{2}(-i\partial_\phi -A)^2 = \frac{1}{2}(p-A)^2
+\end{equation}
+
+The book \cite{Altland2010a} claims that 
+\begin{equation}
+    L = \frac{1}{2}\dot{\phi}^2 - iA \dot{\phi}
+\end{equation}
+I am quite confused, especially about the appearance of $\dot{\phi}$. Can any explain
+a bit?
+
+How I tried: Since the inverse of a Legendre transformation is Legendre
+transformation itself, 
+\begin{align}
+    \text{Denote }x &\equiv \frac{\partial H}{\partial p} = p-A,\text{ so,} \\
+    p &= x + A,\quad H = \frac{1}{2}x^2 ,\text{ so,}\\
+    L = x p - H &= x(x+A) - \frac{1}{2}x^2 = \frac{1}{2}x^2 + x A 
+\end{align}
+So my calculation found that the Lagrangian of above Hamiltonian is:
+\begin{equation}
+    L = \frac{1}{2}x^2 + x A
+\end{equation}
+where
+\begin{equation}
+    x = \frac{\partial H}{\partial p}
+\end{equation}
+
+
 \bibliography{cite}{}
 \bibliographystyle{alpha}
 
