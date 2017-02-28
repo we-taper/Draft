@@ -177,6 +177,58 @@ The second idea is okey. But then we are faced with a serious problem.
 We have to define $\triangle \equiv 0 \cdot \infty$
 
 $\triangle \cdot 2 = \triangle$, What will be of $\triangle + 1$?
+
+\subsection{Gamma Function and Stirling's formula with Stationary phase
+approximation/Saddle point approximation}
+
+The Gamma Function for $z\in\C$ with a positive real part is
+
+\begin{equation}
+    \Gamma(z+1) = \int_0^\infty \dd{x} x^z e^{-x}
+\end{equation}
+
+It has an approximation formula called the Stirling formula. Here I obtain the
+Stirling formula with the Saddle point approximation, also called Stationary
+phase approximation in pp.108 of \cite{Altland2010}. 
+
+Let us further restrict $z$ into $z\in\R$ and $z>0$, the natural logarithm $\ln(z)$ is well
+defined, so we have
+
+\begin{equation}
+    \int_0^\infty \dd{x} x^z e^{-x} = 
+    \int_0^\infty \dd{x} e^{\ln(x^z)} e^{-x} = 
+    \int_0^\infty \dd{x} e^{\ln(x^z)-x} 
+\end{equation}
+
+Let $F(x,z) = -(\ln(x^z)-x)$, then $\frac{dF}{dx}(x_0)=-\frac{z}{x_0}+1=0$ gives the
+saddle point $x_0=z$. And $\frac{\dd[2]{F}}{\dd x^2}(x_0)=z/x_0^2=1/z>0$
+confirms that this is really a minimum point. Therefore, the integration is
+largely determined by the value around point $x_0=z$. Expanding $F$ around
+$x_0=z$, we have
+\begin{equation}
+    F(x_0 + y)\approx F(x_0=z) + \frac{1}{2z} y^2 
+    = z-\ln(z^z) + \frac{1}{2z}y^2
+\end{equation}
+Therefore
+\begin{align}
+    \int_0^\infty \dd{x} e^{\ln(x^z)-x} &= 
+    \int_0^\infty \dd{x} e^{-F(x,z)} \approx
+    \int_{-z}^\infty \dd{y} e^{-z+\ln(z^z) - \frac{1}{2z}y^2}
+\end{align}
+
+Now as $z\to\infty$, we have
+\begin{align}
+    \int_0^\infty \dd{x} e^{\ln(x^z)-x}
+    &\approx e^{-z+\ln(z^z)} \int_{-\infty}^\infty \dd{y} e^{- \frac{1}{2z}y^2} 
+    = e^{z(\ln(z)-1)} \sqrt{2\pi z} \nonumber\\
+    &= e^{\ln(z^z)}e^{-z}\sqrt{2\pi z}
+    = (\frac{z}{e})^z \sqrt{2\pi z}
+\end{align}
+Thus we have
+\begin{equation}
+    \Gamma(z+1) \overset{z\to\infty}{\approx} e^{z(\ln(z)-1)} \sqrt{2\pi z}
+    = (\frac{z}{e})^z \sqrt{2\pi z}
+\end{equation}
 \subsection{Funcation satisfying \texorpdfstring{$f(x+y)=f(x)f(x)$}{}}
 \label{sec:Funcation satisfying \texorpdfstring{$f(x+y)=f(x)f(x)$}{}}
 
