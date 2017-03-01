@@ -25,14 +25,40 @@
 
 \maketitle
 \abstract{
-Notes of book \cite{Altland2010a}.
+Notes of book \cite{Altland2010}, and another book \cite{Greiner1996} for
+information about path integral.
 }
 \tableofcontents
 
+\section{Todo}
+
+\begin{enumerate}
+    \item Understand in what case can the Gaussian integral formula can be
+        applied. In another word, understand the analytical continuation of the
+        Gaussian integral. See for example, buttom of pp.343 of
+        \cite{Greiner1996}.
+        \label{todo:analytical-c}
+    \item Understand the Wick Rotation, cf. pp.356(ch11.5) of
+        \cite{Greiner1996}. This is related to todo \ref{todo:analytical-c}
+    \item Understand how the constant term in the path integral of a Feynman
+        Kernal will(or will not) affect the physics. Understand the mathematical
+        rationale to support this. (cf. buttom of pp.344 of \cite{Greiner1996}.
+    \item I have doubt about the correctness of pp.110 eq 3.28 till pp.111
+        (Construction recipe of the path integral), especially about his
+        argument, the size of the \textit{Planck cell}.
+\end{enumerate}
+
+Bonus objectives:
+\begin{enumerate}
+    \item Find abou the similarity between Path Integral of a free particle and
+        the solution to a classical diffusion equation (cf. pp.112, footnote 1
+        of \cite{Altland2010}).
+    \item Those marked \textit{todo} in \cite{Altland2010}.
+\end{enumerate}
 \section{pp.33 eq.1.43}
 \label{sec:Table}
 
-In page 33 of \cite{Altland2010a}, the author derives a difference of action, when we
+In page 33 of \cite{Altland2010}, the author derives a difference of action, when we
 have a symmetry transformation paraterized by $\omega_a$:
 
 \begin{align}
@@ -215,7 +241,7 @@ Therefore, the term we seek, i.e. the coefficient of $\partial_\mu\omega_a$ is
     +
     \frac{\partial \mathcal{L}}{\partial(\partial_{x_\mu}\phi^i)}F^i_a
 \end{align}
-which is what we expect in equation 1.43 of \cite{Altland2010a}.
+which is what we expect in equation 1.43 of \cite{Altland2010}.
 
 \textbf{Question}: as for why we should ignore the term with $\omega_a$, there
 are two posts (
@@ -231,7 +257,7 @@ I don't think that answer is satisfactory.
 
 \section{Eq. 3.5}
 
-It is not so obvious to get Eq.3.5 in pp.99 of \cite{Altland2010a}. Here is my
+It is not so obvious to get Eq.3.5 in pp.99 of \cite{Altland2010}. Here is my
 notes.
 
 According to the book, Eq.3.3 is turned into (I set $\hbar=1$ occasionally,
@@ -284,12 +310,12 @@ which is exactly eq.(3.5) in book.
 \section{Eq 9.4}
 
 The Hamiltonian for particle on a ring is claimed to be (Eq. 9.1 of
-\cite{Altland2010a}, pp. 498):
+\cite{Altland2010}, pp. 498):
 \begin{equation}
     H = \frac{1}{2}(-i\partial_\phi -A)^2 = \frac{1}{2}(p-A)^2
 \end{equation}
 
-The book \cite{Altland2010a} claims that 
+The book \cite{Altland2010} claims that 
 \begin{equation}
     L = \frac{1}{2}\dot{\phi}^2 - iA \dot{\phi}
 \end{equation}
@@ -314,7 +340,7 @@ where
 
 
 \bibliography{cite}{}
-\bibliographystyle{alpha}
+\bibliographystyle{alphaurl}
 
 \printnomenclature
 \section{License}
