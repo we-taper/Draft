@@ -179,7 +179,7 @@ We have to define $\triangle \equiv 0 \cdot \infty$
 $\triangle \cdot 2 = \triangle$, What will be of $\triangle + 1$?
 
 \subsection{Gamma Function and Stirling's formula with Stationary phase
-approximation/Saddle point approximation}
+approximation}
 
 The Gamma Function for $z\in\C$ with a positive real part is
 
@@ -188,10 +188,14 @@ The Gamma Function for $z\in\C$ with a positive real part is
 \end{equation}
 
 It has an approximation formula called the Stirling formula. Here I obtain the
-Stirling formula with the Saddle point approximation, also called Stationary
-phase approximation in pp.108 of \cite{Altland2010}. 
+Stirling formula with the Stationary phase approximation in pp.108 of
+\cite{Altland2010}. 
 
-Let us further restrict $z$ into $z\in\R$ and $z>0$, the natural logarithm $\ln(z)$ is well
+Without further restricting $z$ into $\R$, we can use Stationary phase approximation
+to get the result.\footnote{
+    If we have restricted $z\in\R$, then instead of Stationary phase
+approximation, we would be using Saddle point approximation.}
+Note that since $\Re(z)>0$, the natural logarithm $\ln(z)$ is well
 defined, so we have
 
 \begin{equation}
@@ -201,7 +205,7 @@ defined, so we have
 \end{equation}
 
 Let $F(x,z) = -(\ln(x^z)-x)$, then $\frac{dF}{dx}(x_0)=-\frac{z}{x_0}+1=0$ gives the
-saddle point $x_0=z$. And $\frac{\dd[2]{F}}{\dd x^2}(x_0)=z/x_0^2=1/z>0$
+saddle point $x_0=z$. And $\frac{\dd[2]{F}}{\dd x^2}(x_0)=z/x_0^2=1/z$
 confirms that this is really a minimum point. Therefore, the integration is
 largely determined by the value around point $x_0=z$. Expanding $F$ around
 $x_0=z$, we have
@@ -229,6 +233,7 @@ Thus we have
     \Gamma(z+1) \overset{z\to\infty}{\approx} e^{z(\ln(z)-1)} \sqrt{2\pi z}
     = (\frac{z}{e})^z \sqrt{2\pi z}
 \end{equation}
+For $z\in\C$, $\Re(z)>0$.
 \subsection{Funcation satisfying \texorpdfstring{$f(x+y)=f(x)f(x)$}{}}
 \label{sec:Funcation satisfying \texorpdfstring{$f(x+y)=f(x)f(x)$}{}}
 
@@ -271,6 +276,43 @@ Here I prove a simple fact that:
     the specific theorem), one has $f(x)=e^{f'(0)x}$.
 \end{proof}
     
+\subsection{Dirac delta function}
+
+It is quite troublesome to deal with this function $\delta(x)$. For example, sometimes I
+have to deal with $\frac{\dd}{\dd{x}}\delta(x)$, or $\delta'(x)$. Here I present an argument, not
+proof, of the result.
+
+I treat $\delta(x)$ not as a function, but as an operator. Therefore, we have to
+use a test function $f(x)$ to see what $\delta'(x)$ really is. Assuming that the
+dirac delta function still follows the rule of \textit{integration by parts}.
+Assuming our test function vanishes, or at least does not go to infinity when
+$x\to\infty$ or $x\to-\infty$. Then
+\begin{align}
+    \int_{-\infty}^\infty \dd{x} \delta'(x) f(x) &=
+    \eval{\delta(x)f(x)}_{-\infty}^\infty - \int\dd{x}\delta(x)\frac{\dd}{\dd x}f(x)
+    = 0 - \dv{f}{x}(0)
+\end{align}
+Therefore, we say that in this situation,
+\begin{equation}
+    \delta'(x) = -\delta(x)\dv{x}
+\end{equation}
+
+But there is one pitfall that confuses me for a long time. Because:
+\begin{align*}
+    \int\dd{x}g(x)x\delta'(x) = -\int\dd{x}(g(x)+xg'(x))\delta(x)
+    = -\int\dd{x}g(x)\delta(x)
+\end{align*}
+This lures me into believing
+\begin{equation}
+    x\delta'(x) = -\delta(x)
+    \label{eq:xdp--d}
+\end{equation}
+Hence
+\begin{equation}
+    \delta'(x) = -\frac{\delta(x)}{x}
+    \label{eq:dp--dx}
+\end{equation}
+While \ref{eq:xdp--d} is correct, \ref{eq:dp--dx} is of course wrong.
 \subsection{Common Pitfalls}
 \label{sec:Common Pitfalls}
     \subsubsection{Tensors}
