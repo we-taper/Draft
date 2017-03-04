@@ -234,8 +234,8 @@ Thus we have
     = (\frac{z}{e})^z \sqrt{2\pi z}
 \end{equation}
 For $z\in\C$, $\Re(z)>0$.
-\subsection{Funcation satisfying \texorpdfstring{$f(x+y)=f(x)f(x)$}{}}
-\label{sec:Funcation satisfying \texorpdfstring{$f(x+y)=f(x)f(x)$}{}}
+\subsection{Function satisfying \texorpdfstring{$f(x+y)=f(x)f(x)$}{}}
+\label{sec:Function satisfying \texorpdfstring{$f(x+y)=f(x)f(x)$}{}}
 
 Here I prove a simple fact that:
 \begin{thm}
@@ -313,6 +313,62 @@ Hence
     \label{eq:dp--dx}
 \end{equation}
 While \ref{eq:xdp--d} is correct, \ref{eq:dp--dx} is of course wrong.
+\subsection{A beautiful product for sine function}
+
+We have:
+\begin{equation}
+    \sin(x) =  x\prod_{n=1}^\infty \left(1-\frac{x^2}{n^2\pi^2}\right)
+\end{equation}
+Obviously the left and right has the same roots. But the proof of equality needs
+some work. See related links:
+\begin{enumerate}
+    \item  
+        \href{http://math.stackexchange.com/questions/674769/sinx-infinite-product-formula-how-did-euler-prove-it}{Phy.SE:
+        $sin(x)$ infinite product formula: how did Euler prove it?},
+    \item \href{https://en.wikipedia.org/wiki/Basel_problem}{Wikipedia-Basel Problem}.
+\end{enumerate}
+
+This formula is also used in calculating a path integral, see pp.114 of
+\cite{Altland2010}.
+
+\subsection{Functional Derivative}
+
+The following is an answer to a question posted on Physics.StackExchange. It
+contains a good definition of functional derivative and a specific example. The
+link to that post is
+\url{http://physics.stackexchange.com/questions/314638/variational-derivative-of-function-with-respect-to-its-derivative}.
+
+The question asks:
+\begin{myquote} \enquote{
+    What is 
+    $$ \frac{\delta f(t)}{\delta \dot{f}(t)} $$
+    Where $\dot{f}(t)=df/dt$.
+} \end{myquote}
+
+The best answer is:
+\begin{myquote} \enquote{
+    The definition of the functional derivative of a functional $I[g]$ is the
+    distribution $\frac{\delta I}{\delta g}(\tau)$ such that 
+    $$\left\langle \frac{\delta I}{\delta g}, h\right\rangle 
+        := \frac{d}{d\alpha}\bigg\rvert_{\alpha=0} I[g+ \alpha h]$$
+    for every test function $h$. In our case, assuming to deal with functions which
+    suitably vanish before reaching $\pm \infty$,
+    $$I[g] = \int_{-\infty}^t g(x)dx$$
+    so that
+    $$I[\dot{f}]= f(t)$$
+    as requested. Going on with the procedure
+    $$\left\langle \frac{\delta I}{\delta g}, h\right\rangle 
+        = \frac{d}{d\alpha}|_{\alpha=0}  \int_{-\infty}^t(g(\tau)+ \alpha h(\tau)) d\tau 
+        = \int_{-\infty}^t h(\tau) dx 
+        = \int_{-\infty}^{+\infty} \theta(t-\tau)h(\tau) d\tau
+    $$
+    where $\theta(\tau)=1$ for $\tau\geq 0$ and $\theta(\tau)=0$ for $\tau<0$
+    and so 
+$$\frac{\delta f(t)}{\delta \dot{f}}(\tau) = \frac{\delta I}{\delta g}(\tau)= \theta(t-\tau)$$
+} \end{myquote}
+In my opinion, the answer has assumed a inner product 
+$$\left\langle f,g \right\rangle := \int f(t)g(t)\dd{t}$$.
+
 \subsection{Common Pitfalls}
 \label{sec:Common Pitfalls}
     \subsubsection{Tensors}
