@@ -255,6 +255,24 @@ I had great doubt about this problem. Though I have posted an answer on
 \href{http://physics.stackexchange.com/questions/122965/derivation-of-the-noether-current}{[1]},
 I don't think that answer is satisfactory.
 
+\section{About \texorpdfstring{$\dot{q}$}{} and imaginary time}
+
+The $\dot{q}$ in all the path integrals, especially eq.3.6 and eq.3.8, is in
+fact a shorthand for the divided difference $\frac{q_{n+1}-q_n}{\Delta t}$ as in
+pp.99 (the buttom). It is not exactly the same as $\dot{q}$. pp.343 of
+\cite{Greiner1996} also mentioned that in this sense, the Lagrangian in all
+path integrals is not identical with the ordinary Lagrange function. Though, I
+still do not know if this matters at all.
+
+In the most common imaginary time transformation, such as those mentioned in
+pp.106 of \cite{Altland2010}, and pp.358 of \cite{Greiner1996}, we have the
+transformation $t\to -i\tau$. This in effect change all the $\Delta t$ in, e.g.
+eq 3.5 (pp.99) of \cite{Altland2010}, to $-i\Delta\tau$. Therefore, the divided
+difference
+$$ \frac{q_{n+1}-q_n}{\Delta t} \to \frac{q_{n+1}-q_n}{-i \Delta\tau}$$
+Therefore,
+$$ \dot{q} \to i\partial_\tau q $$
+$$ \dot{q}^2 \to -\partial^2_\tau q $$
 \section{Eq. 3.5}
 
 It is not so obvious to get Eq.3.5 in pp.99 of \cite{Altland2010}. Here is my
