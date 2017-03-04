@@ -1,3 +1,6 @@
+# Ignore other unrelated files.
+*.lnk
+
 # Ignore the draft math files.
 math.html
 
