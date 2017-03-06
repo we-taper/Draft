@@ -361,6 +361,83 @@ where
 \bibliographystyle{alphaurl}
 
 \printnomenclature
+\section{A brief Summary of Quantum double well}
+
+The Quantum double well:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{pics/quantum-double-well.png}
+    \caption{Quantum double well}
+    The solid line is the double well potential. The dotted line in
+    the second quarter is to remind us of the single well potential and its sets
+    of eigenvalues. The inverted potential in Euclidean time is shown below the
+    $q$-axis.
+\end{figure}
+The Euclidean path integral is
+\begin{equation}
+    G_E(a,\pm a:\tau)=\int_{q(0)=\pm a,q(\tau)=a} Dq\,
+    \exp(-\frac{1}{\hbar}\int_0^\tau\dd{\tau'}
+        \left(\frac{m}{2}\dot{q}^2+V(q)\right)
+    )
+\end{equation}
+with the imaginary time saddle point equation
+\begin{equation}
+    -m\ddot{q}+V'(q) = 0
+\end{equation}
+
+It is turned into several contributions:
+\begin{equation}
+    A = A_{cl}\times A_{qu}
+\end{equation}
+where $A$ denotes transition amplitude, "cl" for classical, "qu" for quantum.
+
+The classical contribution includes a stationary not moving part $A_{cl,st}$, a
+moving but bouncing back and forth in the inverted potential part $A_{cl,inst}$.
+The moving and bouncing back and forth motion is termed \nomen{instanton}, see
+p.117(\cite{Altland2010}) for details.
+
+The $A_{cl,st}$ is $e^{0}=1$ since the stationary path $q\equiv0$. The
+$A_{cl,inst}$ is calculated in the book (pp.116-117), and the result is:
+\begin{equation}
+    A_{cl,inst,one-trip} = \exp(-\frac{1}{\hbar}S_{inst})
+\end{equation}
+for one bouncing trip. Here $S_{inst}$ is given by eq.3.36 in p.117. Adding them
+together gives:
+\begin{equation}
+    A_{cl,inst} =
+    \sum_{n\text{ even/odd}}^\infty \frac{1}{n!}
+    \left(\tau K e^{-S_{inst}/\hbar}\right)^n
+    =\cosh(\tau Ke^{-S_{inst}/\hbar})\text{ or }\sinh(\tau Ke^{-S_{inst}/\hbar})
+\end{equation}
+
+where $K$ is just some prefactor explained in p.118 and calculated in
+pp.122-123.
+
+The quantum contribution is due to the fluctuation of path around the classical
+path. This part is also divided into two categories. The $A_{qu,st}$ for
+fluctuation around the stationary path is calculated in the section about single
+well green function, spcifically eq.3.31 in p.114. It is approximated in p.119
+to be
+\begin{equation}
+    A_{qu,st,n} = e^{-\omega(\tau_{i+1}-\tau_i)/2}
+\end{equation}
+and adding together gives
+\begin{equation}
+    A_{qu,st}= \prod_i e^{-\omega(\tau_{i+1}-\tau_i)/2} = e^{-\tau\omega}
+\end{equation}
+The rest $A_{qu,inst}$ from fluctuation around instanton is assumed to be
+negligible (p.119).
+
+In summary:
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l c c}
+        Path       & Classical ($0$th order) & Fluctuation ($2$nd order) \\
+        Stationary & $1$                     & $\approx e^{-\omega\tau}$  \\
+        Instanton  & $e^{-\frac{1}{\hbar}S_{\text{inst}}}$, or $\cosh(\tau Ke^{-S_{\text{inst}}/\hbar}) \sinh(\tau Ke^{-S_{\text{inst}}/\hbar})$ & $\approx 1$\\
+    \end{tabular}
+\end{table}
+
 \section{License}
 The entire content of this work (including the source code
 for TeX files and the generated PDF documents) by 
