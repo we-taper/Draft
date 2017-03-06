@@ -313,6 +313,9 @@ Hence
     \label{eq:dp--dx}
 \end{equation}
 While \ref{eq:xdp--d} is correct, \ref{eq:dp--dx} is of course wrong.
+
+\textbf{Note}: This, in my opinion, is an argument against completely treating
+$\delta(x)$ as a function.
 \subsection{A beautiful product for sine function}
 
 We have:
@@ -369,6 +372,36 @@ $$\frac{\delta f(t)}{\delta \dot{f}}(\tau) = \frac{\delta I}{\delta g}(\tau)= \t
 In my opinion, the answer has assumed a inner product 
 $$\left\langle f,g \right\rangle := \int f(t)g(t)\dd{t}$$.
 
+\subsection{A centered coordinate making two variables into one}
+
+This technique is found in p.126 of \cite{Altland2010}. It should be helpful in
+a much broader context.
+
+The original equation is:
+\begin{equation}
+    \partial^2 \phi = \partial_\phi V(\phi)
+\end{equation}
+with $\partial^2 = \partial^2_\tau + \partial^2_x$. We propose a change of
+coordinate $r\equiv \sqrt{x^2+\tau^2}$. Then after careful calculation, one
+finds:
+\begin{align*}
+    \partial_x &= \pm\frac{\sqrt{r^2-\tau^2}}{r}\partial_r \\
+    \partial^2_x &= 
+        \frac{1}{r^2}\left(\frac{\tau^2}{r}\partial_r +
+        (r^2-\tau^2)\partial^2_r\right) 
+\end{align*}
+and similarly for $\partial_\tau$. They combine into:
+\begin{equation}
+    \partial^2 = 
+        \frac{1}{r^2}\left(\frac{x^2+\tau^2}{r}\partial_r +
+        (r^2-\tau^2+r^2-x^2)\partial^2_r\right)
+    = \frac{1}{r}\partial_r + \partial^2_r
+\end{equation}
+Therefore, we have a new equation:
+\begin{equation}
+    \partial^2_r \phi = - \frac{1}{r}\partial_r\phi + \partial_\phi V(\phi)
+\end{equation}
+with a "friction force" of the form $-\frac{1}{r}\partial_r\phi$.
 \subsection{Common Pitfalls}
 \label{sec:Common Pitfalls}
     \subsubsection{Tensors}
