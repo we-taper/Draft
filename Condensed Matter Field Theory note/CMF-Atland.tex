@@ -438,6 +438,43 @@ In summary:
     \end{tabular}
 \end{table}
 
+\section{Tunneling of Quantum field}
+
+This part is particular hard for me. There are majorly three problems. The first
+and most obvious one, is why do we require a "thin wall" approximation? Why is
+this approximation physical?
+
+The next problem is how is expansion of first order in $f$ will make the
+following equation:
+\begin{equation}
+    m\partial^2_r \phi = -\frac{m}{r}\partial_r \phi +
+    \partial_\phi\left(V(\phi)-f\phi\right)
+\end{equation}
+into a simplified form:
+\begin{equation}
+    m\partial^2_r \phi = \partial_\phi(\phi)
+\end{equation}
+
+The last problem is that, the action in the new coordinate is:
+\begin{equation}
+    \int_0^{r_0}\dd{r} \int_0^{2\pi}\dd{\theta} \left[
+        m(\partial_r\phi)^2+V(\phi)-f\phi\right] r
+\end{equation}
+where I have ignored several constants, and have used the formula:
+\begin{equation}
+    \dd{\tau}\dd{x} = r\dd{r}\dd{\theta}
+\end{equation}
+For the moment ignores $-f\phi r$, the first two terms:
+\begin{equation}
+    \int_0^{2\pi}\dd{\theta} \int_0^{r_0}\dd{r} \left[
+        m(\partial_r\phi)^2 + V(\phi)
+    \right] r
+\end{equation}
+is still one step away from producing a $S_{\text{inst}}$ term:
+\begin{equation}
+    S_{\text{inst}} := \int_0^T \dd{\tau} 
+    \left(\frac{m}{2}(\partial_\tau\phi)^2 + V(\phi)\right)
+\end{equation}
 \section{License}
 The entire content of this work (including the source code
 for TeX files and the generated PDF documents) by 
