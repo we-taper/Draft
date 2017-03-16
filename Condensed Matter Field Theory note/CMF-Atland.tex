@@ -558,6 +558,144 @@ Then (notice $a\ket{0}=0$):
     &= \phi\sum_n \phi^{n} \frac{(a^\dagger)^{n}}{n!}\ket{0} \\
     &= \phi\exp{\phi a^\dagger}\ket{0}
 \end{align*}
+\section{Something about Grassmann Algebra, Grassmann Calculus}
+
+I believe that there are several important points missing in the book, when he
+talks about Grassmann.
+
+\paragraph{The first} thing is the derivative rule. The differentiation with respect to
+Grassmann numbers should follow some version of \nomen{graded Leibniz rule}. But
+I am not sure about the details for the following reason. Consider the
+traditional graded Leibniz rule:
+\begin{equation}
+    \dd (fg) = (\dd f) g + (-1)^{[f]} f\dd g
+\end{equation}
+where $[f]$ is something defined as the parity, or the degree of f.
+
+Now comes the problem: how to define a grade for something like:
+\begin{align}
+    f &= \eta_1 +\eta_2 + \eta_3 + \eta_1\eta_2 +\eta_1\eta_2\eta_3 \\
+    g &= \eta_1 -\eta_2 -\eta_3 + \eta_1\eta_3 - \eta_1\eta_2\eta_3
+\end{align}
+
+\todo{understand graded Leibniz rule}
+
+By calculation, I found:
+\begin{align}
+    \frac{\partial }{\partial \eta_1}(fg) &= -2\eta_2-2\eta_3-2\eta_2\eta_3 \\
+    (\frac{\partial }{\partial \eta_1}f)g &=
+        \eta_1-\eta_2-\eta_3+\eta_1\eta_3-\eta_1\eta_2-\eta_2\eta_3-\eta_1\eta_2\eta_3
+    \\
+    f( \frac{\partial }{\partial \eta_1}g) &=
+        \eta_1+\eta_2+\eta_3+ \eta_1\eta_3 +\eta_1\eta_2+\eta_2\eta_3
+        +\eta_1\eta_2\eta_3
+\end{align}
+It is easy to see that:
+\begin{equation}
+    \pdv{\eta_1}(fg) \neq (\pdv{\eta_1}f)g \pm f(\pdv{\eta_1} g)
+\end{equation}
+
+A more general calculation gives:
+\begin{align}
+    \pdv{\eta}\left[ (a+\eta b)(c+\eta d) \right] &= bc + (-1)^{[a]} ad \\
+    \left(\pdv{\eta}(a+\eta b)\right) (c+\eta d) &= bc + b\eta d \\
+    (a+\eta b)\left(\pdv{\eta}(c+\eta d)\right) &= ad + \eta bd
+\end{align}
+where $(-1)^{[a]}$ is the number such that $a\eta = (-1)^{[a]}\eta a$. So, there
+is no way to reconcile the above calculations into something like:
+\begin{align*}
+    \pdv{\eta}\left[ (a+\eta b)(c+\eta d) \right] = 
+    \left(\pdv{\eta}(a+\eta b)\right) (c+\eta d)  
+    + (-1)^?  (a+\eta b)\left(\pdv{\eta}(c+\eta d)\right)
+\end{align*}
+
+\paragraph{The second} point is very important. It is about the postulations of
+Grassmann variables. I postulate that (in addition to the postulations in p.162
+of \cite{Altland2010}):
+\begin{enumerate}
+    \item All $\eta_i,\bar{\eta}_i,a_i,a^\dagger_i$ anti-commute with each
+        other. From this we also have $\eta_i^2=0$, etc.
+    \item $\{\dd \eta_i,\dd\eta_j\}=0$ for ($i\neq j$).
+    \item $\int \dd{\eta} (af(\eta) + bg(\eta) )
+        = a\int\dd{\eta}f(\eta) + b\int\dd{\eta}g(\eta) $
+    \item $\{\eta_i,\dd{\eta_j}\}=0$, for $i\neq j$.
+    \item $\{\bar{\eta}_i,\dd{\eta_j}\}=0$, for $\forall i,j$.
+    \item $\pdv{\eta} (af(\eta)) = a\pdv{\eta}f(\eta)$, for $a\in\C$.
+\end{enumerate}
+It is not so simple to tell whether we should have 
+$$[\eta_i,\dd\eta_i]=0 \,\text{?}$$ or
+$$\{\eta_i,\dd\eta_i\}=0\,\text{?}$$
+But we should have 
+$$\{\eta_i,\dd{\eta_j}\}=0 \quad\text{for $i\neq j$} $$
+For if $[\eta_i,\dd{\eta_j}]=0$, then we have a contradiction:
+\begin{align}
+    \int\dd{\eta_j} \eta_i\eta_j &= \eta_i \int\dd{\eta_j}\eta_j = \eta_i
+    \nonumber\\
+    &= -\int\dd{\eta_j}\eta_j \eta_i = -\eta_i\quad \text{contradiction!}
+\end{align}
+And similar argument applies for $\{\bar{\eta}_i,\dd{\eta_j}\}=0$, $\forall
+i,j$.
+
+There is also another point missing. The relations between $\eta$ and
+$\ket{0}\bra{0}$ is ambiguous. It seems that there is no harm in assuming:
+\begin{equation}
+    \eta \ket{0}\bra{0} = \ket{0}\bra{0}\eta
+\end{equation}
+Because, if so, we have:
+\begin{equation}
+    a\ket{\eta}\bra{\eta} = \eta\ket{\eta}\bra{\eta} = \ket{\eta}\bra{\eta}\eta
+\end{equation}
+without conflict with:
+\begin{equation}
+    \bar{\eta}\ket{\eta}\bra{\eta} = \ket{\eta}\bra{\eta}\bar{\eta} =
+    \ket{\eta}\bra{\eta} a^\dagger
+\end{equation}
+
+With above assumptions, I have:
+\begin{thm}
+    Assuming that $a,b,c,d$ either commute or anticommute with $\eta$.
+    \begin{equation}
+        \int\dd{\eta} \left(\pdv{\eta}(a+\eta b) \right)(c+\eta d)
+        = (-1)^s\int\dd{\eta} (a+\eta b) \left(\pdv{\eta}(c+\eta d)\right)
+        \label{eq:inteByPart-grass}
+    \end{equation}
+    where $s$ is such that $b\eta = (-1)^s \eta b$.
+\end{thm}
+This can also be generalized into
+\begin{equation}
+    \int\dd{\eta} \left(\pdv{\eta}f(\eta) \right) g(\eta)
+    = (-1)^s\int\dd{\eta} f(\eta) \left(\pdv{\eta}g(\eta)\right)
+\end{equation}
+where $s$ is some appropriate constant as in eq~\ref{eq:inteByPart-grass}. Here
+we have assumed that any $f(\eta)$, we can decompose it into $f=a+\eta b$, where
+$a$ and $b$ do not contain $\eta$. We also assume $a,b$ either commute or
+anticommute with $\eta$.
+\begin{proof}
+    Direct calculation.
+\end{proof}
+
+\paragraph{Change of variables in integration}
+First we consider a simple example.
+\begin{equation}
+    \int \dd{\phi} a+b\phi = b
+\end{equation}
+Let $v = \lambda \phi$, since
+\begin{equation}
+    \int\dd{v} a+ b\frac{v}{\lambda} = \frac{b}{\lambda}
+\end{equation}
+We naturally require
+\begin{equation}
+    \dd{\phi} = \lambda \dd{v}
+\end{equation}
+For multivariable case, it is easy to guess that:
+\begin{align}
+    \vb{v} &= M\vb{\phi} \\
+    \dd{\phi_1}\dd{\phi_2}\cdots \dd{\phi_N} &= \det(M)\dd{v_1}\dd{v_2}\cdots\dd{v_N}
+\end{align}
+(Took from
+\href{https://en.wikipedia.org/wiki/Berezin_integral#Change_of_Grassmann_variables}{Wikipedia
+Berezin Integral}.)
+
 \section{License}
 The entire content of this work (including the source code
 for TeX files and the generated PDF documents) by 
