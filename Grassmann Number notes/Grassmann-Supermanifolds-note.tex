@@ -1,0 +1,57 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physicist-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physicist-taper}
+\makenomenclature % For an index of symbols.
+
+\title{Grassmann Number notes}
+\date{\today}
+\author{Taper}
+
+
+\begin{document}
+
+
+\maketitle
+\abstract{
+    From Supermanifolds \cite{DeWitt1992}.
+}
+\tableofcontents
+
+\section{Inverse of a Supernumber}
+
+Let $z=z_B + z_S$ be a supernumber with $z_B$ its body, $z_S$ its soul.
+If $z_B\neq 0$, then it has a inverse. The inverse can be found via the
+following formal series:
+\begin{equation}
+    \frac{1}{a+x} = \frac{1}{a}\frac{1}{1+\frac{x}{a}} =
+    \frac{1}{a}\sum_{n=0}^{\infty}(-\frac{x}{a})^n
+\end{equation}
+Thus,
+\begin{equation}
+    z^{-1} = z_B^{-1}\sum_{n=0}^{\infty} (-z_B^{-1}z_S)^n
+\end{equation}
+\bibliography{cite}{}
+\bibliographystyle{alphaurl}
+\printnomenclature
+\section{License}
+The entire content of this work (including the source code
+for TeX files and the generated PDF documents) by 
+Hongxiang Chen (nicknamed we.taper, or just Taper) is
+licensed under a 
+\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative 
+Commons Attribution-NonCommercial-ShareAlike 4.0 International 
+License}. Permissions beyond the scope of this 
+license may be available at \url{mailto:we.taper[at]gmail[dot]com}.
+\end{document}
