@@ -3,9 +3,21 @@ This is intended for storing my drafts of my works. It is messy and will never b
 
 [![rss](https://cloud.githubusercontent.com/assets/6148706/20462606/377b9338-af5d-11e6-90b1-362048452c18.png) Subscribe to feed](https://github.com/we-taper/Draft/commits/master.atom)
 
-**Note**: The note is written on the basis of my knowledge. Therefore, sometime I might assume the the reader has already be familiar with special knowledge. For example, I might add something from condensed matter physics to notes in topology. I might also be too tacit because I have already been familiar with other similar concepts. For example, I might be too tacit about homology group in topology because I have already learnt cohomology groups in Cech Cohomology.
+**Note**: The note is written on the basis of my knowledge. Therefore,
+sometime I might assume the the reader has already be familiar with
+special knowledge. For example, I might add something from condensed
+matter physics to notes in topology. I might also be too tacit because
+I have already been familiar with other similar concepts. For example,
+I might be too tacit about homology group in topology because I have
+already learnt cohomology groups in Cech Cohomology.
 
 That said, if there is really trouble in reading these notes, feel free to email me.
+
+# Attention!
+
+I am so sorry that this is becoming so unexpectedly messy that I sometimes
+cannot find useful information here. A clean up is in schedule. Before that take
+place, please use **SEARCH** to find anything.
 
 # An Outline of Notes of Drafts Included
 
@@ -42,7 +54,7 @@ likely to be updated, unless to correct spelling, grammar, etc.
         Here are some miscellaneous things related to the same book.
         For example, my homeworks and some related exercises.
 
-3. draft.pdf
+2. draft.pdf
 
     This is a general purpose draft. It contains currently:
 
@@ -67,25 +79,25 @@ likely to be updated, unless to correct spelling, grammar, etc.
 
         Notes for the book *The Quantum Theory of Fields* by Weinberg.
 
-4. Useful **(anit)Commutative relationships**
+3. Useful **(anit)Commutative relationships**
 
-5. **feynman diagram** (in dormant state, perhaps I will not update it).
+4. **feynman diagram** (in dormant state, perhaps I will not update it).
 
 	Notes for studying Feynman diagram. Currently stopped at defining
 	Green function.
 
-6. Note of Sheaf Theory (in dormant state, perhaps I will not update it). 
+5. Note of Sheaf Theory (in dormant state, perhaps I will not update it). 
 
     Notes taken to understand sheaf cohomology. (Scattered and
     incomplete.)
 
-7. Algebra (in dormant state, perhaps I will not update it). 
+6. Algebra (in dormant state, perhaps I will not update it). 
 	* Noetherian Ring
 
 		Introduces **Noetherian module** and Noetherian ring. 
 		From S.Lang's Algebra.
 
-8. Quantum Field Theory in a Nutshell (inside *QFT*)
+7. Quantum Field Theory in a Nutshell (inside *QFT*)
 (in dormant state, perhaps I will not update it). 
 
     Notes for the book *Quantum Field Theory in a Nutshell* by A. Zee.
@@ -138,38 +150,52 @@ likely to be updated, unless to correct spelling, grammar, etc.
     contains several useful physics formulae, with links to their
     sources.
 
-16. Latex Packages
+15. Latex Packages
 
     The packages I write to speed out latex writting.
 
-17. Gravity and Entanglement [dead]
+16. Gravity and Entanglement [dead]
 
     Notes about a lecture. However, this note may not be updated in
     the future.
 
-18. Lattice Green function [dead]
+17. Lattice Green function [dead]
 
     Notes for calculating lattice Green function. However, this not is
     unlikely to be updated in the future.
 
-19. Notes of Connecting Few-body and Many-body Pictures of Fractional
+18. Notes of Connecting Few-body and Many-body Pictures of Fractional
     Quantum Hall Physics [dead]
 
     Notes about a conference named just like above. The detailed
     link can be found inside the note.
 
-20. Notes of Various papers.
+19. Notes of Various papers.
 
-21. Useful (anti)Commutative Relationships
+20. Useful (anti)Commutative Relationships
 
-22. UltiSnips
+21. UltiSnips
 
     Snippets to speed up typing, using UltiSnips plugin for Vim.
 
-23. Fun facts
+22. Fun facts
 
     Interesting facts that may or maynot be useful. About physics and
     mathematics.
+
+23. Basic Topology Notes
+    
+    From definition of topological space, to simplicial homology, use
+    Armstrong's text.
+
+24. Condensed Matter Field Theory note
+
+    The textbook Condensed Matter Field Theory by Atland and B.Simons.
+    A really good one.
+
+25. Conference OR Schools
+
+26. Dirac Hamiltonian
 
 # License
 
