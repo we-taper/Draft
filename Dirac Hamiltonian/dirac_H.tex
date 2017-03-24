@@ -1,0 +1,230 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physicist-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physicist-taper}
+\makenomenclature % For an index of symbols.
+
+\title{Dirac Hamiltonian}
+\date{\today}
+\author{Taper}
+
+
+\begin{document}
+
+
+\maketitle
+\abstract{
+This aims for recapitulate important information about Dirac
+Hamiltonian as is written in Sakurai's text \cite{Sakurai2011},
+chapter 8.\footnote{Be careful that some version of this book is
+missing chapter 8... I don't understand why...} This is intended to
+learn to help me deal with a Lattice Dirac Hamiltonian.
+}
+\tableofcontents
+
+The starting point is still the Schrodinger equation:
+
+\begin{equation}
+    i\hbar \pdv{t}\ket{\psi(t)} = H\ket{\psi(t)}
+\end{equation}
+
+We will be using \textbf{Natural Units} from now on.
+
+\section{Klein-Gorden Equations}
+\label{sec:Klien-Gorden Equations}
+
+The Klein-Gorden equation starts with the the relativistic energy (of
+a particle with momentum $\vb{p}$ and mass $m$):
+\begin{equation}
+    E_p = +\sqrt{p^2+m^2}
+\end{equation}
+The plus sign here hints that we may have a negative energy solution.
+
+We do not quantize this equation directly, because the square root is
+hard to represent in operators. Instead, Klein-Gorden equation starts
+with $H^2$:
+\begin{equation}
+    H^2 = p^2 + m^2 \overset{\text{quantized as}}{\to}
+    -\grad^2 + m^2
+\end{equation}
+On the other hand, the Schrodinger equation applying twice gives:
+\begin{equation}
+    -\pdv[2]{t} = H^2
+\end{equation}
+Hence we have the Klein-Gorden equation:
+\begin{equation}
+    \label{eq:kg-eq}
+    \left(\pdv[2]{t} - \grad^2 + m^2\right) \psi(x,t) = 0
+\end{equation}
+It can be simplified in $4$-vector notation as:
+\begin{equation}
+    \label{eq:kg-eq-4vec}
+    \left(\partial_\mu \partial^\mu + m^2\right) \psi(x,t) = 0
+\end{equation}
+or most succinctly as,
+\begin{equation}
+    \left(\partial^2 + m^2\right) \psi(x,t) = 0
+\end{equation}
+The author looked at this equation from three different aspects.
+
+\paragraph{Producing the free particle solution} It is first checked
+that the free-particle state:
+\begin{equation}
+    \psi \propto \exp(-i(Et-\vb{p}\vdot\vb{x})) = e^{-ip^\mu x_\mu}
+\end{equation}
+is a solution to the Klein-Gorden equation, provided that:
+\begin{equation}
+    E^2 = \vb{p}^2+m^2
+\end{equation}
+
+\paragraph{Probability density} By analogy with non-relativistic case,
+the four-vector current is defined as:
+\begin{equation}
+    j^\mu = \frac{i}{2m}
+    [\psi^*\partial^\mu\psi - (\partial^\mu\psi)^*\psi]
+\end{equation}
+It is easy to show $\partial_\mu j^\mu=0$\footnote{Just note that
+normally we have $A^\mu B_\mu = A_\mu B^\mu$}. Then, this is a
+conserved current. The time-component of this is the density:
+\begin{equation}
+    \rho \equiv j^0 = \frac{i}{2m}
+    \left[\psi^*\partial_t\psi - (\partial_t\psi)^*\psi\right]
+\end{equation}
+If one check this equation, one find that $\rho$ is proportionally to
+the imaginary of some number which, one has no clear reason to say
+whether it is positive or negative. Therefore, the Klein-Gorden
+equation leaves one in a bad position to interprate the probability
+nature of quantum mechanics (what is a "negative probability"
+anyway?).
+
+\paragraph{Coupling to electromagnetic field} The author discusses a
+little bit about why, when there is electromagnetic field, we have the
+replacement
+\begin{equation}
+    p\to p+eA
+\end{equation}
+in page 490, footnote (be careful that the author uses the notation
+$e=|e|$, whereas I used the notation $e=-|e|$, i.e. $e$ is just $q$,
+the charge).
+
+This coupling effectively gives the replacement:
+\begin{equation}
+    \partial_\mu \quad\to\quad D_\mu
+\end{equation}
+where $D_\mu\equiv\partial_\mu - ieA_\mu$.
+
+The Klein-Gorden equation now becomes:
+\begin{equation}
+    \label{eq:kg-emfield}
+    [D_\mu D^\mu+m^2] \psi(x,t) = 0
+\end{equation}
+This equation revels a connection between $e\to-e$ and
+$\psi\to\psi^*$\footnote{You will find this if you complex conjugate
+the Klein-Gorden equation.}.
+
+\paragraph{Two component interpretation} The author also mentions a
+way to split the equation into two equations. If we define $\phi(x,t)$
+and $\chi(x,t)$ as in eq.(8.1.15) in p.491, then it is straightforward
+to check that, the Klein-Gorden equation is equivalent to:
+\begin{equation}
+    iD_t \Upsilon = \left[
+    -\frac{1}{2m}\vb{D}^2(\tau_3+i\tau_2)+m\tau_3 \right] \Upsilon
+\end{equation}
+where $(D_t,\vb{D})=D_\mu$, $\tau_i$ are pauli matrices, and $\Upsilon$ is the
+two component wave function:
+\begin{equation}
+    \Upsilon \equiv \begin{pmatrix}
+        \phi(x,t) \\ \chi(x,t)
+    \end{pmatrix}
+\end{equation}
+
+This formulation enables a mysterious interpretation of negative energy,
+negative probability, and particles and antiparticles. For more information,
+please look at pp.491~494 of \cite{Sakurai2011}.
+
+\section{Dirac Equation}
+\label{sec:Dirac Equation}
+
+The Dirac equation aims to change the Klein-Gorden equation into a first order
+PDE. There are two approaches to derive the equation. The first can be found in
+section 8.2 of \cite{Sakurai2011}, and section II.1 of \cite{zee2010quantum}.
+The second approach is found in page 99 (chapter 2) of \cite{Greiner1997}, and
+is prefered in my opinion. After all, they lead to the same equation:
+
+\begin{equation}
+    (i\gamma^\mu \partial_\mu - m) \psi(x,t) =0
+    \label{eq:dirac-eq}
+\end{equation}
+Where $\gamma^\mu$ are matrices satisfying:
+\begin{equation}
+    \frac{1}{2}\{ \gamma^\mu,\gamma^\nu\} = \eta^{\mu\nu}
+\end{equation}
+
+In other words, $\gamma^\mu$ is a representation of the Clifford algebra
+$\mathrm{Cl}_{1,3}(\R)$. We can cast this equation into another form:
+\begin{equation}
+    i\pdv{t} ket{\psi} = H \ket{\psi} = \bm{\alpha}\vdot\vb{p}+\beta m
+\end{equation}
+where $\vb{p}$ is the momentum, $\bm{\alpha}$ and $\beta$ satisfy a similar
+relation:
+\begin{align}
+    \frac{1}{2}\{\alpha_i,\alpha_j\} = \delta_{ij} \\
+    \{\alpha_i,\beta\} &= 0 \\
+    \alpha_i^2 = \beta^2 &= 0
+\end{align}
+They are related to $\gamma^\mu$ matrices by:
+\begin{equation}
+    \alpha_i = \gamma^0 \gamma^i \quad\text{and}\quad
+    \beta = \gamma^0
+\end{equation}
+A detailed formula for $\gamma$ matrices can be found in p.94 of
+\cite{zee2010quantum}. A detailed formula for $\alpha_i,\beta$
+matrices can be found in p.496 of \cite{Sakurai2011}.
+
+\paragraph{The density problem} The dirac formulation has a appearent advantage.
+The current defined by
+\begin{equation}
+    j^\mu \equiv \bar{\psi}\gamma^\mu\psi
+\end{equation}
+where
+\begin{equation}
+    \bar{\psi} \equiv \psi^\dagger \beta
+\end{equation}
+is conserved. And the probability density $\rho$ is
+\begin{equation}
+    \rho \equiv j^0 = \psi^\dagger \beta \gamma^0 \psi = \psi^\dagger \psi
+\end{equation}
+It is positive-definite.
+
+\paragraph{Coupled with a charge} When coupled with electromagnetic
+field, and with a the vector potential $\vb{A}=0$, it becomes
+\begin{equation}
+    H = \bm{\alpha}\vdot\vb{p} + \beta m - e \Phi
+\end{equation}
+where $\Phi$ is the scalar potential.
+
+\bibliography{cite}{}
+\bibliographystyle{alphaurl}
+
+\printnomenclature
+\section{License}
+The entire content of this work (including the source code
+for TeX files and the generated PDF documents) by 
+Hongxiang Chen (nicknamed we.taper, or just Taper) is
+licensed under a 
+\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative 
+Commons Attribution-NonCommercial-ShareAlike 4.0 International 
+License}. Permissions beyond the scope of this 
+license may be available at \url{mailto:we.taper[at]gmail[dot]com}.
+\end{document}
