@@ -1,0 +1,359 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     12256,        350]
+NotebookOptionsPosition[     11345,        313]
+NotebookOutlinePosition[     11720,        329]
+CellTagsIndexPosition[     11677,        326]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Firstly: The Original (2.21)", "Section",
+ CellChangeTimes->{{3.6994309967149553`*^9, 3.6994310736901836`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", "Energy1", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Energy1", "[", 
+    RowBox[{"px_", ",", "py_", ",", "m_"}], "]"}], "=", 
+   RowBox[{"Sqrt", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Sin", "[", "px", "]"}], "^", "2"}], "+", 
+     RowBox[{
+      RowBox[{"Sin", "[", "py", "]"}], "^", "2"}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"2", "-", "m", "-", 
+        RowBox[{"Cos", "[", "px", "]"}], "-", 
+        RowBox[{"Cos", "[", "py", "]"}]}], ")"}], "^", "2"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Plot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Energy1", "[", 
+        RowBox[{"px", ",", "py", ",", "m"}], "]"}], ",", 
+       RowBox[{"-", 
+        RowBox[{"Energy1", "[", 
+         RowBox[{"px", ",", "py", ",", "m"}], "]"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"px", ",", 
+       RowBox[{"-", "\[Pi]"}], ",", "\[Pi]"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"py", ",", 
+       RowBox[{"-", "\[Pi]"}], ",", "\[Pi]"}], "}"}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"m", ",", 
+     RowBox[{"-", "5"}], ",", "5"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6994264087805195`*^9, 3.699426433598343*^9}, {
+  3.699426820702612*^9, 3.699426820903651*^9}, {3.6994272331587844`*^9, 
+  3.69942724851611*^9}, {3.6994273004205894`*^9, 3.6994273475728283`*^9}, {
+  3.69942751833482*^9, 3.6994275958074646`*^9}, {3.699428586997074*^9, 
+  3.699428592395239*^9}, {3.6994293611810627`*^9, 3.6994294273727617`*^9}, {
+  3.6994294882822514`*^9, 3.6994294891195*^9}, {3.6994310709773607`*^9, 
+  3.699431082477238*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`m$$ = 0., Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`m$$], -5, 5}}, Typeset`size$$ = {488., {105., 118.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`m$67531$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`m$$ = -5}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`m$$, $CellContext`m$67531$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot3D[{
+         $CellContext`Energy1[$CellContext`px, $CellContext`py, \
+$CellContext`m$$], -$CellContext`Energy1[$CellContext`px, $CellContext`py, \
+$CellContext`m$$]}, {$CellContext`px, -Pi, Pi}, {$CellContext`py, -Pi, Pi}], 
+      "Specifications" :> {{$CellContext`m$$, -5, 5}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{562., {194., 203.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.699426422527534*^9, 3.699426434098339*^9}, 
+   3.6994268215191727`*^9, 3.699427249616915*^9, {3.6994273052540245`*^9, 
+   3.6994273505560727`*^9}, 3.6994275412014236`*^9, {3.6994275780477853`*^9, 
+   3.699427596708171*^9}, 3.6994286048093977`*^9, {3.6994293393740005`*^9, 
+   3.6994294281263175`*^9}, 3.6994294902823277`*^9}]
+}, Open  ]],
+
+Cell["(It can be found that band crossings appear at m=0,2,4)", "Text",
+ CellChangeTimes->{{3.699431171494131*^9, 3.6994311915788903`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Second: My Modified (2.21)", "Section",
+ CellChangeTimes->{{3.699431097702529*^9, 3.699431119009423*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", "Energy2", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Energy2", "[", 
+    RowBox[{"px_", ",", "py_", ",", "m_"}], "]"}], "=", 
+   RowBox[{"Sqrt", "[", 
+    RowBox[{
+     RowBox[{"4", 
+      RowBox[{
+       RowBox[{"Sin", "[", "px", "]"}], "^", "2"}]}], "+", 
+     RowBox[{"4", 
+      RowBox[{
+       RowBox[{"Sin", "[", "py", "]"}], "^", "2"}]}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"2", "-", "m", "-", 
+        RowBox[{"2", 
+         RowBox[{"Cos", "[", "px", "]"}]}], "-", 
+        RowBox[{"2", 
+         RowBox[{"Cos", "[", "py", "]"}]}]}], ")"}], "^", "2"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Plot3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Energy2", "[", 
+        RowBox[{"px", ",", "py", ",", "m"}], "]"}], ",", 
+       RowBox[{"-", 
+        RowBox[{"Energy2", "[", 
+         RowBox[{"px", ",", "py", ",", "m"}], "]"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"px", ",", 
+       RowBox[{"-", "\[Pi]"}], ",", "\[Pi]"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"py", ",", 
+       RowBox[{"-", "\[Pi]"}], ",", "\[Pi]"}], "}"}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"m", ",", 
+     RowBox[{"-", "10"}], ",", "10"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.69942781213752*^9, 3.699427816309475*^9}, {
+  3.699428594793676*^9, 3.6994285992260494`*^9}, {3.6994295708417315`*^9, 
+  3.699429572229041*^9}, {3.6994848291394525`*^9, 3.6994848320185575`*^9}, {
+  3.6994857557673917`*^9, 3.699485773018401*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`m$$ = -2., Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`m$$], -10, 10}}, Typeset`size$$ = {479., {98., 111.}},
+     Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`m$10018$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`m$$ = -10}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`m$$, $CellContext`m$10018$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot3D[{
+         $CellContext`Energy2[$CellContext`px, $CellContext`py, \
+$CellContext`m$$], -$CellContext`Energy2[$CellContext`px, $CellContext`py, \
+$CellContext`m$$]}, {$CellContext`px, -Pi, Pi}, {$CellContext`py, -Pi, Pi}], 
+      "Specifications" :> {{$CellContext`m$$, -10, 10}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{553., {187., 196.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.699427818121914*^9, 3.69942860647114*^9, 3.699429573340537*^9, 
+   3.6994825968428555`*^9, 3.699484833508111*^9, {3.6994857654502673`*^9, 
+   3.6994857742423077`*^9}}]
+}, Open  ]],
+
+Cell["(It can be found that band crossings appear at m=-2,2,6)", "Text",
+ CellChangeTimes->{{3.6994311321272016`*^9, 3.699431198519882*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"2", "-", "6", "-", 
+      RowBox[{"2", 
+       RowBox[{"Cos", "[", "px", "]"}]}], "-", 
+      RowBox[{"2", 
+       RowBox[{"Cos", "[", "py", "]"}]}]}], "\[Equal]", "0"}], "&&", 
+    RowBox[{"px", "\[Element]", 
+     RowBox[{"Interval", "[", 
+      RowBox[{
+       RowBox[{"-", "\[Pi]"}], ",", "\[Pi]"}], "]"}]}], "&&", 
+    RowBox[{"py", "\[Element]", 
+     RowBox[{"Interval", "[", 
+      RowBox[{
+       RowBox[{"-", "\[Pi]"}], ",", "\[Pi]"}], "]"}]}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"px", ",", "py"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6994846855042396`*^9, 3.699484741278858*^9}, {
+  3.6994847913396893`*^9, 3.6994847982352667`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"px", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"-", "\[Pi]"}], "}"}]}], ",", 
+     RowBox[{"py", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"-", "\[Pi]"}], "}"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"px", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"-", "\[Pi]"}], "}"}]}], ",", 
+     RowBox[{"py", "\[Rule]", 
+      RowBox[{"{", "\[Pi]", "}"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"px", "\[Rule]", 
+      RowBox[{"{", "\[Pi]", "}"}]}], ",", 
+     RowBox[{"py", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"-", "\[Pi]"}], "}"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"px", "\[Rule]", 
+      RowBox[{"{", "\[Pi]", "}"}]}], ",", 
+     RowBox[{"py", "\[Rule]", 
+      RowBox[{"{", "\[Pi]", "}"}]}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.6994847349972982`*^9, 3.699484741863406*^9}, {
+  3.699484792133016*^9, 3.6994847986191363`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"2", "-", 
+      RowBox[{"(", 
+       RowBox[{"-", "2"}], ")"}], "-", 
+      RowBox[{"2", 
+       RowBox[{"Cos", "[", "px", "]"}]}], "-", 
+      RowBox[{"2", 
+       RowBox[{"Cos", "[", "py", "]"}]}]}], "\[Equal]", "0"}], "&&", 
+    RowBox[{"px", "\[Element]", 
+     RowBox[{"Interval", "[", 
+      RowBox[{
+       RowBox[{"-", "\[Pi]"}], ",", "\[Pi]"}], "]"}]}], "&&", 
+    RowBox[{"py", "\[Element]", 
+     RowBox[{"Interval", "[", 
+      RowBox[{
+       RowBox[{"-", "\[Pi]"}], ",", "\[Pi]"}], "]"}]}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"px", ",", "py"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6994858455296507`*^9, 3.699485881179826*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{{3.6994858523222675`*^9, 3.6994858816109567`*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{759, 709},
+WindowMargins->{{102, Automatic}, {Automatic, 15}},
+Magnification:>1.6 Inherited,
+FrontEndVersion->"10.3 for Microsoft Windows (64-bit) (October 9, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 117, 1, 112, "Section"],
+Cell[CellGroupData[{
+Cell[722, 27, 1774, 46, 280, "Input"],
+Cell[2499, 75, 2064, 39, 423, "Output"]
+}, Open  ]],
+Cell[4578, 117, 139, 1, 47, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4754, 123, 111, 1, 112, "Section"],
+Cell[CellGroupData[{
+Cell[4890, 128, 1674, 47, 280, "Input"],
+Cell[6567, 177, 1913, 38, 409, "Output"]
+}, Open  ]],
+Cell[8495, 218, 140, 1, 47, "Text"],
+Cell[CellGroupData[{
+Cell[8660, 223, 745, 21, 106, "Input"],
+Cell[9408, 246, 1012, 32, 77, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10457, 283, 742, 22, 106, "Input"],
+Cell[11202, 307, 115, 2, 47, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
