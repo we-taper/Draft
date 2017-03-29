@@ -147,6 +147,75 @@ equation, is
 \label{sec:Special-techniques-in-Electrostatistics}
 
 For the book \cite{griffiths-EM}, pp. 120 of section 3.1.6. 
+\subsection{Fourier transformation of Creation and Annihilation
+Operators}
+\label{sec:Fourier-CreationAnnihilation}
+There is one pitfall when dealing with fourier transformation of creation or
+annihilation operators. Suppose we have (for fermions):
+\begin{equation}
+    c_k = \sum_m e^{-ikm} c_m
+    \label{eq:fourier-ck}
+\end{equation}
+(ignoring all unnecessary normalization factors)
+Then there are two ways to process the fourier transformation of $c^\dagger_m$:
+
+\textbf{First}, we could start with mathematical precision, and define:
+\begin{equation}
+    \mathcal{F}[c^\dagger_m](k) \equiv \sum_m e^{-ikm}c^\dagger_m
+\end{equation}
+\textbf{Second}, we could instead define:
+\begin{equation}
+    c^\dagger_k \equiv \sum_m e^{ikm} c^\dagger_m
+    \label{eq:fourier-cDaggerK}
+\end{equation}
+The second definition is most encountered in physics literature, because it has
+several benefits. The first is that it is intuitively straightforward to proceed
+from eq.\ref{eq:fourier-ck} to eq.\ref{eq:fourier-cDaggerK}. The second point is
+that, the second definition preserves the commutation relationship. It is
+straightforward to get,
+\begin{align}
+    \{c_k,c^\dagger_{k'}\} &= \delta_{k,k'} \\
+    \{c_k,\mathcal{F}[c^\dagger_m](k')\} &= \delta_{k,-k'}
+    \label{eq:anticom-ckfck}
+\end{align}
+This explains what I mean by preserving the commutation relationship.
+And, in the second approach, the inverse fourier transformation is also
+different:
+\begin{align}
+    c_m &= \sum_k e^{ikm} c_k \\
+    c^\dagger_m &= \sum_k e^{-ikm} c^\dagger_k
+\end{align}
+
+Below we make several remarks.
+\begin{remark}
+    It should be noted that, if we start with defining
+    \begin{equation}
+        c^\dagger_k \equiv \sum_m e^{-ikm} c^\dagger_m
+    \end{equation}
+    Then, we would have, instead of eq.\ref{eq:fourier-ck}
+    \begin{equation}
+        c_k \equiv \sum_m e^{ikm} c_m
+    \end{equation}
+\end{remark}
+
+\begin{remark}
+    It should also be noted that, mathematically we have the theorem:
+    \begin{equation}
+        \mathcal{F}[f^*(m)](k) = (\mathcal{F}[f(m)])^*(-k)
+    \end{equation}
+    Although, it deals only with complex conjugation, here we could analogously
+    regard the theorem as if $*$ is $\dagger$. Therefore,
+    \begin{equation}
+        \mathcal{F}[c^\dagger_m](k) = c^\dagger_{-k}
+    \end{equation}
+    which explains eq.\ref{eq:anticom-ckfck} from another aspect.
+\end{remark}
+
+\begin{remark}
+    Lastly, let's don't forget that the same fact hold with bosons operators, with
+    $\{,\}\overset{\text{replaced by}}{\to}[,]$.
+\end{remark}
+
 \subsection{Miscellaneous}
 \label{sec:Miscellaneous}
 
