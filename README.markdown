@@ -199,13 +199,20 @@ likely to be updated, unless to correct spelling, grammar, etc.
 
 # License
 
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
-<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+<img alt="Creative Commons License" style="border-width:0" src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png" />
 </a>
 
-This work is licensed under a
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
-Creative Commons Attribution-ShareAlike 4.0 International License
-</a>.
+Except where otherwise noted, this content is published under a 
+<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+CC BY-NC-SA
+</a> license. In simple, human-friendly words, this license means that
+you can copy, redistribute, remix, transform and build upon the
+content for any purpose except commercially, as long as you give
+appropriate credit, provide a link to the license, and indicate if
+changes were made. If you remix, transform, or build upon the
+material, you must distribute your contributions under the same
+license as the original. The exact license details is found in:
+<https://creativecommons.org/licenses/by-nc-sa/4.0/>
 
 Copyleft (C) 2016      Chen Hongxiang
