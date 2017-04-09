@@ -212,7 +212,8 @@ content for any purpose except commercially, as long as you give
 appropriate credit, provide a link to the license, and indicate if
 changes were made. If you remix, transform, or build upon the
 material, you must distribute your contributions under the same
-license as the original. The exact license details is found in:
+license as the original. See 
 <https://creativecommons.org/licenses/by-nc-sa/4.0/>
+for the legal details.
 
 Copyleft (C) 2016      Chen Hongxiang

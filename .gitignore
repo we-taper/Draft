@@ -1,3 +1,6 @@
+# Ignore my bib library
+library.bib
+
 # Ignore other unrelated files.
 *.lnk
 
