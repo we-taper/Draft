@@ -1,0 +1,669 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physicist-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physicist-taper}
+\makenomenclature % For an index of symbols.
+
+% \newcommand\keydash[]{
+
+\title{Classification lecture by A. Ludwig}
+\date{\today}
+\author{Taper}
+
+
+\begin{document}
+
+
+\maketitle
+\abstract{
+This presents notes for Ludwig's lecture in BSS-2016. It took a lot of
+content directly from Ludwig's handwritten notes. Those notes are
+available from
+\href{http://boulderschool.yale.edu/2016/boulder-school-2016-lecture-notes}{BSS's
+website}.
+
+This not serves as majorly an introduction to the classification
+framework. It introduces the reason why the classification is done
+with anti-unitary symmetries and explains how the three symmetries
+(T,C,S) are related to the Ten-fold classes of Hamiltonians.
+}
+
+\tableofcontents
+
+\section{Reference suggested}
+\label{sec:Reference suggested}
+
+This work is done with A. Ludwig, and his collaborators: Shinsei Ryu,
+Andreas Schnyder, Akira Furusaki, Joel Moore. 
+
+The most recent review (at that time) is: \cite{LudwigNobelSym}.
+Besides, the author also suggested many useful references:
+\cite{Schnyder2009},\cite{Schnyder2008},\cite{Ryu2010},
+\cite{Ryu2012}, \cite{Kitaev2009a}, \cite{Chiu2013},
+\cite{Zirnbauer1996}, \cite{Altland1997}, \cite{Heinzner2005},
+\cite{Ryu2015}, \cite{Witten2016}.
+
+
+\section{General Introduction}
+\label{sec:General Introduction}
+
+Before the classification, we should first clarify the objects that we
+are going to classify. There are \textit{roughly} two types of
+materials that we called topological, according to Ludwig. They are:
+\begin{enumerate} % Two class of Topological M
+    \item Topological phase with intrinsic topological order.
+        
+        For example, the Fractional Quantum Hall state. Typically they
+        have:
+        \begin{itemize}
+            \item Ground state degeneracy on topologically non-trivial
+                position space.
+            \item Anyonic excitations which may have fractional
+                quantum numbers and non-trivial Braiding properties.
+        \end{itemize}
+
+    \item Symmetry Protected Topological (SPT) Phases
+
+        (example: The $(2+1)$d $(p+ip)$ superconductor has a small
+        symmetry group $\Z_2$ (Fermion parity) protecting its SPT
+        phase.)
+        \begin{itemize}
+            \item which have \textbf{none} of the above properties,
+            \item but whose ground state cannot be continuously
+                deformed into a direct product state (without crossing
+                a quantum phase transition at which the gap closes),
+                \todo{quantum phase trans?}
+                as long as the symmetry protecting the SPT is
+                protected.
+        \end{itemize}
+\end{enumerate}
+
+The aim of this classification is to classify the $2^{\text{nd}}$
+group, that of those SPT phases.
+
+\textbf{About this classification}
+\begin{itemize}
+    \renewcommand{\labelitemi}{$\rightarrow$}
+    \item Topological insulators and topological superconductors
+        of non-interacting fermions provide the simplest and first
+        examples SPT phases.
+
+        They can be completely classified in any dimension of space.
+        There are several approaches to this classification.
+
+    \item More general, interacting fermionic SPT phases is not
+        yet fully understood. However, their classification should be
+        built upon these "templates" of non-interacting cases.
+    \item This simplest and most general classification applies to
+        the case when only anti-unitarily realized symmetries are
+        required to protect the SPT phase. 
+    \item (\textbf{Important Note}: all that we talked about being
+        \textit{realized}, are refer to the realization in
+        $1$st-quantized Hamiltonian, not in the $2$nd-quantized
+        Hamiltonian. For example, as we shall see, charge conjugation
+        ($C$) is unitary in the $2$nd-quantized Hamiltonian, but
+        anti-unitary in the $1$st-quantized Hamiltonian.
+    \item This Ten-fold way, is a framework to characterize all possible
+        Hamiltonians (single-particle Hamiltonians). (Ref.
+        \cite{Zirnbauer1996},\cite{Altland1997},\cite{Schnyder2009}.)
+    \item The unitarily realized symmetries are not required to
+        protect our SPT, in the sense which will be explained
+        immediately. The reason for not considering those unitarily
+        realized symmetry is that their classification will depends on
+        the specific symmetry group that implements the symmetry.
+        Hence its classification will not be as universal as in the
+        case of anti-unitarily realized symmetries.
+
+\end{itemize}
+
+\textbf{Looking further}: For Bosonic SPT, the group cohomology
+approach aims to address this issue. For fermionic SPT, there are
+generalizations of this approach, named group super-cohomology, which
+is currently under exploration.
+
+\begin{key}[Why No Unitarily realized symmetry]
+    If the Hamiltonian has a symmetry that is unitarily realized, then
+    by Quantum Mechanics this Hamiltonian can be block diagonalized,
+    and its blocks will not possess memory of the unitary symmetry,
+    i.e. they do not commute with the unitary matrix representation of
+    that symmetry. Also, those blocks are responsible for the
+    topological properties of the system. \todo{really? How they are
+    responsible?}
+
+    Therefore, our classification of symmetry is in fact a
+    classification of these block Hamiltonians. And it turns out that
+    the classification in terms of anti-unitarily realized symmetry
+    does not depend on the specific matrix that represents the
+    symmetry. In contrast, the classification in terms of unitarily
+    realized symmetry depends on the specific group that implements the
+    symmetry.
+    \todo{What contrast? Specific matrix v.s. Specific group?}
+
+    It may happen that the Hamiltonian possesses some unitarily
+    realized symmetries. But these symmetries do not affect our
+    classification since when the Hamiltonian becomes a block-diagonal
+    matrix, the blocks has no memory of the unitarily realized
+    symmetries, i.e. \textit{unitary symmetries do not give more
+    constraints to any of the blocks}.
+\end{key}
+
+\paragraph{Specification of above statements}
+
+Suppose we have a non-interacting Hamiltonian in the $2$nd-quantized
+Fock space:
+
+\begin{equation}
+    \label{eq:H-2nd}
+    \hat{H} = \sum_{A,B} \hat\psi^\dagger_A H_{AB} \hat\psi_{B}
+\end{equation}
+
+Where $A,B$ label lattice sites (goes from $1$ to $N$), and possibly
+spin indices (then goes from $1$ to $2N$). $H_{AB}$
+is the 1st quantized Hamiltonian.\todo{Is it single-particle? Make it
+precise!}.
+
+Suppose the Hamiltonian is invariant under a symmetry transformation
+$\hat{U}$:
+
+\begin{equation}
+    \label{eq:sym-in-2nd-1}
+    \hat{U}\hat{H}\hat{U}^{-1} = \hat{H}
+\end{equation}
+
+And it acts on creation and annihilation operators by a matrix $u$:
+\begin{align}
+    \label{eq:sym-in-2nd-2}
+    \hat{\psi}'_A = 
+    \hat{U} \hat\psi_A \hat{U}^{-1} &=
+    \sum_B (u^\dagger)_{AB} \hat\psi_B \\
+    \label{eq:sym-in-2nd-3}
+    \hat\psi'^\dagger_A =
+    \hat{U} \hat\psi^\dagger_A \hat{U}^{-1} &= 
+    \sum_B  \hat\psi^\dagger_B u_{AB}
+\end{align}
+
+(we could think about $ \hat\psi^\dagger_A$ as a row vector, and
+$\hat\psi_B$ as a column vector. This helps us remember this rules.)
+
+It is easy to find that preserving of canonical commutation relation
+($\{\hat\psi'^\dagger_A,\hat\psi'_B\}=\delta_{A,B}$), implies that the
+matrix $u$ is unitary.
+
+Next, when we want to pass from the $2$nd quantized picture to the
+first quantized picture, we immediately realized one thing.
+
+\paragraph{The linear problem} Passing from $2$nd quantized to the
+1st quantized (i.e. plugging Eq.\ref{eq:sym-in-2nd-1},
+Eq.\ref{eq:sym-in-2nd-2}, Eq.\ref{eq:sym-in-2nd-3} into
+Eq.\ref{eq:H-2nd}), one is faced with $\hat{U} H_{AB} \hat{U}^{-1}$.
+If $\hat{U}$ is unitary, then $H_{AB}$ is unchanged. Otherwise,
+$H_{AB}$ becomes $H^*_{AB}$.
+
+\paragraph{The unitary (linear) case and the block form of
+Hamiltonian}
+Suppose we choose $\hat{U}$ to be unitary, then on the 1st quantized
+Hamiltonian will satisfy the usual condition:
+\begin{equation}
+    u H u^{-1} = H
+\end{equation}
+
+In this situation, the Hamiltonian will have a block form. More
+precisely, suppose all our symmetry transformations form a group
+$G_0$. Denote $\mathcal{V}$ as the $N$-dimensional single-particle
+Hilbert space spanned by the single-particle states:
+\begin{equation}
+    \ket{A} = \hat\psi^\dagger_A \ket{0}, \quad A = 1,\cdots,N
+\end{equation}
+($\ket{0}$ is the Fock vacuum.)
+
+We have
+\begin{thm}[Diagonalization of Hamiltonian in unitary representation]
+This space $\mathcal{V}$ decomposes into a direct sum of vector spaces
+$\mathcal{V}_\lambda$ associated with the irrep (irreducible
+representations, labeled by $\lambda$) of $G_0$.
+\begin{equation}
+    \mathcal{V} = \oplus_\lambda m_\lambda \mathcal{V}_\lambda
+\end{equation}
+where $m_\lambda$ denotes the multiplicity of $\lambda$th irrep.
+Denote the dimension of each irrep as $d_\lambda$.
+
+In each vector space $\mathcal{V}_\lambda$, one can choose a
+(orthogonal) basis of the form:
+\begin{equation}
+    \ket{v^{(\lambda)}_\alpha} \otimes \ket{w^{(\lambda)}_k}
+\end{equation}
+where
+\begin{itemize}
+    \item $G_0$ acts only only $\ket{w^{(\lambda)}}_k$,
+        $k=1,\cdots,d_\lambda$,
+    \item $H$ acts only on $\ket{v^{(\lambda)}}_\alpha$,
+        $\alpha=1,\cdots,m_\lambda$.
+\end{itemize}
+\end{thm}
+
+Thus, each irrep $\lambda$ defines a block-Hamiltonian matrix of size
+$m_\lambda\times m_\lambda$:
+\begin{equation}
+    H^{(\lambda)}_{\alpha\beta} \equiv 
+    \braket{v^{(\lambda)}_\alpha | H | v^{(\lambda)}_\beta}
+\end{equation}
+
+\paragraph{The exact aim of this classification}
+This classification aims to classify sets of all block Hamiltonians
+$H^{(\lambda)}$ when we fix a symmetry group $G_0$ and let the
+Hamiltonian runs through all possible single-particle Hamiltonians
+that commute with operations (this operation should be unitarily
+realized on the single-particle Hamiltonian) of $G_0$.
+
+The result turns out to be independent of the group $G_0$, and of
+course independent of its irrep $\lambda$.
+
+\section{The Anti-Unitary Symmetries}
+\label{sec:The Anti-Unitary Symmetries}
+
+It turns out that under reasonable assumptions, there are only a
+finite number of anti-unitary symmetries. Let us revisit our
+definition of symmetry transformation:
+
+\begin{equation*}
+    \tag{\ref{eq:sym-in-2nd-1}, revisit}
+    \hat{U}\hat{H}\hat{U}^{-1} = \hat{H}
+\end{equation*}
+
+If it acts on creation/annihilation operators by:
+\begin{align*}
+    \tag{\ref{eq:sym-in-2nd-2}, revisit}
+    \hat{\psi}'_A = 
+    \hat{U} \hat\psi_A \hat{U}^{-1} &=
+    \sum_B (u^\dagger)_{AB} \hat\psi_B \\
+    \tag{\ref{eq:sym-in-2nd-3}, revisit}
+    \hat\psi'^\dagger_A =
+    \hat{U} \hat\psi^\dagger_A \hat{U}^{-1} &= 
+    \sum_B  \hat\psi^\dagger_B u_{BA}
+\end{align*}
+
+\paragraph{Case 1} Instead of requiring $\hat{U}$ to be linear (which
+would give a unitarily realized symmetry on single-particle
+Hamiltonian), we require it to be anti-linear:
+\begin{equation}
+    \hat{U} i \hat{U}^{-1} = -i
+\end{equation}
+Then, calculation shows:
+\begin{equation}
+    u H^* u^\dagger = H
+\end{equation}
+where $H$ is 1st quantized single-particle Hamiltonian. This symmetry
+is called time-reversal symmetry, denoted $\hat{\tau}$, its action on
+1st-quantized single-particle Hamiltonian $H$ can be denoted using
+\begin{equation}
+    T \equiv \eval{\hat{\tau}}_{\text{1st quantized Hilbert space}}
+\end{equation}
+and by above formula, we have:
+\begin{equation}
+    T = uK
+\end{equation}
+where $K$ is complex conjugation. And we have the usual property
+$THT^{-1}=H$, where $T^{-1}=u^t K$. ($u^t$ is the transpose of $u$).
+
+\paragraph{Case 2} If instead, we change eq.\ref{eq:sym-in-2nd-2} and
+eq.\ref{eq:sym-in-2nd-3} to such that
+
+\begin{align}
+    \label{eq:sym-cc-1}
+    \hat{\psi}'_A = 
+    \hat{U} \hat\psi_A \hat{U}^{-1} &=
+    \sum_B (u^*)^\dagger_{AB} \hat\psi^\dagger_B \\
+    \label{eq:sym-cc-2}
+    \hat\psi'^\dagger_A =
+    \hat{U} \hat\psi^\dagger_A \hat{U}^{-1} &= 
+    \sum_B  \hat\psi_B u^*_{BA}
+\end{align}
+
+(Again, a tip is to remember that $\hat\psi^\dagger_A$ is a row
+vector, and $\hat\psi_A$ is a column vector)
+
+In words, we require creation operators transform into annihilation
+operators, and annihilation operators transform into creation
+operators.
+
+Now proceed again in the same way, we have the choice of linear or
+antilinear $\hat{U}$. If $\hat{U}$ is linear, then the condition
+$\hat{U}\hat{H}\hat{U}^{-1} = \hat{H}$ leads to the equation:
+\begin{equation}
+    \label{eq:sym-C-cond}
+    u (H-\frac{1}{2}\tr(H))^t u^\dagger = - (H-\frac{1}{2}\tr(H))
+\end{equation}
+(notice in calculation that $\sum_i\hat\psi^\dagger_i \hat\psi_i =
+\id$ on 1st-quantized single-particle Hilbert space.)
+
+Taking the trace of above equality will give $2\tr(H)=N\tr(H)$, since
+in solids $N>>2$, we must have $\tr(H)=0$. Then the above equality
+simplifies into (note that $H^t = H^*$ for Hermitian $H$):
+\begin{equation}
+    u H^* u^\dagger = -H
+\end{equation}
+
+This type of symmetry is called charge-conjugation symmetry. It is
+also called particle-hole symmetry in condensed matter physics. Notice
+that if we denote this symmetry in 2nd-quantized Hilbert space as
+$\hat{C}$, then in 1st-quantized single-particle Hilbert space, we
+have
+\begin{equation}
+    C \equiv \eval{\hat{C}}_{\text{1st-quantized}}, \quad
+    \text{and}\, C = uK
+\end{equation}
+with
+\begin{equation}
+    C H C^{-1} = -H
+\end{equation}
+for 1st-quantized single-particle Hamiltonian.
+
+\paragraph{Case 3} If we now require again $\hat{U}$ being
+anti-linear, and proceed with similar arguments, we would have, very
+similar to eq.\ref{eq:sym-C-cond}, the equality: 
+\begin{equation}
+    \label{eq:sym-S-cond}
+    u (H-\frac{1}{2}\tr(H)) u^\dagger = - (H-\frac{1}{2}\tr(H))
+\end{equation}
+and since $N>>2$, we have $\tr(H)=0$. Then
+\begin{equation}
+    u H u^\dagger = -H
+\end{equation}
+This symmetry will be called the chiral symmetry, denoted $\hat{S}$.
+And we have a simple relation for its action on 2nd-quantized
+Hamiltonian and the 1st-quantized Hamiltonian:
+\begin{equation}
+    S \equiv \eval{\hat{S}}_{\text{1st-quantized}},\quad
+    \text{and}\,\, S = u
+\end{equation}
+with
+\begin{equation}
+    S H S^{-1} = -H
+\end{equation}
+It is easy to see that $S$ is just a combination of $T$ and $C$
+symmetry. This will be noted in the coming section.
+
+\subsection{Summary}
+\label{sec:Summary}
+
+There are 3 different symmetries that do not lie in our usual sense of
+symmetry, which is unitarily realized and commutes with $H$. They are
+summarized here. Also, there is a some other property listed below.
+They are proved in this lecture, but are either commonly available in
+most textbooks, or easy to prove. So I did not give details of proof
+below.
+\paragraph{Time-reversal}:
+\begin{itemize}
+    \item 2nd-quantized: 
+        $\hat{\tau}\hat{H}\hat{\tau}^{-1}=\hat{H}$ 
+    \item Relation:
+    \begin{align}
+        \hat{\tau} \hat\psi_A \hat{\tau}^{-1} &=
+        \sum_B (u_T^\dagger)_{AB} \hat\psi_B \\
+        \hat{\tau} \hat\psi^\dagger_A \hat{\tau}^{-1} &= 
+        \sum_B  \hat\psi^\dagger_B (u_T)_{BA} \\
+        \hat{\tau}i\hat{\tau}^{-1} &= -i
+    \end{align}
+    \item 1st-quantized:
+        $T=u_T K$, $THT^{-1}=H$
+    \item Squared term
+        
+        If $T$ commutes with $H$, then $T^2$ also
+        commutes with $H$. Calculation shows $T^2= u_Tu_T^* = \pm 1$.
+        For fermion system, $T^2=(-1)$. Hence in 2nd-quantized Hilbert
+        Space, $\hat{T}^2=(-1)^{\hat{Q}}$, where $\hat{Q}=\sum_A
+        \hat\psi^\dagger_A \hat\psi_A$. This is exactly the Fermion
+        number parity operator.
+\end{itemize}
+\paragraph{Charge-conjugation}:
+\begin{itemize}
+    \item 2nd-quantized: 
+        $\hat{C}\hat{H}\hat{C}^{-1}=\hat{H}$ 
+    \item Relation:
+    \begin{align}
+        \hat{C} \hat\psi_A \hat{C}^{-1} &=
+        \sum_B (u_C^*)^\dagger_{AB} \hat\psi^\dagger_B \\
+        \hat{C} \hat\psi^\dagger_A \hat{C}^{-1} &= 
+        \sum_B  \hat\psi_B (u_C^*)_{BA} \\
+        \hat{C}i\hat{C}^{-1} &= i
+    \end{align}
+    \item 1st-quantized:
+        $C=u_C K$, $CHC^{-1}=-H$, and $\tr(H)=0$.
+    \item Squared term
+        
+        If $C$ commutes with $H$, then $C^2$ also
+        commutes with $H$. Calculation shows $C^2= u_Cu_C^* = \pm 1$.
+        For fermion system, $C^2=(-1)$. Hence in 2nd-quantized Hilbert
+        Space, $\hat{C}^2=(-1)^{\hat{Q}}$, where $\hat{Q}=\sum_A
+        \hat\psi^\dagger_A \hat\psi_A$. This is exactly the Fermion
+        number parity operator.
+
+    \item Action on $\mathcal{F}_q$:
+
+        Consider the $\mathcal{F}_q$, the eigenspace of
+        $\hat{Q}=\sum_{A=1}^N \hat\psi^\dagger_A \hat\psi_A$, with
+        eigenvalue $q$. Then, direct calculation shows:
+        \begin{equation}
+            \hat{C}\hat{Q}\hat{C}^{-1} = N -\hat{Q}
+        \end{equation}
+        Therefore, $\hat{C}$ links $\mathcal{F}_q$ and
+        $\mathcal{F}_{N-q}$.
+\end{itemize}
+\paragraph{Chiral/sub-lattice}:
+\begin{itemize}
+    \item 2nd-quantized: 
+        $\hat{S}\hat{H}\hat{S}^{-1}=\hat{H}$ 
+    \item Relation:
+    \begin{align}
+        \hat{S} \hat\psi_A \hat{S}^{-1} &=
+        \sum_B (u_S^*)^\dagger_{AB} \hat\psi^\dagger_B \\
+        \hat{S} \hat\psi^\dagger_A \hat{S}^{-1} &= 
+        \sum_B  \hat\psi_B (u_S^*)_{BA} \\
+        \hat{S}i\hat{S}^{-1} &= -i
+    \end{align}
+    \item 1st-quantized:
+        $S=u_S$, $SHS^{-1}=-H$, and $\tr(H)=0$.
+    \item \textbf{Relation between Chiral, Time-reversal, and
+        Charge-conjugation}
+
+        We have $\hat{S}=\hat{\tau}\hat{C}$, $u_S = u_T u_C^*$. 
+
+    \item Squared term
+        
+        If $S$ commutes with $H$, then $S^2$ also
+        commutes with $H$. Calculation shows $S^2= u^2_S$. But since
+        $u_S=u_Tu_C^*$, we can always make a phase choice of $u_T$ and
+        $u_C$ such that $S^2=u^2_S = 1$.
+
+    \item Let $S'\equiv CT$. If $T^2=\epsilon_T\id$,
+        $C^2=\epsilon_C\id$, and we adopt the phase choice such that
+        $S^2=1$, then it can be shown that $S=\epsilon_C\epsilon_T
+        S'$, or
+        \begin{equation}
+            TC = \epsilon_C\epsilon_T CT
+        \end{equation}
+\end{itemize}
+
+
+
+\subsection{How many anti-unitary symmetries are there?}
+\label{sec:How many anti-unitary symmetries are there?}
+
+As we have seen, there are three classes of anti-unitary symmetry
+transformations.
+Within each class, there is actually one unique anti-unitary symmetry
+transformation, module those of unitary ones. To be more specific,
+suppose we have two realizations of charge-conjugation symmetry:
+\begin{equation}
+    C_1 = u_{C,1} K,\quad C_2=u_{C,2}K
+\end{equation}
+They are clearly related by a unitary matrix
+$u_{12}=u_{C,1}u_{C,2}^\dagger$, and ${C_1=u_{12}C_2}$.
+Then, if we blindly assume the 1st-quantized Hamiltonian has symmetry
+$C_1$:
+\begin{equation}
+    C_1 H C_1^{-1} = -H
+\end{equation}
+then, plugging $C_2$ inside gives
+\begin{equation}
+    C_2 H C_2^{-1} = - u_{12}^\dagger H u_{12}
+\end{equation}
+Therefore, if we further enlarge the group $G_0$ to include
+$u_{12}^\dagger$ (i.e. by requiring that $H$ commutes with
+$u_{12}^\dagger$), then with $G'_0=G_0\cup\{u_{12}^\dagger\}$, the
+classification will be done and nothing new is actually introduced.
+Therefore, there is only one $C$ symmetry to be considered, module the
+unitary matrices.
+
+Similar argument applies for $T$. But for $S$, Ludwig specifically
+point out that $S$'s expression should always be kept explicit. I am
+confused about the reason. \todo{Why $S$ so special?}
+
+\section{Incorporating Superconductors}
+\label{sec:Incorporating Superconductors}
+
+We can consider the Bogoliubov-de Gennes (BdG) Hamiltonians of fermionic
+excitations inside superconductors in the same way. Except that
+\begin{itemize}
+    \item The particle-number $\hat{Q}$ is not conserved
+    \item There is a built-in charge-conjugation symmetry, to be
+        explained later.
+\end{itemize}
+
+The BdG Hamiltonian uses Nambu Spinor:
+\begin{equation}
+    \hat\chi \equiv \begin{pmatrix}
+        \hat\chi_1 \\ \cdots \\ \hat\chi_N \\ 
+        \hat\chi_{N+1} \\ \cdots \\ \hat\chi_{2N}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        \hat\psi_1 \\ \cdots \\ \hat\psi_N \\
+        \hat\psi^\dagger_1 \\ \cdots \\ \hat\psi^\dagger_N
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        \hat\psi \\ (\hat\psi^\dagger)^t
+    \end{pmatrix}
+\end{equation}
+
+(It seems that the author is ignoring spin here.)
+Here, we regard $\hat\psi^\dagger$ as a row vector, and $\hat\psi$ as
+a column vector. The BdG Hamiltonian is written as
+\todo{Check the spin indices later.}
+\begin{equation}
+    \label{eq:super-H}
+    \hat{H} =
+    \frac{1}{2} \hat{\chi^\dagger} H \hat{\chi} 
+    =
+    \frac{1}{2} \sum_{A,B=1}^{2N} \hat{\chi^\dagger}_A H_{AB} \hat\chi_B
+    = \frac{1}{2} \begin{pmatrix}
+        \hat\psi^\dagger & \hat\psi^t
+    \end{pmatrix} H 
+    \begin{pmatrix}
+        \hat\psi \\ (\hat\psi^\dagger)^t
+    \end{pmatrix}
+\end{equation}
+
+The 1st-quantized Hamiltonian $H$ has the of 4 $N\times N$ blocks:
+\begin{equation}
+    \label{eq:super-H-def}
+    H =
+    \begin{bmatrix}
+        \Xi & \Delta \\
+        \Delta^* & -\Xi^t
+    \end{bmatrix}
+\end{equation}
+where $\Xi$ is Hermitian, and $\Delta=-\Delta^t$ due to fermion
+statistics. \todo{Why fermion statistics leads to this?}
+
+Writing explicitly, we have:
+\begin{equation}
+    \hat{H} = \sum_{a,b=1}^N \hat\psi^\dagger_a \Xi_{ab} \hat\psi_b
+    + \frac{1}{2} \sum_{a,b=1}^N \left(
+        \hat\psi^\dagger_a \Delta_{ab} \hat\psi^\dagger_b
+        + \hat\psi_a \Delta^*_{ab} \hat\psi_b
+    \right)
+\end{equation}
+
+A striking difference is that $\hat\chi$ and $\hat\chi^\dagger$ are
+related by a linear transformation, whereas in non-superconducting
+case, $\hat\psi^\dagger$ and $\hat\psi$ are linear-independent.
+Explicitly, since $\left(\hat\chi^\dagger \right)^t=
+\begin{bmatrix}
+    \left(\hat\psi^\dagger\right)^t \\ \hat\psi
+\end{bmatrix}$, then clearly:
+\begin{equation}
+    \left(\hat\chi^\dagger \right)^t = \tau_1 \hat\chi
+\end{equation}
+where $\tau_1$ interchange the components:
+\begin{equation}
+    \tau_1 = \begin{bmatrix}
+        0               & \id_{N\times N} \\
+        \id_{N\times N} & 0
+    \end{bmatrix}
+\end{equation}
+
+Taking the transpose again gives
+\begin{equation}
+    \label{eq:super-relat-1}
+    \hat\chi^\dagger = \hat\chi^t \tau_1
+\end{equation}
+and then,
+\begin{equation}
+    \label{eq:super-relat-2}
+    \hat\chi = \tau_1 (\hat\chi^\dagger)^t
+\end{equation}
+\paragraph{The Charge-conjugation Symmetry of Superconductors} There
+is one charge-conjugation symmetry associated with the matrix
+$\tau_1$. If one plugs eq.\ref{eq:super-relat-1} and
+eq.\ref{eq:super-relat-2} into the Hamiltonian (eq.\ref{eq:super-H}),
+one will find (note that $\tr(H)=0$ by eq.\ref{eq:super-H-def}, and be
+careful about summation index):
+\begin{equation}
+    \frac{1}{2} \hat\chi^\dagger H \hat\chi
+    = \frac{1}{2} \hat\chi^\dagger (-\tau_1 H \tau_1)^t \hat\chi
+\end{equation}
+Therefore (note that $H^t=H^*,\tau_1^t=\tau_1,\tau_1^2=\id$):
+\begin{equation}
+    \tau_1 H^* \tau_1 = -H
+\end{equation}
+Therefore, the BdG Hamiltonian has built-in charge-conjugation
+symmetry, realized by $u_C = \tau_1$.
+
+\paragraph{Encompass non-interacting problem and superconducting
+problem} The way to put the two different kind of problems together,
+is to work with operator $\hat\Psi$/$\hat\Psi^\dagger$ which has first
+few components for ordinary annihilation/creation operators, and the
+last few components for superconductor Nambu spinors, and with
+$H$ consisting of two diagonal blocks for each respective. 
+\todo{This sounds silly, perhaps I do not get some more deep reason?}
+
+\section{TO BE CONTINUED}
+
+\section{License}
+The entire content of this work (including the source code
+for TeX files and the generated PDF documents) by 
+Hongxiang Chen (nicknamed we.taper, or just Taper) is
+licensed under a 
+\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative 
+Commons Attribution-NonCommercial-ShareAlike 4.0 International 
+License}. Permissions beyond the scope of this 
+license may be available at 
+\href{http://www.google.com/recaptcha/mailhide/d?k=015LguzBJigi0rpyuJRqLoig==\&c=p1c-M-mm7ZcjUCkTuZZa9eEPHRVk6paN0694iazlQy8=}
+{[My Email Address(Click)]}.
+\bibliography{../../library}{}
+\bibliographystyle{alphaurl}
+\printnomenclature
+\end{document}
