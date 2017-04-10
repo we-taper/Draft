@@ -223,7 +223,8 @@ this represents a pure spin-up wave transfering in the point $p_x=0$
 when $m=2$, and $p_x=\pm\pi$ when $m=2$.
 
 
-    \subsection{Why I think the Lattice Model is wrong}
+    \subsection{Why I think the Lattice Model Hamiltonian is mildly wrong}
+    \label{sec:Why-LatticeM-m-wrong}
 
     I notice that equation (2.19) transformed according to (2.20)
     is not exactly equation (2.21), but is:
@@ -276,7 +277,7 @@ when $m=2$, and $p_x=\pm\pi$ when $m=2$.
     appears at $m=0$, which represents a massless spin-$\frac{1}{2}$
     particle. I think this should have some theoretical implications.
 
-\subsection{Calculation Note unrelated to the main-subject}
+    \subsection{Calculation Note I (Not related to the main discussion)}
 
 Since the paper will be focusing in points around $p_x=0$, I focused
 in $m=-2$ at first. In this case, I want to find more information
@@ -354,6 +355,109 @@ $N=4$.
 \bibliographystyle{alphaurl}
 
 \printnomenclature
+
+\subsection{Numerical Solution with open boundary condition in both
+dimensions}
+\label{sec:nsol-open-bc-inXY}
+
+\textbf{Note 1}: Since the essential point is not altered by the minor
+error in Hamiltonian, as mentioned in
+Section~\ref{sec:Why-LatticeM-m-wrong}. I will continue with the
+Lattice Model Hamiltonian that produce correctly the Dirac Hamiltonian
+in the continuum limit.
+
+\textbf{Note 2}: Calculation in this part is available in the
+Mathematica notebook "\texttt{Lattice Dirac Model (2+1)-d-2.nb}".
+
+When the two sides are of open boundary, the problem is quite simple
+and the Fourier-transformed Hamiltonian is (almost) diagonal in
+momentum space. It is (as calculated in \cite{Hughes2009}, eq.2.21):
+\begin{align}
+    &H =\sum_{p_x,p_y} c^\dagger_{p_x,p_y}\times
+    \nonumber\\
+    &
+    \left[
+        \sin(p_x)\sigma^x + \sin(p_y)\sigma^y
+        +(2-m-\cos(p_x)-\cos(p_y))\sigma^z
+    \right] c_{p_x,p_y}
+\end{align}
+
+The eigenvalues of the Hamiltonian of the form
+$\vb{a}\vdot\vb{\sigma}$ are:
+\begin{equation}
+    E_1 = \abs{a},\quad E_2 = -\abs{a}
+\end{equation}
+If plotted in $(p_x,p_y)$ plane, we will find several interesting
+crossing happening when $m=0,2,4$:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/E-m0.pdf}
+    \caption{$m=0$}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/E-m2.pdf}
+    \caption{$m=2$}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/E-m4.pdf}
+    \caption{$m=4$}
+\end{figure}
+
+The eigenvectors are of the form:
+\begin{equation}
+    \begin{pmatrix}
+        \phi, \sin(p_x)+i\cos(p_y)
+    \end{pmatrix},\quad \begin{pmatrix}
+        \psi, \sin(p_x)+i\cos(p_y)
+    \end{pmatrix}
+\end{equation}
+where
+\begin{align}
+    \phi &=  (2-m-\cos(p_x)-\cos(p_y))+E_1 \\
+    \psi &=  (2-m-\cos(p_x)+\cos(p_y))+E_1
+\end{align}
+And the have very interesting behavior from $m=-1$ to $m=6$, they
+gradually contact and exchange the position of each other
+\footnote{You would get more fun if you execute the animation inside
+the Mathematica notebook}:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/Eigen-mN1.pdf}
+    \caption{$m=-1$}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/Eigen-m0.pdf}
+    \caption{$m=0$}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/Eigen-m1.pdf}
+    \caption{$m=1$}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/Eigen-m2.pdf}
+    \caption{$m=2$}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/Eigen-m3.pdf}
+    \caption{$m=3$}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/Eigen-m4.pdf}
+    \caption{$m=4$}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/Eigen-m6.pdf}
+    \caption{$m=6$}
+\end{figure}
+
 \section{License}
 The entire content of this work (including the source code
 for TeX files and the generated PDF documents) by 
