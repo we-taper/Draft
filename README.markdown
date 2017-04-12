@@ -197,6 +197,10 @@ likely to be updated, unless to correct spelling, grammar, etc.
 
 26. Dirac Hamiltonian
 
+27. Short Notes
+	
+    Some short notes about premature ideas.
+
 # License
 
 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">

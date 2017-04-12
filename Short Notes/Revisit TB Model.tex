@@ -1,0 +1,160 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physicist-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physicist-taper}
+\makenomenclature % For an index of symbols.
+\title{A Short Revisit to Tight-binding Model}
+\date{\today}
+\author{Taper}
+
+
+\begin{document}
+
+
+\maketitle
+\tableofcontents
+
+\textbf{Note}: After reading chapter 7.9 of \cite{Parker2009}, I think
+that book provides a much clearer understanding of what tight-binding
+model is, and therefore I recommend a first reading of that book,
+before go into \cite{Ashcroft1976}.
+
+
+To me, Tight-binding model is almost synonym of the following
+2nd-quantized Hamiltonian:
+\begin{equation}
+    H = \sum_{i,\sigma} c^\dagger_{i,\sigma} c_{i,\sigma}
+    - t \sum_{\braket{i,j},\sigma} 
+    \left(c^\dagger_{i,\sigma} c_{j,\sigma} + \text{h.c.}\right)
+\end{equation}
+
+But actually there is much more that just this. I here give a short
+note about some key points in chapter 10, The Tight-Binding Method, in
+\cite{Ashcroft1976}.
+
+The aim of Tight-binding model, is to deal 
+
+\begin{myquote} \enquote{
+with the case in which the overlap of atomic wave functions is enough
+to require corrections to the picture of isolated atoms, but not so
+much as to render the atomic description completely irrelevant
+} \end{myquote}
+
+For this purpose, we start with a set of states:
+\begin{equation}
+    \psi_{n}(\vb{r})
+\end{equation}
+that satisfy two conditions:
+% \footnote{
+% The section General Formulation in chapter 10 of \cite{Ashcroft1976}
+% provides an argument for the first condition. It actually starts with
+% assuming $\phi_{n}(\vb{r})$ are eigenstates of atomic Hamiltonian as
+% an introduction to the Tight-binding mode.}
+\begin{enumerate}
+    \item They model a wave function localized at each lattice points.
+        Here, they are taken to be the bound levels of atomic
+        Hamiltonian which are well localized:
+        \begin{equation}
+            H_{\text{at}} \psi_n(\vb{r})  = E_n \psi_n(\vb{r})
+        \end{equation}
+    \item They are orthonormal with respect to each other (which is
+        quite reasonable a requirement).
+\end{enumerate}
+
+With this states, we test if the following wave function is a good
+wavefunction of the system:
+\begin{equation}
+    \psi_{k} = \sum_R e^{ikR} \phi(r-R)
+\end{equation}
+where $k$ ranges through the $N$ values in the first Brillouin zone
+consistent with the Born-von Karman periodic boundary condition. And
+\begin{equation}
+    \phi(r) = \sum_n b_n \psi_n(\vb{r})
+\end{equation}
+Exactly how many $n$ should be summed in the above expression will
+depend on the situation (explained below).
+
+It is easy to see that $\psi_{nk}$ satisfy the Bloch condition. So we
+could assume that:
+\begin{equation}
+    H \psi(\vb{r}) = (H_\text{at}+\Delta U(\vb{r}))\psi(\vb{r})
+    = \varepsilon(\vb{r})\psi(\vb{r})
+\end{equation}
+
+Using the orthonormal condition and some techniques, we have (see
+pp.179 to 180 of \cite{Ashcroft1976}):
+\begin{align}
+    \label{eq:tb-model-eq}
+    (\varepsilon(k) - E_m) b_m = & 
+    -(\varepsilon(k)-E_m)\sum_n\left(
+        \sum_{R\neq 0}\int\psi^*_m(r)\psi_n(r-R)e^{ikR}\dd{r}\right)b_n
+    \nonumber\\
+    &+ \sum_n \left(\int\psi^*_m(r)\Delta U(r)\psi_n(r)\dd{r}\right) b_n
+    \nonumber\\
+    &+ \sum_n\left(\sum_{R\neq 0}
+        \int\psi^*_m(r)\Delta U(r)\psi_n(r-R)e^{ikR}\dd{r}\right)b_n
+\end{align}
+
+Now we argue that the right hand side of this equation should be small
+because there are small overlap between those localized $\psi_n$.
+Therefore, the left hand side should also be small. Therefore:
+\begin{equation}
+    \varepsilon(k) \approx E_0,\, b_m\approx 0\text{ unless } E_m\approx E_0
+\end{equation}
+where $E_0$ is energy of one atomic level. However, the above is only
+an approximate analysis. To get more details, we would let $n$ only
+summed over those levels with energies either degenerate with or very
+close to $E_0$, our anticipated atomic energy level. This would make
+\ref{eq:tb-model-eq} for different $m$s into a matrix equation. (see
+more at p.181 of \cite{Ashcroft1976}). The solution to this equation
+gives us coefficients $b_m$, the wavefunction $\psi_k$, and the energy
+$\varepsilon(k)$.
+
+\paragraph{Wannier function} The Tight-binding model is related to
+Wannier function, since any Bloch function $\psi_{nk}(r)$ can be
+expended
+\begin{equation}
+    \psi_{nk} = \sum_r f_n(r-R) e^{iRk}
+\end{equation}
+where
+\begin{equation}
+    f_n(R,r) = \frac{1}{v_0} \int\dd{k}e^{-iRk}\psi_{nk}(r)
+\end{equation}
+and $v_0$ is the volume in $k$-space of the first Brillouin zone, and
+the integral is taken over the 1st BZ. $f_n$ are the so called Wannier
+functions and they could be well localized (see p.188 of
+\cite{Ashcroft1976}) and is orthonormal (see problem 3 of chapter 10,
+\cite{Ashcroft1976}). Therefore they may be substituted as the atomic
+eigenstates $\psi_n(r)$ in the above steps.  \todo{How to proceed
+them?} % we don't know the energy, the Bloch wavefunctions. How to do it them?
+
+\bibliography{../Library}{}
+\bibliographystyle{alphaurl}
+
+% \begin{thebibliography}{1}
+% 	\bibitem{book} 
+% \end{thebibliography}
+\printnomenclature
+\section{License}
+The entire content of this work (including the source code
+for TeX files and the generated PDF documents) by 
+Hongxiang Chen (nicknamed we.taper, or just Taper) is
+licensed under a 
+\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative 
+Commons Attribution-NonCommercial-ShareAlike 4.0 International 
+License}. Permissions beyond the scope of this 
+license may be available at 
+\href{http://www.google.com/recaptcha/mailhide/d?k=015LguzBJigi0rpyuJRqLoig==\&c=p1c-M-mm7ZcjUCkTuZZa9eEPHRVk6paN0694iazlQy8=}
+{[My Email Address(Click)]}.
+\end{document}
