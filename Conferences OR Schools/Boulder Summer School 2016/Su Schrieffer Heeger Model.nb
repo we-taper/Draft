@@ -1,0 +1,387 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     12952,        378]
+NotebookOptionsPosition[     11819,        335]
+NotebookOutlinePosition[     12193,        351]
+CellTagsIndexPosition[     12150,        348]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell["Su Schrieffer Heeger Model", "Section",
+ CellChangeTimes->{{3.701241070724631*^9, 3.701241101344601*^9}}],
+
+Cell["The Hamiltonian is : ", "Text",
+ CellChangeTimes->{{3.7012411041119976`*^9, 3.7012411873584013`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"dx", "[", 
+    RowBox[{"t1_", ",", "t2_", ",", "k_"}], "]"}], ":=", 
+   RowBox[{"t1", "+", 
+    RowBox[{"t2", "*", 
+     RowBox[{"Cos", "[", "k", "]"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"dy", "[", 
+    RowBox[{"t1_", ",", "t2_", ",", "k_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"-", "t2"}], "*", 
+    RowBox[{"Sin", "[", "k", "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dz", ":=", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"hamSSH", "[", 
+    RowBox[{"t1_", ",", "t2_", ",", "k_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"dx", "[", 
+      RowBox[{"t1", ",", "t2", ",", "k"}], "]"}], "*", 
+     RowBox[{"PauliMatrix", "[", "1", "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"dy", "[", 
+      RowBox[{"t1", ",", "t2", ",", "k"}], "]"}], "*", 
+     RowBox[{"PauliMatrix", "[", "2", "]"}]}], "+", 
+    RowBox[{"dz", "*", 
+     RowBox[{"PauliMatrix", "[", "3", "]"}]}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.7012412144174137`*^9, 3.701241222565585*^9}, {
+   3.701241317691759*^9, 3.7012414275182486`*^9}, {3.701241892100399*^9, 
+   3.701241920604119*^9}, 3.7012427126546993`*^9, {3.7012430022101927`*^9, 
+   3.7012430329464245`*^9}, {3.701243518181809*^9, 3.7012436066340775`*^9}, {
+   3.701243640695204*^9, 3.701243650079743*^9}, 3.701243682136186*^9, 
+   3.701244181073093*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"hamSSH", "[", 
+   RowBox[{"t1", ",", "t2", ",", "k"}], "]"}], "//", "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.701244251156187*^9, 3.7012442599213543`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"0", 
+      RowBox[{"t1", "+", 
+       RowBox[{"t2", " ", 
+        RowBox[{"Cos", "[", "k", "]"}]}], "+", 
+       RowBox[{"\[ImaginaryI]", " ", "t2", " ", 
+        RowBox[{"Sin", "[", "k", "]"}]}]}]},
+     {
+      RowBox[{"t1", "+", 
+       RowBox[{"t2", " ", 
+        RowBox[{"Cos", "[", "k", "]"}]}], "-", 
+       RowBox[{"\[ImaginaryI]", " ", "t2", " ", 
+        RowBox[{"Sin", "[", "k", "]"}]}]}], "0"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.7012442553351293`*^9, 3.7012442602736015`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Eigenvalues", "[", 
+  RowBox[{"hamSSH", "[", 
+   RowBox[{"t1", ",", "t2", ",", "k"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7012440555560207`*^9, 3.7012440722093325`*^9}, {
+  3.7012441502246127`*^9, 3.701244177065671*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"-", 
+    SqrtBox[
+     RowBox[{
+      SuperscriptBox["t1", "2"], "+", 
+      SuperscriptBox["t2", "2"], "+", 
+      RowBox[{"2", " ", "t1", " ", "t2", " ", 
+       RowBox[{"Cos", "[", "k", "]"}]}]}]]}], ",", 
+   SqrtBox[
+    RowBox[{
+     SuperscriptBox["t1", "2"], "+", 
+     SuperscriptBox["t2", "2"], "+", 
+     RowBox[{"2", " ", "t1", " ", "t2", " ", 
+      RowBox[{"Cos", "[", "k", "]"}]}]}]]}], "}"}]], "Output",
+ CellChangeTimes->{3.701244185152093*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "Plotting the winding pattern of ",
+ Cell[BoxData[
+  FormBox[
+   OverscriptBox["d", "\[And]"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " around different k:"
+}], "Text",
+ CellChangeTimes->{{3.7012414458364973`*^9, 3.701241469055664*^9}, {
+  3.701241573320239*^9, 3.7012416082904663`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"dx", "[", 
+        RowBox[{"t1", ",", "t2", ",", "k"}], "]"}], ",", 
+       RowBox[{"dy", "[", 
+        RowBox[{"t1", ",", "t2", ",", "k"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", 
+       RowBox[{"-", "\[Pi]"}], ",", "\[Pi]"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "10"}], ",", "10"}], "}"}]}], "}"}]}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"t1", ",", "1", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t2", ",", "0", ",", "5"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7012416111269755`*^9, 3.7012417016848125`*^9}, {
+  3.7012419252751937`*^9, 3.701241932405569*^9}, {3.7012427311392336`*^9, 
+  3.701242748023469*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`t1$$ = 
+    3.0100000000000002`, $CellContext`t2$$ = 3.38, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`t1$$], 1, 5}, {
+      Hold[$CellContext`t2$$], 0, 5}}, Typeset`size$$ = {516., {250., 262.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`t1$8447$$ = 0, $CellContext`t2$8448$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`t1$$ = 1, $CellContext`t2$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`t1$$, $CellContext`t1$8447$$, 0], 
+        Hold[$CellContext`t2$$, $CellContext`t2$8448$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> ParametricPlot[{
+         $CellContext`dx[$CellContext`t1$$, $CellContext`t2$$, \
+$CellContext`k], 
+         $CellContext`dy[$CellContext`t1$$, $CellContext`t2$$, \
+$CellContext`k]}, {$CellContext`k, -Pi, Pi}, 
+        PlotRange -> {{-10, 10}, {-10, 10}}], 
+      "Specifications" :> {{$CellContext`t1$$, 1, 5}, {$CellContext`t2$$, 0, 
+         5}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{579., {328., 337.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.701241930291308*^9, {3.701242681217761*^9, 3.7012427163018756`*^9}, 
+   3.7012427487521224`*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "The above graph will show something useful for understanding the \
+\[OpenCurlyDoubleQuote]",
+ StyleBox["phases A and B",
+  FontWeight->"Bold"],
+ "\[CloseCurlyDoubleQuote]."
+}], "Text",
+ CellChangeTimes->{{3.7012427681771545`*^9, 3.701242843485526*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Domain Wall State", "Subsection",
+ CellChangeTimes->{{3.7012444089857025`*^9, 3.7012444502481775`*^9}, {
+  3.7012444824181232`*^9, 3.7012445058926353`*^9}},
+ FormatType->"TextForm"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"hamSSHContinuum", "[", "vf_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"-", "\[ImaginaryI]"}], " ", "vf", " ", "*", 
+   RowBox[{
+    SubscriptBox["\[PartialD]", "x"], 
+    RowBox[{"+", 
+     RowBox[{"m", "[", "x", "]"}]}]}], 
+   RowBox[{"PauliMatrix", "[", "1", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7012445070034237`*^9, 3.7012445855641975`*^9}, {
+  3.7012446229095592`*^9, 3.7012446449853554`*^9}}],
+
+Cell["\<\
+To have a good understanding of the edge state, I assume the function m(y)=y, \
+and plot one component of the edge state.\
+\>", "Text",
+ CellChangeTimes->{{3.701252213358857*^9, 3.7012522280049834`*^9}, {
+  3.7012522721313562`*^9, 3.701252300950449*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[Psi]1", "[", 
+   RowBox[{"x_", ",", "v_"}], "]"}], ":=", 
+  SuperscriptBox["\[ExponentialE]", 
+   RowBox[{"-", 
+    RowBox[{
+     SubsuperscriptBox["\[Integral]", "0", "x"], 
+     RowBox[{
+      FractionBox["y", "v"], 
+      RowBox[{"\[DifferentialD]", "y"}]}]}]}]]}]], "Input",
+ CellChangeTimes->{{3.7012519720491323`*^9, 3.7012520642824063`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"\[Psi]1", "[", 
+      RowBox[{"x", ",", "v"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "5"}], ",", "5"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "Full"}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"v", ",", "0.1", ",", "5"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.701252057987056*^9, 3.701252186312463*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`v$$ = 1.3382152557373048`, Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`v$$], 0.1, 5}}, Typeset`size$$ = {498., {151., 164.}},
+     Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`v$94995$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`v$$ = 0.1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`v$$, $CellContext`v$94995$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[
+        $CellContext`\[Psi]1[$CellContext`x, $CellContext`v$$], \
+{$CellContext`x, -5, 5}, PlotRange -> Full], 
+      "Specifications" :> {{$CellContext`v$$, 0.1, 5}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{572., {240., 249.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.701252162894682*^9, 3.7012521868600388`*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{759, 601},
+WindowMargins->{{69, Automatic}, {Automatic, 31}},
+Magnification:>1.6 Inherited,
+FrontEndVersion->"10.3 for Microsoft Windows (64-bit) (October 9, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 76, 1, 47, "Input"],
+Cell[CellGroupData[{
+Cell[659, 25, 111, 1, 112, "Section"],
+Cell[773, 28, 107, 1, 47, "Text"],
+Cell[883, 31, 1422, 37, 222, "Input"],
+Cell[CellGroupData[{
+Cell[2330, 72, 196, 4, 47, "Input"],
+Cell[2529, 78, 1035, 28, 90, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3601, 111, 254, 5, 47, "Input"],
+Cell[3858, 118, 512, 16, 72, "Output"]
+}, Open  ]],
+Cell[4385, 137, 319, 9, 60, "Text"],
+Cell[CellGroupData[{
+Cell[4729, 150, 1110, 31, 164, "Input"],
+Cell[5842, 183, 2104, 43, 691, "Output"]
+}, Open  ]],
+Cell[7961, 229, 270, 7, 78, "Text"],
+Cell[CellGroupData[{
+Cell[8256, 240, 187, 3, 77, "Subsection"],
+Cell[8446, 245, 435, 11, 77, "Input"],
+Cell[8884, 258, 264, 5, 107, "Text"],
+Cell[9151, 265, 385, 11, 56, "Input"],
+Cell[CellGroupData[{
+Cell[9561, 280, 523, 14, 106, "Input"],
+Cell[10087, 296, 1692, 34, 515, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
