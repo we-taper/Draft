@@ -459,6 +459,45 @@ the Mathematica notebook}:
     \caption{$m=6$}
 \end{figure}
 
+\subsection{Edge States}
+\label{sec:Edge States}
+Inspired by lecture by Kane of Topological Insulators (BSS 2016), I
+will analyse the continuum limit of this model at the  point
+$(p_x=0,p_y=0)$, where the energy $E=0$. I also assume that we have placed
+to materials adjacent to each other, on with $m<0$, and the other with
+$m>0$. Therefore, at the interface, we could have $m$ as a function of
+$x$ such that $m(0)=0$.
+
+At this point $x=0$, $\sin(p_x)\to p_x$ , and is replaced by $-i\hbar
+\partial _x$. The Schrodinger equation is H$\psi $=0 After the
+calculation, the equation is (with $\hbar=1$):
+\begin{equation}
+    \left[i\partial_x \sigma^x + i\partial_y \sigma^y +
+    m\sigma^z\right] \psi = 0
+\end{equation}
+However, this coupled PDE is hard to solve. Therefore, I restrict
+their value on $x$, and solve the ODE:
+\begin{align}
+    i\partial_x \psi_2(x) + m\psi_1(x) &= 0 \\
+    i\partial_x \psi_1(x) - m\psi_2(x) &= 0
+\end{align}
+If assuming $m(x)$ is in the form of $m(x)=x$, i.e. positive when
+$x>0$, and negative when $x<0$, then the solution is:
+\begin{align}
+    \psi_1 (x,y) &= e^{\text{Int}(x)} C(y) \\
+    \psi_2 (x,y) &= -i \psi_1(x,y)
+\end{align}
+where $\text{Int}(x)=\int_1^x -m(k)\dd{k}$. $\text{Int}(x)$ has the
+property of goes to $-\infty$ as $x\to \pm\infty$.
+
+If, on the contrary, assuming $m(x)$ is in the form of $m(x)=-x$, i.e. positive when $x<0$, and negative when $x>0$, then the solution is:
+\begin{align}
+    \psi_1 (x,y) &= e^{-\text{Int}(x)} C(y) \\
+    \psi_2 (x,y) &= i \psi_1(x,y)
+\end{align}
+In both cases, the function are exponentially decaying wave in the
+interface at $m(0)=0$.
+
 \section{License}
 The entire content of this work (including the source code
 for TeX files and the generated PDF documents) by 
