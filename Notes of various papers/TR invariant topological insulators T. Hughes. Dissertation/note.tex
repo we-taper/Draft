@@ -31,12 +31,6 @@
 \tableofcontents
 Start with chapter 2.
 
-Questions:
-\begin{itemize}
-    \item Do we have a precise definition of \textit{topological phase
-        transition}?
-\end{itemize}
-
 \section{Spectrum of \texorpdfstring{$(2+1)$}-d Lattice Dirac Model}
 \label{sec:2+1d-LDirac Model}
 \begin{align}
@@ -99,7 +93,7 @@ This Hamiltonian can be solved by acting it on the test wavefunction:
 \end{equation}
 
 Note, in choosing the test wavefunction, $u$ and $v$ could not be
-seperated, because there is still interaction between the two
+separated, because there is still interaction between the two
 component in terms like $c^\dagger_{p_x,n}\sigma^x c_{p_x,n}$.
 If we calculate $\tilde H_{LD}\ket{\psi_{p_x}} = E_{p_x}
 \ket{\psi_{p_x}}$, we would get after careful calculation:
@@ -131,6 +125,7 @@ $\psi_{n=0} = \psi_N$.
 
 Therefore, the eigenvalue equation could be turned into a matrix form:
 \begin{align}
+    \label{eq:disc-eigeneq}
     H_{\text{disc}} \psi \equiv 
     \begin{pmatrix}
         B   & C &        &   & A \\
@@ -223,61 +218,7 @@ this represents a pure spin-up wave transfering in the point $p_x=0$
 when $m=2$, and $p_x=\pm\pi$ when $m=2$.
 
 
-    \subsection{Why I think the Lattice Model Hamiltonian is mildly wrong}
-    \label{sec:Why-LatticeM-m-wrong}
-
-    I notice that equation (2.19) transformed according to (2.20)
-    is not exactly equation (2.21), but is:
-    \begin{align}
-        &H =\sum_{p_x,p_y} c^\dagger_{p_x,p_y}\times
-        \nonumber\\
-        &
-        \left[
-            2\sin(p_x)\sigma^x + 2\sin(p_y)\sigma^y
-            +(2-m-2\cos(p_x)-2\cos(p_y))\sigma^z
-        \right] c_{p_x,p_y}
-    \end{align}
-    This result does not become the continuum Dirac Hamiltonian as
-    $p_x,p_y$ goes to zero. Therefore, I suspect that certain
-    constants should be modified so that:
-
-    \begin{align}
-        H_{LD} &= \sum_{m,n}\left\{
-            \frac{i}{2} \left[ c^\dagger_{m+1,n}\sigma^x c_{m,n}
-                - c^\dagger_{m,n}\sigma^x c_{m+1,n}\right]
-            + \frac{i}{2} \left[ c^\dagger_{m,n+1}\sigma^y c_{m,n}
-                - c^\dagger_{m,n}\sigma^y c_{m,n+1} \right]
-            \right.
-            \nonumber\\
-            &- \frac{1}{2}\left[
-                c^\dagger_{m+1,n}\sigma^z c_{m,n}
-                + c^\dagger_{m,n}\sigma^z c_{m+1,n}
-                + c^\dagger_{m,n+1}\sigma^z c_{m,n}
-                + c^\dagger_{m,n}\sigma^z c_{m,n+1}
-            \right]
-            \nonumber\\
-            & \left. + (2-m) c^\dagger_{m,n}\sigma^z c_{m,n}
-            \vphantom{\frac12}
-        \right\}
-    \end{align}
-
-    This affects the numerical analysis effectively by the replacement
-    $$\sigma^i \to \frac{1}{2}\sigma^i,\quad
-        (2-m) \to 2(2-m) $$
-
-    The calculated result is similar to that in the previous section,
-    except that the band crossing happens at different values of $m$.
-    \footnote{For example, the eigenvalue of original and the modified equation
-    (2.21) are plotted in Mathematica notebook "Eq2.21-Demo.nb". Also,
-    the solution to the infinite cylinder boundary condition has again
-    two band crossings, each at $(m,p_x)$ equals $(0,0)$ and
-    $(2,\pm\pi)$ (for $N=3$ case).}
-    So the essential point is unaltered by the difference in some
-    constants. However, in the correct calculation, the crossing band
-    appears at $m=0$, which represents a massless spin-$\frac{1}{2}$
-    particle. I think this should have some theoretical implications.
-
-    \subsection{Calculation Note I (Not related to the main discussion)}
+    \subsubsection{Calculation Note I (Not related to the main discussion)}
 
 Since the paper will be focusing in points around $p_x=0$, I focused
 in $m=-2$ at first. In this case, I want to find more information
@@ -349,155 +290,260 @@ Surprisingly, the two bands that cross are have exactly the same
 function dependence on $p_x$ and $m$ for the cases of $N=3$ and
 $N=4$.
 
+\subsection{Why I Think the Lattice Model Hamiltonian is Mildly Wrong}
+\label{sec:Why-LatticeM-m-wrong}
 
-
-\bibliography{cite}{}
-\bibliographystyle{alphaurl}
-
-\printnomenclature
-
-\subsection{Numerical Solution with open boundary condition in both
-dimensions}
-\label{sec:nsol-open-bc-inXY}
-
-\textbf{Note 1}: Since the essential point is not altered by the minor
-error in Hamiltonian, as mentioned in
-Section~\ref{sec:Why-LatticeM-m-wrong}. I will continue with the
-Lattice Model Hamiltonian that produce correctly the Dirac Hamiltonian
-in the continuum limit.
-
-\textbf{Note 2}: Calculation in this part is available in the
-Mathematica notebook "\texttt{Lattice Dirac Model (2+1)-d-2.nb}".
-
-When the two sides are of open boundary, the problem is quite simple
-and the Fourier-transformed Hamiltonian is (almost) diagonal in
-momentum space. It is (as calculated in \cite{Hughes2009}, eq.2.21):
+I notice that equation (2.19) transformed according to (2.20)
+is not exactly equation (2.21), but is:
 \begin{align}
     &H =\sum_{p_x,p_y} c^\dagger_{p_x,p_y}\times
     \nonumber\\
     &
     \left[
-        \sin(p_x)\sigma^x + \sin(p_y)\sigma^y
-        +(2-m-\cos(p_x)-\cos(p_y))\sigma^z
+        2\sin(p_x)\sigma^x + 2\sin(p_y)\sigma^y
+        +(2-m-2\cos(p_x)-2\cos(p_y))\sigma^z
     \right] c_{p_x,p_y}
 \end{align}
+This result does not become the continuum Dirac Hamiltonian as
+$p_x,p_y$ goes to zero. Therefore, I suspect that certain
+constants should be modified so that:
 
-The eigenvalues of the Hamiltonian of the form
-$\vb{a}\vdot\vb{\sigma}$ are:
-\begin{equation}
-    E_1 = \abs{a},\quad E_2 = -\abs{a}
-\end{equation}
-If plotted in $(p_x,p_y)$ plane, we will find several interesting
-crossing happening when $m=0,2,4$:
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/E-m0.pdf}
-    \caption{$m=0$}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/E-m2.pdf}
-    \caption{$m=2$}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/E-m4.pdf}
-    \caption{$m=4$}
-\end{figure}
-
-The eigenvectors are of the form:
-\begin{equation}
-    \begin{pmatrix}
-        \phi, \sin(p_x)+i\cos(p_y)
-    \end{pmatrix},\quad \begin{pmatrix}
-        \psi, \sin(p_x)+i\cos(p_y)
-    \end{pmatrix}
-\end{equation}
-where
 \begin{align}
-    \phi &=  (2-m-\cos(p_x)-\cos(p_y))+E_1 \\
-    \psi &=  (2-m-\cos(p_x)+\cos(p_y))+E_1
+    H_{LD} &= \sum_{m,n}\left\{
+        \frac{i}{2} \left[ c^\dagger_{m+1,n}\sigma^x c_{m,n}
+            - c^\dagger_{m,n}\sigma^x c_{m+1,n}\right]
+        + \frac{i}{2} \left[ c^\dagger_{m,n+1}\sigma^y c_{m,n}
+            - c^\dagger_{m,n}\sigma^y c_{m,n+1} \right]
+        \right.
+        \nonumber\\
+        &- \frac{1}{2}\left[
+            c^\dagger_{m+1,n}\sigma^z c_{m,n}
+            + c^\dagger_{m,n}\sigma^z c_{m+1,n}
+            + c^\dagger_{m,n+1}\sigma^z c_{m,n}
+            + c^\dagger_{m,n}\sigma^z c_{m,n+1}
+        \right]
+        \nonumber\\
+        & \left. + (2-m) c^\dagger_{m,n}\sigma^z c_{m,n}
+        \vphantom{\frac12}
+    \right\}
 \end{align}
-And besides crossing each other, they have new interesting behavior as
-$m$ varies. When changing from $m=-1$ to $m=6$, they gradually contact
-and exchange the position of each other
-\footnote{You would get more fun if you execute the animation inside
-the Mathematica notebook}:
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/Eigen-mN1.pdf}
-    \caption{$m=-1$}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/Eigen-m0.pdf}
-    \caption{$m=0$}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/Eigen-m1.pdf}
-    \caption{$m=1$}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/Eigen-m2.pdf}
-    \caption{$m=2$}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/Eigen-m3.pdf}
-    \caption{$m=3$}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/Eigen-m4.pdf}
-    \caption{$m=4$}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/Eigen-m6.pdf}
-    \caption{$m=6$}
-\end{figure}
 
-\subsection{Edge States}
-\label{sec:Edge States}
-Inspired by lecture by Kane of Topological Insulators (BSS 2016), I
-will analyse the continuum limit of this model at the  point
-$(p_x=0,p_y=0)$, where the energy $E=0$. I also assume that we have placed
-to materials adjacent to each other, on with $m<0$, and the other with
-$m>0$. Therefore, at the interface, we could have $m$ as a function of
-$x$ such that $m(0)=0$.
+This affects the numerical analysis effectively by the replacement
+$$\sigma^i \to \frac{1}{2}\sigma^i,\quad
+    (2-m) \to 2(2-m) $$
 
-At this point $x=0$, $\sin(p_x)\to p_x$ , and is replaced by $-i\hbar
-\partial _x$. The Schrodinger equation is H$\psi $=0 After the
-calculation, the equation is (with $\hbar=1$):
-\begin{equation}
-    \left[i\partial_x \sigma^x + i\partial_y \sigma^y +
-    m\sigma^z\right] \psi = 0
-\end{equation}
-However, this coupled PDE is hard to solve. Therefore, I restrict
-their value on $x$, and solve the ODE:
-\begin{align}
-    i\partial_x \psi_2(x) + m\psi_1(x) &= 0 \\
-    i\partial_x \psi_1(x) - m\psi_2(x) &= 0
-\end{align}
-If assuming $m(x)$ is in the form of $m(x)=x$, i.e. positive when
-$x>0$, and negative when $x<0$, then the solution is:
-\begin{align}
-    \psi_1 (x,y) &= e^{\text{Int}(x)} C(y) \\
-    \psi_2 (x,y) &= -i \psi_1(x,y)
-\end{align}
-where $\text{Int}(x)=\int_1^x -m(k)\dd{k}$. $\text{Int}(x)$ has the
-property of goes to $-\infty$ as $x\to \pm\infty$.
+The calculated result is similar to that in the previous section,
+except that the band crossing happens at different values of $m$.
+\footnote{For example, the eigenvalue of original and the modified equation
+(2.21) are plotted in Mathematica notebook "Eq2.21-Demo.nb". Also,
+the solution to the infinite cylinder boundary condition has again
+two band crossings, each at $(m,p_x)$ equals $(0,0)$ and
+$(2,\pm\pi)$ (for $N=3$ case).}
+So the essential point is unaltered by the difference in some
+constants. However, in the correct calculation, the crossing band
+appears at $m=0$, which represents a massless spin-$\frac{1}{2}$
+particle. I think this should have some theoretical implications.
 
-If, on the contrary, assuming $m(x)$ is in the form of $m(x)=-x$, i.e. positive when $x<0$, and negative when $x>0$, then the solution is:
-\begin{align}
-    \psi_1 (x,y) &= e^{-\text{Int}(x)} C(y) \\
-    \psi_2 (x,y) &= i \psi_1(x,y)
-\end{align}
-In both cases, the function are exponentially decaying wave in the
-interface at $m(0)=0$.
+\subsection{Solution With Translational Invariance in x, and Open
+Boundary in y (Infinite Stripe)}
 
+This amounts to removing the $A$ in top right corner and $C$ in bottom
+left corner of eq.\ref{eq:disc-eigeneq}. The calculation can be found
+in file \texttt{Lattice Dirac Model (2+1)-d-4-Infinite Stripe.nb}.
+However, the solution by Mathematica is analytically intractable and
+not really illuminating. Also plotting all those eigenvectors becomes
+time-consuming when $N$ is large. So I looked for similar things
+inside the book by Bernevig \cite{Bernevig2013}, and found the
+following model.
+
+\subsection{Solution With Translational Invariance (Bloch States) in
+both x and y (Infinite Plane)}
+
+    \subsubsection{Numerical Solution}
+    \label{sec:Numerical Solution}
+
+
+    \textbf{Note 1}: Since the essential point is not altered by the minor
+    error in Hamiltonian, as mentioned in
+    Section~\ref{sec:Why-LatticeM-m-wrong}. I will continue with the
+    Lattice Model Hamiltonian that produce correctly the Dirac Hamiltonian
+    in the continuum limit.
+
+    \textbf{Note 2}: Calculation in this part is available in the
+    Mathematica notebook "\texttt{Lattice Dirac Model (2+1)-d-2.nb}".
+
+    When the two sides are of open boundary, the problem is quite simple
+    and the Fourier-transformed Hamiltonian is (almost) diagonal in
+    momentum space. It is (as calculated in \cite{Hughes2009}, eq.2.21):
+    \begin{align}
+        &H =\sum_{p_x,p_y} c^\dagger_{p_x,p_y}\times
+        \nonumber\\
+        &
+        \left[
+            \sin(p_x)\sigma^x + \sin(p_y)\sigma^y
+            +(2-m-\cos(p_x)-\cos(p_y))\sigma^z
+        \right] c_{p_x,p_y}
+    \end{align}
+
+    The eigenvalues of the Hamiltonian of the form
+    $\vb{a}\vdot\vb{\sigma}$ are:
+    \begin{equation}
+        E_1 = \abs{a},\quad E_2 = -\abs{a}
+    \end{equation}
+    If plotted in $(p_x,p_y)$ plane, we will find several interesting
+    crossing happening when $m=0,2,4$:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/E-m0.pdf}
+        \caption{$m=0$}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/E-m2.pdf}
+        \caption{$m=2$}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/E-m4.pdf}
+        \caption{$m=4$}
+    \end{figure}
+
+    The eigenvectors are of the form:
+    \begin{equation}
+        \begin{pmatrix}
+            \phi, \sin(p_x)+i\cos(p_y)
+        \end{pmatrix},\quad \begin{pmatrix}
+            \psi, \sin(p_x)+i\cos(p_y)
+        \end{pmatrix}
+    \end{equation}
+    where
+    \begin{align}
+        \phi &=  (2-m-\cos(p_x)-\cos(p_y))+E_1 \\
+        \psi &=  (2-m-\cos(p_x)+\cos(p_y))+E_1
+    \end{align}
+    And besides crossing each other, they have new interesting behavior as
+    $m$ varies. When changing from $m=-1$ to $m=6$, they gradually contact
+    and exchange the position of each other
+    \footnote{You would get more fun if you execute the animation inside
+    the Mathematica notebook}:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/Eigen-mN1.pdf}
+        \caption{$m=-1$}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/Eigen-m0.pdf}
+        \caption{$m=0$}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/Eigen-m1.pdf}
+        \caption{$m=1$}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/Eigen-m2.pdf}
+        \caption{$m=2$}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/Eigen-m3.pdf}
+        \caption{$m=3$}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/Eigen-m4.pdf}
+        \caption{$m=4$}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{pics/OpenBC-inXY/Eigen-m6.pdf}
+        \caption{$m=6$}
+    \end{figure}
+
+    \subsubsection{Edge States}
+    \label{sec:Edge States}
+    Inspired by lecture by Kane of Topological Insulators (BSS 2016), I
+    will analyse the continuum limit of this model at the  point
+    $(p_x=0,p_y=0)$, where the energy $E=0$. I also assume that we have placed
+    to materials adjacent to each other in $x$ direction, on with
+    $m<0$, and the other with $m>0$. Therefore, at the interface, we
+    could have $m$ as a function of $x$ such that $m(0)=0$.
+
+    At this point $x=0$, $\sin(p_x)\to p_x$ , and is replaced by $-i\hbar
+    \partial _x$. So we recovered the continuum model:
+    \begin{equation}
+        H = -i\hbar\partial_x \sigma^x 
+        -i\hbar\partial_y \sigma^y -m \sigma^z
+    \end{equation}
+    The Schrodinger equation is $H\psi =E\psi = 0$ for $E\approx 0$
+    around this point. After some calculations, the equation is (with
+    $\hbar=1$):
+    \begin{equation}
+        \left[i\partial_x \sigma^x + i\partial_y \sigma^y +
+        m\sigma^z\right] \psi = 0
+    \end{equation}
+    However, this coupled PDE is hard to solve by Mathematica
+    \footnote{See file \texttt{Lattice Dirac Model
+    (2+1)-d-3-EdgeStates.nb} for my calculations.}. Therefore, I
+    restrict their value on $x$, and solve the ODE:
+    \begin{align}
+        i\partial_x \psi_2(x) + m\psi_1(x) &= 0 \\
+        i\partial_x \psi_1(x) - m\psi_2(x) &= 0
+    \end{align}
+    If assuming $m(x)$ is in the form of $m(x)=x$, i.e. positive when
+    $x>0$, and negative when $x<0$, then the solution is:
+    \begin{align}
+        \psi_1 (x,y) &= e^{\text{Int}(x)} C(y) \\
+        \psi_2 (x,y) &= -i \psi_1(x,y)
+    \end{align}
+    where $\text{Int}(x)=\int_1^x -m(k)\dd{k}$. $\text{Int}(x)$ has the
+    property of goes to $-\infty$ as $x\to \pm\infty$.
+
+    If, on the contrary, assuming $m(x)$ is in the form of $m(x)=-x$, i.e. positive when $x<0$, and negative when $x>0$, then the solution is:
+    \begin{align}
+        \psi_1 (x,y) &= e^{-\text{Int}(x)} C(y) \\
+        \psi_2 (x,y) &= i \psi_1(x,y)
+    \end{align}
+    In both cases, the function are exponentially decaying wave in the
+    interface at $m(0)=0$.
+
+    Paused to think what I have got. I have in essential got a
+    solution separated in $x,y$. Therefore, now I re-solve this edge
+    mode, using technique of separation of variables 
+    \footnote{Actually, I am just mimicking the calculation
+    in section 8.8 of \cite{Bernevig2013}.}. 
+
+    Without loss of generality, assume $m(x)$ is like $x$, i.e. it
+    goes to $\pm\infty$ as $x\to\pm\infty$. Then, separate the
+    wavefunction into:
+    \begin{equation}
+        \psi(x,y) = \phi_1(x)\phi_2(y)
+    \end{equation}
+    Assuming we are solving a Schrodinger equation $H\psi=E\psi$, with
+    $E$ being very small.  Now, inspired by previous calculation,
+    write down directly $\phi_1(x)=e^{-\int_0^x m(x')\dd{x'}}$.  Then,
+    the equation decoupled directly into:
+    \begin{equation}
+        \left(
+            -i\sigma_y\partial_y + m(x)\left(i\sigma_x-\sigma_z\right)
+        \right)\psi_2(y) = E\psi_2(y)
+    \end{equation}
+    Since $E$ is small, but $m(x)$ could be very large and is
+    independent of $y$, we should make the term $(i\sigma_x-\sigma_z)$
+    somehow disappear. This matrix is singular and has only eigenvalue
+    $0$. Its eigenvector is $(i,1)^t$. So we assume
+    $\phi_2(y)=\chi(x)(i,1)^t$.
+    
+    It turns out that $(i,1)^t$ is also the eigenvector of
+    $\sigma_y$ with eigenvalue $-1$. So the equation becomes quite
+    simple now:
+    \begin{equation}
+        i\partial_y\chi(y) = E\chi(y)
+    \end{equation}
+    The solution is $\chi(y)=e^{-iEy}$, a running wave in the $y$
+    direction!
 \section{License}
 The entire content of this work (including the source code
 for TeX files and the generated PDF documents) by 
@@ -507,4 +553,9 @@ licensed under a
 Commons Attribution-NonCommercial-ShareAlike 4.0 International 
 License}. Permissions beyond the scope of this 
 license may be available at \url{mailto:we.taper[at]gmail[dot]com}.
+\bibliography{../../Library}{}
+\bibliographystyle{alphaurl}
+
+\printnomenclature
+
 \end{document}
