@@ -160,7 +160,7 @@ The Dirac equation aims to change the Klein-Gorden equation into a first order
 PDE. There are two approaches to derive the equation. The first can be found in
 section 8.2 of \cite{Sakurai2011}, and section II.1 of \cite{zee2010quantum}.
 The second approach is found in page 99 (chapter 2) of \cite{Greiner1997}, and
-is prefered in my opinion. After all, they lead to the same equation:
+is preferred in my opinion. After all, they lead to the same equation:
 
 \begin{equation}
     (i\gamma^\mu \partial_\mu - m) \psi(x,t) =0
@@ -189,7 +189,7 @@ They are related to $\gamma^\mu$ matrices by:
     \beta = \gamma^0
 \end{equation}
 A detailed formula for $\gamma$ matrices can be found in p.94 of
-\cite{zee2010quantum}. A detailed formula for $\alpha_i,\beta$
+\cite{zee2010quantum} or in the section~\todo{}. A detailed formula for $\alpha_i,\beta$
 matrices can be found in p.496 of \cite{Sakurai2011}.
 
 \paragraph{The density problem} The dirac formulation has a appearent advantage.
@@ -214,9 +214,56 @@ field, and with a the vector potential $\vb{A}=0$, it becomes
 \end{equation}
 where $\Phi$ is the scalar potential.
 
+\section{Gamma matrices}
+\label{sec:Gamma-matrices}
+
+It could be quite easy to find representations of Clifford Algebra in
+any dimension. First I note that the size of the Gamma matrices of
+$4n\times 4n$, i.e., the dimension could/must
+\footnote{I am not sure about this. In this \cite{thePhyStackPage}
+    says it must be $4n$, the \cite{theMathematicaPage} says there
+could be Gamma matrix in odd dimension} be $4n$. So we could have a
+very easy construction by repeatedly using the Pauli matrices. The
+Pauli matrices follow:
+\begin{equation}
+    \{\sigma_i,\sigma_j\} = 2\delta_{ij}
+\end{equation}
+So the following $4\times 4$ matrices are good Gamma matrices:
+\begin{equation}
+    \gamma_{1/2/3} = \begin{pmatrix}
+                         & \sigma_{1/2/3} \\
+        -\sigma_{1/2/3} & \\
+    \end{pmatrix},\quad \gamma_0 = \begin{pmatrix}
+        \id & \\
+           & -\id
+    \end{pmatrix}
+\end{equation}
+Note the minus sign in the $-\id$ of $\gamma_0$ is important to
+produce the correct anticommutation relations.
+
+Next, for higher dimension $8$, we can set:
+\begin{equation}
+    \gamma'_{1/2/3} = \begin{pmatrix}
+                         & \gamma_{1/2/3} \\
+        -\gamma_{1/2/3} & \\
+    \end{pmatrix},\quad \gamma'_0 = \begin{pmatrix}
+        \id & \\
+           & -\id
+    \end{pmatrix}
+\end{equation}
+
+And repeating the above process, we can get the Gamma matrices in any
+$4n$ dimension.
+
 \bibliography{cite}{}
 \bibliographystyle{alphaurl}
 
+\begin{thebibliography}{1}
+    \bibitem{thePhyStackPage}
+    \url{https://physics.stackexchange.com/questions/53318/dimension-of-dirac-gamma-matrices}
+    \bibitem{theMathematicaPage}
+    \url{http://demonstrations.wolfram.com/DiracMatricesInHigherDimensions/}
+\end{thebibliography}
 \printnomenclature
 \section{License}
 The entire content of this work (including the source code
