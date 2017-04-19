@@ -1018,6 +1018,47 @@ Energy:
     & \frac{1}{1-x} = 1 + x + x^2 + x^3 + \cdots
 \end{align}
 
+\section{Common Models}
+\label{sec:Common Models}
+\subsection{Tow Level System TLS}
+\label{sec:Tow Level System TLS}
+\begin{equation}
+    H = \varepsilon + \vec{d}\cdot\vec{\sigma}
+\end{equation}
+If 
+$$
+\vec{d}=|d|
+    \left(\sin(\theta)\cos(\phi),\sin(\theta)\sin(\phi),\cos(\theta)\right)
+$$, then, the eigenvalues are $E_\pm = \varepsilon\pm |d|$, with
+normalized eigenvectors:
+\begin{equation}
+\ket{+} = 
+\begin{pmatrix}
+    \cos(\theta/2) e^{-i\phi} \\ \sin(\theta/2)
+\end{pmatrix},\quad
+\ket{-} = 
+\begin{pmatrix}
+    \sin(\theta/2) e^{-i\phi} \\ -\cos(\theta/2)
+\end{pmatrix}
+\end{equation}
+
+If
+$$\vec{d}=(d_1,d_2,d_3) $$, then the eigenvalues are $E_\pm =
+\varepsilon\pm |d|$, with normalized eigenvectors (let $d\equiv|d|$):
+\begin{equation}
+\ket{+} = 
+\frac{1}{\sqrt{2d(d_3+d)}}
+\begin{pmatrix}
+    d_3+d \\ d_1+i d_2
+\end{pmatrix},\quad
+\ket{-} = 
+\frac{1}{\sqrt{2d(d_3-d)}}
+\begin{pmatrix}
+    d_3-d \\ d_1+i d_2
+\end{pmatrix}
+\end{equation}
+
+
 \section{Anchor}
 \label{sec:anchor}
 \begin{thebibliography}{1}
