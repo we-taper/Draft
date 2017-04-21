@@ -59,7 +59,7 @@ for m = M
         V_mIs0_4(i) = Eigenvector(1,4);
     end
 end
-% Display the whole spectrum in (m,py)
+% Display the whole Energy spectrum in (m,py)
 [mesh_M,mesh_Y] = meshgrid(M,PY);
 figure;
 mesh(mesh_M,mesh_Y,D1');
@@ -73,7 +73,8 @@ hold on;
 mesh(mesh_M,mesh_Y,D5');
 hold on;
 mesh(mesh_M,mesh_Y,D6');
-hold on;
+xlabel('m');
+ylabel('p_y');
 hold off;
 
 % Plot the Eigenvector when py=0
