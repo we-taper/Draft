@@ -664,8 +664,23 @@ looked for similar things inside the book by Bernevig
     4 different pieces in fig~\ref{fig:BerryPhase/attempts}. It could be
     imagined that the vector $\vec{d}$ goes in the order: red
     $\to$blue$\to$yellow$\to$green$\to$red. With this and a little bit of
-    imagination, I since the solid angle $\Omega$ when $0<m<2$ and $2<m<4$ are
+    imagination, I think the solid angle $\Omega$ when $0<m<2$ and $2<m<4$ are
     both $4\pi$.
+
+    Exact value can be found using the formula for solid angle in a
+    parameterized surface. Assuming the surface is parameterized as
+    \begin{equation}
+        \vec{f}(x,y) = (f_1(x,y), f_2(x,y), f_3(x,y))
+    \end{equation}
+    Its solid angle can be calculated by:
+    \begin{equation}
+        \int\dd{x}\dd{y} \frac{\vec{f}(x,y)}{\abs{\vec{f}(x,y)}^3}
+        \partial_x \vec{f}(x,y) \cross \partial_y \vec{f}(x,y)
+    \end{equation}
+    This formula can be understood mathematically
+    \cite{SolidAngleParameterizedSurface}, and calculated physically (see p.216 of
+    \cite{Shen2012}).  The calculated result for different $m$ is plotted in
+    fig~\ref{fig:BerryPhase/SSQFormulaPlot}.
     \begin{figure}[htpb]
         \centering
         \includegraphics[width=0.5\linewidth]{pics/BerryPhase/Shape.pdf}
@@ -687,6 +702,12 @@ looked for similar things inside the book by Bernevig
         into 4 different patches ($m=2$)}
         \label{fig:BerryPhase/attempts}
     \end{figure}
+    \begin{figure}[htpb]
+        \centering
+        \includegraphics[width=0.8\linewidth]{pics/BerryPhase/SSQFormulaPlot.pdf}
+        \caption{Plot of Chern Number for different $m$.}
+        \label{fig:BerryPhase/SSQFormulaPlot}
+    \end{figure}
 \section{License}
 The entire content of this work (including the source code
 for TeX files and the generated PDF documents) by 
@@ -696,9 +717,9 @@ licensed under a
 Commons Attribution-NonCommercial-ShareAlike 4.0 International 
 License}. Permissions beyond the scope of this 
 license may be available at \url{mailto:we.taper[at]gmail[dot]com}.
+
 \bibliography{../../Library}{}
 \bibliographystyle{alphaurl}
-
 \printnomenclature
 
 \end{document}
