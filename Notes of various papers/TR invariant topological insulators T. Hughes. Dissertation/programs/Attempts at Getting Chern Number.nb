@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[   2203635,      37012]
-NotebookOptionsPosition[   2200094,      36911]
-NotebookOutlinePosition[   2200468,      36927]
-CellTagsIndexPosition[   2200425,      36924]
+NotebookDataLength[   2207819,      37124]
+NotebookOptionsPosition[   2204150,      37019]
+NotebookOutlinePosition[   2204524,      37035]
+CellTagsIndexPosition[   2204481,      37032]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -36505,7 +36505,7 @@ Cell[BoxData[
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"ListPlot", "[", 
+ RowBox[{"listOfChernN", "=", 
   RowBox[{"ParallelTable", "[", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"{", 
@@ -36513,9 +36513,10 @@ Cell[BoxData[
       RowBox[{"ChernNumber3", "[", "m", "]"}]}], "}"}], ",", 
     RowBox[{"{", 
      RowBox[{"m", ",", 
-      RowBox[{"-", "1"}], ",", "5", ",", "0.2"}], "}"}]}], "]"}], 
-  "]"}]], "Input",
- CellChangeTimes->{{3.702254216718199*^9, 3.7022542684454746`*^9}}],
+      RowBox[{"-", "1"}], ",", "5", ",", "0.2"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.702254216718199*^9, 3.7022542684454746`*^9}, {
+   3.7022546538126726`*^9, 3.7022546678725195`*^9}, {3.702255511815633*^9, 
+   3.7022555740506244`*^9}, 3.702256894732911*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -36527,7 +36528,7 @@ of the following: singularity, value of the integration is 0, highly \
 oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
 "MSG",
  ShowCellLabel->True,
- CellChangeTimes->{3.7022543884283495`*^9}],
+ CellChangeTimes->{3.7022568959188404`*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -36539,7 +36540,7 @@ of the following: singularity, value of the integration is 0, highly \
 oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
 "MSG",
  ShowCellLabel->True,
- CellChangeTimes->{3.7022543884596*^9}],
+ CellChangeTimes->{3.7022568959561005`*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -36551,7 +36552,7 @@ of the following: singularity, value of the integration is 0, highly \
 oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
 "MSG",
  ShowCellLabel->True,
- CellChangeTimes->{3.702254388694874*^9}],
+ CellChangeTimes->{3.7022568962729764`*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -36563,7 +36564,7 @@ of the following: singularity, value of the integration is 0, highly \
 oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
 "MSG",
  ShowCellLabel->True,
- CellChangeTimes->{3.702254389515688*^9}],
+ CellChangeTimes->{3.702256897191125*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -36580,7 +36581,7 @@ RowBox[{\\\"px\\\", \\\",\\\", \\\"py\\\"}], \\\"}\\\"}]\\) = \
 \\!\\(\\*RowBox[{\\\"0.07789240723714745`\\\"}]\\) for the integral and error \
 estimates.\"\>"}]], "Message", "MSG",
  ShowCellLabel->True,
- CellChangeTimes->{3.7022543898459964`*^9}],
+ CellChangeTimes->{3.7022568973867273`*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -36592,7 +36593,7 @@ of the following: singularity, value of the integration is 0, highly \
 oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
 "MSG",
  ShowCellLabel->True,
- CellChangeTimes->{3.702254390047985*^9}],
+ CellChangeTimes->{3.7022568975370646`*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -36611,7 +36612,7 @@ NIntegrate obtained \\!\\(\\*RowBox[{\\\"3.198396408832238`*^-16\\\"}]\\) and \
 \\!\\(\\*RowBox[{\\\"2.682114023737048`*^-12\\\"}]\\) for the integral and \
 error estimates.\"\>"}]], "Message", "MSG",
  ShowCellLabel->True,
- CellChangeTimes->{3.7022543997549005`*^9}],
+ CellChangeTimes->{3.702256906191787*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -36630,7 +36631,7 @@ NIntegrate obtained \\!\\(\\*RowBox[{\\\"-\\\", \\\"2.193749264818752`*^-14\\\
 \"}]\\) and \\!\\(\\*RowBox[{\\\"2.6997686784024313`*^-12\\\"}]\\) for the \
 integral and error estimates.\"\>"}]], "Message", "MSG",
  ShowCellLabel->True,
- CellChangeTimes->{3.7022544008881655`*^9}],
+ CellChangeTimes->{3.702256908139664*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -36642,7 +36643,7 @@ of the following: singularity, value of the integration is 0, highly \
 oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
 "MSG",
  ShowCellLabel->True,
- CellChangeTimes->{3.7022544013089857`*^9}],
+ CellChangeTimes->{3.7022569085688424`*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -36661,7 +36662,7 @@ NIntegrate obtained \\!\\(\\*RowBox[{\\\"-\\\", \\\"7.895702321125686`*^-17\\\
 \"}]\\) and \\!\\(\\*RowBox[{\\\"2.469132001513211`*^-13\\\"}]\\) for the \
 integral and error estimates.\"\>"}]], "Message", "MSG",
  ShowCellLabel->True,
- CellChangeTimes->{3.702254401982172*^9}],
+ CellChangeTimes->{3.702256908753315*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -36673,7 +36674,7 @@ of the following: singularity, value of the integration is 0, highly \
 oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
 "MSG",
  ShowCellLabel->True,
- CellChangeTimes->{3.702254402556078*^9}],
+ CellChangeTimes->{3.7022569092496758`*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -36692,7 +36693,7 @@ NIntegrate obtained \\!\\(\\*RowBox[{\\\"1.300473956707422`*^-15\\\"}]\\) and \
 \\!\\(\\*RowBox[{\\\"7.024838156512129`*^-13\\\"}]\\) for the integral and \
 error estimates.\"\>"}]], "Message", "MSG",
  ShowCellLabel->True,
- CellChangeTimes->{3.702254403440732*^9}],
+ CellChangeTimes->{3.7022569103804064`*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -36704,7 +36705,7 @@ of the following: singularity, value of the integration is 0, highly \
 oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
 "MSG",
  ShowCellLabel->True,
- CellChangeTimes->{3.702254403936102*^9}],
+ CellChangeTimes->{3.702256910897275*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -36724,7 +36725,7 @@ NIntegrate obtained \\!\\(\\*RowBox[{\\\"-\\\", \
 \\!\\(\\*RowBox[{\\\"1.3883363637565956`*^-12\\\"}]\\) for the integral and \
 error estimates.\"\>"}]], "Message", "MSG",
  ShowCellLabel->True,
- CellChangeTimes->{3.7022544138860316`*^9}],
+ CellChangeTimes->{3.702256920192732*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -36743,7 +36744,7 @@ NIntegrate obtained \\!\\(\\*RowBox[{\\\"-\\\", \\\"5.480641981914225`*^-17\\\
 \"}]\\) and \\!\\(\\*RowBox[{\\\"4.553135568408063`*^-13\\\"}]\\) for the \
 integral and error estimates.\"\>"}]], "Message", "MSG",
  ShowCellLabel->True,
- CellChangeTimes->{3.702254415380593*^9}],
+ CellChangeTimes->{3.702256921157462*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -36755,7 +36756,7 @@ of the following: singularity, value of the integration is 0, highly \
 oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
 "MSG",
  ShowCellLabel->True,
- CellChangeTimes->{3.7022544158506336`*^9}],
+ CellChangeTimes->{3.7022569215963244`*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -36766,7 +36767,7 @@ Cell[BoxData[
 \\\", \\\"::\\\", \\\"slwcon\\\"}], \\\"MessageName\\\"]\\) will be \
 suppressed during this calculation.\"\>"}]], "Message", "MSG",
  ShowCellLabel->True,
- CellChangeTimes->{3.7022544158818846`*^9}],
+ CellChangeTimes->{3.7022569216119385`*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -36785,7 +36786,7 @@ NIntegrate obtained \\!\\(\\*RowBox[{\\\"1.013620611056698`*^-15\\\"}]\\) and \
 \\!\\(\\*RowBox[{\\\"4.5456297672319355`*^-13\\\"}]\\) for the integral and \
 error estimates.\"\>"}]], "Message", "MSG",
  ShowCellLabel->True,
- CellChangeTimes->{3.7022544175705023`*^9}],
+ CellChangeTimes->{3.70225692354768*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -36797,7 +36798,7 @@ of the following: singularity, value of the integration is 0, highly \
 oscillatory integrand, or WorkingPrecision too small.\"\>"}]], "Message", \
 "MSG",
  ShowCellLabel->True,
- CellChangeTimes->{3.702254418071833*^9}],
+ CellChangeTimes->{3.702256924017617*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -36808,7 +36809,7 @@ Cell[BoxData[
 \\\", \\\"::\\\", \\\"slwcon\\\"}], \\\"MessageName\\\"]\\) will be \
 suppressed during this calculation.\"\>"}]], "Message", "MSG",
  ShowCellLabel->True,
- CellChangeTimes->{3.7022544181030807`*^9}],
+ CellChangeTimes->{3.7022569240332475`*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -36827,7 +36828,7 @@ NIntegrate obtained \\!\\(\\*RowBox[{\\\"1.6073069566993029`*^-16\\\"}]\\) \
 and \\!\\(\\*RowBox[{\\\"7.022853761594748`*^-13\\\"}]\\) for the integral \
 and error estimates.\"\>"}]], "Message", "MSG",
  ShowCellLabel->True,
- CellChangeTimes->{3.702254427265452*^9}],
+ CellChangeTimes->{3.702256932295162*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -36838,7 +36839,7 @@ Cell[BoxData[
 \\\", \\\"::\\\", \\\"eincr\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
 during this calculation.\"\>"}]], "Message", "MSG",
  ShowCellLabel->True,
- CellChangeTimes->{3.7022544272810793`*^9}],
+ CellChangeTimes->{3.7022569323256845`*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -36857,7 +36858,7 @@ NIntegrate obtained \\!\\(\\*RowBox[{\\\"2.945928039766141`*^-16\\\"}]\\) and \
 \\!\\(\\*RowBox[{\\\"2.476003434073289`*^-13\\\"}]\\) for the integral and \
 error estimates.\"\>"}]], "Message", "MSG",
  ShowCellLabel->True,
- CellChangeTimes->{3.7022544315296526`*^9}],
+ CellChangeTimes->{3.702256937517696*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -36868,7 +36869,112 @@ Cell[BoxData[
 \\\", \\\"::\\\", \\\"eincr\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
 during this calculation.\"\>"}]], "Message", "MSG",
  ShowCellLabel->True,
- CellChangeTimes->{3.7022544315477853`*^9}],
+ CellChangeTimes->{3.7022569375457172`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "1.`"}], ",", 
+     RowBox[{"-", "6.2832002679465225`*^-18"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "0.8`"}], ",", 
+     RowBox[{"-", "4.361356313693055`*^-18"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "0.6`"}], ",", "1.2790542361234253`*^-17"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "0.3999999999999999`"}], ",", "1.8830766279612383`*^-10"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "0.19999999999999996`"}], ",", "2.5452029921650866`*^-17"}],
+     "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5.551115123125783`*^-17", ",", 
+     RowBox[{"-", "0.4999999999378855`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.20000000000000007`", ",", 
+     RowBox[{"-", "0.9999999967894511`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.40000000000000013`", ",", 
+     RowBox[{"-", "0.9999999969594975`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.6000000000000001`", ",", 
+     RowBox[{"-", "1.0000000027515605`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.8`", ",", 
+     RowBox[{"-", "0.9999999989601723`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1.`", ",", 
+     RowBox[{"-", "0.999999993817156`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1.2000000000000002`", ",", 
+     RowBox[{"-", "1.0000000030130565`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1.4000000000000004`", ",", 
+     RowBox[{"-", "0.9999999979727983`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1.6000000000000003`", ",", 
+     RowBox[{"-", "0.9999999956918063`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1.8000000000000003`", ",", 
+     RowBox[{"-", "0.9999999818320262`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2.0000000000000004`", ",", "2.463217645706073`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2.2`", ",", "0.9999999818320245`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2.4000000000000004`", ",", "0.9999999956918066`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2.6`", ",", "0.999999997972798`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2.8000000000000003`", ",", "1.000000003013056`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3.`", ",", "0.9999999938171541`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3.2`", ",", "0.9999999989601721`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3.4`", ",", "1.0000000027515612`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3.6`", ",", "0.9999999969594969`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3.8000000000000007`", ",", "0.9999999967894516`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4.000000000000001`", ",", "0.4999999999376634`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4.200000000000001`", ",", 
+     RowBox[{"-", "1.7457301970005787`*^-15"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4.4`", ",", 
+     RowBox[{"-", "2.971794112313773`*^-17"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4.6000000000000005`", ",", "1.0348842928613087`*^-16"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"4.800000000000001`", ",", "8.066136533475049`*^-17"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"5.000000000000001`", ",", "2.344295047608995`*^-17"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.7022542735647*^9, 3.7022543185184507`*^9, 
+  3.7022544373894606`*^9, 3.702254722261389*^9, 3.7022555225229363`*^9, 
+  3.702255554963313*^9, 3.7022556019400883`*^9, 3.7022569426052294`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"listOfChernN", ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"m", ",", "\"\<Chern number\>\""}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7022568745129304`*^9, 3.7022569124939327`*^9}, {
+  3.702256971046857*^9, 3.7022569748153114`*^9}}],
 
 Cell[BoxData[
  GraphicsBox[{{}, {{}, 
@@ -36885,7 +36991,9 @@ aEhemWsDcb+wg23AaZlD9tNtIOaJOIhGPHVUZq+2AQAvdvPp
       "]]}, {}}, {}},
   AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
   Axes->{True, True},
-  AxesLabel->{None, None},
+  AxesLabel->{
+    FormBox["m", TraditionalForm], 
+    FormBox["\"Chern number\"", TraditionalForm]},
   AxesOrigin->{0, 0},
   DisplayFunction->Identity,
   Frame->{{False, False}, {False, False}},
@@ -36904,8 +37012,8 @@ aEhemWsDcb+wg23AaZlD9tNtIOaJOIhGPHVUZq+2AQAvdvPp
      Scaled[0.05], 
      Scaled[0.05]}},
   Ticks->{Automatic, Automatic}]], "Output",
- CellChangeTimes->{3.7022542735647*^9, 3.7022543185184507`*^9, 
-  3.7022544373894606`*^9}]
+ CellChangeTimes->{3.702256888177734*^9, 3.7022569427367496`*^9, 
+  3.7022569753464966`*^9}]
 }, Open  ]]
 }, Open  ]]
 },
@@ -36958,18 +37066,18 @@ Cell[1630026, 27224, 1456, 35, 214, "Output"]
 }, Open  ]],
 Cell[1631497, 27262, 115, 1, 21, "Outline3"],
 Cell[CellGroupData[{
-Cell[1631637, 27267, 4840, 125, 270, "Input"],
+Cell[1631637, 27267, 4840, 125, 330, "Input"],
 Cell[1636480, 27394, 3232, 59, 296, "Output"]
 }, Open  ]],
 Cell[1639727, 27456, 127, 1, 21, "Outline4"],
 Cell[1639857, 27459, 431, 12, 29, "Input"],
 Cell[CellGroupData[{
-Cell[1640313, 27475, 2060, 55, 190, "Input"],
+Cell[1640313, 27475, 2060, 55, 210, "Input"],
 Cell[1642376, 27532, 2222, 43, 492, "Output"]
 }, Open  ]],
 Cell[1644613, 27578, 2300, 71, 90, "Input"],
 Cell[CellGroupData[{
-Cell[1646938, 27653, 1384, 33, 130, "Input"],
+Cell[1646938, 27653, 1384, 33, 150, "Input"],
 Cell[1648325, 27688, 2218, 44, 298, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
@@ -36986,32 +37094,36 @@ Cell[2181407, 36448, 1134, 34, 49, "Output"]
 }, Open  ]],
 Cell[2182556, 36485, 604, 17, 29, "Input"],
 Cell[CellGroupData[{
-Cell[2183185, 36506, 408, 11, 50, "Input"],
-Cell[2183596, 36519, 404, 10, 44, "Message"],
-Cell[2184003, 36531, 400, 10, 44, "Message"],
-Cell[2184406, 36543, 402, 10, 44, "Message"],
-Cell[2184811, 36555, 402, 10, 44, "Message"],
-Cell[2185216, 36567, 767, 15, 64, "Message"],
-Cell[2185986, 36584, 402, 10, 44, "Message"],
-Cell[2186391, 36596, 957, 17, 124, "Message"],
-Cell[2187351, 36615, 969, 17, 104, "Message"],
-Cell[2188323, 36634, 404, 10, 23, "Message"],
-Cell[2188730, 36646, 966, 17, 104, "Message"],
-Cell[2189699, 36665, 402, 10, 23, "Message"],
-Cell[2190104, 36677, 955, 17, 104, "Message"],
-Cell[2191062, 36696, 402, 10, 23, "Message"],
-Cell[2191467, 36708, 972, 18, 84, "Message"],
-Cell[2192442, 36728, 966, 17, 84, "Message"],
-Cell[2193411, 36747, 404, 10, 23, "Message"],
-Cell[2193818, 36759, 379, 9, 23, "Message"],
-Cell[2194200, 36770, 958, 17, 84, "Message"],
-Cell[2195161, 36789, 402, 10, 23, "Message"],
-Cell[2195566, 36801, 379, 9, 23, "Message"],
-Cell[2195948, 36812, 956, 17, 84, "Message"],
-Cell[2196907, 36831, 378, 9, 23, "Message"],
-Cell[2197288, 36842, 957, 17, 84, "Message"],
-Cell[2198248, 36861, 378, 9, 23, "Message"],
-Cell[2198629, 36872, 1437, 35, 247, "Output"]
+Cell[2183185, 36506, 532, 12, 50, "Input"],
+Cell[2183720, 36520, 404, 10, 44, "Message"],
+Cell[2184127, 36532, 404, 10, 44, "Message"],
+Cell[2184534, 36544, 404, 10, 44, "Message"],
+Cell[2184941, 36556, 402, 10, 44, "Message"],
+Cell[2185346, 36568, 767, 15, 64, "Message"],
+Cell[2186116, 36585, 404, 10, 44, "Message"],
+Cell[2186523, 36597, 955, 17, 124, "Message"],
+Cell[2187481, 36616, 967, 17, 104, "Message"],
+Cell[2188451, 36635, 404, 10, 44, "Message"],
+Cell[2188858, 36647, 966, 17, 104, "Message"],
+Cell[2189827, 36666, 404, 10, 44, "Message"],
+Cell[2190234, 36678, 957, 17, 124, "Message"],
+Cell[2191194, 36697, 402, 10, 44, "Message"],
+Cell[2191599, 36709, 970, 18, 104, "Message"],
+Cell[2192572, 36729, 966, 17, 104, "Message"],
+Cell[2193541, 36748, 404, 10, 44, "Message"],
+Cell[2193948, 36760, 379, 9, 23, "Message"],
+Cell[2194330, 36771, 955, 17, 124, "Message"],
+Cell[2195288, 36790, 402, 10, 44, "Message"],
+Cell[2195693, 36802, 379, 9, 23, "Message"],
+Cell[2196075, 36813, 956, 17, 124, "Message"],
+Cell[2197034, 36832, 378, 9, 23, "Message"],
+Cell[2197415, 36843, 955, 17, 124, "Message"],
+Cell[2198373, 36862, 378, 9, 23, "Message"],
+Cell[2198754, 36873, 3490, 91, 115, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2202281, 36969, 324, 7, 29, "Input"],
+Cell[2202608, 36978, 1514, 37, 255, "Output"]
 }, Open  ]]
 }, Open  ]]
 }

@@ -613,11 +613,10 @@ looked for similar things inside the book by Bernevig
     $\psi_1/\psi_N=0$ or $\infty$. This would hint a boundary state localized in
     $1$ or $N$.
 
-    But now $A$ and $C$ are singular, this makes the
+    But now $A$ and $C$ are singular, making the
     equation~\ref{eq:rec-disc-eigeneq} mostly undetermined. The simplest case is
     that when $B=0$ (i.e. when $p_x=0$ or $\pm \pi$, and $2-m-\cos(p_x)=0$, thus
-    $m=1$ or $3$),
-    there are four possible eigenstates of eigenvalue $E=0$:
+    $m=1$ or $3$), there are four possible eigenstates of eigenvalue $E=0$:
     \begin{align}
         &\psi_N = \begin{pmatrix}
             1 \\ -1
@@ -635,6 +634,17 @@ looked for similar things inside the book by Bernevig
     \end{align}
     This shows that it possibly has states localized at the boundary, but this
     tells us nothing when $m$ is not the prescribed values($1$ and $3$).
+
+    Numerical calculations can be performed in this case to find eigevectors
+    whose eigevectors are close to zero. The result gives real edge states. For
+    example, when $N=30$, below are a plot of eigevectors, whose eigenvalues
+    $\epsilon$ satisfy $\abs{\epsilon}<0.2$:
+    \begin{figure}[htpb]
+        \centering
+        \includegraphics[width=0.8\linewidth]{pics/InfiniteStrip/{InfiniteStrip.N=30.EdgeState}.pdf}
+        \caption{Edge states when $N=30$ (amplitudes have not been normalized).}
+        \label{fig:InfiniteStrip/InfiniteStrip=30.EdgeState.pdf}
+    \end{figure}
 
     \subsection{Berry Phase}
     \label{sec:Berry Phase}
@@ -708,6 +718,7 @@ looked for similar things inside the book by Bernevig
         \caption{Plot of Chern Number for different $m$.}
         \label{fig:BerryPhase/SSQFormulaPlot}
     \end{figure}
+
 \section{License}
 The entire content of this work (including the source code
 for TeX files and the generated PDF documents) by 
