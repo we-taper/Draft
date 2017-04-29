@@ -1,0 +1,99 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physicist-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physicist-taper}
+\makenomenclature % For an index of symbols.
+\title{Shen's View on Topological Quantum Numbers}
+\date{\today}
+\author{Taper}
+
+
+\begin{document}
+
+
+\maketitle
+\abstract{
+    A short summary of chapter 4, Topological Invariants, of \cite{Shen2012}.
+}
+\tableofcontents
+
+The local gauge freedom of phase gives us Berry phase, and the Hall conductance
+$\sigma_{xy}$ can be related to this Berry phase as:
+\todo{Which bands should be included in calculating the Berry phase.}
+\begin{equation}
+    \sigma_{xy} = \int_{\mathrm{BZ}} \frac{\dd{\vb k}}{(2\pi)^2}
+    \Omega_{k_x,k_y}
+\end{equation}
+where $\Omega_{k_x,k_y}$ is the Berry curvature. The Berry curvature for each
+band is defined as
+\begin{equation}
+    \Omega^n(\vb k) = \grad_{\vb k} \times
+        \braket{ u_n(\vb k) | i \grad_{\vb{k}} | u_n(\vb{k})}
+\end{equation}
+
+This Berry phase can also be related to the electric polarization (more exactly,
+the $\vb P$ in $D=\epsilon_0 \vb{E} + \vb{P}$), in a solid in which there is no
+electric field ($\vb{E}=0$). The connection is:
+\begin{equation}
+    \Delta P_{\alpha} = e \sum_n \int_0^T\dd{t} 
+    \int_{\mathrm{BZ}} \frac{\dd{\vb q}}{(2\pi)^d}\Omega^n_{q_\alpha,t}
+\end{equation}
+(where $d$ should be the dimension of the solid, though this is not mentioned
+in the book.)
+
+The quantization of Hall conductance can be viewed from two perspectives. On one
+hand, the Berry phase is proportional to the first Chern number, which is proved
+mathematically to be quantized. On the other hand, there is the Laughlin's
+argument. The Laughlin's argument does two things. First, it relates the change
+of flux $\Delta \phi$ to the change of charge $\Delta Q$ by simple
+electrodynamics:
+\begin{equation}
+    \Delta Q = \sigma_{xy} \Delta \phi
+\end{equation}
+Second, it argues that the threading of one flux quantum $\hbar/e$ does not change the
+\todo{Why do we thread this flux of quantum?}
+Hamiltonian, but instead pushes integers numbers of charge transport (just like
+a Thouless charge pump):
+\begin{equation}
+    \Delta Q = n e
+\end{equation}
+Therefore, $ne = \sigma_{xy} \hbar/e$ leads to $\delta_{xy} = n e^2/\hbar$.
+
+However the $\Z_2$ invariant is a complicated stuff which I do not understand.
+
+Also, the generalization of topological insulator from two dimension to three
+dimension is done in section 4.9, which I do not understand. But he defines
+clearly the concept of strong and weak topological insulator, and mentions that
+a weak topological insulator is topologically equivalent to a two-dimensional
+topological insulator, and is not robust against disorder.
+
+\bibliography{../Library}{}
+\bibliographystyle{alphaurl}
+
+% \begin{thebibliography}{1}
+% 	\bibitem{book} 
+% \end{thebibliography}
+\printnomenclature
+\section{License}
+The entire content of this work (including the source code
+for TeX files and the generated PDF documents) by 
+Hongxiang Chen (nicknamed we.taper, or just Taper) is
+licensed under a 
+\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative 
+Commons Attribution-NonCommercial-ShareAlike 4.0 International 
+License}. Permissions beyond the scope of this 
+license may be available at 
+\href{http://www.google.com/recaptcha/mailhide/d?k=015LguzBJigi0rpyuJRqLoig==\&c=p1c-M-mm7ZcjUCkTuZZa9eEPHRVk6paN0694iazlQy8=}
+{[My Email Address(Click)]}.
+\end{document}
