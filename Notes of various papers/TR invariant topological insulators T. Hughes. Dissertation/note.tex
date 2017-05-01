@@ -636,16 +636,34 @@ looked for similar things inside the book by Bernevig
     tells us nothing when $m$ is not the prescribed values($1$ and $3$).
 
     Numerical calculations can be performed in this case to find eigevectors
-    whose eigevectors are close to zero. The result gives real edge states. For
-    example, when $N=30$, below are a plot of eigevectors, whose eigenvalues
-    $\epsilon$ satisfy $\abs{\epsilon}<0.2$:
+    whose corresponding eigenvalues are close to zero. The result gives very
+    good showcase of edge states. For example, when $N=30$, we plot its
+    eigevectors (more precisely, the absolute value of each components of its
+    eigenvectors) in Figure~\ref{fig:InfiniteStrip=30.EdgeState}.
+    \footnote{Due to numerical problem, it is troublesome to plot eigenvectors
+        corresponding to one band. But we could plot eigenvectors whose
+        eigenvalues $\epsilon$ satisfy $\abs{\epsilon}<0.5$. This ensures that
+        we select the eigenvectors from the crossing band. Also, for numerical
+        accuracy in Mathematica's function \texttt{Eigensystem}, I used the "FEAST"
+        method, since the ordinary method gave a state not localized at the boundary but
+        at some point close to the boundary.}
+    Also, it can be found in that there are one left-localized state and one right-localized state
+    (figure~\ref{fig:InfiniteStrip=30.EdgeState.LeftRight}).
+
     \begin{figure}[htpb]
         \centering
         \includegraphics[width=0.8\linewidth]{pics/InfiniteStrip/{InfiniteStrip.N=30.EdgeState}.pdf}
         \caption{Edge states when $N=30$ (amplitudes have not been normalized).}
-        \label{fig:InfiniteStrip/InfiniteStrip=30.EdgeState.pdf}
+        \label{fig:InfiniteStrip=30.EdgeState}
     \end{figure}
-
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pics/InfiniteStrip/{InfiniteStrip.N=30.EdgeState.LeftRight}.pdf}
+    \caption{The left-localized and right-localized states. The $(p_x,E_x)$ for
+    two states $1,2$ are $(-0.05,0.0499792)$ and $(0.1,0.0998334)$
+    respectively.}
+    \label{fig:InfiniteStrip=30.EdgeState.LeftRight}
+\end{figure}
     \subsection{Berry Phase}
     \label{sec:Berry Phase}
     The easiest case when we can calculate the Berry phase is when we have
