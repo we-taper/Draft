@@ -29,23 +29,17 @@ Topological Phases (preliminary)}
 
 \maketitle
 \abstract{
-    In this paper, I will review the use of minimal Dirac Hamiltonian method
-    (developed by Dr. Chiu in \cite{Chiu2013a}), which accounts for the
-    mechanism behind the homotopic classification of topological insulators. I
-    start with a introduction to the general framework of "Tenfold Way", and
-    briefly outline the two approaches to classification of topological
-    insulators. Then, I will argue step by step how Minimal Dirac Hamiltonian
-    approach expose the mechanism of homotopic classification of topological
-    insulators.
+    The abstract is left blank due of unforeseeable changes that may happen to
+    this document.
 }
-% TODO: add ref for Clifford Algebra.
 \tableofcontents
 
 \section{Outline}
 \label{sec:Outline}
  
 The classification of topological insulators in non-interacting system is in
-effect a classification of Hamiltonian matrix. The simple case considered here
+effect a classification of $N\times N$ Hamiltonian matrix. %sym
+The simple case considered here
 is the classification done by considering how the Hamiltonian matrix responses
 to those anti-unitary symmetries, when we effectively ignored all unitary
 symmetries. Specifically, when we module out any unitary symmetries of the
@@ -53,31 +47,34 @@ Hamiltonian, the number of meaningful anti-unitary symmetries are limited, and
 we only classify topological insulators based on how our Hamiltonian matrix
 responses to these anti-unitary symmetries.
 
-There are two classical approaches towards this classification. The first is to
-examine the existence of Anderson delocalization at the boundary of the
-insulator, because the existence of surface conducting state is the signature of
-topological insulators and the Anderson localization is the obstruction that
-\todo{Be more specific about this and check some facts.}
-surface conducting states must overcome. This approach uses the Nonlinear Sigma
-Models (NL$\sigma$Ms) to describe the surface Hamiltonian and consider the
+There are two classical approaches towards this classification. The first
+\cite{Schnyder2008} is to examine the existence of Anderson delocalization at
+the boundary of the insulator. The existence of robust surface conducting state
+is the signature of topological insulators. When some random impurity potentials
+could be present in these surfaces, the Anderson localization is the obstruction
+that surface conducting states must overcome. This approach uses the Nonlinear
+Sigma Models (NL$\sigma$Ms) to describe the surface Hamiltonian and consider the
 when can a localization-breaking term can be added to NL$\sigma$Ms.
 
-The second approach is to use homotopy theory to classify classes Hamiltonians under
-continuous deformation, more specifically, under adiabatical change of
-Hamiltonians. This method is most elegant but most mathematical demanding
-approach compared with others, because calculating homotopy groups, and homotopy theories in
-general are notorious hard. Also, one has to use $K$-theory, because of
-something physical is enlarging those distinct classes of Hamiltonian. To be
-more specific.
+The second approach\cite{Kitaev2009a} is to use see the classification as an
+extension problem of Clifford Algebras. The anti-unitary symmetries already
+possess some behavior similar to generators of Clifford Algebras. And sometimes
+Hamiltonians could be regarded as yet another generator of Clifford
+Algebra\cite{Morimoto2013}. The $K$-theory approach is to put the symmetries in
+the Clifford Algebra first, and consider adding the Hamiltonian that preserve
+such symmetries to the Clifford Algebra. So the problem of classification of
+Hamiltonians becomes a problem of extending the Clifford Algebra.
 
 But the key to understand topological insulators, are not necessarily the
 Hamiltonian of the whole bulk, but the physics happening when the bulk gap
 closes. For example, the Chern number is the integration on a compact manifold
-without boundary. Therefore, it should always be zero because of the Stokes theorem,
-unless inside this manifold there is somewhere where the formula for Chern
-number got "blown up", and it is just this locally "blown up" point that is
-responsible for the nonzero Chern number, and for the non-triviality of
-topological insulators.
+without boundary. Therefore, it should always be zero because of the Stokes
+theorem, unless inside this manifold there is somewhere where the formula for
+Chern number got "blown up", and it is just this locally "blown up" point
+(caused by the crossing) that is responsible for the nonzero Chern number, and
+for the non-triviality of topological insulators. More generally, we believe
+that there is a bulk-boundary correspondence that the properties of the bulk is
+reflected by the properties in the boundary.
 
 Therefore, we can detect the different types of topological insulators when we
 are focused in only the crossing point of the band, or, when we shifted the
@@ -85,39 +82,47 @@ energy zero level to the crossing point, in only the low energy physics. We
 expect a locally linear crossing energy spectrum around this point, so we expect
 $E=\pm\sqrt{\vb{p}^2+m^2}$, with $m$ being the parameter controlling the closing or
 opening of this spectrum. One simple model with only first-order derivatives to
-describe such a low energy physics is the Dirac Hamiltonian.
-\todo{Argument based on Klein-Gorden equation to get the Dirac Hamiltonian}
+describe such a low energy physics is the Dirac Hamiltonian. Also, the
+traditional discussion of Klein-Gordon equation all tells us to look at Dirac
+Hamiltonian.
 
-An amazing fact happens, when one consider the gamma matrices in Dirac
-Hamiltonian, the anti-unitary symmetry operators, and their anti-commutation
-relations. Together they are proved to be isomorphic to some Clifford Algebra over
-$\R$ or $\C$, depending on the situation. And consequently our Hamiltonian and
-symmetry operators, all become some specific representations of their
-corresponding Clifford Algebra. Also, it will be illustrated later that the
-minimal matrix dimension of such representation, i.e. the minimal dimension of
-the Dirac Hamiltonian, can tell the specific type of this topological
-insulator. Therefore, as a whole all the classification work is reduced to the
-consideration of minimal matrix dimension of the representation of Clifford
-Algebra, in different spatial dimension.
-\todo{Cautious, we have two dimensions here: matrix and spatial.}
+Using the Dirac Hamiltonian, it is discovered by Dr. Chiu \cite{Chiu2013a} that
+the classification of topological insulators could be brought done into very
+simple applications of classification and representation theory of Clifford
+Algebras, which have been well studied with excellent resources provided online.
+In his classification, he established a isomorphism from $G_{\text{symmetries 
+class}}$, the algebra generated by symmetry operators and Dirac Hamiltonians, to
+some Clifford Algebras. Consequently, the Hamiltonian and symmetry operators,
+all become some specific representations of their corresponding Clifford
+Algebras. Also, it will be argued later that the minimal matrix dimension of
+such representation, i.e. the minimal dimension of the Dirac Hamiltonian, can
+tell the specific type of this topological insulator. Therefore, as a whole all
+the classification work is reduced to the consideration of minimal matrix
+dimension of the representation of Clifford Algebra, in different spatial
+dimension.
+
+This work may be considered as a note to Chiu's dissertation\cite{Chiu2013a}.
+However, I do not guarantee that my interpretation is the same as his as I have
+modified and amended some parts to make the work more, in my opinion, congruous
+and systematic.
 
 \paragraph{Structure of this work} This work are divided into several parts.
 \begin{enumerate}
-    \item \textbf{Ten-fold Way} introduces the result of Ten-fold way. 
-    \item \textbf{Original Approach} gives brief idea of how the Nonlinear Sigma
-        Models Approach and the Homotopy/$K$-theory approach work.
-    \item \textbf{Minimal Dirac Hamiltonian} gives comprehensive account of how
-        the Minimal Dirac Hamiltonian approach works, and how the ten-fold way
-        is derived in this approach.
-    \item \textbf{Outlook} outlines the possible direction in classification
-        under unitary symmetries, and the problems we faced when interaction is
-        turned on.
+    \item \textbf{Ten-fold Way} Introduces the result of Ten-fold way: why we
+        care only about anti-unitary symmetries, why there are ten different
+        classes.
+    \item \textbf{Classification by Dirac Mass Hamiltonians} gives comprehensive
+        account of how the Minimal Dirac Hamiltonian approach works, and how the
+        ten-fold way is derived in this approach.
+    \item \textbf{Looking Further} outlines the possible direction in classification
+        under unitary symmetries, and some other results.
 \end{enumerate}
 
 \section{Ten-fold Way}
 
-The classification of topological phases with different non-unitary symmetries
-in non-interacting picture, are in essence, the classification of $N\times N$
+We begin our discussion with a background before this classification.  The
+classification of topological phases with different non-unitary symmetries in
+non-interacting picture, are in essence, the classification of $N\times N$
 matrices by its response to three discrete symmetries: time reversal symmetry
 ($T$), charge conjugation/particle hole symmetry ($C$), and chiral/sub-lattice
 symmetry ($S$). As for those unitary symmetries, one can in principle, block
@@ -313,13 +318,13 @@ to symbolize that the system does not follow $T$($C$) symmetry. Then
 $T^2=0,\pm1$ and $C^2=0,\pm1$ gives us $3\times 3=9$ different ways. But if
 $T^2=C^2=0$, $S$ may or may not conserve. Therefore, we have $9-1+2=10$
 different possible ways. In each way the topological invariants of the
-Hamiltonian respecting these symmetries are tabulated in figure \todo{add the
-master table}. Each class is given a name ($\mathrm{A}$, $\mathrm{AII}$, etc.),
-and their properties in different spatial dimensions respect a periodic
-structure. For the upper two classes, they are named complex classes and respect
-a $2$-fold period. The Lower eight classes are named real classes and respect a
-$8$-fold period, which is why we only listed the first $0\to 7$ spatial
-dimensions.
+Hamiltonian respecting these symmetries are tabulated in Figure.1
+in\cite{Ludwig2015}. Each class is given a name ($\mathrm{A}$, $\mathrm{AII}$,
+etc.), and their properties in different spatial dimensions respect a periodic
+structure. For the class $A$ and class $AII$, they are named complex classes and
+respect a $2$-fold period. For the other eight classes are named real classes
+and respect a $8$-fold period, which is why we only listed the first $0\to 7$
+spatial dimensions in Table~\ref{tab:master-table2}.
 
 \subsection{Dealing with Unitary Symmetries}
 \label{sec:Dealing with Unitary Symmetries}
@@ -371,8 +376,12 @@ symmetry to present. Also, the addition of translational symmetry do not alter
 our classification, which is based on non-unitary symmetries, but also make this
 classification more convenient to be done.
 
-With translational symmetry added,\todo{To be added}
-%TODO why still unitary symmetries.
+With translational symmetry added, the classification can be made the will yield
+the same result.\footnote{This is still a mystery to me which this is true. The
+    exact reason is related to some isomorphism between certain homotopy groups.
+    Interested reader could see Ludwig's lecture
+\href{http://boulderschool.yale.edu/2016/boulder-school-2016-lecture-notes}{here}
+for a clue.}
 
 The Hamiltonian in $k$-space that preserve these three discrete symmetries
 should follow\footnote{It is easy to anticipate the change $k\to -k$ for
@@ -392,12 +401,11 @@ transform the Hamiltonian.}:
 \subsection{The Tenfold Way}
 \label{sec:The Tenfold Way}
 
+The Tenfold Way, is originally the ten different ways to write down a
+Hamiltonian when there are ten different combinations of symmetries that the 
+system respect.
 \todo{Add the table, and the meaning of each Hamiltonian, and the class
-of each evolutionary operators}% 
-
-\subsection{The Two Original Approaches}
-\label{sec:The Two Original Approaches}
-\todo{Add this}
+of each evolutionary operators, if I have time}
 
 \section{Classification by Dirac Mass Terms}
 \label{sec:The Minimal Hamiltonian Approach}
@@ -568,7 +576,9 @@ III.C.1 of \cite{Chiu2016}.
 are classifying strong topological insulators. They are topological insulators
 that robust against disorder\cite{Fu2007}. There is a consensus that in
 classification of strong topological insulators, we replace the Brillouin Zone
-$T^d$ by $S^d$\cite{Kennedy2015}, and we do it in a stable way, i.e., we choose
+$T^d$ by $S^d$\footnote{The exact reason can be found in Kitaev's
+    classification\cite{Kitaev2009a} or another article \cite{Kennedy2015} which
+discuss it from a different view.}, and we do it in a stable way, i.e., we choose
 our classification to be independent of and insensitive to the addition of
 irrelevant trivial bands. The first replacement allow us to use homotopy groups,
 which classify maps with domain in spheres. The "stable way" allows the use of
@@ -598,8 +608,10 @@ argument is that, complex gamma matrices are of even dimension (except the
 trivial cases of $\mathrm{C\ell}_{0/1}(\C)$)\footnote{See this post
 \cite{PhysicsStackExchange}, or the p.12 and Theorem in p.5 of this
 \cite{West1998}.}. Therefore, gamma matrices of different
-matrix dimension are built by tensor products of Pauli matrices.\todo{make it
-more rigorous!} Now, to increase the dimension of the matrix, is equivalent to
+matrix dimension are built by tensor products of Pauli matrices.
+\footnote{Or, the non-trivial irreducible representations (turns out there are
+at most 2) are built by tensoing Pauli matrices.}
+Now, to increase the dimension of the matrix, is equivalent to
 tensor them. One can add more bands of the same type, or add more bands of a
 different type in the smaller dimension, or add trivial bands. In all cases, the
 triviality of topological insulators can be detected in minimal dimension, since
@@ -920,6 +932,9 @@ and only list the result in Table~\ref{tab:map-sym-cl}.
 \end{table}
 \subsection{Classification in 1-dimension}
 \label{sec:Classification in 1-dimension}
+
+\subsubsection{Model Systems}
+\label{sec:Model Systems}
 Classification of $1$ dimension is the simplest, since the minimal matrix
 dimension will mostly be $2$, which means we can use the familiar Pauli matrices
 directly.
@@ -948,13 +963,9 @@ topologically non-trivial. Now we consider the state with arbitrary copies of it
     H_A = M \sigma_x\otimes \id_n + k_x\sigma_y\otimes\id_n,
     S=\sigma_z\otimes\id_n
 \end{equation}
-where $n$ is some positive integer. Since any matrix $A$, $A$ could be expressed
-as a linear combination of terms like $B\otimes C$, where $B$ is $2\times 2$
-dimensional\footnote{For example, just take $B= \begin{pmatrix}1 & 0 \\ 0 &
-0\end{pmatrix},\begin{pmatrix}0 & 1 \\ 0 & 0\end{pmatrix},\begin{pmatrix}0 & 0
-\\ 1 & 0\end{pmatrix},\begin{pmatrix}0 & 0 \\ 0 & 1\end{pmatrix}$.}. Due to the
-linearity of anti-commutator and some basic properties of Kronecker product,
-there is no SPEMT term. Hence this is a $\Z$ topological insulator.
+where $n$ is some positive integer. Since gamma matrices are basically tensor
+products of Pauli matrices, there is no SPEMT term. Hence this is a $\Z$
+topological insulator.
 
 The above are for complex classes. For real classes, we have to be careful,
 since one generator $J_1$ is taken up by $i$.
@@ -1066,8 +1077,8 @@ copies of it:
 with $C=\sigma_x K$, $T=s_y K$.  There is one SPEMT $m \sigma_xs_x\tau_y$. So
 this is a $\Z_2$ topological insulator.
 
-In summary, we have classified topological insulators in $d=1$, summarized in
-Table~\ref{tab:ti-d=1}.
+In summary, we shown examples of different classes of topological insulators in
+$d=1$, summarized in Table~\ref{tab:ti-d=1}.
 \begin{table}[htpb]
     \centering
     \caption{Topological Insulators in $d=1$}
@@ -1089,8 +1100,79 @@ Table~\ref{tab:ti-d=1}.
         \hline
     \end{tabular}
 \end{table}
-\todo{add reflection about the disadvantage of this method (no $2\Z$). And
-representation aspect}
+\subsubsection{Irreducible Representation Arguments for Classification}
+\label{sec:Irreducible Representation Arguments for Classification}
+The above examples are only valid in special points of the Brillouin Zone.
+However, in real materials, one will be faced with Hamiltonians of various form:
+\begin{equation}
+    H = m\gamma_0 \pm k_1\gamma_1 \pm k_2\gamma_2 \cdots
+\end{equation}
+Here, we look at this problem from a representation theory point of view. It is
+well known that representation of Clifford Algebras are completely reducible,
+and there are only 1 or 2 nontrivial (dimension $>1$) inequivalent irreducible
+representations of Clifford Algebras (see \ref{sec:Various Properties for
+Clifford Algebras}).  The dimension of the representation of relevant Clifford
+Algebras are listed in Table~\ref{tab:mat-dim-allClass-1d}. There are only three
+types of change occurs in that table:
+
+\paragraph{$\mathbf{n\to n}$ or $\mathbf{n\to n_2}$} Basically, this means that in the same
+dimension we could always have a SPEMT present. So there will never be stable
+edge states.
+
+\paragraph{$\mathbf{n\to 2n}$} This means that, although in the same dimension we have
+always stable edge mode. When we take two copies of the Hamiltonian, i.e., when
+there are two edge modes. There will a new gamma matrix in the doubled-dimension
+acting as a SPEMT to gap out the system. Hence in general, an odd copies of
+the edge mode is stable whereas an even copies of the edge mode is not. Hence
+this is a $\Z_2$ topological insulator.
+
+\paragraph{$\mathbf{n_2\to 2n}$} This is similar to the above $\Z_2$ case. However, since
+we have two inequivalent representations in a single edge mode, we could
+the doubled system could have came from different representations, which could
+not be gapped out by the extra SPEMT in doubled-dimension (otherwise we would
+have two inequivalent representations in the doubled-dimension). Hence, this is
+a $\Z$ topological insulator.
+
+In this way we confirmed the classification in Table~\ref{tab:ti-d=1}.
+
+\begin{table}[htpb]
+    \centering
+    \caption{Matrix dimensions related to the extension problem for different
+    classes in $d=1$. Note that a subscript $2$ as in $2_2$, means that there
+    are two inequivalent representations in the same matrix dimension.}
+    \label{tab:mat-dim-allClass-1d}
+    \begin{tabular}{c | c c c}
+        Name of Class & Extension of $\mathrm{C\ell}$ & Dimension Change &
+        Topological Invariant \\
+        \hline
+        A & $\mathrm{C\ell}_{2}(\C)\to\mathrm{C\ell}_{3}(\C)$ & $2\to2_2$ & $0$
+        \\
+        AIII & $\mathrm{C\ell}_{3}(\C)\to\mathrm{C\ell}_{4}(\C)$ & $2_2\to4$ &
+        $\Z$
+        \\
+        AII & $\mathrm{C\ell}_{1,3}(\R)\to\mathrm{C\ell}_{1,4}(\R)$ & $4\to 4_2$ & $0$
+        \\
+        C & $\mathrm{C\ell}_{1,3}(\R)\to\mathrm{C\ell}_{2,3}(\R)$ & $4\to 4$ & $0$
+        \\
+        CI & $\mathrm{C\ell}_{2,3}(\R)\to\mathrm{C\ell}_{3,3}(\R)$ & $4\to 4$ & $0$
+        \\
+        AI & $\mathrm{C\ell}_{2,2}(\R)\to\mathrm{C\ell}_{3,2}(\R)$ & $2\to 2_2$ & $0$
+        \\
+        CII & $\mathrm{C\ell}_{1,4}(\R)\to\mathrm{C\ell}_{1,5}(\R)$ & $4_2\to 8$
+        & $\Z$
+        \\
+        BDI & $\mathrm{C\ell}_{3,2}(\R)\to\mathrm{C\ell}_{4,2}(\R)$ & $2_2\to 4$ 
+        & $\Z$
+        \\
+        D & $\mathrm{C\ell}_{2,2}(\R)\to\mathrm{C\ell}_{2,3}(\R)$ & $2\to 4$ 
+        & $\Z_2$
+        \\
+        DIII & $\mathrm{C\ell}_{2,3}(\R)\to\mathrm{C\ell}_{2,4}(\R)$ & $4\to 8$ 
+        & $\Z_2$
+        \\
+        \hline
+    \end{tabular}
+\end{table}
 \subsection{Classification in Arbitrary Dimension}
 \label{sec:Classification in Arbitrary Dimension}
 We now show combined with some properties, the classification in $d=1$ can be
@@ -1098,11 +1180,17 @@ generalized to classification in arbitrary dimensions. In $K$-theoretic
 classification, the extension problem is not affected when tensored with some
 other algebras. Specifically, for complex classes, the extension problem of
 $\mathrm{C\ell}_{n}(\C)\to\mathrm{C\ell}_{m}(\C)$ is the same as the extension
-problem of $\mathrm{C\ell}_{n}(\C)\otimes\mathrm{C\ell}_{l}(\C)\to
-\mathrm{C\ell}_{m}(\C)\otimes\mathrm{C\ell}_{l}(\C)$ (See for example, sec
+problem of $\mathrm{C\ell}_{n}(\C)\otimes\mathrm{C\ell}_{2}(\C)\to
+\mathrm{C\ell}_{m}(\C)\otimes\mathrm{C\ell}_{2}(\C)$ (See for example, sec
 III.C.1 of \cite{Chiu2016}). For real classes, similar property holds.
 This insensitive to tensoring a new algebra, can be understand in SPEMT
-background.\todo{understand this~}
+background. Because $\mathrm{C\ell}_{2}(\C)\cong\mathcal{M}(2,\C)$, which only
+multiply the matrix dimension of both sides by a constant $2$. So the pattern of
+$n\to n, n\to n_2$, $n\to 2n$, and $n_2\to 2n$, mentioned in previous section,
+remains unaltered. For real classes, instead of $\mathrm{C\ell}_{2}(\C)$, we
+have $\mathrm{C\ell}_{1,1}(\R)\cong\mathcal{M}(2,\R)$, or
+$\mathrm{C\ell}_{2,2}(\R)\cong\mathrm{C\ell}_{1,1}(\R)\otimes\mathrm{C\ell}_{1,1}(\R)\cong\mathcal{M}(4,\R)$.
+So the reasoning is the same.
 
 Now, let us write $\sim$ to represent the equivalence between two extension
 problems.  The Complex Clifford Algebra has a periodicity of $2$:
@@ -1115,7 +1203,7 @@ The Real Clifford Algebra has a periodicity of $8$:
     \mathrm{C\ell}_{p+8,q}(\R) = \mathrm{C\ell}_{p,q+8}(\R) =
     \mathrm{C\ell}_{p,q}(\R)\otimes\mathcal{M}(16,\R)
 \end{equation}
-This two relation means, the extension problem will be the same with respect to
+This two relation means that, the extension problem will be the same with respect to
 a periodicity of $2$ for complex symmetry classes, and $8$ for real symmetry
 classes. Hence the classification of topological insulators need only be done
 with $d=1,2$ for complex symmetry classes, and $d=0,1,\cdots,7$ for real
@@ -1123,8 +1211,8 @@ symmetry classes, i.e.
 \begin{subequations}
     \label{eq:cli-periodic}
 \begin{align}
-    G_{\#}(d=d_0) &\sim G_{\#}(d=(d_0 \text{mod} 2)) \quad\text{(complex)} \\
-    G_{\#}(d=d_0) &\sim G_{\#}(d=(d_0 \text{mod} 8)) \quad\text{(real)}
+    G_{\#}(d=d_0) &\sim G_{\#}(d=(d_0 \text{mod} 2)) \quad\text{(complex class)} \\
+    G_{\#}(d=d_0) &\sim G_{\#}(d=(d_0 \text{mod} 8)) \quad\text{(real class)}
 \end{align}
 \end{subequations}
 Another useful property is:
@@ -1184,9 +1272,17 @@ Then
     \label{eq:cli-Chain2}
     G_{\mathrm{D}}(d=d_0) \sim G_{\mathrm{BDI}}(d=d_0-1)
 \end{equation}
-With equalvalence~\ref{eq:cli-periodic},\ref{eq:cli-Chain1},\ref{eq:cli-Chain2},
+With equivalences~\ref{eq:cli-periodic},\ref{eq:cli-Chain1},\ref{eq:cli-Chain2},
 we see that we need only the result in a dimension, to obtain the whole of
-classification in Table~\ref{tab:master-table2}.
+classification of all real classes. Similar fact holds for complex classes:
+\begin{equation}
+    G_{\mathrm{AIII}}(d=d_0) \sim G_{\mathrm{A}}(d=d_0-1)
+\end{equation}
+which is too trivial to be mentioned here. 
+
+In a word, our classification for topological insulators in $1$ spatial
+dimension is sufficient to generate the whole Table~\ref{tab:master-table2}.
+This is a remarkable consequence of $K$-theory.
 \begin{table}
 \begin{center}
 \begin{tabular}{|c|cccccccc|ccc|}
@@ -1210,21 +1306,107 @@ The original classification table} \\ \hline
 \hline
 \end{tabular}
 \caption{The original classification table of topological insulators and
-superconductors}
+superconductors. Note that in this document we could not yet differentiate
+between $\Z$ and $2\Z$ topological invariants.}
 \label{tab:master-table2}
 \end{center}
 \end{table}
-\section{License}
-The entire content of this work (including the source code
-for TeX files and the generated PDF documents) by 
-Hongxiang Chen (nicknamed we.taper, or just Taper) is
-licensed under a 
-\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative 
-Commons Attribution-NonCommercial-ShareAlike 4.0 International 
-License}. Permissions beyond the scope of this 
-license may be available at 
-\href{http://www.google.com/recaptcha/mailhide/d?k=015LguzBJigi0rpyuJRqLoig==\&c=p1c-M-mm7ZcjUCkTuZZa9eEPHRVk6paN0694iazlQy8=}
-{[My Email Address(Click)]}.
+
+\section{Looking Further}
+\label{sec:Looking Further}
+There has be great deal of progress made in classification of topological
+insulator and superconductors. We first comment that our discussion could be
+easily generalized to some topological superconductors because they naturally
+admits a matrix like Hamiltonian using Nambu spinors.
+
+Also, our discussion falls short in two respects. First, it cannot distinguish
+between $\Z$ and $2\Z$ cases. Secondly, we do not give explicit formulae for
+calculating topological invariants in different cases. The former problem can be
+addressed in Ludwig's \cite{Schnyder2008}, while the latter requires
+considerable work, and provides different topological invariant in different
+cases (see sec. III.B of \cite{Chiu2016}).
+
+There has been progress made both in incorporating defects into classification,
+as well as incorporating unitary symmetries into the classification. The
+defect's classification has been incorporated beautifully into the same table of
+Tenfold Way. On the other hand, introduction of unitary symmetries gives a more
+fruitful result. For example, introduction of crystal symmetries gives a new
+class of topological insulators, dubbed topological crystalline
+insulators.\cite{Ando2015} the case of reflection symmetry, some new topological
+invariants denoted as $M\Z$, called mirror topological invariants, are needed to
+classify topological matters\cite{Chiu2013}.
+
+Lastly, the discussion of topological states in interaction picture extends to
+the case of symmetry-protected phases (SPTs), of which I am not familiar with.
+For all these new concepts, the review \cite{Chiu2016} is an excellent source of
+information.
+
+\section{Various Properties for Clifford Algebras}
+\label{sec:Various Properties for Clifford Algebras}
+We have used various properties of Clifford Algebras from various sources. Here
+I summarized those properties for the convenience of readers.
+
+\paragraph{Isomorphism Relations}
+The best source of isomorphism between Clifford Algebras is actually the
+Wikipedia page about \textit{Classifications of Clifford Algebras}. For a more
+authoritative account, I am using the book \cite{VazJayme2016}. The results
+used in this document are to be found in chapter 4 of that book.
+
+\paragraph{Representation Theory on Complex Clifford Algebras}
+This paper \cite{West1998} has a good discussion on the irreducible
+representations of complex Clifford Algebras, in p.5, p.12. They can be
+summarized as:
+\begin{thm}
+    Consider $\mathrm{C\ell}_{N}(\C)$. For both $N = 2n$ and $N = 2n + 1$, the
+    dimension d of the irreducible representation is uniquely given by
+    \begin{equation}
+        d = 2^n \text{($N=2n$ or $N=2n+1$)}
+    \end{equation}
+    Moreover, for $N = 2n$, the irreducible space is unique, while for $N = 2n +
+    1$, we have two inequivalent irreducible representations with the same
+    dimension $d$.
+\end{thm}
+
+\paragraph{Representation Theory on Real Clifford Algebra}
+The two papers \cite{Okubo1991a}\cite{Okubo1991} are great in this respect.
+Their result used in this document could be summarized as:
+\begin{thm}
+    Consider $\mathrm{C\ell}_{p,q}(\R)$. For $N=2n$, we have:
+    \begin{align}
+        d= \begin{cases}
+              2^n_1, & \text{for } p-q=0\text{ or }2\text{, mod }8 \\
+              2^{n+1}_1, & \text{for } p-q=4\text{ or }6\text{, mod }8 \\
+          \end{cases}
+    \end{align}
+    For $N=2n+1$, we have:
+    \begin{align}
+        d= \begin{cases}
+              2^n_2, & \text{for } p-q=1\text{, mod }8 \\
+              2^{n+1}_1, & \text{for } p-q=3\text{ or }7\text{, mod }8 \\
+              2^{n+1}_2, & \text{for } p-q=5\text{, mod }8 \\
+          \end{cases}
+    \end{align}
+    Where we have used a subscript $\phantom{1}_1$ to denote that there is only
+    one unique irreducible representation, and a subscript $\phantom{1}_2$ to
+    denote that there are two inequivalent irreducible representations.
+\end{thm}
+Below collects a list of dimensions that I have used in the discussion of
+Table~\ref{tab:mat-dim-allClass-1d}:
+\begin{align*}
+    &
+    \mathrm{C\ell}_{1,2}(\R)\sim 2^2_1,\, \mathrm{C\ell}_{1,3}(\R)\sim 4^2_1,\,
+    \mathrm{C\ell}_{1,4}(\R)\sim 4^2_2,\, \mathrm{C\ell}_{1,5}(\R)\sim 8^2_1,\,
+    \\&
+    \mathrm{C\ell}_{2,2}(\R)\sim 2^2_1,\, \mathrm{C\ell}_{2,3}(\R)\sim 4^2_1,\,
+    \mathrm{C\ell}_{3,2}(\R)\sim 2^2_2,\, \mathrm{C\ell}_{2,4}(\R)\sim 8^2_1,\,
+    \\&
+    \mathrm{C\ell}_{3,3}(\R)\sim 4^2_1,\, \mathrm{C\ell}_{4,2}(\R)\sim 4^2_1.
+\end{align*}
+
+\section{Online Version}
+This document may be updated online at
+\href{https://github.com/we-taper/Draft/tree/master/Notes%20of%20various%20papers/Chiu%20Minimal%20Dirac%20Hamiltonian%20Method}{here}.
+
 
 \bibliography{../../library}{}
 \bibliographystyle{alphaurl}
