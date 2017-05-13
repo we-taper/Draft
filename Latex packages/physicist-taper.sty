@@ -1,6 +1,6 @@
 % Package that contains most of the preamble in my daily writing.
 % In addition, it extends the physics package to suite my taste
-% Version: 1.1 (20170324)
+% Version: 1.3 (20170510)
 % ---------------- Outline -----------------
 % @1. General LaTeX Adjustment
 % @2. Mathematical addones
@@ -8,7 +8,7 @@
 % @4. My Own Shortcuts
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{physicist-taper}[2016/11/08 Minor update]
+\ProvidesPackage{physicist-taper}[2017/05/10 Minor updates to work with xelatex]
 
 % Search "bad-latex-design" in this package for explanation of the following line.
 \PassOptionsToPackage{table}{xcolor}
@@ -39,12 +39,14 @@
 \RequirePackage{graphicx}   % need for figures
 \RequirePackage{cite} % need for bibligraphy.
 \RequirePackage[unicode]{hyperref}  % make every cite a link
-\RequirePackage{CJKutf8} % For Chinese characters
+% For Chinese characters TODO disable this if you use xelatex
+% \RequirePackage{CJKutf8}
 \RequirePackage{fancyref} % For easy adding figure,equation etc in reference. Use \fref or \Fref instead of \ref
 
 % Resolve the warning when including higher version pdf fils
 % TODO check this line when updating LaTeX version
-\pdfminorversion=7
+% TODO Also, this option does not work with XeLaTeX, disable it in that case
+% \pdfminorversion=7
 
 % A list of nomenclatures.
 \RequirePackage{nomencl}
@@ -72,10 +74,13 @@
 
 % For better fancier quotations
 \RequirePackage{csquotes}
-\RequirePackage[most]{tcolorbox}
-\definecolor{block-gray}{gray}{0.85}
-\newtcolorbox{myquote}{colback=block-gray,grow to right by=-10mm,grow to left by=-10mm,
-boxrule=0pt,boxsep=0pt,breakable}
+% tcolorbox does not work with XeLaTeX.
+% But newer version might work, see:https://tex.stackexchange.com/questions/188174/xelatex-and-tcolorbox-incompatibility
+% \RequirePackage[most]{tcolorbox}
+% \definecolor{block-gray}{gray}{0.85}
+% \newtcolorbox{myquote}{colback=block-gray,grow to right by=-10mm,grow to left by=-10mm,
+% boxrule=0pt,boxsep=0pt,breakable}
+
 
 % For including codes in LaTeX
 \RequirePackage{listings}
