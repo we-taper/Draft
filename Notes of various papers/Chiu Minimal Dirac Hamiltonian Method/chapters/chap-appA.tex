@@ -1,0 +1,65 @@
+\section{Various Properties for Clifford Algebras}
+\label{sec:Various Properties for Clifford Algebras}
+We have used various properties of Clifford Algebras from various sources. Here
+I summarized those properties for the convenience of readers.
+
+\paragraph{Isomorphism Relations}
+The best source of isomorphism between Clifford Algebras is actually the
+Wikipedia page about \textit{Classifications of Clifford Algebras}. For a more
+authoritative account, I am using the book \cite{VazJayme2016}. The results
+used in this document are to be found in chapter 4 of that book.
+
+\paragraph{Representation Theory on Complex Clifford Algebras}
+This paper \cite{West1998} has a good discussion on the irreducible
+representations of complex Clifford Algebras, in p.5, p.12. They can be
+summarized as:
+\begin{thm}
+	Consider $\mathrm{C\ell}_{N}(\C)$. For both $N = 2n$ and $N = 2n + 1$, the
+	dimension d of the irreducible representation is uniquely given by
+	\begin{equation}
+	d = 2^n \text{($N=2n$ or $N=2n+1$)}
+	\end{equation}
+	Moreover, for $N = 2n$, the irreducible space is unique, while for $N = 2n +
+	1$, we have two inequivalent irreducible representations with the same
+	dimension $d$.
+\end{thm}
+
+\paragraph{Representation Theory on Real Clifford Algebra}
+The two papers \cite{Okubo1991a}\cite{Okubo1991} are great in this respect.
+Their result used in this document could be summarized as:
+\begin{thm}
+    Let $N=p+q$.
+	Consider $\mathrm{C\ell}_{p,q}(\R)$. For $N=2n$, we have:
+	\begin{align}
+	d= \begin{cases}
+	2^n_1, & \text{for } p-q=0\text{ or }2\text{, mod }8 \\
+	2^{n+1}_1, & \text{for } p-q=4\text{ or }6\text{, mod }8 \\
+	\end{cases}
+	\end{align}
+	For $N=2n+1$, we have:
+	\begin{align}
+	d= \begin{cases}
+	2^n_2, & \text{for } p-q=1\text{, mod }8 \\
+	2^{n+1}_1, & \text{for } p-q=3\text{ or }7\text{, mod }8 \\
+	2^{n+1}_2, & \text{for } p-q=5\text{, mod }8 \\
+	\end{cases}
+	\end{align}
+	Where we have used a subscript $1$ to denote that there is only
+	one unique irreducible representation, and a subscript $2$ to
+	denote that there are two inequivalent irreducible representations.
+\end{thm}
+Below collects a list of dimensions that I have used in the discussion of
+Table~\ref{tab:mat-dim-allClass-1d}:
+\begin{equation}
+    \label{eq:Cl-dimenList}
+    \begin{aligned}
+    &
+    \mathrm{C\ell}_{1,2}(\R)\sim 2^2_1,\, \mathrm{C\ell}_{1,3}(\R)\sim 4^2_1,\,
+    \mathrm{C\ell}_{1,4}(\R)\sim 4^2_2,\, \mathrm{C\ell}_{1,5}(\R)\sim 8^2_1,\,
+    \\&
+    \mathrm{C\ell}_{2,2}(\R)\sim 2^2_1,\, \mathrm{C\ell}_{2,3}(\R)\sim 4^2_1,\,
+    \mathrm{C\ell}_{3,2}(\R)\sim 2^2_2,\, \mathrm{C\ell}_{2,4}(\R)\sim 8^2_1,\,
+    \\&
+    \mathrm{C\ell}_{3,3}(\R)\sim 4^2_1,\, \mathrm{C\ell}_{4,2}(\R)\sim 4^2_1.
+    \end{aligned}
+\end{equation}

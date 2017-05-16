@@ -1,0 +1,967 @@
+\section{Classification by Dirac Mass Terms}
+\label{sec:The Minimal Hamiltonian Approach}
+
+\paragraph{Dirac Hamiltonian and Topological Property of the Bulk}
+We first note that different topological phases are distinguished by the closing
+and then opening of the gap, i.e. a quantum phase transition. If we adiabatically
+flatten the energy spectrum to two bands of energy $\pm E$, the transition
+(closing of gap) will happen at some point where locally the energy is of a
+Dirac cone type. Therefore, the Dirac Hamiltonian captures this transition
+behavior. Then, a class of topological phases, or more specifically, a class of
+Hamiltonian matrix that shares the same topological invariant, can be
+\textit{represented} by the Dirac Hamiltonian in this class.
+
+\subsection{Crossing Spectrum and Edge Mode}
+\label{sec:Crossing Spectrum and Edge Mode}
+Here we show that the crossing spectrum characteristic of topological insulators
+can be characterized by a Dirac type Hamiltonian, and with this Dirac
+Hamiltonian we could find an Edge mode solution built into it.
+
+\paragraph{Crossing Spectrum and Dirac Hamiltonian}
+In some local region around the crossing point, the energy spectrum should look
+like:
+\begin{equation}
+    E = \pm \sqrt{\vb{k}^2 + M^2}
+\end{equation}
+where $\vb{k}$ is the crystal momentum and $M$ is some constant
+responsible for the opening and closing of the gap, or in some cases, a parameter
+in which we can control to open of close the gap.
+
+As has been analysed in most Quantum Mechanics textbook\footnote{See for
+    example, p.99 of \cite{Greiner1997}. Although their discussion is in
+dimension $d=3$, it is easy to generalize it to any dimension.}, this energy-momentum
+relationship requires a Dirac type Hamiltonian. Then, the Dirac Hamiltonian we
+use is:
+\begin{equation}
+    \label{eq:dirac-H}
+    H_\text{Dirac} = M\gamma_0 + \sum_{i=1}^d k_i\gamma_i
+\end{equation}
+where $d$ is the spatial dimension of the physical system, $\gamma_i$ obeys the
+Clifford Algebra anti-commutation relation:
+\begin{equation}
+    \{\gamma_i,\gamma_j\} = 2\delta_{i,j}\id
+\end{equation}
+
+\paragraph{Edge Mode and \texorpdfstring{$M$}{}}
+Now we explain why the Dirac Hamiltonian\ref{eq:dirac-H}  is useful for capturing the topological
+phase. First, it has a gapless state. Due to the anti-commutation relation of
+$\gamma_i$, we can show\footnote{Note that $H_\text{Dirac}^2= E^2\id$, this
+tells us it can only have eigenvalues $E_\pm$. Note that this also explains why
+we choose not $\gamma_i^2=-1$, which would give non-sensible result
+$H_\text{Dirac}^2= -E^2\id$.}
+that the energies of Dirac Hamiltonian are:
+\begin{equation}
+    E_\pm = \pm\sqrt{M^2+\sum_{i=1}^d k^2_i}
+\end{equation}
+Therefore, as $M$ varies from negative to $0$ to positive, the system goes from
+gaped to gapless and again to gaped state. This shows that the $M$ is parameter
+controlling the quantum phase transition, and the system with $M<0$ or $M>0$
+possesses two different quantum phase.
+
+In addition, we can analyse its edge mode. Assuming the two material of
+different quantum phases touches each other in the $d$th direction. Then we
+should replace $k_d$ by $-i\partial_{x_d}$, since the translational invariance is
+broken in that direction. Now the eigenvalue equation is:
+\begin{equation}
+    ( M\gamma_0 + \sum_{i=1}^{d-1} k_i\gamma_i - i\partial_{x_d}\gamma_d ) \Phi
+    = E \Phi
+\end{equation}
+
+Past experience teaches us the ansatz (assuming
+$M(x_d)$ goes to $\pm\infty$ as $x_d\to\pm\infty$, so that the leading term below
+does not blow up the wavefunction):
+\begin{equation}
+    \Phi = e^{-\int_0^{x_d} M(x'_d)\dd{x'_d}} \phi(x_1,\cdots,x_{d-1})
+\end{equation}
+which after plugging inside the eigenvalue equation, leads to
+\begin{equation}
+    \left( M(x_d)(\gamma_0 + i\gamma_d) + \sum_{i=1}^{d-1} k_i\gamma_i \right) \phi
+    = E \phi
+\end{equation}
+After left multiplication of $\gamma_0$, we have:
+\begin{equation}
+    \left( M(\id + i\gamma_0\gamma_d) + \sum_{i=1}^{d-1} k_i\gamma_i  \right) \phi
+    = E \gamma_0 \phi
+\end{equation}
+Since $i\gamma_0\gamma_d$ squares to $1$, it has eigenvalues $\pm1$. Also,
+$i\gamma_0\gamma_d$ and $\gamma_0$ anticommute, so they share the same
+eigenspaces with $\gamma_0$ mapping all the $+1$ eigenvectors of
+$i\gamma_0\gamma_d$ to the $-1$ eigenvectors and vice versa. Now we want this
+state to be a surface state, so we choose the $-1$ eigenvectors (denoted
+$\phi_-$) of $i\gamma_0\gamma_d$ to kill the bulk term. This leads to:
+\begin{equation}
+    \gamma_0 \sum_{i=1}^{d-1} k_i\gamma_i \phi_- = \gamma_0 E\phi_-
+\end{equation}
+As mentioned, $\gamma_0$ switches the two eigenspaces, so we must necessarily
+have a surface Dirac Hamiltonian, by projecting all those matrices to the $-1$
+eigenspaces:
+\begin{equation}
+    \label{eq:H-Dirac-surf}
+    H_\mathrm{surf} \phi_- = \sum_{i=1}^{d-1} \Gamma_{i-} \phi_- = E \phi_-
+\end{equation}
+
+% \section{Collection of Calculation}
+% \label{sec:Collection of Calculation}
+% Here collects the calculations done throughout the whole notes.
+
+\subsection{From Homotopy Classification to Minimal Dirac Hamiltonian Method}
+\label{sec:Homotopy to Minimal Dirac}
+
+\paragraph{Spectral Flattening} The classification of topological insulators
+concerns different classes of Hamiltonian that cannot be adiabatically changed
+to each without closing or opening of a gap. Hence, we could in general
+adiabatically change our parameters such that the spectrum of Hamiltonian is
+simplified into two bands of energy $\pm1$. Under this condition, we have
+$H^2=1$, which already hints that the Hamiltonian itself is a viable candidate
+for generating Clifford Algebras. 
+
+\paragraph{Extension Problem with General Examples}
+The general theme of homotopy classification of classifying topological
+insulators are done by the considering the \textit{extension problem}, i.e.
+different ways to extend from a Clifford containing only symmetry operators, to
+a Clifford Algebra containing Hamiltonians. For example, for class $\mathrm{A}$
+in $0$-dimension, the empty space is nothing, hence
+$\mathrm{C\ell}_{0}(\C)$\footnote{The reason for using different Clifford
+Algebra ($\mathrm{C\ell}(\R)$ or $\mathrm{C\ell}(\C)$ for different symmetry
+classes will be explained in section~\ref{sec:Isomorphism}.}. And $H^2=1$ as
+mentioned earlier, hence the extension problem is from
+$\mathrm{C\ell}_{0}(\C)\to \mathrm{C\ell}_{1}(\C)$, whose possible
+representations form some mathematical structure called \textit{classifying
+space} $C_0$ \cite{Morimoto2013}. And since we are in $0$-dimension, all
+operators are maps starting from $T^0=S^0$. So our classified objects are
+different classes of maps from $S^0\to C_0$, which is mathematically captured by
+the $0$-th homotopy group $\pi_0(C_0)=\Z$. For class $\mathrm{AIII}$ which has
+only chiral symmetry operator $S$, we choose a phase such that $S^2=1$, i.e.
+making it a candidate for generators of Clifford Algebra. The symmetry condition
+$\{H,S\}=0$ tells us now we have a extension problem of
+$\mathrm{C\ell}_{1}(\C)\to \mathrm{C\ell}_{2}(\C)$, whose classifying space is
+$C_1$, and has $\pi_0(C_1)=0$. Therefore, in $0$-dimension, the class
+$\mathrm{A}$ has $\Z$ topological insulators and class $\mathrm{AIII}$ has
+trivial topological insulators. The case for real symmetry classes are not too
+complicated and is concisely mentioned in \cite{Morimoto2013}.
+
+However, the method to obtain such classifying spaces are mathematical daunting
+and requires $K$-theory. We try to simplify it by looking at Dirac Hamiltonians,
+since they should capture the essence of topological states.
+
+\paragraph{Extension Problem with Dirac Hamiltonian}
+The Dirac Hamiltonian
+\begin{equation}
+    H = \vec{k}\vdot \vec{\gamma} + m\tilde{\gamma}_0
+\end{equation}
+has a gap closing and opening mass term $m\tilde{\gamma}_0(r)$, depending on some
+parameter $r$. Suppose that we have a domain wall squeezed by two bulk regions
+$A$ and $B$. Now as the parameter $r$ changes freely from region $A$ to region
+$B$, the symmetry condition will force the matrix $\gamma_0$ to explorer some
+space having the same homotopy type of some classifying space (again!). For
+example, for class $\mathrm{A}$ in $2$-dimension, the Hamiltonian without mass
+term ($k_1\gamma_1 + k_2\gamma_2$) consists of two gamma matrices, generating a
+$\mathrm{C\ell}_{2}(\C)$, whereas adding the mass term, we have
+$\mathrm{C\ell}_{3}(\C)$. Since there is no symmetry in class $\mathrm{A}$, the
+extension problem concerns different ways to extend the algebra
+$\mathrm{C\ell}_{2}(\C)\to \mathrm{C\ell}_{3}(\C)$, which tells us the number of
+unitarily non-equivalent mass terms. Detailed examples can be found in section
+III.C.1 of \cite{Chiu2016}.
+
+\paragraph{Stable Classification} An unmentioned hypothesis above are that we
+are classifying strong topological insulators. They are topological insulators
+that robust against disorder\cite{Fu2007}. There is a consensus that in
+classification of strong topological insulators, we replace the Brillouin Zone
+$T^d$ by $S^d$\footnote{The exact reason can be found in Kitaev's
+    classification\cite{Kitaev2009a} or another article \cite{Kennedy2015} which
+discuss it from a different view.}, and we do it in a stable way, i.e., we choose
+our classification to be independent of and insensitive to the addition of
+irrelevant trivial bands. The first replacement allow us to use homotopy groups,
+which classify maps with domain in spheres. The "stable way" allows the use of
+$K$-theory (sec.III.C.1 of \cite{Chiu2016}).
+
+\paragraph{The View from SPEMT} Let us consider a modified Dirac Hamiltonian
+with extra mass term:
+\begin{equation}
+    \label{eq:H-spemt}
+    H = M\tilde{\gamma}_0 + \sum_{i=1}^{d} k_i \gamma_i 
+    + \sum_{j=1}^D m_j\tilde{\gamma}_j
+\end{equation}
+Here, the parameter $M$ characterized the domain wall between different phases
+of topological insulators. The extra mass term $m_j$ represents a perturbation
+caused by disorder. I argue that we can do our classification in the following
+way. First, we consider the case when $D=0$, i.e. without perturbation, and we
+consider how many different mass terms we could have. Second, we consider adding
+an extra mass term which respect the symmetry of the Hamiltonian ($D=1$).
+Whether this symmetry preserving extra mass term (SPEMT) can be added or not. If
+a SPEMT can be added, then the system is not robust against perturbation and gap
+may be opened by disorder. So it is trivial topological insulator. If a SPEMT
+cannot be added, then this system is topological non-trivial. 
+
+One best thing about this classification is that it can be done by considering
+only the minimal matrix dimension of those gamma matrices in Hamiltonian. The
+argument is that, complex gamma matrices are of even dimension (except the
+trivial cases of $\mathrm{C\ell}_{0/1}(\C)$)\footnote{See this post
+\cite{PhysicsStackExchange}, or the p.12 and Theorem in p.5 of this
+\cite{West1998}.}. Therefore, gamma matrices of different
+matrix dimension are built by tensor products of Pauli matrices.
+\footnote{Or, the non-trivial irreducible representations (turns out there are
+at most 2) are built by tensoing Pauli matrices.}
+Now, to increase the dimension of the matrix, is equivalent to
+tensor them. One can add more bands of the same type, or add more bands of a
+different type in the smaller dimension, or add trivial bands. In all cases, the
+triviality of topological insulators can be detected in minimal dimension, since
+adding trivial bands can be ignored (insensitive to addition of trivial bands),
+and the possible different types of matrices are limited.
+
+However, to distinguish between a $\Z$ topological insulator and a $\Z_2$
+topological insulator, we need to increase the matrix dimension to consider
+multiple copies of the Dirac Hamiltonian. If the topological state is stable for
+an arbitrary copies, then this is a $\Z$ topological insulator. If the
+topological state is stable only of an odd number of copies, this is a $\Z_2$
+topological insulator.
+
+Another way to view this way of classification, is to look at the surface
+Dirac Hamiltonian \ref{eq:H-Dirac-surf}. Then the above mentioned approach is to
+see if the surface mode can be gapped, so as to detect the topological
+properties of the bulk.
+
+\subsection{Isomorphism between Symmetry Classes and Clifford Algebras}
+\label{sec:Isomorphism}
+As with other classifications, we construct isomorphisms between Dirac matrices
+and Clifford Algebras, after which we are faced with an extension problem. The
+isomorphism is constructed now. 
+
+A bit of notation note. We use $\mathrm{C\ell}_{p,q}(\R)$ to denote a Clifford
+Algebra over $\R$ with $p$ for $+$ signature and $q$ for $-$ signature. We use
+$\mathrm{C\ell}_{n}(\C)$ to denote a Clifford Algebra over $\C$. We use
+$\mathcal{M}(n,K)$ to denote the algebra of $n\times n$ matrices over $K=\C$ or
+$K=\R$. We use $\id_n$ to denote the $n\times n$ identify matrix.
+
+\subsubsection{Symmetry Constraint}
+\label{sec:Symmetry Constraint}
+The Hamiltonian with extra mass term is
+\begin{equation}
+    H = M\tilde{\gamma}_0 + \sum_{j=1}^D m_j\tilde{\gamma}_j
+    + \sum_{i=1}^{d} k_i \gamma_i
+\end{equation}
+The symmetry properties \ref{eq:T-sym-Hk},\ref{eq:C-sym-Hk} give the following
+conditions on the gamma matrices:
+\begin{subequations}
+    \label{eq:sym-spemt}
+\begin{align}
+    & \{T,\gamma_i \} = 0,\, [C,\tilde{\gamma}_j] =0 \\
+    & \{C,\tilde{\gamma}_j \} = 0,\, [C,\gamma_i] =0 \\
+    & \{S,\tilde{\gamma}_j \} = \{S,\gamma_i\} =0
+\end{align}
+\end{subequations}
+With this, we can establish a isomorphism between "Hamiltonian and Symmetry
+Operators" and "Clifford Algebra over $\R$ or $\C$".  But let's first see some
+examples in action.
+
+\subsubsection{Examples of Constructing Isomorphism}
+\label{sec:iso-Examples}
+For class AI ($T^2=1$, $C=0,S=0$) in $d=1,D=0$, we define:
+$$ G_{\mathrm{AI}} = \{i, T, \tilde{\gamma_0}, \gamma_1\} $$
+We have its (anti)commutation relations listed in Table~\ref{tab:generator-AI}.
+\begin{table}[htpb]
+    \centering
+    \caption{Generators in $G_{AI}$ with $d=1,D=0$}
+    \label{tab:generator-AI}
+    $ \begin{tabu}{ c | *4{c} }
+        ~                & i      & T         & \tilde{\gamma}_0       & \gamma_1 \\
+        \hline
+        i                & i^2=-1 & \{i,T\}=0 & [i,\tilde{\gamma}_0]=0 & [i,\gamma_1]=0 \\
+        T                & ~      & T^2=1     & [T,\tilde{\gamma}_0]=0 & \{T,\gamma_1\}=0 \\
+        \tilde{\gamma}_0 & ~      & ~         & \tilde{\gamma}_0^2 =1  & \{\tilde{\gamma}_0,\gamma_1\}=0 \\
+        \gamma_1         & ~      & ~         & ~                      & \gamma_1^2=1
+    \end{tabu} $
+\end{table}
+
+Now with $J_4 = T\tilde{\gamma}_0\gamma_1$,
+$J_3=iT\tilde{\gamma}_0$, we could verify that all
+$\{i,T,J_3,J_4\}$ anticommute with each other, and
+$J_3^2=J_4^2=1$. So together they generate the algebra
+$\mathrm{C\ell}_{3,1}(\R) \cong \mathrm{C\ell}^g((2,2),\R)$. This will be consistent with the
+isomorphism $G_{\mathrm{AI}} \cong \mathrm{C\ell}_{2+D,1+d}(\R)$ in
+Table~\ref{tab:map-sym-cl}.
+
+Another example. For class AII ($T^2=-1$, $C=0,S=0$) in $d=1,D=0$, we have:
+\begin{equation}
+    G_{\mathrm{AI}} = \{i, T, \tilde{\gamma_0}, \gamma_1\}
+\end{equation}
+We have its (anti)commutation relations listed in Table~\ref{tab:generator-AII}.
+\begin{table}[htpb]
+    \centering
+    \caption{Generators in $G_{\mathrm{AII}}$ with $d=1,D=0$}
+    \label{tab:generator-AII}
+    $ \begin{tabu}{ c | *4{c} }
+        ~                & i      & T         & \tilde{\gamma}_0       & \gamma_1 \\
+        \hline
+        i                & i^2=-1 & \{i,T\}=0 & [i,\tilde{\gamma}_0]=0 & [i,\gamma_1]=0 \\
+        T                & ~      & T^2=-1    & [T,\tilde{\gamma}_0]=0 & \{T,\gamma_1\}=0 \\
+        \tilde{\gamma}_0 & ~      & ~         & \tilde{\gamma}_0^2 =1  & \{\tilde{\gamma}_0,\gamma_1\}=0 \\
+        \gamma_1         & ~      & ~         & ~                      & \gamma_1^2=1
+    \end{tabu} $
+\end{table}
+Now with $J_4 = T\tilde{\gamma}_0\gamma_1$, $J_3=iT\tilde{\gamma}_0$, we could
+verify that all $\{i,T,J_3,J_4\}$ anticommute with each other, and
+$J_3^2=J_4^2=-1$. So together they generate the algebra $\mathrm{C\ell}_{0,4}(\R)$.
+Notice that, assume we have $\mathrm{C\ell}_{1,3}(\R)=\{K_1,K_2,K_3,K'_1\}$, and
+$K_i^2=-1$, $(K'_1)^2=1$. The following map
+\begin{equation}
+    J_1 = K_1,\, J_2 = K_2,\, J_3=K_3,\, J_4=K_1K_2K_3K'_1
+\end{equation}
+has the property shown in the table~\ref{tab:map-cl13-2-cl04}.
+\begin{table}[htpb]
+    \centering
+    \caption{Map from $\mathrm{C\ell}_{1,3}(\R)$ to $\mathrm{C\ell}_{0,4}(\R)$.}
+    \label{tab:map-cl13-2-cl04}
+    $ \begin{tabu}{ c | *4{c} }
+        ~      & J_1=K_1 & J_2=K_2 & J_3=K_3 & J_4 = K_1K_2K_3K'_1\\
+        \hline
+        J_1    & -1      & \{\}    & \{\}    & \{\} \\
+        J_2    & ~       & -1      & \{\}    & \{\} \\
+        J_3    & ~       & ~       & -1      & \{\} \\
+        J_4    & ~       & ~       & ~       & -1
+    \end{tabu} $
+
+    where $\{\}$ means anticommute.
+\end{table}
+Therefore, $\mathrm{C\ell}_{0,4}(\R) \cong \mathrm{C\ell}_{1,3}(\R) $, which is
+consistent with $G_{\mathrm{AII}} \cong
+\mathrm{C\ell}_{d,3+D}(\R)$ in Table~\ref{tab:map-sym-cl}.
+
+\subsubsection{Constructing the Isomorphism (Complex Symmetry Classes)}
+\label{sec:Complex Classes-iso}
+The general steps for constructing the isomorphism is presented here. First, we
+need to treat the situation of complex classes and real classes
+differently. The complex classes are isomorphic to complex Clifford Algebras,
+while the real classes are isomorphic to real Clifford Algebras. The reason for
+this distinction is that, in real classes, there are complex conjugate operator
+$K$. First, there is not way to represent complex conjugation simply as
+multiplication of complex matrices. Second, complex matrices come with a nature
+definition of complex conjugate $\dagger$, whereas $K^\dagger$ is ill-defined
+\footnote{Think about this. $\braket{c \phi |K \psi}$ could have different
+    values depending on whether we move $K$ to the left as $K^\dagger$ first, or
+we move $c$ out of the inner-product first.}. Therefore, we use real Clifford
+Algebras when dealing with real classes (which is the reason why they are named
+real classes).
+
+For complex classes, let $G_\#$ be the group generated by elements
+$\{\gamma_i,\tilde{\gamma}_j,S\}$ ($i=1,\cdots,d$, $j=0,1$) in each symmetry
+class $\#$ (so $S$ exists only in class $\mathrm{AIII}$). We may choose a phase
+such that $S^2=1$, as mentioned earlier. Then obviously $G_\#$ will be a
+Clifford Algebra:
+\begin{align}
+    G_{A} &= \text{generated by }\{\gamma_i,\tilde{\gamma}_j\} \cong
+    \mathrm{C\ell}_{d+D+1}(\C) \\
+    G_{\mathrm{AIII}} &= \text{generated by }\{\gamma_i,\tilde{\gamma}_j,S\}
+    \cong  \mathrm{C\ell}_{d+D+2}(\C)
+\end{align}
+
+\subsubsection{Constructing the Isomorphism (Real Symmetry Classes)}
+\label{sec:Real Classes-iso}
+
+For real classes, we need to include $i$, and symmetry operators $T,C$ in our
+group $G_\#$. It turns out that we need to pick a phase such that $\{T,C\}=0$,
+which is possible as is mentioned earlier. Now we demonstrate the proof of
+isomorphism in class $\mathrm{AII}$.\footnote{For reader unfamiliar with the
+complexfication of real vector space, and the realification of complex vector
+space, I recommend a quick reading of section 12 \cite{suetin1989linear}.}
+
+We first note that, given a real vector space $V$, we can complexify a real space in
+two ways. The first is trivially taking the tensor product $V\otimes_\R \C$,
+which does not suit our purpose. The second is to find an almost complex
+structure $J$, which is a $\R$-linear map that squares to $-\id$, i.e.
+$J^2=-\id$. With this almost complex structure $J$, then $V$ admits in a natural
+way the structure of a complex vector space $V_\C$\cite{DanielHuybrechts2005}. Also, a
+$\R$-linear map $A$ on $V$ is $\C$-linear($\C$-antilinear) if and only if $A$
+commutes (anticommutes) with $J$. Therefore, we map model the antiunitary
+operators on a real vector space naturally.
+
+Let us denote the generators in Clifford Algebra as $J_j$ and $\tilde{J}_i$,
+where $J_j^2=-\tilde{J}_i^2 =-\id$. Since this almost complex structure $J$
+squares to $-\id$ and anticommutes with antiunitary symmetry operators, we
+naturally take it to be the first generator in our Clifford Algebra, $J_1=J$.
+
+Then we discuss some tips that will useful for later calculation.
+\paragraph{Tips}
+\begin{enumerate}
+    \item Since all generator anticommute, all matrices either commute or
+        anticommute. So the Algebra is pretty simple.
+    \item Since $[A,BC] = \pm[A,CB]$ and $\{A,BC\}=\pm\{A,CB\}$, the commutation
+        or anticommutation does not depends on the order of the matrices $BC$ or
+        $CB$. So one might rearrange them in the order whichever is convenient.
+    \item For $A=\{J_1,\cdots,J_n\},B=\{K_1,\cdots,K_m\}$, we have $AB=(-1)^{mn}
+        BA$. However, if $A$ and $B$ has something in common, then the above
+        condition breaks. This is like adding an "impurity" in it to change the
+        commutation/anticommutation relations.
+    \item The restriction given by $\sum_i k_i \gamma_i$, and $\sum_j m_j
+        \tilde{\gamma}_j$ (will be shown later) are much restrictive that the
+        candidates for symmetry operator are only a small finite set.
+        \label{enum:tips-4}
+\end{enumerate}
+
+\paragraph{Class $\mathrm{AII}$} Now we prove the isomorphism. First, we try to
+construct each gamma matrices in Hamiltonian. All matrices commute with $i$, so
+in real vector space, they commute with $J_1=J$. Then, each gamma matrices
+should have an even number of Clifford Algebra generators other than $J_1$
+itself. Similarly, antiunitary symmetry operators should have an odd number of
+Clifford Algebra generators other than $J_1$. We "dope" the gamma matrices with
+some $J_1$ to make it commute/anticommute with symmetry operators. More
+explicitly, bearing in mind that in class $\mathrm{AII}$ has only $T^2=-1$, we
+take a quick look into Hamiltonian \ref{eq:H-spemt} and symmetry conditions
+\ref{eq:sym-spemt}, and they give us the inspiration to set:
+\begin{equation}
+    H_{\mathrm{AII}} = m J_1J_2J_3 + \sum_{j=1}^D m_jJ_1J_2J_{3+j} +
+    \sum_{i=1}^d k_i J_2\tilde{J}_i
+\end{equation}
+Here $\tilde{\gamma}_j$ are $J_1J_2J_{3+j}$, which square to $1$. $\gamma_i$ are
+$J_2\tilde{J}_i$. The Clifford Algebra is at least $\mathrm{C\ell}_{d,3+D}(\R)$.
+And within this algebra, only $J_2$ is a possible candidate for symmetry
+operators, which satisfy equations~\ref{eq:sym-spemt} (use
+tips~\ref{enum:tips-4} for calculation). $J_2$ is found to be a
+time reversal operator, and $J_2^2=-1$ confirms that this Hamiltonian belongs to
+class $\mathrm{AII}$. Therefore, the map:
+\begin{align}
+    f: \mathrm{C\ell}_{d,3+D}(\R) &\to G_{\mathrm{AII}} \\
+    J_1J_2J_{3+j} &\to \tilde{\gamma}_j,\, (j=0,1,\cdots,D) \nonumber\\
+    J_2 \tilde{J}_i &\to \gamma_i,\, (i=0,1,\cdots,d) \nonumber
+\end{align}
+is a map from Clifford Algebra $\mathrm{C\ell}_{d,3+D}(\R)$ to symmetry class
+$\mathrm{AII}$. The inverse map can be found easily. We first solve some
+formality problems. A complex number can be written as a real number by
+identifying $i$ with $J=-i\sigma_y$ and $1$ with $\id$, the identity matrix:
+\begin{equation}
+    a+bi \to a \begin{pmatrix}
+        1 & \\ & 1
+    \end{pmatrix} + b \begin{pmatrix}
+         & -1 \\ 1 & 
+    \end{pmatrix} = a\id + b J
+\end{equation}
+Therefore, all complex matrices $\gamma_i,\tilde{\gamma}_j$ are identified with
+real matrices $\Gamma_i,\tilde{\Gamma}_j$, of twice the size of
+$\gamma_i,\tilde{\gamma}_j$. More explicitly, $(a_{mn}+i b_{mn})$ is identified
+as $A+iB = (a_{mn})+i(b_{mn}) \to \id_2\otimes(a_{mn})+J\otimes(b_{mn})$. On
+important matrix is the matrix $J_1$ that we identify $i$ as:
+\begin{equation}
+    J_1 \equiv -i\sigma_y \otimes \id_{n\times n}
+\end{equation}
+The complex conjugate $K$ is then a matrix anticommute with $J_1$.  Then $T\to
+\Gamma_T$, $C\to \Gamma_C$ for some real matrices anticommute with $i\to J_1$.
+We also note that, as mentioned earlier, we make a phase choice of $T$ and $C$
+such that:
+\begin{equation}
+    \{\Gamma_T,\Gamma_C\} = 0
+\end{equation}
+
+Now, we write symbolically $J_1J_2J_{3+j} = J_1 \Gamma_T J_{3+j} =
+\tilde{\Gamma}_j$, then clearly $J_{3+j} = \Gamma_T J_1\tilde{\Gamma}_j$.
+Similarly, $\tilde{J}_i = \Gamma_T\Gamma_i$. So the map:
+\begin{align}
+    f^{-1}: G_{\mathrm{AII}} &\to \mathrm{C\ell}_{d,3+D}(\R) \\
+    i\gamma_y \otimes \id_{n\times n} &\to J_1 \nonumber\\
+    \Gamma_T &\to J_2 \nonumber\\
+    \Gamma_TJ_1\Gamma_j &\to J_{3+j} \nonumber\\
+    \Gamma_T\tilde{\Gamma}_i &\to J_{i} \nonumber
+\end{align}
+is the desired inverse map.
+
+\paragraph{Class $\mathrm{CII}$} The class $\mathrm{CII}$ has only one $C^2=-1$
+more than class $\mathrm{AII}$, therefore, we only need to enlarge the Clifford
+Algebra to include one more $J_{4+D}$, and set it as the $C$ symmetry operator.
+The rest is exactly the same as in class $\mathrm{AII}$.
+
+All other classes can be treated similarly, so we do not repeat the calculation
+and only list the result in Table~\ref{tab:map-sym-cl}.
+\begin{table}[htpb]
+    \centering
+    \caption{Mapping Relations between symmetry classes and Clifford Algebras.
+    Here $J_j^2=-\id,\tilde{J}_i^2=\id$, and they generates the Clifford
+    Algebra. Also, only one direction of mapping is shown. The inverse map can
+    be easily constructed accordingly. The complex class are also added for
+    convenience.}
+    \label{tab:map-sym-cl}
+    \begin{tabular}{c | c c c | l | c }
+        Class($\#$) & T & C & S & Mappings  & $G_\#\cong $ \\
+        \hline 
+        D & $0$ & $+$ & $0$ & 
+        $\tilde{J}_1\to\Gamma_C$,
+        $\tilde{J}_1J_{2+j}\to \tilde{\Gamma}_j$,
+        $J_1\tilde{J}_1\tilde{J}_{1+i}\to \Gamma_i$ &
+        $\mathrm{C\ell}_{1+d,2+D}(\R)$ \\
+        DIII & $-$ & $+$ & $1$ & 
+        $\tilde{J}_1\to\Gamma_C$, $\tilde{J}_{3+D}\to\Gamma_T$,
+        $\tilde{J}_1J_{2+j}\to \tilde{\Gamma}_j$,
+        $J_1\tilde{J}_1\tilde{J}_{1+i}\to \Gamma_i$ &
+        $\mathrm{C\ell}_{1+d,3+D}(\R)$ \\
+        AII & $-$ & $0$ & $0$ & 
+        $J_2\to \Gamma_T$,
+        $J_1J_2J_{3+j}\to \tilde{\Gamma}_j$,
+        $J_2\tilde{J}_i \to \Gamma_i$
+        & $\mathrm{C\ell}_{d,3+D}(\R)$ \\
+        CII & $-$ & $-$ & $1$ & 
+        $J_2\to \Gamma_T$, $J_{4+D}\to \Gamma_C$,
+        $J_1J_2J_{3+j}\to \tilde{\Gamma}_j$,
+        $J_2\tilde{J}_i \to \Gamma_i$
+        & $\mathrm{C\ell}_{d,4+D}(\R)$ \\
+        C & $0$ & $-$ & $0$ & 
+        $J_2\to \Gamma_C$, 
+        $J_2\tilde{J}_{1+j} \to \tilde{\Gamma}_j$,
+        $J_1J_2J_{i+2}\to \Gamma_i$
+        & $\mathrm{C\ell}_{1+D,2+d}(\R)$ \\
+        CI & $+$ & $-$ & $1$ & 
+        $J_2\to \Gamma_C$, $\tilde{J}_{2+D}\to \Gamma_T$,
+        $J_2\tilde{J}_{1+j} \to \tilde{\Gamma}_j$,
+        $J_1J_2J_{i+2}\to \Gamma_i$
+        & $\mathrm{C\ell}_{2+D,2+d}(\R)$ \\
+        AI & $+$ & $0$ & $0$ & 
+        $\tilde{J}_1\to \Gamma_T$,
+        $J_1\tilde{J}_1\tilde{J}_{2+j} \to \tilde{\Gamma}_j$,
+        $\tilde{J}_1J_{i+1} \to \Gamma_i$
+        & $\mathrm{C\ell}_{2+D,1+d}(\R)$ \\
+        BDI & $+$ & $+$ & $1$ & 
+        $\tilde{J}_1\to \Gamma_T$, $\tilde{J}_{3+D}\to \Gamma_C$,
+        $J_1\tilde{J}_1\tilde{J}_{2+j} \to \tilde{\Gamma}_j$,
+        $\tilde{J}_1J_{i+1} \to \Gamma_i$
+        & $\mathrm{C\ell}_{3+D,1+d}(\R)$ \\
+        \hline
+        A & $0$ & $0$ & $0$ & 
+        & $\mathrm{C\ell}_{d+D+1}(\C)$ \\
+        AIII & $0$ & $0$ & $1$ & 
+        & $\mathrm{C\ell}_{d+D+2}(\C)$ \\
+        \hline
+    \end{tabular}
+\end{table}
+\subsection{Classification in 1-dimension}
+\label{sec:Classification in 1-dimension}
+
+\subsubsection{Model Systems}
+\label{sec:Model Systems}
+Classification of $1$ dimension is the simplest, since the minimal matrix
+dimension will mostly be $2$, which means we can use the familiar Pauli matrices
+directly.
+
+\paragraph{Class $\mathrm{A}$} We have the extension from
+$\mathrm{C\ell}_{2}(\C)$ to $\mathrm{C\ell}_{3}(\C)$. We have for example:
+\begin{equation}
+    H_A = M \sigma_x + k_x \sigma_y
+\end{equation}
+Obviously, there is an SPEMT $m\sigma_x$. So this phase is trivial.
+
+\paragraph{Class $\mathrm{AIII}$} We have the extension from
+$\mathrm{C\ell}_{3}(\C)$ to $\mathrm{C\ell}_{4}(\C)$. We have
+for example:
+\begin{equation}
+    H_A = M \sigma_x + k_x \sigma_y
+\end{equation}
+However, the symmetry operator $S$ takes rest Pauli matrices $\sigma_z$, and
+there is not other matrix possible for the extra mass term (this can be viewed
+alternatively, from $\mathrm{C\ell}_{4}(\C)\cong \mathcal{M}(4,\C)$, which only
+has irreducible representation in dimension $1$ or $4$). So the state is
+topologically non-trivial. Now we consider the state with arbitrary copies of it.
+\begin{equation}
+    H_A = M \sigma_x\otimes \id_n + k_x\sigma_y\otimes\id_n,
+    S=\sigma_z\otimes\id_n
+\end{equation}
+where $n$ is some positive integer. Since gamma matrices are basically tensor
+products of Pauli matrices, there is no SPEMT term. Hence this is a $\Z$
+topological insulator.
+
+The above are for complex classes. For real classes, we have to be careful,
+since one generator $J_1$ is taken up by $i$.
+
+\paragraph{Class $\mathrm{AII}$} We have the extension from
+$\mathrm{C\ell}_{1,3}(\R)$ to $\mathrm{C\ell}_{1,4}(\R)$.
+Explicitly, we could let
+\begin{equation}
+    H_{\mathrm{AII}} = M\sigma_x\otimes\id_2 + k_x\sigma_y\otimes\id_2
+\end{equation}
+with $T=\id_2\otimes\sigma_x K$. The SPEMT is $m\sigma_z\otimes\sigma_x$. So
+this is a trivial insulator.
+
+\paragraph{Class $\mathrm{C}$} We have the extension from
+$\mathrm{C\ell}_{1,3}(\R)$ to $\mathrm{C\ell}_{2,3}(\R)$. Explicitly, we
+could let
+\begin{equation}
+    H_{\mathrm{C}} = M\sigma_z\otimes\id_2 + k_x\sigma_y\otimes\id_2
+\end{equation}
+with $C=\sigma_x\otimes\sigma_y K$. The SPEMT is $m\sigma_x\otimes\sigma_x$. So
+this is a trivial insulator.
+
+\paragraph{Class $\mathrm{CI}$} We have the extension from
+$\mathrm{C\ell}_{2,3}(\R)$, to $\mathrm{C\ell}_{3,3}(\R)$. Explicitly, we
+could let
+\begin{equation}
+    H_{\mathrm{CI}} = M\sigma_z\otimes\id_2 + k_x\sigma_y\otimes\id_2
+\end{equation}
+with $C=\sigma_x\otimes\sigma_y K$, $T=K$. The SPEMT is again
+$m\sigma_x\otimes\sigma_x$. So this is a trivial insulator.
+
+\paragraph{Class $\mathrm{AI}$} We have the extension from
+$\mathrm{C\ell}_{2,2}(\R)$ to $\mathrm{C\ell}_{3,2}(\R)$. Explicitly, we could let
+\begin{equation}
+    H_{\mathrm{AI}} = M\sigma_x + k_x\sigma_y
+\end{equation}
+with $T=K$. The SPEMT is $m\sigma_z$. So this is a trivial insulator.
+
+\paragraph{Class $\mathrm{CII}$} We have extension from
+$\mathrm{C\ell}_{1,4}(\R)$ to $\mathrm{C\ell}_{1,5}(\R)$.
+We let:
+\begin{equation}
+    H_{\mathrm{CII}} = M\sigma_x\otimes\id_2 + k_x\sigma_y\otimes\id_2
+\end{equation}
+with $T=\id_2\otimes\sigma_y K$, $C=\sigma_z\otimes\sigma_y K$. There is no
+SPEMT\footnote{To anticommute with $\sigma_x\otimes\id_2$ and
+$\sigma_y\otimes\id_2$, it must be of the form $\sigma_z\otimes?$. But none of
+the remaining choice are acceptable, considering $T$ and $C$.}. Consider
+arbitrary copies of it:
+\begin{equation}
+    H_{\mathrm{CII}} = (M\sigma_x\otimes\id_2 +
+    k_x\sigma_y\otimes\id_2)\otimes\id_n
+\end{equation}
+with $T=\id_2\otimes\sigma_y\otimes\id_n K$,
+$C=\sigma_z\otimes\sigma_y\otimes\id_n K$. There is still no SPEMT\footnote{The
+SPEMT has to be of the form $\sigma_z\otimes\sigma_\alpha\otimes A_{n\times n}$.
+Commuting with $T$ makes $A$ completely imaginary. But it cannot anticommute
+with $C$.}. Therefore, this is a $\Z$ topological insulator.
+
+\paragraph{Class $\mathrm{BDI}$} We have extension from
+$\mathrm{C\ell}_{3,2}(\R)$ to $\mathrm{C\ell}_{4,2}(\R)$. We let:
+\begin{equation}
+    H_{\mathrm{BDI}} = M\sigma_z + k_x \sigma_y
+\end{equation}
+with $T=K$, $C=\sigma_x K$. Obviously, there is no SPEMT. For arbitrary copies
+of it:
+\begin{equation}
+    H_{\mathrm{BDI}} = M\sigma_z\otimes\id_n + k_x \sigma_y\otimes\id
+\end{equation}
+with $T=\id_{n+2}K$, $C=\sigma_x\otimes\id_n K$.  The SPEMT must be of the form
+$\sigma_x\otimes\Delta$ to anticommute with $H_{\mathrm{BDI}}$. But to commute with
+$T$ leads to $\Delta$ being real, and to anticommute with $C$ leads to $\Delta$ being
+complex. Hence there is no SPEMT. This is a $\Z$ topological insulator.
+
+\paragraph{Class $\mathrm{D}$} We let:
+\begin{equation}
+    H_{\mathrm{D}} = M\sigma_z + k_x \sigma_y
+\end{equation}
+with $C=\sigma_x K$. Obviously, there is no SPEMT. Now consider two copies of
+it:
+\begin{equation}
+    H_{\mathrm{D}} = (M\sigma_z + k_x \sigma_y)\otimes\id_2
+\end{equation}
+with $C=\sigma_x\otimes\id_2 K$. There is one SPEMT $m \sigma_z\otimes\sigma_y$.
+Hence, this is a $\Z_2$ topological insulator.
+
+To lighten the notation a bit, we introduce $\tau_i=s_i=\sigma_i$ ($i=0,1,2,3$).
+But $\tau_i$, $s_i$, and $\sigma_i$ all act on the different spaces.
+\paragraph{Class $\mathrm{DIII}$} We let:
+\begin{equation}
+    H_{\mathrm{DIII}} = M \sigma_z s_0 + k_x \sigma_y s_0
+\end{equation}
+with $C=\sigma_x K$, $T=s_y K$. Any SPEMT anticommute with Hamiltonian has the
+form $\sigma_x s_i$. For it to anticommute with $C$, it is $\sigma_x s_y$. But
+this does not commute with $T$. Hence, there is no SPEMT. Now consider two
+copies of it:
+\begin{equation}
+    H_{\mathrm{DIII}} = (M \sigma_z s_0 + k_x \sigma_y s_0)\tau_0
+\end{equation}
+with $C=\sigma_x K$, $T=s_y K$.  There is one SPEMT $m \sigma_xs_x\tau_y$. So
+this is a $\Z_2$ topological insulator.
+
+In summary, we shown examples of different classes of topological insulators in
+$d=1$, summarized in Table~\ref{tab:ti-d=1}.
+\begin{table}[htpb]
+    \centering
+    \caption{Topological Insulators in $d=1$}
+    \label{tab:ti-d=1}
+    \begin{tabular}{c | c c c | c }
+        Class($\#$) & T & C & S & $d=1$ \\
+        \hline 
+        A & $0$ & $0$ & $0$ & $0$ \\
+        AIII & $0$ & $0$ & $1$ & $\Z$ \\
+        \hline
+        D & $0$ & $+$ & $0$ & $\Z_2$ \\
+        DIII & $-$ & $+$ & $1$ & $\Z_2$ \\
+        AII & $-$ & $0$ & $0$ & $0$ \\
+        CII & $-$ & $-$ & $1$ & $\Z$ \\
+        C & $0$ & $-$ & $0$ & $0$ \\
+        CI & $+$ & $-$ & $1$ & $0$ \\
+        AI & $+$ & $0$ & $0$ & $0$ \\
+        BDI & $+$ & $+$ & $1$ & $\Z$ \\
+        \hline
+    \end{tabular}
+\end{table}
+\subsubsection{Irreducible Representation Arguments for Classification}
+\label{sec:Irreducible Representation Arguments for Classification}
+The above examples are only valid in special points of the Brillouin Zone.
+However, in real materials, one will be faced with Hamiltonians of various form:
+\begin{equation}
+    H = m\gamma_0 \pm k_1\gamma_1 \pm k_2\gamma_2 \cdots
+\end{equation}
+Here, we look at this problem from a representation theory point of view. It is
+well known that representation of Clifford Algebras are completely reducible,
+and there are only 1 or 2 nontrivial (dimension $>1$) inequivalent irreducible
+representations of Clifford Algebras (see Appendix~\ref{sec:Various Properties for
+Clifford Algebras}).  The dimension of the representation of relevant Clifford
+Algebras are listed in Table~\ref{tab:mat-dim-allClass-1d}. There are only three
+types of change occurs in that table:
+
+\begin{enumerate}
+    \item $\mathbf{n\to n}$ or $\mathbf{n\to n_2}$ Basically, this means that in
+        the same dimension we could always have a SPEMT present. So there will
+        never be stable edge states.
+    \item 
+    $\mathbf{n\to 2n}$ or $\mathbf{n_2\to 2n}$ In this case, a single copy of
+    Hamiltonian is stable against perturbation. Therefore, we consider two copies of
+    the Hamiltonian and see if the double-size Hamiltonian can be gapped by
+    perturbation. If one denote the one irreducible representation in dimension $n$
+    by $\Gamma$, then we are most importantly faced with two types of double-size
+    Hamiltonian:
+    \begin{equation}
+        H_\mathrm{doubled,1} = (M\tilde{\Gamma}_0 + \sum_i k_i\Gamma_i
+        )\otimes\id_{2\times 2}
+    \end{equation}
+    or
+    \begin{equation}
+        H_\mathrm{doubled,2} = \begin{pmatrix}
+            M\tilde{\Gamma}_0 + \sum_i k_i\Gamma_i & 0 \\
+            0 & \pm M\tilde{\Gamma}_0 + \sum_i \pm k_i\Gamma_i \\
+        \end{pmatrix}
+    \end{equation}
+    Where the sign $\pm$ for $H_\mathrm{doubled,2}$ is such that
+    $H_\mathrm{doubled,2}\neq H_\mathrm{doubled,1}$.  The first Hamiltonian is
+    called two equivalent copies of the original Hamiltonian, whereas the second one
+    is called two inequivalent copies of the original Hamiltonian.\footnote{The
+    exact reason for "equivalent" and "inequivalent" would be found in
+    representation theory or Clifford Algebras, but which is not important for
+    our discussion here.} For the second copy, we could always find a SPEMT to gap
+    the system. For example, for
+    \begin{equation}
+        H_\mathrm{doubled,2} = \begin{pmatrix}
+            M\tilde{\Gamma}_0 + \sum_i k_i\Gamma_i & 0 \\
+            0 & - M\tilde{\Gamma}_0 + \sum_i k_i\Gamma_i \\
+        \end{pmatrix} =
+        M\tilde{\Gamma}_0\otimes\sigma_z + 
+            (\sum_i k_i\Gamma_i)\otimes\id_{2\times 2}
+    \end{equation}
+    it can be gapped by a SPEMT such as $\Gamma_1\otimes \sigma_x$. 
+
+    For the first type, the situation is different and it distinguishes the $\Z$
+    and $\Z_2$ topological insulator. We first not that, a SPEMT in this case
+    must be of the form $\Gamma\otimes A_{2\times 2}$, where $\Gamma$
+    anticommutes with $\Gamma_i$ and $\tilde{\Gamma}_0$, $A$ is any $2\times 2$
+    matrix.
+    \begin{enumerate}
+        \item $\mathbf{n\to 2n}$: In this case, there will be a SPEMT to gap
+            the doubled Hamiltonian. So this is a $\Z_2$ topological insulator.
+            To be more specific, assume that we have the extension problem of
+            $\mathrm{C\ell}_{p,q}(\R)\to\mathrm{C\ell}_{p,q+1}(\R)$, where
+            $\mathrm{dim}(\mathrm{C\ell}_{p,q}(\R))=n$,
+            $\mathrm{dim}(\mathrm{C\ell}_{p,q+1}(\R))=2n$. It can be checked in
+            Table~\ref{tab:mat-dim-allClass-1d} that
+            $\mathrm{dim}(\mathrm{C\ell}_{p+1,q}(\R))=n_2$, i.e. an extra
+            $\Gamma_{p+1}$ is present in the same dimension. This extra term
+            form a SPEMT in the doubled Hamiltonian as $\Gamma_{p+1}\otimes
+            i\sigma_y$.
+
+            Similarly, if we have $\mathrm{C\ell}_{p,q}(\R)\to
+            \mathrm{C\ell}_{p+1,q}(\R)$, an extra term $\Gamma_{q+1}$ from
+            $\mathrm{C\ell}_{p,q+1}(\R)$ is present in the same dimension, and
+            it forms a SPEMT in the doubled Hamiltonian as $\Gamma_{q+1}\otimes
+            i\sigma_y$.
+        \item $\mathbf{n_2\to 2n}$: In this case, unfortunately no SPEMT can be
+            found from either $\mathrm{C\ell}_{p+1,q}(\R)$ or
+            $\mathrm{C\ell}_{p,q+1}(\R)$, as can be checked in
+            Table~\ref{tab:mat-dim-allClass-1d} that they all doubled the
+            dimension.
+    \end{enumerate}
+\end{enumerate}
+
+In this way we confirmed the classification in Table~\ref{tab:ti-d=1}. And we
+note that, as long as $p-q \text{mod 8}$ is fixed, all the above discussion will
+be the same. This come as a property of the representation of Clifford Algebras
+(see Appendix~\ref{sec:Various Properties for Clifford Algebras} for details).
+Also, if one is interested in how those model system mentioned before can be
+reflected in the representation of Clifford Algebras, one could see
+Appendix~\ref{sec:a case study} for one example.
+
+\begin{table}[htpb]
+    \centering
+    \caption{Matrix dimensions related to the extension problem for different
+        classes in $d=1$. Note that a subscript $2$ as in $2_2$, means that
+        there are two inequivalent representations in the same matrix dimension.
+        Note also that since the complexification of a real matrix reduce the
+        dimension by $\frac{1}{2}$, we write only half of the dimension as shown
+    in Appendix~\ref{sec:Various Properties for Clifford Algebras}. }
+    \label{tab:mat-dim-allClass-1d}
+    \begin{tabular}{c | c c c}
+        Name of Class & Extension of $\mathrm{C\ell}$ & Dimension Change &
+        Topological Invariant \\
+        \hline
+        A & $\mathrm{C\ell}_{2}(\C)\to\mathrm{C\ell}_{3}(\C)$ & $2\to2_2$ & $0$
+        \\
+        AIII & $\mathrm{C\ell}_{3}(\C)\to\mathrm{C\ell}_{4}(\C)$ & $2_2\to4$ &
+        $\Z$
+        \\
+        AII & $\mathrm{C\ell}_{1,3}(\R)\to\mathrm{C\ell}_{1,4}(\R)$ & $4\to 4_2$ & $0$
+        \\
+        C & $\mathrm{C\ell}_{1,3}(\R)\to\mathrm{C\ell}_{2,3}(\R)$ & $4\to 4$ & $0$
+        \\
+        CI & $\mathrm{C\ell}_{2,3}(\R)\to\mathrm{C\ell}_{3,3}(\R)$ & $4\to 4$ & $0$
+        \\
+        AI & $\mathrm{C\ell}_{2,2}(\R)\to\mathrm{C\ell}_{3,2}(\R)$ & $2\to 2_2$ & $0$
+        \\
+        CII & $\mathrm{C\ell}_{1,4}(\R)\to\mathrm{C\ell}_{1,5}(\R)$ & $4_2\to 8$
+        with $\mathrm{C\ell}_{2,4}(\R)\sim 8$.
+        & $\Z$
+        \\
+        BDI & $\mathrm{C\ell}_{3,2}(\R)\to\mathrm{C\ell}_{4,2}(\R)$ & $2_2\to 4$ 
+        with $\mathrm{C\ell}_{3,3}(\R)\sim 4$.
+        & $\Z$
+        \\
+        D & $\mathrm{C\ell}_{2,2}(\R)\to\mathrm{C\ell}_{2,3}(\R)$ & $2\to 4$
+        with $\mathrm{C\ell}_{3,2}(\R)\sim2_2$.
+        & $\Z_2$
+        \\
+        DIII & $\mathrm{C\ell}_{2,3}(\R)\to\mathrm{C\ell}_{2,4}(\R)$ & $4\to 8$ 
+        with $\mathrm{C\ell}_{3,3}(\R)\sim 4$.
+        & $\Z_2$
+        \\
+        \hline
+    \end{tabular}
+\end{table}
+\subsection{Classification in Arbitrary Dimension}
+\label{sec:Classification in Arbitrary Dimension}
+We now show combined with some properties, the classification in $d=1$ can be
+generalized to classification in arbitrary dimensions. In $K$-theoretic
+classification, the extension problem is not affected when tensored with some
+other algebras. Specifically, for complex classes, the extension problem of
+$\mathrm{C\ell}_{n}(\C)\to\mathrm{C\ell}_{m}(\C)$ is the same as the extension
+problem of $\mathrm{C\ell}_{n}(\C)\otimes\mathrm{C\ell}_{2}(\C)\to
+\mathrm{C\ell}_{m}(\C)\otimes\mathrm{C\ell}_{2}(\C)$ (See for example, sec
+III.C.1 of \cite{Chiu2016}). For real classes, similar property holds.
+This insensitive to tensoring a new algebra, can be understand in SPEMT
+background. Because $\mathrm{C\ell}_{2}(\C)\cong\mathcal{M}(2,\C)$, which only
+multiply the matrix dimension of both sides by a constant $2$. So the pattern of
+$n\to n, n\to n_2$, $n\to 2n$, and $n_2\to 2n$, mentioned in previous section,
+remains unaltered. For real classes, instead of $\mathrm{C\ell}_{2}(\C)$, we
+have $\mathrm{C\ell}_{1,1}(\R)\cong\mathcal{M}(2,\R)$, or
+$\mathrm{C\ell}_{2,2}(\R)\cong\mathrm{C\ell}_{1,1}(\R)\otimes\mathrm{C\ell}_{1,1}(\R)\cong\mathcal{M}(4,\R)$.
+So the reasoning is the same.
+
+Now, let us write $\sim$ to represent the equivalence between two extension
+problems.  The Complex Clifford Algebra has a periodicity of $2$:
+\begin{equation}
+    \mathrm{C\ell}_{n+2}(\C) \cong \mathrm{C\ell}_{n}(\C)\otimes
+    \mathrm{C\ell}_{2}(\C)
+\end{equation}
+The Real Clifford Algebra has a periodicity of $8$:
+\begin{equation}
+    \mathrm{C\ell}_{p+8,q}(\R) = \mathrm{C\ell}_{p,q+8}(\R) =
+    \mathrm{C\ell}_{p,q}(\R)\otimes\mathcal{M}(16,\R)
+\end{equation}
+This two relation means that, the extension problem will be the same with respect to
+a periodicity of $2$ for complex symmetry classes, and $8$ for real symmetry
+classes. Hence the classification of topological insulators need only be done
+with $d=1,2$ for complex symmetry classes, and $d=0,1,\cdots,7$ for real
+symmetry classes, i.e.
+\begin{subequations}
+    \label{eq:cli-periodic}
+\begin{align}
+    G_{\#}(d=d_0) &\sim G_{\#}(d=(d_0 \text{mod} 2)) \quad\text{(complex class)} \\
+    G_{\#}(d=d_0) &\sim G_{\#}(d=(d_0 \text{mod} 8)) \quad\text{(real class)}
+\end{align}
+\end{subequations}
+Another useful property is:
+\begin{align}
+    \mathrm{C\ell}_{p+1,q+1}(\R) &\cong
+    \mathrm{C\ell}_{p,q}(\R)\otimes\mathcal{M}(2,\R)
+\end{align}
+This property tells us that Clifford Algebra basically depends only on the
+difference $p-q$, or combined with previous periodicity, $p-q$ (mod $8$). For
+example, we have (let $n$ be an arbitrary integer):
+$\mathrm{C\ell}_{p+1,q+1}(\R)\sim\mathrm{C\ell}_{p,q}(\R)$. With this, one can
+derive easily two chains of relation:
+\begin{align}
+    &\mathrm{C\ell}_{1+(D+n),2+D}(\R) \sim \mathrm{C\ell}_{1+(D+1+n),3+D}(\R)
+    \nonumber\\
+    \sim & \mathrm{C\ell}_{(D+2+n),3+D}(\R) \sim \mathrm{C\ell}_{(D+3+n),4+D}(\R)
+\end{align}
+and
+\begin{align}
+    &\mathrm{C\ell}_{1+D,2+(D+4+n)}(\R)\sim \mathrm{C\ell}_{2+D,2+(D+5+n)}(\R)
+    \nonumber\\
+    \sim& \mathrm{C\ell}_{2+D,1+(D+6+n)}(\R) \sim
+    \mathrm{C\ell}_{3+D,1+(D+7+n)}(\R)
+\end{align}
+Now we tries to connect the two chains together. We note further that the
+Clifford Algebra has the following properties:
+\begin{align}
+    \mathrm{C\ell}_{p+1,q}(\R) &\cong \mathrm{C\ell}_{q+1,p}(\R) \\
+    \mathrm{C\ell}_{q,p+2}(\R) &\cong \mathrm{C\ell}_{p,q}(\R) \otimes\mathcal{M}(2,\R)
+\end{align}
+Then:
+\begin{align}
+    &\mathrm{C\ell}_{1+D,2+(D+4+n)}(\R) \cong
+    \mathrm{C\ell}_{D+4+n,1+D}(\R)\otimes\mathcal{M}(2,\R) \nonumber\\
+    \cong& \mathrm{C\ell}_{2+D,D+3+n}(\R)\otimes\mathcal{M}(2,\R)
+    \cong \mathrm{C\ell}_{D+1+n,2+D}(\R)\otimes\mathcal{M}(4,\R)
+\end{align}
+Therefore,
+$\mathrm{C\ell}_{1+D,2+(D+4+n)}(\R)\sim\mathrm{C\ell}_{1+(D+n),2+D}(\R)$,
+connecting the two chains. If we compare this carefully with
+Table~\ref{tab:map-sym-cl}, then we would realize that we actually managed to
+prove the dimension-shift feature of classification:
+\begin{align}
+    \label{eq:cli-Chain1}
+    G_{\mathrm{D}}(d=d_0) &\sim G_{\mathrm{DIII}}(d=d_0+1) \nonumber\\
+    \sim G_{\mathrm{AII}}(d=d_0+2) &\sim G_{\mathrm{CII}}(d=d_0+3) \nonumber\\
+    \sim G_{\mathrm{C}}(d=d_0+4) &\sim G_{\mathrm{CI}}(d=d_0+5) \nonumber\\
+    \sim G_{\mathrm{AI}}(d=d_0+6) &\sim G_{\mathrm{BDI}}(d=d_0+7)
+\end{align}
+We need one more property:
+\begin{equation}
+    \mathrm{C\ell}_{1+d,2+D}(\R)\cong
+    \mathrm{C\ell}_{3+D,d}(\R)=\mathrm{C\ell}_{3+D,1+(d-1)}(\R)
+\end{equation}
+Then
+\begin{equation}
+    \label{eq:cli-Chain2}
+    G_{\mathrm{D}}(d=d_0) \sim G_{\mathrm{BDI}}(d=d_0-1)
+\end{equation}
+With equivalences~\ref{eq:cli-periodic},\ref{eq:cli-Chain1},\ref{eq:cli-Chain2},
+we see that we need only the result in a dimension, to obtain the whole of
+classification of all real classes. Similar fact holds for complex classes:
+\begin{equation}
+    G_{\mathrm{AIII}}(d=d_0) \sim G_{\mathrm{A}}(d=d_0-1)
+\end{equation}
+which is too trivial to be mentioned here. 
+
+In a word, our classification for topological insulators in $1$ spatial
+dimension is sufficient to generate the whole Table~\ref{tab:master-table2}.
+This is a remarkable consequence of $K$-theory.
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|cccccccc|ccc|}
+\hline
+\multicolumn{12}{|c|}{
+The original classification table} \\ \hline
+   $\mbox{AZ class} \backslash d$  & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & T & C & S  \\
+\hline\hline
+  A & $\mathbb{Z}$ & 0 & $\mathbb{Z}$ & 0 & $\mathbb{Z}$ & 0 & $\mathbb{Z}$ & 0             & 0 & 0 & 0    \\
+  AIII & 0 & $\mathbb{Z}$ & 0 & $\mathbb{Z}$ & 0 & $\mathbb{Z}$ & 0 & $\mathbb{Z}$          & 0 & 0 & 1    \\  \hline
+
+  AI & $\mathbb{Z}$ & 0 & 0 & 0 & $2\mathbb{Z}$ & 0 & $\mathbb{Z}_2$ & $\mathbb{Z}_2$    & $+$ & 0 & 0     \\
+  BDI & $\mathbb{Z}_2$ & $\mathbb{Z}$ & 0 & 0 & 0 & $2\mathbb{Z}$ & 0 & $\mathbb{Z}_2$     & $+$ & $+$ & 1    \\
+  D & $\mathbb{Z}_2$ & $\mathbb{Z}_2$ & $\mathbb{Z}$ & 0 & 0 & 0 & $2\mathbb{Z}$ & 0     & 0 & $+$ & 0     \\
+  DIII & 0 & $\mathbb{Z}_2$ & $\mathbb{Z}_2$ & $\mathbb{Z}$ & 0 & 0 & 0 & $2\mathbb{Z}$  & $-$ & $+$ & 1     \\
+  AII & $2\mathbb{Z}$ & 0 & $\mathbb{Z}_2$ & $\mathbb{Z}_2$ & $\mathbb{Z}$ & 0 & 0 & 0   & $-$ & 0 & 0     \\
+  CII & 0 & $2\mathbb{Z}$ & 0 & $\mathbb{Z}_2$ & $\mathbb{Z}_2$ & $\mathbb{Z}$ & 0 & 0   & $-$ & $-$ & 1     \\
+  C & 0 & 0 & $2\mathbb{Z}$ & 0 & $\mathbb{Z}_2$ & $\mathbb{Z}_2$ & $\mathbb{Z}$ & 0     & 0 & $-$ & 0     \\
+  CI & 0 & 0 & 0 & $2\mathbb{Z}$ & 0 & $\mathbb{Z}_2$ & $\mathbb{Z}_2$ & $\mathbb{Z}$    & $+$ & $-$ & 1
+   \\
+\hline
+\end{tabular}
+\caption{The original classification table of topological insulators and
+superconductors. Note that in this document we could not yet differentiate
+between $\Z$ and $2\Z$ topological invariants.}
+\label{tab:master-table2}
+\end{center}
+\end{table}

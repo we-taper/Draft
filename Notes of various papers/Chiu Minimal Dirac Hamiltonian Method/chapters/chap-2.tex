@@ -1,0 +1,290 @@
+\section{Ten-fold Way}
+
+We begin our discussion with a background before this classification.  The
+classification of topological phases with different non-unitary symmetries in
+non-interacting picture, are in essence, the classification of $N\times N$
+matrices by its response to three discrete symmetries: time reversal symmetry
+($T$), charge conjugation/particle hole symmetry ($C$), and chiral/sub-lattice
+symmetry ($S$). As for those unitary symmetries, one can in principle, block
+diagonalize the Hamiltonian
+$H=\mathrm{diag}(H^{\lambda_1},H^{\lambda_2},\cdots)$, such that each block
+$H^{\lambda_i}$ is labeled by irreducible representations $\lambda_i$, and it
+has no memory of the unitary symmetries. Therefore, our classification is
+applied to those blocks and still holds.
+
+It will be find that, those $T,C$ are the only two meaningful non-unitary
+symmetries of the Single-particle system, and there are in total 10 different
+ways in which the Single-particle Hamiltonian could respect the three symmetries
+$T,C,S$. Now we explain in detail, about the reason why we care about, and only
+care about these three symmetries $T,C,$ and $S$.
+
+\subsection{The symmetries of Single-particle Hamiltonian}
+\label{sec:The symmetries of Single-particle Hamiltonian}
+
+According to Wigner's theorem, symmetries of physical system can either be
+unitary represented, or anti-unitarily represented. Here we show that in the
+case of anti-unitary symmetries, there are only 2 different kinds of them that a
+Single-particle Hamiltonian in first-quantized space can have. Actually, there
+can be more anti-unitary symmetries than this. But under reasonable assumptions,
+we can limit our discussion in only this two types.
+
+The Single-particle Hamiltonian acting on Fock space is
+\begin{equation}
+\label{eq:H-2nd}
+\hat{H} = \sum_{A,B} \hat\psi^\dagger_A H_{AB} \hat\psi_{B}
+\end{equation}
+where $H_{AB}$ are just complex numbers, $\hat\psi^\dagger_A$ and $\hat\psi_B$
+are creation and annihilation operators acting on Fock space.
+
+Here and henceforth, we will add a hat $\hat{}$ to all operators in Fock space
+to stress that it acts on Second-quantized Fock space.  A symmetry of the
+Hamiltonian, represented as an operator $\hat{U}$, must have:
+\begin{equation}
+\label{eq:sym-in-2nd-1}
+\hat{U}\hat{H}\hat{U}^{-1} = \hat{H}
+\end{equation}
+
+We expect $\hat{U}$ to change the creation/annihilation operators in two different
+ways. First, it may only permute the creation/annihilation operators:
+\begin{subequations}
+	\label{eq:sym-in-2nd-permute}
+	\begin{align}
+	\label{eq:sym-in-2nd-permute-1}
+	\hat{\psi}'_A = 
+	\hat{U} \hat\psi_A \hat{U}^{-1} &=
+	\sum_B (u^\dagger)_{AB} \hat\psi_B \\
+	\label{eq:sym-in-2nd-permute-2}
+	\hat\psi'^\dagger_A =
+	\hat{U} \hat\psi^\dagger_A \hat{U}^{-1} &= 
+	\sum_B  \hat\psi^\dagger_B u_{AB}
+	\end{align}
+\end{subequations}
+Where $u$ is some matrix implementing the permutation.
+Or, it may interchange the role of creation/annihilation operators:
+\begin{subequations}
+	\label{eq:sym-cc}
+	\begin{align}
+	\label{eq:sym-cc-1}
+	\hat{\psi}'_A = 
+	\hat{U} \hat\psi_A \hat{U}^{-1} &=
+	\sum_B (u^*)^\dagger_{AB} \hat\psi^\dagger_B \\
+	\label{eq:sym-cc-2}
+	\hat\psi'^\dagger_A =
+	\hat{U} \hat\psi^\dagger_A \hat{U}^{-1} &= 
+	\sum_B  \hat\psi_B u^*_{BA}
+	\end{align}
+\end{subequations}
+Where $u^*$ is some other matrix implementing the interchange. We write complex
+conjugation $u^*$ instead of $u$ for convenience. In both cases (permute or
+interchange), to conserve the anticommutation relation between
+$\hat\psi^\dagger_A$ and $\hat\psi_B$ operators, one can easily show that $u$
+should be a unitary matrix.
+
+Also, $\hat{U}$ may be linear or anti-linear. The different combinations of these
+conditions give us 1 unitary symmetry, 2 anti-unitary symmetries, and 1 special
+symmetry, to be explained below.
+
+\paragraph{Case 1: Unitary Symmetry}
+
+Assume the symmetry just permutes the creation/annihilation operators, as in
+equation~\ref{eq:sym-in-2nd-permute}, and assume it is linear in
+Second-quantized Hamiltonian, i.e. $\hat{U}i\hat{U}^{-1}=i$. The permutation
+relation~\ref{eq:sym-in-2nd-permute} plugged into
+equation~\ref{eq:sym-in-2nd-1}, gives
+\begin{equation}
+u H u^{-1} = H
+\end{equation}
+Therefore, in this case the symmetry is unitarily realized in First-quantized
+Hamiltonian $H_{AB}$.
+
+\paragraph{Case 2: Anti-unitary T Symmetry}
+Assume the symmetry just permutes the creation/annihilation operators, as in
+equation~\ref{eq:sym-in-2nd-permute}, but assume it is anti-linear in
+Second-quantized Hamiltonian, i.e. $\hat{U}i\hat{U}^{-1}=-i$. The permutation
+relation~\ref{eq:sym-in-2nd-permute} plugged into
+equation~\ref{eq:sym-in-2nd-1}, gives a different result, since
+$\hat{U}H_{AB}\hat{U}^{-1} = H_{AB}^*$ now.
+\begin{equation}
+u H^* u^\dagger = H
+\end{equation}
+Or:
+\begin{equation}
+uK H u^t K = uK H (uK)^{-1} = H
+\end{equation}
+where $K$ is complex conjugation. This symmetry is called Time-reversal
+symmetry, and is realized in First-quantized Hamiltonian as an anti-unitary
+operator $T= uK$.
+
+\paragraph{Case 3: Anti-unitary C Symmetry}
+Assume the symmetry just interchange the creation/annihilation operators, as in
+equation~\ref{eq:sym-cc}, but assume it is linear in Second-quantized
+Hamiltonian, i.e. $\hat{U}i\hat{U}^{-1}=i$. The interchange
+relation~\ref{eq:sym-cc} plugged into equation~\ref{eq:sym-in-2nd-1}, gives:
+\footnote{
+	Note that in calculating this, $\sum_i\hat\psi^\dagger_i \hat\psi_i =
+	\id$ on 1st-quantized single-particle Hilbert space.
+}
+\begin{equation}
+\label{eq:sym-C-cond}
+u (H-\frac{1}{2}\tr(H))^t u^\dagger = - (H-\frac{1}{2}\tr(H))
+\end{equation}
+
+Taking the trace of above equality will give $2\tr(H)=N\tr(H)$, since
+in solids $N>>2$, we must have $\tr(H)=0$. Then the above equality
+simplifies into \footnote{note that $H^t = H^*$ for Hermitian $H$}:
+\begin{equation}
+u H^* u^\dagger = uK H (uK)^{-1} = -H
+\end{equation}
+This type of symmetry is called charge-conjugation symmetry. It is
+also called particle-hole symmetry in condensed matter physics. It is realized
+as $C=uK$ with $C H C^{-1} = -H$ for 1st-quantized single-particle Hamiltonian.
+
+\paragraph{Case 4: Unitary S Symmetry}
+Assume the symmetry now interchange the creation/annihilation operators, as in
+equation~\ref{eq:sym-cc}, and assume it is anti-linear in Second-quantized
+Hamiltonian, i.e. $\hat{U}i\hat{U}^{-1}=-i$. The interchange
+relation~\ref{eq:sym-cc} plugged into equation~\ref{eq:sym-in-2nd-1}, gives:
+\begin{equation}
+\label{eq:sym-S-cond}
+u (H-\frac{1}{2}\tr(H)) u^\dagger = - (H-\frac{1}{2}\tr(H))
+\end{equation}
+and since $N>>2$, we have $\tr(H)=0$. Then
+\begin{equation}
+u H u^\dagger = -H
+\end{equation}
+This symmetry will be called the chiral symmetry, denoted $\hat{S}=u$. It is
+unitarily realized in First-quantized Hamiltonian, but since $\{S,H\}=0$ instead
+of $[S,H]=0$, it is not a traditional symmetry that we are used to. Also, it is
+easy to see that $S$ is a combination of $T$ and $C$,\footnote{In fact, we could have
+	defined $S=TC$ or $S=CT$, and obtained the same result.} and the symmetry
+property of Hamiltonian under $T$ or $C$ uniquely defined the symmetry property
+of Hamiltonian under $S$. But there is one exception. When the
+Hamiltonian does not obey $T$ and $C$, it may or may not obey $S=TC$ as a
+whole.
+
+\paragraph{Squaring of $T,C,S$} 
+Squaring of $T/C$ symmetry operators should be proportional to identity $\id$,
+hence it is only a phase as they are unitary.
+This can be viewed from two perspectives. First, we expect the system, after
+applying twice of symmetry operation $T/C$, should come back to the same state, except
+a possible phase difference. Second, $T^2/C^2$ commutes with all
+$T/C$ symmetric Hamiltonians (easy to derive) in all irreducible representations
+of unitary symmetries (to be explained later), therefore by Schur's lemma, they
+must be proportional to a constant, which is a phase.
+
+It is easy to find that this phase $e^{i\delta}$should be $\pm1$. For example, let $T=uK$,
+then $T^2=uu^*$, and $(uu^*)u = u(u^*u)$ gives us $e^{2i\delta}=1$, hence
+$e^{i\delta}=\pm1$.
+
+But the square of $S$ is tricky. Since $S=TC=u_T u_C^*$, and each unitary matrix
+$u_T$ and $u_C$ has a phase freedom (as they acts on creation/annihilation
+operators), we can always pick a phase such that $S^2$ is some phase we want.
+Sometimes we pick $S^2=1$. Sometime we want $\{T,C\}=0$, and pick some specific
+phase for $S^2$.\footnote{This is a bit troublesome. First we denote
+	$T^2=\varepsilon_T$, $C^2=\varepsilon_C$, then it can be found that
+	$(u_T)^t=\varepsilon_T u_T$, $(u_C)^t = \varepsilon_C u_C$. Then, with
+	$S=u_Tu_C^*$, we have $S^\dagger=\varepsilon_C\varepsilon_Tu_Cu_T^* =
+	\varepsilon_C\varepsilon_T CT$, or $CT= \varepsilon_C\varepsilon_TS^\dagger$.
+	Since $TC+CT=0$, we have $S+\varepsilon_C\varepsilon_T S^\dagger=0$, or
+	$S^2=-\varepsilon_C\varepsilon_T$.}
+
+\paragraph{Why Ten Classes} For the three unitary symmetries under
+consideration, as will be mentioned, $S$ symmetry is a combination of $T$ and
+$C$, $S=TC$. It will be obtained that $T^2=\pm 1$, $C^2=\pm 1$, and $S^2$ is
+undetermined (depending on the phase choice\footnote{To be explained later.} we
+give for $T$ and $C$). Therefore, there are in total 10 different possible ways
+that this 3 symmetries could be combined together: We denote $T^2=0$ ($C^2=0$)
+to symbolize that the system does not follow $T$($C$) symmetry. Then
+$T^2=0,\pm1$ and $C^2=0,\pm1$ gives us $3\times 3=9$ different ways. But if
+$T^2=C^2=0$, $S$ may or may not conserve. Therefore, we have $9-1+2=10$
+different possible ways. In each way the topological invariants of the
+Hamiltonian respecting these symmetries are tabulated in Figure.1
+in\cite{Ludwig2016}. Each class is given a name ($\mathrm{A}$, $\mathrm{AII}$,
+etc.), and their properties in different spatial dimensions respect a periodic
+structure. For the class $A$ and class $AII$, they are named complex classes and
+respect a $2$-fold period. For the other eight classes are named real classes
+and respect a $8$-fold period, which is why we only listed the first $0\to 7$
+spatial dimensions in Table~\ref{tab:master-table2}.
+
+\subsection{Dealing with Unitary Symmetries}
+\label{sec:Dealing with Unitary Symmetries}
+
+As mentioned, we could module out those unitary symmetries. This statement is
+made precise by the following theorem about unitary symmetries of the Hamiltonian.
+\begin{thm}[Diagonalization of Hamiltonian in unitary representation]
+	This space $\mathcal{V}$ decomposes into a direct sum of vector spaces
+	$\mathcal{V}_\lambda$ associated with the irrep (irreducible
+	representations, labeled by $\lambda$) of $G_0$.
+	\begin{equation}
+	\mathcal{V} = \oplus_\lambda m_\lambda \mathcal{V}_\lambda
+	\end{equation}
+	where $m_\lambda$ denotes the multiplicity of $\lambda$th irrep.
+	Denote the dimension of each irrep as $d_\lambda$.
+	
+	In each vector space $\mathcal{V}_\lambda$, one can choose a
+	(orthogonal) basis of the form:
+	\begin{equation}
+	\ket{v^{(\lambda)}_\alpha} \otimes \ket{w^{(\lambda)}_k}
+	\end{equation}
+	where
+	\begin{itemize}
+		\item $G_0$ acts only only $\ket{w^{(\lambda)}}_k$,
+		$k=1,\cdots,d_\lambda$,
+		\item $H$ acts only on $\ket{v^{(\lambda)}}_\alpha$,
+		$\alpha=1,\cdots,m_\lambda$.
+	\end{itemize}
+\end{thm}
+Therefore, with all unitary symmetries ignored, we are classifying how
+Hamiltonian will be like when it respects, in 10 different ways, the
+combinations of $T,C,S$ symmetries.
+
+\paragraph{Differently Realized Anti-unitary Symmetries}
+It should be noted that there is still a freedom of unitary matrix that
+implements the $T$ or $C$ symmetry. Therefore, we could have, for example, two
+different time-reversal symmetries $T_1 = u_1K$ and $T_2= u_2 K$. They are
+obviously related by a unitary matrix, say $T_1 = u_{12} T_2$. And we could
+easily get that $u_{12}$ is also a unitary symmetry of the Hamiltonian (if the
+Hamiltonian respect both $T_1$ and $T_2$). Therefore, upon enlarging the
+symmetry group $G_0$ to include the element $u_{12}$ and repeat the process
+described in the theorem above, we only have one time-reversal symmetry. Similar
+analysis could be done for the $C$ symmetry as well.
+
+\paragraph{The Tenfold Way}
+
+The Tenfold Way, is originally the ten different ways to write down a
+Hamiltonian when there are ten different combinations of symmetries that the 
+system respect. The classes of Hamiltonian (or more precisely, the evolution
+operators $e^{itH}$) are tabulated in Figure.1 of \cite{Ludwig2016}. Ludwig
+classified the topological insulators in each spatial dimension by computing the
+homotopy groups for each dimension. On the other hand, this classification can
+also be done using $K$-theory.
+
+\paragraph{Translational Symmetry}
+
+Since we are classifying in the solids, it is natural to expect translational
+symmetry to present. Also, the addition of translational symmetry not only
+produces the same classification, but also make this classification more
+convenient to be done.
+
+With translational symmetry added, the classification can be made the will yield
+the same result.\footnote{This is still a mystery to me which this is true. The
+	exact reason is related to some isomorphism between certain homotopy groups.
+	Interested reader could see Ludwig's lecture
+	\href{http://boulderschool.yale.edu/2016/boulder-school-2016-lecture-notes}{here}
+	for a clue.}
+
+The Hamiltonian in $k$-space that preserve these three discrete symmetries
+should follow\footnote{It is easy to anticipate the change $k\to -k$ for
+	anti-unitary symmetries, since they change the phase factor when one Fourier
+	transform the Hamiltonian.}:
+\begin{subequations}
+	\begin{align}
+	\label{eq:T-sym-Hk}
+	TH(k)T^{-1} &= H(-k) \\
+	\label{eq:C-sym-Hk}
+	CH(k)C^{-1} &= -H(-k) \\
+	\label{eq:S-sym-Hk}
+	SH(k)S^{-1} &= -S(k)
+	\end{align}
+\end{subequations}
+

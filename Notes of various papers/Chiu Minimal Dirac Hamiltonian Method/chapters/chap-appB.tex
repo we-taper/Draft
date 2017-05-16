@@ -1,0 +1,89 @@
+\section{A Case Study of Class \texorpdfstring{$\mathrm{D}$}{} at
+\texorpdfstring{$d=1$}{}}
+\label{sec:a case study}
+Throughout the document we never gave a explicit example of constructing the
+actual matrices and symmetry operators from representations of Clifford
+Algebras. However, a real example is crucial to understand the mechanism. Here I
+provide a calculated example, from which I gained the intuition to distinguish
+between a $\Z$ and a $\Z_2$ topological insulator.
+
+Class $\mathrm{D}$ has the extension problem: $\mathrm{C\ell}_{2,2}(\R)\to
+\mathrm{C\ell}_{2,3}(\R)$, dimension changes as $2\to 4$. Now we write a simple
+irreducible representation of $\mathrm{C\ell}_{2,2}(\R)$ as:
+\begin{equation}
+    \label{eq:old-realified-J}
+    J_1 = -i\sigma_y\otimes \id_2,
+    J_2 = \sigma_z\otimes i\sigma_y,
+    \tilde{J}_1 = \sigma_x\otimes \id_2,
+    \tilde{J}_2 = \sigma_z\otimes \sigma_x
+\end{equation}
+It can be calculated from Table~\ref{tab:map-sym-cl} (or directly use table A.2
+from \cite{Chiu2013a}) that:
+\begin{equation}
+\begin{aligned}
+    \Gamma_C &= \tilde{J}_1,\\
+    \tilde{\Gamma}_0 &= \tilde{J}_1 J_2,\\
+    \Gamma_1 &=J_1\tilde{J}_1\tilde{J}_2
+\end{aligned}
+\end{equation}
+since our complex structure $J_1= \begin{pmatrix}
+    0 & -\id \\ \id & 0
+\end{pmatrix}$, the real vector space is spanned by basis $\{e_i, J_1 e_i\}$. So
+the complexfication can be done by looking at how each matrix acts on $e_i$. The
+process is done manually and the result shows that:
+\begin{equation}
+\begin{aligned}
+    J_1 &\to i \\
+    \Gamma_C &\to C = iK \\
+    \tilde{\Gamma}_0 &\to \tilde{\gamma}_0 = -\sigma_x \\
+    {\Gamma}_1 &\to {\gamma}_1 = -\sigma_y
+\end{aligned}
+\end{equation}
+So our Hamiltonian and symmetry operator in minimal dimension is
+\begin{equation}
+    H = -(M\sigma_y + k_1\sigma_x), C=iK
+\end{equation}
+there is certainly no SPEMT. Consider two copies of it:
+\begin{equation}
+    H = -(M\sigma_y + k_1\sigma_x)\otimes\id_2, C=iK
+\end{equation}
+There is clearly one SPEMT, $m\sigma_z\otimes\sigma_y$. Let me show how this
+SPEMT is reflected in representation of Clifford Algebras. We now have in the
+doubled dimension:
+\begin{equation}
+\begin{aligned}
+    \tilde{\gamma}_0 &= -\sigma_y\otimes\id_2 = i(i\sigma_y\otimes\id_2) \\
+    \tilde{\gamma}_1 &= \sigma_z\otimes\sigma_y = i\sigma_z\otimes(-i\sigma_y)
+    \\
+    \gamma_1 &= -\sigma_x\otimes\id_2
+\end{aligned}
+\end{equation}
+These new gamma matrices, together with $i$ and $C=iK$, are realified as
+\begin{equation}
+\begin{aligned}
+    i &\to J_1= -i\sigma_y\otimes \id_4 \\
+    C &\to \Gamma_C = \sigma_x\otimes\id_4 \\
+    \tilde{\gamma}_0 &\to \tilde{\Gamma}_0 = -i\sigma_y\otimes
+    i\sigma_y\otimes\id_2 \\
+    \tilde{\gamma}_1 &\to \tilde{\Gamma}_1 = -i\sigma_y\otimes\sigma_z\otimes
+    (-i\sigma_y) \\
+    \gamma_1 &\to \Gamma_1 = -\id_1\otimes\sigma_x\otimes\id_1
+\end{aligned}
+\end{equation}
+Then, we reverse the process and use Table~\ref{tab:map-sym-cl} to get
+\begin{equation}
+\begin{aligned}
+    \label{eq:new-realified-J}
+    J_1 &= -i\sigma_y \otimes\id_4 \\
+    J_2 &= \sigma_z\otimes i\sigma_y \otimes \id_2 \\
+    J_3 &= -\sigma_z\otimes\sigma_z\otimes i\sigma_y \\
+    \tilde{J}_1 &= \sigma_x\otimes\id_4 \\
+    \tilde{J}_2 &= \sigma_z\otimes\sigma_x\otimes\id_2
+\end{aligned}
+\end{equation}
+Comparing the old $J$s(\ref{eq:old-realified-J}) and new
+$J$s(\ref{eq:new-realified-J}), clearly there is only one more player $J_3$. And
+$J_3$ comes from $\sigma_z\otimes\sigma_z$, which is an element extend
+$\mathrm{C\ell}_{2,2}(\R)\to \mathrm{C\ell}_{3,2}(\R)$. This the reason why
+Class $\mathrm{D}$ in $d=1$ is $\Z_2$, not $\Z$, as mentioned in
+Section~\ref{sec:Irreducible Representation Arguments for Classification}.
