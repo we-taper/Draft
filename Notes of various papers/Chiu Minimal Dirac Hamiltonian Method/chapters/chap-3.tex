@@ -1,7 +1,7 @@
 \section{Classification by Dirac Mass Terms}
 \label{sec:The Minimal Hamiltonian Approach}
 
-\paragraph{Dirac Hamiltonian and Topological Property of the Bulk}
+\paragraph{Dirac Hamiltonian and Topological Property of the Boundary}
 We first note that different topological phases are distinguished by the closing
 and then opening of the gap, i.e. a quantum phase transition. If we adiabatically
 flatten the energy spectrum to two bands of energy $\pm E$, the transition
@@ -25,7 +25,7 @@ like:
 \end{equation}
 where $\vb{k}$ is the crystal momentum and $M$ is some constant
 responsible for the opening and closing of the gap, or in some cases, a parameter
-in which we can control to open of close the gap.
+in which we can control to open or close the gap.
 
 As has been analysed in most Quantum Mechanics textbook\footnote{See for
     example, p.99 of \cite{Greiner1997}. Although their discussion is in
@@ -43,7 +43,7 @@ Clifford Algebra anti-commutation relation:
 \end{equation}
 
 \paragraph{Edge Mode and \texorpdfstring{$M$}{}}
-Now we explain why the Dirac Hamiltonian\ref{eq:dirac-H}  is useful for capturing the topological
+Now we explain why the Dirac Hamiltonian eq.~\ref{eq:dirac-H}  is useful for capturing the topological
 phase. First, it has a gapless state. Due to the anti-commutation relation of
 $\gamma_i$, we can show\footnote{Note that $H_\text{Dirac}^2= E^2\id$, this
 tells us it can only have eigenvalues $E_\pm$. Note that this also explains why
@@ -59,7 +59,7 @@ controlling the quantum phase transition, and the system with $M<0$ or $M>0$
 possesses two different quantum phase.
 
 In addition, we can analyse its edge mode. Assuming the two material of
-different quantum phases touches each other in the $d$th direction. Then we
+different quantum phases touches each other in the $d$th dimension. Then we
 should replace $k_d$ by $-i\partial_{x_d}$, since the translational invariance is
 broken in that direction. Now the eigenvalue equation is:
 \begin{equation}
@@ -163,17 +163,17 @@ $\mathrm{C\ell}_{2}(\C)\to \mathrm{C\ell}_{3}(\C)$, which tells us the number of
 unitarily non-equivalent mass terms. Detailed examples can be found in section
 III.C.1 of \cite{Chiu2016}.
 
-\paragraph{Stable Classification} An unmentioned hypothesis above are that we
-are classifying strong topological insulators. They are topological insulators
-that robust against disorder\cite{Fu2007}. There is a consensus that in
-classification of strong topological insulators, we replace the Brillouin Zone
-$T^d$ by $S^d$\footnote{The exact reason can be found in Kitaev's
-    classification\cite{Kitaev2009a} or another article \cite{Kennedy2015} which
-discuss it from a different view.}, and we do it in a stable way, i.e., we choose
-our classification to be independent of and insensitive to the addition of
-irrelevant trivial bands. The first replacement allow us to use homotopy groups,
-which classify maps with domain in spheres. The "stable way" allows the use of
-$K$-theory (sec.III.C.1 of \cite{Chiu2016}).
+
+
+
+
+
+
+
+
+
+
+
 
 \paragraph{The View from SPEMT} Let us consider a modified Dirac Hamiltonian
 with extra mass term:
@@ -186,12 +186,12 @@ Here, the parameter $M$ characterized the domain wall between different phases
 of topological insulators. The extra mass term $m_j$ represents a perturbation
 caused by disorder. I argue that we can do our classification in the following
 way. First, we consider the case when $D=0$, i.e. without perturbation, and we
-consider how many different mass terms we could have. Second, we consider adding
-an extra mass term which respect the symmetry of the Hamiltonian ($D=1$).
-Whether this symmetry preserving extra mass term (SPEMT) can be added or not. If
+consider how many different mass terms we could have. Second, we consider whether we can add
+an extra mass term which respect the symmetry of the Hamiltonian ($D=1$) or not.
+Tthis symmetry preserving extra mass term is denoted as SPEMT. If
 a SPEMT can be added, then the system is not robust against perturbation and gap
-may be opened by disorder. So it is trivial topological insulator. If a SPEMT
-cannot be added, then this system is topological non-trivial. 
+may be opened by disorder. So it is not protected by symmetry and is trivial topological insulator. If a SPEMT cannot be added, then this system is topological non-trivial. 
+
 
 One best thing about this classification is that it can be done by considering
 only the minimal matrix dimension of those gamma matrices in Hamiltonian. The
@@ -200,10 +200,10 @@ trivial cases of $\mathrm{C\ell}_{0/1}(\C)$)\footnote{See this post
 \cite{PhysicsStackExchange}, or the p.12 and Theorem in p.5 of this
 \cite{West1998}.}. Therefore, gamma matrices of different
 matrix dimension are built by tensor products of Pauli matrices.
-\footnote{Or, the non-trivial irreducible representations (turns out there are
+\footnote{Or, the non-trivial irreducible representations (turns out that there are
 at most 2) are built by tensoing Pauli matrices.}
-Now, to increase the dimension of the matrix, is equivalent to
-tensor them. One can add more bands of the same type, or add more bands of a
+Now, increasing the dimension of the matrix, is equivalent to
+tensoring them. One can add more bands of the same type, or add more bands of a
 different type in the smaller dimension, or add trivial bands. In all cases, the
 triviality of topological insulators can be detected in minimal dimension, since
 adding trivial bands can be ignored (insensitive to addition of trivial bands),
@@ -250,14 +250,16 @@ conditions on the gamma matrices:
     & \{S,\tilde{\gamma}_j \} = \{S,\gamma_i\} =0
 \end{align}
 \end{subequations}
-With this, we can establish a isomorphism between "Hamiltonian and Symmetry
+With this, we can establish an isomorphism between "Hamiltonian and Symmetry
 Operators" and "Clifford Algebra over $\R$ or $\C$".  But let's first see some
 examples in action.
 
 \subsubsection{Examples of Constructing Isomorphism}
 \label{sec:iso-Examples}
 For class AI ($T^2=1$, $C=0,S=0$) in $d=1,D=0$, we define:
-$$ G_{\mathrm{AI}} = \{i, T, \tilde{\gamma_0}, \gamma_1\} $$
+\begin{equation}
+	G_{\mathrm{AI}} = \{i, T, \tilde{\gamma_0}, \gamma_1\}
+\end{equation}
 We have its (anti)commutation relations listed in Table~\ref{tab:generator-AI}.
 \begin{table}[htpb]
     \centering
@@ -277,8 +279,8 @@ Now with $J_4 = T\tilde{\gamma}_0\gamma_1$,
 $J_3=iT\tilde{\gamma}_0$, we could verify that all
 $\{i,T,J_3,J_4\}$ anticommute with each other, and
 $J_3^2=J_4^2=1$. So together they generate the algebra
-$\mathrm{C\ell}_{3,1}(\R) \cong \mathrm{C\ell}^g((2,2),\R)$. This will be consistent with the
-isomorphism $G_{\mathrm{AI}} \cong \mathrm{C\ell}_{2+D,1+d}(\R)$ in
+$\mathrm{C\ell}_{3,1}(\R) \cong \mathrm{C\ell}_{2,2}(\R)$. This is consistent with the
+isomorphism $G_{\mathrm{AI}} \cong \mathrm{C\ell}_{2+D,1+d}(\R)$ shown later in
 Table~\ref{tab:map-sym-cl}.
 
 Another example. For class AII ($T^2=-1$, $C=0,S=0$) in $d=1,D=0$, we have:
@@ -334,7 +336,7 @@ need to treat the situation of complex classes and real classes
 differently. The complex classes are isomorphic to complex Clifford Algebras,
 while the real classes are isomorphic to real Clifford Algebras. The reason for
 this distinction is that, in real classes, there are complex conjugate operator
-$K$. First, there is not way to represent complex conjugation simply as
+$K$. First, there is no way to represent complex conjugation simply as
 multiplication of complex matrices. Second, complex matrices come with a nature
 definition of complex conjugate $\dagger$, whereas $K^\dagger$ is ill-defined
 \footnote{Think about this. $\braket{c \phi |K \psi}$ could have different
@@ -360,10 +362,10 @@ Clifford Algebra:
 
 For real classes, we need to include $i$, and symmetry operators $T,C$ in our
 group $G_\#$. It turns out that we need to pick a phase such that $\{T,C\}=0$,
-which is possible as is mentioned earlier. Now we demonstrate the proof of
+which is possible as mentioned earlier. Now we demonstrate the proof of
 isomorphism in class $\mathrm{AII}$.\footnote{For reader unfamiliar with the
 complexfication of real vector space, and the realification of complex vector
-space, I recommend a quick reading of section 12 \cite{suetin1989linear}.}
+space, I recommend a quick reading of section 12 of \cite{suetin1989linear}.}
 
 We first note that, given a real vector space $V$, we can complexify a real space in
 two ways. The first is trivially taking the tensor product $V\otimes_\R \C$,
@@ -372,7 +374,7 @@ structure $J$, which is a $\R$-linear map that squares to $-\id$, i.e.
 $J^2=-\id$. With this almost complex structure $J$, then $V$ admits in a natural
 way the structure of a complex vector space $V_\C$\cite{DanielHuybrechts2005}. Also, a
 $\R$-linear map $A$ on $V$ is $\C$-linear($\C$-antilinear) if and only if $A$
-commutes (anticommutes) with $J$. Therefore, we map model the antiunitary
+commutes (anticommutes) with $J$. Therefore, we can model the antiunitary
 operators on a real vector space naturally.
 
 Let us denote the generators in Clifford Algebra as $J_j$ and $\tilde{J}_i$,
@@ -380,14 +382,14 @@ where $J_j^2=-\tilde{J}_i^2 =-\id$. Since this almost complex structure $J$
 squares to $-\id$ and anticommutes with antiunitary symmetry operators, we
 naturally take it to be the first generator in our Clifford Algebra, $J_1=J$.
 
-Then we discuss some tips that will useful for later calculation.
+Then we discuss some tips that will be useful for later calculation.
 \paragraph{Tips}
 \begin{enumerate}
     \item Since all generator anticommute, all matrices either commute or
         anticommute. So the Algebra is pretty simple.
     \item Since $[A,BC] = \pm[A,CB]$ and $\{A,BC\}=\pm\{A,CB\}$, the commutation
         or anticommutation does not depends on the order of the matrices $BC$ or
-        $CB$. So one might rearrange them in the order whichever is convenient.
+        $CB$. So one might rearrange them in these orders whichever is convenient.
     \item For $A=\{J_1,\cdots,J_n\},B=\{K_1,\cdots,K_m\}$, we have $AB=(-1)^{mn}
         BA$. However, if $A$ and $B$ has something in common, then the above
         condition breaks. This is like adding an "impurity" in it to change the
@@ -405,7 +407,7 @@ should have an even number of Clifford Algebra generators other than $J_1$
 itself. Similarly, antiunitary symmetry operators should have an odd number of
 Clifford Algebra generators other than $J_1$. We "dope" the gamma matrices with
 some $J_1$ to make it commute/anticommute with symmetry operators. More
-explicitly, bearing in mind that in class $\mathrm{AII}$ has only $T^2=-1$, we
+explicitly, bearing in mind that class $\mathrm{AII}$ has only $T^2=-1$, we
 take a quick look into Hamiltonian \ref{eq:H-spemt} and symmetry conditions
 \ref{eq:sym-spemt}, and they give us the inspiration to set:
 \begin{equation}
@@ -439,11 +441,11 @@ Therefore, all complex matrices $\gamma_i,\tilde{\gamma}_j$ are identified with
 real matrices $\Gamma_i,\tilde{\Gamma}_j$, of twice the size of
 $\gamma_i,\tilde{\gamma}_j$. More explicitly, $(a_{mn}+i b_{mn})$ is identified
 as $A+iB = (a_{mn})+i(b_{mn}) \to \id_2\otimes(a_{mn})+J\otimes(b_{mn})$. On
-important matrix is the matrix $J_1$ that we identify $i$ as:
+important matrix is the matrix $J_1$ which is identified as $i$, and is equal to:
 \begin{equation}
     J_1 \equiv -i\sigma_y \otimes \id_{n\times n}
 \end{equation}
-The complex conjugate $K$ is then a matrix anticommute with $J_1$.  Then $T\to
+The complex conjugate $K$ is then a matrix anticommuting with $J_1$.  Then $T\to
 \Gamma_T$, $C\to \Gamma_C$ for some real matrices anticommute with $i\to J_1$.
 We also note that, as mentioned earlier, we make a phase choice of $T$ and $C$
 such that:
@@ -551,10 +553,10 @@ for example:
 \begin{equation}
     H_A = M \sigma_x + k_x \sigma_y
 \end{equation}
-However, the symmetry operator $S$ takes rest Pauli matrices $\sigma_z$, and
-there is not other matrix possible for the extra mass term (this can be viewed
-alternatively, from $\mathrm{C\ell}_{4}(\C)\cong \mathcal{M}(4,\C)$, which only
-has irreducible representation in dimension $1$ or $4$). So the state is
+However, the symmetry operator $S$ takes the rest of Pauli matrices $\sigma_z$, and
+there is no other matrix possible for the extra mass term. So the state is
+
+
 topologically non-trivial. Now we consider the state with arbitrary copies of it.
 \begin{equation}
     H_A = M \sigma_x\otimes \id_n + k_x\sigma_y\otimes\id_n,
@@ -730,7 +732,7 @@ types of change occurs in that table:
     called two equivalent copies of the original Hamiltonian, whereas the second one
     is called two inequivalent copies of the original Hamiltonian.\footnote{The
     exact reason for "equivalent" and "inequivalent" would be found in
-    representation theory or Clifford Algebras, but which is not important for
+    representation theory or Clifford Algebras, but it is not important for
     our discussion here.} For the second copy, we could always find a SPEMT to gap
     the system. For example, for
     \begin{equation}
@@ -741,12 +743,12 @@ types of change occurs in that table:
         M\tilde{\Gamma}_0\otimes\sigma_z + 
             (\sum_i k_i\Gamma_i)\otimes\id_{2\times 2}
     \end{equation}
-    it can be gapped by a SPEMT such as $\Gamma_1\otimes \sigma_x$. 
+    It can be gapped by a SPEMT such as $\Gamma_1\otimes \sigma_x$. 
 
     For the first type, the situation is different and it distinguishes the $\Z$
     and $\Z_2$ topological insulator. We first not that, a SPEMT in this case
     must be of the form $\Gamma\otimes A_{2\times 2}$, where $\Gamma$
-    anticommutes with $\Gamma_i$ and $\tilde{\Gamma}_0$, $A$ is any $2\times 2$
+    anticommutes with $\Gamma_i$ and $\tilde{\Gamma}_0$, $A$ is some $2\times 2$
     matrix.
     \begin{enumerate}
         \item $\mathbf{n\to 2n}$: In this case, there will be a SPEMT to gap
@@ -769,7 +771,7 @@ types of change occurs in that table:
         \item $\mathbf{n_2\to 2n}$: In this case, unfortunately no SPEMT can be
             found from either $\mathrm{C\ell}_{p+1,q}(\R)$ or
             $\mathrm{C\ell}_{p,q+1}(\R)$, as can be checked in
-            Table~\ref{tab:mat-dim-allClass-1d} that they all doubled the
+            Table~\ref{tab:mat-dim-allClass-1d} that they all double the
             dimension.
     \end{enumerate}
 \end{enumerate}
@@ -829,7 +831,7 @@ Appendix~\ref{sec:a case study} for one example.
 \end{table}
 \subsection{Classification in Arbitrary Dimension}
 \label{sec:Classification in Arbitrary Dimension}
-We now show combined with some properties, the classification in $d=1$ can be
+We now show that, when combined with some properties, the classification in $d=1$ can be
 generalized to classification in arbitrary dimensions. In $K$-theoretic
 classification, the extension problem is not affected when tensored with some
 other algebras. Specifically, for complex classes, the extension problem of
@@ -837,7 +839,7 @@ $\mathrm{C\ell}_{n}(\C)\to\mathrm{C\ell}_{m}(\C)$ is the same as the extension
 problem of $\mathrm{C\ell}_{n}(\C)\otimes\mathrm{C\ell}_{2}(\C)\to
 \mathrm{C\ell}_{m}(\C)\otimes\mathrm{C\ell}_{2}(\C)$ (See for example, sec
 III.C.1 of \cite{Chiu2016}). For real classes, similar property holds.
-This insensitive to tensoring a new algebra, can be understand in SPEMT
+This insensitivity to tensoring a new algebra, can be understood in SPEMT
 background. Because $\mathrm{C\ell}_{2}(\C)\cong\mathcal{M}(2,\C)$, which only
 multiply the matrix dimension of both sides by a constant $2$. So the pattern of
 $n\to n, n\to n_2$, $n\to 2n$, and $n_2\to 2n$, mentioned in previous section,
@@ -878,7 +880,7 @@ This property tells us that Clifford Algebra basically depends only on the
 difference $p-q$, or combined with previous periodicity, $p-q$ (mod $8$). For
 example, we have (let $n$ be an arbitrary integer):
 $\mathrm{C\ell}_{p+1,q+1}(\R)\sim\mathrm{C\ell}_{p,q}(\R)$. With this, one can
-derive easily two chains of relation:
+derive two chains of relations:
 \begin{align}
     &\mathrm{C\ell}_{1+(D+n),2+D}(\R) \sim \mathrm{C\ell}_{1+(D+1+n),3+D}(\R)
     \nonumber\\
@@ -891,7 +893,7 @@ and
     \sim& \mathrm{C\ell}_{2+D,1+(D+6+n)}(\R) \sim
     \mathrm{C\ell}_{3+D,1+(D+7+n)}(\R)
 \end{align}
-Now we tries to connect the two chains together. We note further that the
+Now we try to connect the two chains together. We note further that the
 Clifford Algebra has the following properties:
 \begin{align}
     \mathrm{C\ell}_{p+1,q}(\R) &\cong \mathrm{C\ell}_{q+1,p}(\R) \\
@@ -927,12 +929,12 @@ Then
     G_{\mathrm{D}}(d=d_0) \sim G_{\mathrm{BDI}}(d=d_0-1)
 \end{equation}
 With equivalences~\ref{eq:cli-periodic},\ref{eq:cli-Chain1},\ref{eq:cli-Chain2},
-we see that we need only the result in a dimension, to obtain the whole of
+we see that we need only the result in a dimension, to obtain the whole table of
 classification of all real classes. Similar fact holds for complex classes:
 \begin{equation}
     G_{\mathrm{AIII}}(d=d_0) \sim G_{\mathrm{A}}(d=d_0-1)
 \end{equation}
-which is too trivial to be mentioned here. 
+which is obvious. 
 
 In a word, our classification for topological insulators in $1$ spatial
 dimension is sufficient to generate the whole Table~\ref{tab:master-table2}.
