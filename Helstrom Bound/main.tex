@@ -1,0 +1,117 @@
+\documentclass{article}
+
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physicist-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physicist-taper}
+\makenomenclature % For an index of symbols.
+
+% For drawing quantum circuits
+\usepackage{qcircuit}
+
+\title{Quantum Machine Learning}
+\date{\today}
+\author{Taper}
+
+
+\begin{document}
+
+
+\maketitle
+\abstract{
+Hello world! 
+}
+\tableofcontents
+
+\section{General Measurement}
+\label{sec:General Measurement}
+\begin{itemize}
+  \item General Measurement in Density Matrices
+    \begin{itemize}
+      \item Defined by $M_1,\cdots, M_m$, with $\sum_i M^\dagger_i M_i = \id$
+        (Kraus representation?)
+      \item The transformed state is: $\sum_i M_i \rho M_i^\dagger$.
+      \item The probability of seeing the item labeled $j$ is,
+        \begin{equation}
+          p_j = \Tr(M_j \rho M_j^\dagger) = \Tr(M_j^\dagger M_j \rho)
+        \end{equation}
+      \item The state collapsed into
+        \begin{equation}
+          \frac{M_j \rho M_j^\dagger}{p_j} = 
+          \frac{M_j \rho M_j^\dagger}{\Tr(M_j \rho M_j^\dagger)}
+        \end{equation}
+    \end{itemize}
+  \item Why it is so similar to the statistical description of ensembles, in
+    which:
+    \begin{equation}
+      Z = \Tr(M_j \rho M_j^\dagger)
+    \end{equation}
+   \item POVMs in Density Matrices:
+     \begin{itemize}
+       \item We let $E_i = M_i^\dagger M_i$, then
+       \item $\sum_i E_i = \id$, $p_j = \Tr(E_j \rho)$,
+       \item We don't have an expression for the collapsed state.
+     \end{itemize}
+\end{itemize}
+
+\section{Discriminating Two Pure States}
+\label{sec:Discriminating Two Pure States}
+\begin{itemize}
+  \item Given $d$-dim state $\psi$ known to be either $\psi_1$ or $\psi_2$.
+    Tell which state $\psi$ is in.
+  \item Best strategy:
+    \begin{itemize}
+      \item Do the POVMs with outcome $\{\ket{v_1},\ket{v_2}\}$ such that
+      \item \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\linewidth]{fig/dis-two-pure.pdf}
+        \end{figure}
+      \item The angle $\theta$ is angle between $\psi_i$. The $v_i$ are
+        symmetric about the angle bisector of $\psi_i$.
+      \item The best probability of success is
+        \begin{equation}
+          |\braket{\psi_1|v_i}|^2 
+          = \cos^2(\frac{\pi/2-\theta}{2}) = \frac{1}{2} + \frac{1}{2}\sin(\theta)
+        \end{equation}
+    \end{itemize}
+  \item ?: Why is this optimal?
+  \item ?: How is the probability of success defined?
+\end{itemize}
+
+\section{Discriminating Two Mixed States}
+\label{sec:Discriminating Two Mixed States}
+Given a mixed state $\rho$ in $\rho_1$ or $\rho_2$.
+
+\textbf{Easy case}: 
+\begin{itemize}
+  \item Assuming equal \textit{a priori} probability.
+  \item Assuming $\rho_1=$ ensemble $\{p_1,\psi_i\}$, and $\rho_2=$
+    ensemble $\{q_i,\psi_i\}$ (i.e. produced in the same pool of
+    $\psi_i$s.).
+  \item Optimal:
+    \begin{itemize}
+      \item Measure in the same basis $\{\psi_i\}$.
+      \item If got $\psi_i$, we believe it is $\rho_1$ or $\rho_2$ according to
+        $\text{max}(p_i,q_i)$.
+      \item Then the overall success is
+        \begin{align*}
+          P_\text{success} &=
+          \frac{1}{2} \sum_i \text{max}(p_i,q_i) \\
+          &= \frac{1}{2} \sum_i \left( \frac{p_i+q_i}{2} + \frac{|p_i-q_i|}{2} \right) \\
+          &= \frac{1}{2} + \frac{1}{2} \sum_i \frac{|p_i-q_i|}{2} \\
+          &= \frac{1}{2} + \frac{1}{2} d_\text{TV}(\{p_i\},\{q_i\})
+        \end{align*}
+      \item statistical distance/total variation: $d_\text{TV}(\{p_i\},\{q_i\})
+        = \sum_i \frac{|p_i-q_i|}{2}$.
+    \end{itemize}
+  \item Still the optimal is unproven!
+\end{itemize}
+
+
+% \bibliography{library.bib}{}
+% \bibliographystyle{alphaurl}
+% \printnomenclature
+
+\end{document}
