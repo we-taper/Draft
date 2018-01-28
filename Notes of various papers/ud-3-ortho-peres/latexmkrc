@@ -1,0 +1,1 @@
+$pdflatex = 'pdflatex %O %S; pdfcrop --margins "20" %B.pdf %B-c.pdf; cp %B-c.pdf %B.pdf';
