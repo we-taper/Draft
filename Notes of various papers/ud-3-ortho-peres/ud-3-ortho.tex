@@ -1,0 +1,75 @@
+\documentclass{article}
+
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physicist-taper}
+\usepackage[sharp]{easylist} % use # symbol to denote a list
+
+\makenomenclature
+
+\title{UD Between 3 Non-ortho}
+\date{\today}
+\author{Taper}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This is a note for \href{https://arxiv.org/abs/quant-ph/9804031}{Optimal distinction between non-orthogonal quantum states}.
+\end{abstract}
+
+\section{Background}
+
+\begin{easylist}[enumerate]
+# Why unambiguous?
+## It may happen that we have unlimited supply of data
+## But we cannot afford a mistake
+### Example: cryptography (?)
+### why cryptography? $\to$ {\color{red} don't know!}
+# Nonortho for $2$ states: solved by [4-6]
+## Chefles investigated $N$ linearly independent states $\to$ partial result
+# Here: $3$ states
+## uses POVM
+## a failure could also give contribution using posterior probabilities
+## could be extended to $N$ states $\to$ become tedious
+\end{easylist}
+
+\section{Setup}
+
+\begin{easylist}[enumerate]
+# $\dim{H} =3$
+# Input: $u_1, u_2, u_3$, with \textit{a priori} probability $p_1,p_2,p_3$.
+# Aim: maximize expected gain of signal
+# Start with 
+## something approximately $ v_1=u_2\times u_3$.
+## it looks like orthogonal complement
+## We will add restriction to $v_i$.
+#Finally
+## $A_j = k_j \ketbra{v_j}$, where $k_j$ is something we want to maximize.
+## $P_j = \braket{u_j, A_j u_j}$, and $P_0 = \sum_{j=1}^3 p_j \braket{u_j, A_0 u_j}$.
+## Obviously, the $k_j$ must make $A_0 =\id - \sum_{i=1}^3 A_j$ a valid positive operator
+## The restriction is discussed in p.4 to 5, and especially eq (11)
+## Most useful condition: $\det(A_0)\geq 0$, finally turn into: eq. (12)
+# Result
+## Let: $G=\sum_j C_j P_j$ , where $C_j$ is the value of signal for $u_j$.
+## Maximal $G$ could be obtained by adjusting $k_j$, and the process is discussed in p.6 to p.7
+## Example:
+### When $p_j=\frac{1}{3}$, and all $C_j=1$, the optimal result is when $k_1=$ .... And $P_0=0.8386$.
+### When $p_j$ = as above, but $C_1=0.8, C_2 = 1.2$ and $C_3=1$, the optimal result is in a different sets of $k_i$, and $P_0 = 0.8626$.
+## {\color{red} It feels odd to talk about different values for $C_i$.}
+
+# Why Inconclusive matters?
+## The initial entropy is $H_\text{init} = -\sum_{j=1}^3 p_j \ln p_j$ 
+## In general, the optimal $A_0$ is a matrix of rank $2$, written as: $A_0 = \lambda_m\ketbra{m} + \lambda_n \ketbra{n}$.
+## The probability of $m$'s result is: $P_{mj} = p_j \lambda_m |\braket{m,u_j}|^2$
+## Using Bayes' theorem, we could have, the posterior probability for input $u_j$ upon observing output$m$ is
+### $Q_{jk} = P_{mj}/\sum_{i=1}^3 P_{mi}$ 
+## The entropy of this $H_m = -\sum_{j=1}^3 Q_{jm} \ln Q_{jm}$ is usually $H_m < H_\text{init}$.
+## Hence at least some information has been gained
+## {\color{red} Is this a meaningful gain? How to make use of this?}
+#  $N> 3$ signals
+## only sketched, actually many are conjectures.
+
+\end{easylist}
+\end{document}
