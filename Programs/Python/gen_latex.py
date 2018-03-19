@@ -96,7 +96,7 @@ __SUBFIGS__
         return latex
 
 
-class FigTabel:
+class FigTable:
     TABLE_TEMPLATE = r"""% making the tabularx vertically centered
 \renewcommand{\tabularxcolumn}[1]{>{\small}m{#1}}
 \begin{table}[__POSITION__]
@@ -115,12 +115,15 @@ __TABLE_CONTENT__
     Fig = namedtuple('fig', ['width', 'figpath'])
     Row = namedtuple('row', ['name','figs'])
 
-    def __init__(self, caption, top_left = '', column_names = List[str], label = None, position='h'):
+    def __init__(self, caption = None, top_left = '', column_names = List[str], label = None, position='h'):
         self.caption = caption
         self.top_left = top_left
         self.column_names = column_names
         if label is None:
-            self.label = [ x if x.isalnum() else '_' for x in caption]
+            if caption is not None:
+                self.label = ''.join([ x if x.isalnum() else '_' for x in caption])
+            else:
+                self.label = None
         else:
             self.label = label
         self.position = position
@@ -167,11 +170,17 @@ __TABLE_CONTENT__
 
     def to_latex(self):
         tmp = self.TABLE_TEMPLATE.replace('__POSITION__', self.position)
-        col_spec = '|X| ' + r'*__N__{>{\centering\arraybackslash}X}@{}'.replace('__N__', str(self.fig_column_count)) + '|'
+        col_spec = '|X| ' + r'*{__N__}{>{\centering\arraybackslash}X}@{}'.replace('__N__', str(self.fig_column_count)) + '|'
         tmp = tmp.replace('__COLUMN_SPEC__', col_spec)
         tmp = tmp.replace('__TABLE_CONTENT__', self._make_all_row())
-        tmp = tmp.replace('__CAPTION__', self.caption)
-        tmp = tmp.replace('__LABEL__', self.label)
+        if self.caption is None:
+            tmp = tmp.replace(r'\caption{__CAPTION__}', '')
+        else:
+            tmp = tmp.replace('__CAPTION__', self.caption)
+        if self.label is None:
+            tmp = tmp.replace(r'\label{fig:__LABEL__}', '')
+        else:
+            tmp = tmp.replace('__LABEL__', self.label)
         return tmp
 
 
@@ -185,7 +194,7 @@ def test_sub_fig():
 
 
 def test_fig_table():
-    figtable = FigTabel(caption='caption', top_left=r'a\textbackslash b', column_names=['1','2','3'],
+    figtable = FigTable(caption='caption', top_left=r'a\textbackslash b', column_names=['1', '2', '3'],
                         label='label', position='h')
     sample_fig = '20err1inc-50o100-perr20pinc1-lr1E-3.pdf'
     figtable.add_row(name_of_row='row name', row_of_figs=[sample_fig, sample_fig])
