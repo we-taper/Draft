@@ -1,0 +1,282 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physicist-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physicist-taper}
+
+\title{The Recursive and Non-recursive Bernstein-Vazirani Algorithm}
+\date{\today}
+\author{Taper}
+
+
+\begin{document}
+
+
+\maketitle
+\abstract{
+Based on notes available at:
+% \href{https://courses.cs.washington.edu/courses/cse599d/06wi/lecturenotes7.pdf}
+}
+\tableofcontents
+
+\section{Notation}
+\label{sec:Notation}
+
+A $\vec{x}$ is a vector of $n$ binary numbers. A summation $\sum_{\vec{x}}$ is a
+summation over all possible $n$ binary numbers: $\sum_{\vec{x}}=\sum_{x\in
+  \{0,1\}^n}$. A dot product between two vectors is $\vec{x}\vdot\vec{y} =
+  \sum_{i=0}^{n-1} x_i y_i \text{ mod }2$.
+
+\section{Tricks}
+\label{sec:Tricks}
+
+\subsection{Hadamard gate}
+\label{sec:Hadamard gate}
+
+The Hadamard gate can be written in the following notation:
+
+\begin{equation}
+  H = \frac{1}{\sqrt{2^n}}\sum_{\vec{x},\vec{y}} (-1)^{\vec{x}\vdot\vec{y}}
+  \ket{\vec{x}}\bra{\vec{y}}.
+\end{equation}
+
+Define $\ket{P_{\vec{x}}}$ as
+\begin{equation}
+  \ket{P_{\vec{x}}} = \frac{1}{\sqrt{2^n}} \sum_{\vec{y}}
+  (-1)^{\vec{x}\vdot\vec{y}} \ket{\vec{y}}.
+\end{equation}
+One can verify that
+\begin{equation}
+  \braket{P_{\vec{x}} |P_{\vec{y}}} = \delta_{\vec{x},\vec{y}},\,
+  \sum_{\vec{x}}\ketbra{P_{\vec{x}}} = \id.
+\end{equation}
+And the Hadamard gate could be written as
+\begin{equation}
+  H = \sum_{\vec{x}} \ket{\vec{x}}\bra{P_{\vec{x}}} 
+  = \sum_{\vec{x}} \ket{P_{\vec{x}}} \bra{\vec{x}}.
+\end{equation}
+Therefore the Hadamard gate transfer between the basis where information is
+recorded in qubit register $\ket{\vec{x}}$ and the basis where information is
+recorded in the phase $\ket{P_{\vec{x}}}$. A special state which will be used
+often is
+\begin{equation}
+  \ket{P_0} = \frac{1}{\sqrt{2^n}} \sum_{\vec{x}}\ket{\vec{x}}.
+\end{equation}
+
+\subsection{Phase kickback}
+\label{sec:Phase kick}
+For a classical function $f:\{0,1\}^n\to \{0,1\},\, \vec{x}\mapsto f(\vec{x})$,
+its analogous quantum gate is $U_f:\ket{\vec{x},y} \mapsto \ket{\vec{x},y\oplus
+f(x)}$. Quantum computation can calculate this in a parallel manner as a phase
+gate by
+\begin{equation}
+  U_f \left(\sum_{\vec{x}} \phi(\vec{x})  \ket{\vec{x}}
+  \otimes \frac{1}{\sqrt{2}} (\ket{0}-\ket{1}) \right)
+  = \sum_{\vec{x}} (-1)^{f(\vec{x})} \phi(\vec{x})\ket{\vec{x}} 
+  \otimes \frac{1}{\sqrt{2}} (\ket{0}-\ket{1}),
+\end{equation}
+where $\phi(\vec{x})$ are some arbitrary non-zero phase. If we ignore the
+ancilla qubit, then $U_f$ is acting as a phase $(-1)^{f(\vec{x})}$ on every
+$\ket{\vec{x}}$ on ``parallel".
+
+
+\section{The recursive Bernstein-Vazirani}
+\label{sec:The recursive Bernstein-Vazirani}
+
+The recursive Bernstein-Vazirani problem (rBV) of level $k$ asks us to find an n-bit number
+$\vec{s}$ through a series of oracles provided. The first oracle provided is
+$f:\{0,1\}^{nk}\to \{0,1\},\, \{\vec{x}_1,\cdots, \vec{x}_k\}\mapsto
+\vec{x}_k\vdot \vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-1}}$, where we need to find
+out the $n$ number $\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-1}}$. The following
+oracles are 
+\begin{equation}
+  g_j: \{0,1\}^n\to \{0,1\},\, \vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-1}}
+  \mapsto \vec{x}_j \vdot \vec{s}_{\vec{x}_1,\cdots,\vec{x}_{j-1}},\,
+  j=k-1,k-2,\cdots,1.
+\end{equation}
+The final $g_1$ is slightly different because
+$g_1(\vec{s}_{\vec{x}_1})=\vec{s}\vdot\vec{x}_1$. Here we would step by step
+find out the numbers $\vec{s}_{\vec{x}_1,\cdots,\vec{x}_j}$, until finally we
+have $\vec{s}$. Classically the query complexity is lowered bounded as
+$\Omega(n^k)$.
+
+\subsection{A quantum algorithm}
+\label{sec:A quantum algorithm}
+
+Define the quantum version of oracles as
+\begin{align}
+  & f\ket{\vec{x}_1,\cdots,\vec{x}_k} =
+  (-1)^{\vec{x}_k\vdot\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-1}}} 
+  \ket{\vec{x}_1,\cdots,\vec{x}_k},\\
+  & g_j \ket{\vec{x}_1,\cdots, \vec{x}_j, 
+    \vec{s}_{\vec{x}_1,\cdots,\vec{x}_j} ,\cdots,\vec{x}_k}\nonumber\\
+  & = (-1)^{\vec{x}_j \vdot \vec{s}_{\vec{x}_1,\cdots,\vec{x}_{j-1}}}
+    \ket{\vec{x}_1,\cdots, \vec{x}_j, 
+    \vec{s}_{\vec{x}_1,\cdots,\vec{x}_j} ,\cdots,\vec{x}_k},\nonumber\\
+  & \;\text{for } j=k-1,k-2,\cdots ,2,\\
+  & g_1 \ket{\vec{x}_1, \vec{s}_{\vec{x}_1}, \vec{x}_3, \cdots,\vec{x}_k} =
+  (-1)^{\vec{x}_1 \vdot \vec{s}} \ket{\vec{x}_1, \vec{s}_{\vec{x}_1}, \vec{x}_3, \cdots,\vec{x}_k},
+\end{align}
+where we have used the phase kickback trick mentioned in section~\ref{sec:Phase
+kick} and ignored the ancilla qubits. Notice that all quantum oracles are
+meaningless phase gate unless a superposition of basis
+$\ket{\vec{x}_1,\cdots,\vec{x}_k}$ are present. In the following, we will always
+ensure a superposition of the form 
+\[
+  \sum_{\vec{x}_1,\cdots,\vec{x}_j} \phi(\vec{x}_1,\cdots,\vec{x}_j,\text{(something)})
+  \ket{\vec{x}_1,\cdots,\vec{x}_j,\text{(something)}},
+\]
+is always present for $g_j$ to act on. Here $\phi$ are still some non-zero phases.
+
+A quantum algorithm to solve rBV problem depends on the following operators
+$D_j(j=1,\cdots,k)$, defined recursively by:
+
+\begin{align}
+  &D_k = H^{\otimes n}_{k} f, \\
+  &D_{k-1} = H^{\otimes n}_{k-1} D^\dagger_k g_{k-1}, \\
+  &D_{k-2} = H^{\otimes n}_{k-2} D^\dagger_k D^\dagger_{k-1} g_{k-2}, \\
+  &\cdots \\
+  &D_1 = H^{\otimes n}_1 D^\dagger_k D^\dagger_{k-1}\cdots D^\dagger_2 g_1.
+\end{align}
+
+Here the $H^{\otimes n}_j$ is the $n$ bit Hadamard gate $H^{\otimes n}$ acting
+on the $j$th register.
+
+The first operator $D_k$ does the following:
+\begin{align}
+  & D_k \sum_{\vec{x}_1,\cdots,\vec{x}_k} \ket{\vec{x}_1,\cdots,\vec{x}_k}\nonumber\\ 
+  = & H^{\otimes n}_k \sum_{\vec{x}_1,\cdots,\vec{x}_k}
+  (-1)^{\vec{x}_k\vdot\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-1}}} 
+  \ket{\vec{x}_1,\cdots,\vec{x}_k} \\
+  = & H_k^{\otimes n} \sum_{\vec{x}_1,\cdots,\vec{x}_{k-1}}
+  \ket{\vec{x}_1,\cdots,\vec{x}_{k-1},P_{\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-1}}}}
+  \\
+  = & \sum_{\vec{x}_1,\cdots,\vec{x}_{k-1}}
+  \ket{\vec{x}_1,\cdots,\vec{x}_{k-1},\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-1}}}.
+\end{align}
+Notice that if there are some arbitrary non-zero phases
+$\phi(\vec{x}_1,\cdots,\vec{x}_k)$ in front of
+$\ket{\vec{x}_1,\cdots,\vec{x}_k}$ on the first line, the final result will not
+change except from this arbitrary phase. $D_k$ can be understood as the following
+diagram:
+\begin{equation}
+\begin{tikzcd}
+  \ket{\cdots,\vec{x}_k} \arrow[r, bend left, "D_k"] & 
+   \arrow[l, bend left, "D^\dagger_k"] 
+   \ket{\cdots,\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-1}}}.
+\end{tikzcd}
+\end{equation}
+
+The second operator $D_{k-1}$ does the following next:
+\begin{align}
+  & D_{k-1} \sum_{\vec{x}_1,\cdots,\vec{x}_{k-1}}
+  \ket{\vec{x}_1,\cdots,\vec{x}_{k-1},\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-1}}}
+  \\
+  =& H^{\otimes n}_{k-1} D^\dagger_k \sum_{\vec{x}_1,\cdots,\vec{x}_{k-1}} 
+  (-1)^{\vec{x}_{k-1}\vdot \vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-2}}}
+  \ket{\vec{x}_1,\cdots,\vec{x}_{k-1},\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-1}}}
+  \\
+  =& H^{\otimes n}_{k-1} \sum_{\vec{x}_1,\cdots,\vec{x}_{k}}
+  (-1)^{\vec{x}_{k-1}\vdot \vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-2}}}
+  \ket{\vec{x}_1,\cdots,\vec{x}_{k-1},\vec{x}_{k}}
+  \\
+  =& H^{\otimes n}_{k-1} \sum_{\vec{x}_1,\cdots,\vec{x}_{k-2}}
+  \ket{\vec{x}_1,\cdots,\vec{x}_{k-1},
+  P_{\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-2}}},P_0}
+  \\
+  =& \sum_{\vec{x}_1,\cdots,\vec{x}_{k-2}}
+  \ket{\vec{x}_1,\cdots,\vec{x}_{k-2}, \vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-2}},P_0}
+\end{align}
+
+Similarly, we have the following diagram for $D_{k-1}$:
+\begin{equation}
+\begin{tikzcd}
+  \ket{\cdots,\vec{x}_{k-1},\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-1}}} 
+  \arrow[r, "\text{load phase}", "g_{k-1}" below,]
+  \dar[bend left, "D_{k-1}"]
+  & 
+  (-1)^{\cdots} \ket{\vec{x}_1,\cdots,\vec{x}_{k-1},\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-1}}}
+  \dar["D^\dagger_k"]
+  \\
+  \ket{\cdots,\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-2}},P_0}
+  \uar[bend left, "D^\dagger_{k-1}"]
+  &
+  (-1)^{\cdots} \ket{\vec{x}_1,\cdots,\vec{x}_{k-1},\vec{x}_{k}}
+  \lar["\text{unload phase}" above, "H"]
+\end{tikzcd}
+\end{equation}
+
+Similarly for $D_{k-j}$, we use $g_j$ to load the phase 
+$(-1)^{\vec{x}_j\vdot \vec{s}_{\cdots}}$, and use $D^\dagger_k\cdots
+D^\dagger_{k-j+1}$ to solve the lower level rBV problem, and use Hadamard gate
+to unload the phase into basis:
+
+\begin{equation}
+\begin{tikzcd}
+  \ket{\cdots,\vec{x}_{k-j},\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-j}},P_0^{\otimes j-1}} 
+  \arrow[r, "\text{load phase}", "g_j" below,]
+  \dar[bend left, "D_{k-1}"]
+  & 
+  (-1)^{\cdots} 
+  \ket{\cdots,\vec{x}_{k-j},\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-j}},P_0^{\otimes j-1}} 
+  \dar["D^\dagger_k\cdots D^\dagger_{k-j+1}"]
+  \\
+  \ket{\cdots,\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-j-1}},P_0^{\otimes j}}
+  \uar[bend left, "D^\dagger_{k-1}"]
+  &
+  (-1)^{\cdots} \ket{\vec{x}_1,\cdots,\vec{x}_{k-1},\vec{x}_{k}}
+  \lar["\text{unload phase}" above, "H"]
+\end{tikzcd}
+\end{equation}
+
+The operators $D^\dagger_k\cdots D^\dagger_{k-j+1}$ solves the lower level
+problem by gradually moving the $s$ number to the end:
+\begin{equation}
+\begin{tikzcd}
+  \ket{\cdots,\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-j}},P_0^{\otimes j-1}}
+  \rar["D^\dagger_{k-j+1}"]
+  &
+  \ket{\cdots,\vec{x}_{k-j+1}, \vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-j+1}},P_0^{\otimes j-2}}
+  \ar[ld]
+  \\
+  \cdots \rar["D_k"]
+  &
+  \ket{\vec{x}_1,\cdots,\vec{x}_{k-1},\vec{x}_{k}}
+\end{tikzcd}
+\end{equation}
+
+And finally:
+\begin{equation}
+  D_1 \sum_{\vec{x}_1}\ket{\vec{x}_1, \vec{s}_{\vec{x}_1}, P_0^{\otimes k-2}} =
+  \ket{\vec{s}, P_0^{\otimes k-1}}.
+\end{equation}
+With a measurement in the computational basis, one can with certainty find the
+number $\vec{s}$.
+
+\subsection{Complexity of quantum algorithm}
+\label{sec:Complexity of quantum algorithm}
+The number of steps taken in $D_k$ is $2$. In $D_{k-2}$ is $2+2=2^2$, in
+$D_{k-3}$ is $2+2^2+2=2^3$. In general, in $D_{k-j}$ is
+\begin{equation}
+  \# D_{k-j} = 2^1 + 2^2 + \cdots + 2^{j-1} + 2 = 2^j
+\end{equation}
+
+Hence, the total complexity is:
+\begin{equation}
+  2 + 2^2 + \cdots + 2^k = 2^{k+1}-2 \approx O(2^k)
+\end{equation}
+
+If $k=\log_2 n$, then the quantum complexity is $O(n)$ whereas the classical
+complexity is lower bounded as $\Omega(n^{\log_2 n})$.
+
+\end{document}
