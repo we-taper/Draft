@@ -43,10 +43,10 @@ summation over all possible $n$ binary numbers: $\sum_{\vec{x}}=\sum_{x\in
 \subsection{Hadamard gate}
 \label{sec:Hadamard gate}
 
-The Hadamard gate can be written in the following notation:
+The Hadamard gate on $n$ qubits $H^{\otimes n}$ can be written in the following notation:
 
 \begin{equation}
-  H = \frac{1}{\sqrt{2^n}}\sum_{\vec{x},\vec{y}} (-1)^{\vec{x}\vdot\vec{y}}
+  H^{\otimes n} = \frac{1}{\sqrt{2^n}}\sum_{\vec{x},\vec{y}} (-1)^{\vec{x}\vdot\vec{y}}
   \ket{\vec{x}}\bra{\vec{y}}.
 \end{equation}
 
@@ -62,12 +62,12 @@ One can verify that
 \end{equation}
 And the Hadamard gate could be written as
 \begin{equation}
-  H = \sum_{\vec{x}} \ket{\vec{x}}\bra{P_{\vec{x}}} 
+  H^{\otimes n} = \sum_{\vec{x}} \ket{\vec{x}}\bra{P_{\vec{x}}} 
   = \sum_{\vec{x}} \ket{P_{\vec{x}}} \bra{\vec{x}}.
 \end{equation}
 Therefore the Hadamard gate transfer between the basis where information is
-recorded in qubit register $\ket{\vec{x}}$ and the basis where information is
-recorded in the phase $\ket{P_{\vec{x}}}$. A special state which will be used
+recorded in qubit register ($\ket{\vec{x}}$) and the basis where information is
+recorded in the phase ($\ket{P_{\vec{x}}}$). A special state which will be used
 often is
 \begin{equation}
   \ket{P_0} = \frac{1}{\sqrt{2^n}} \sum_{\vec{x}}\ket{\vec{x}}.
@@ -113,16 +113,36 @@ $\Omega(n^k)$.
 \subsection{A quantum algorithm}
 \label{sec:A quantum algorithm}
 
+Here we present a simple quantum algorithm to the $k$th level rBV problem. The
+quantum register are initialised in the state:
+\begin{equation}
+  \ket{P_0}^{\otimes k}\otimes \ket{-} \otimes \cdots \otimes \ket{-} 
+  = \left(\frac{1}{\sqrt{2^n}}\right)^k
+  \sum_{\vec{x}_1,\cdots,\vec{x}_{k}} \ket{\vec{x}_1,\cdots,\vec{x}_k}
+  \ket{-} \otimes \cdots \otimes \ket{-}.
+\end{equation}
+
+Here the first $k\times n$ qubits are grouped into $k$ qubit registers, each
+having $n$ qubits. The rest of qubits are ancilla qubits prepared in the
+$\ket{-} = (\ket{0}-\ket{1})/\sqrt{2} $ state. Although for simplicity we will
+ignore them in the following calculation, it should be noted that the ancilla
+qubits are important for the phase kickback trick mentioned before. Also for
+simplicity, we will ignore all normalisation constant for for the following
+discussion. Therefore the initial state of qubit register is written as:
+\begin{equation}
+  \sum_{\vec{x}_1,\cdots,\vec{x}_{k}} \ket{\vec{x}_1,\cdots,\vec{x}_k}
+\end{equation}
+
 Define the quantum version of oracles as
 \begin{align}
   & f\ket{\vec{x}_1,\cdots,\vec{x}_k} =
   (-1)^{\vec{x}_k\vdot\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-1}}} 
   \ket{\vec{x}_1,\cdots,\vec{x}_k},\\
   & g_j \ket{\vec{x}_1,\cdots, \vec{x}_j, 
-    \vec{s}_{\vec{x}_1,\cdots,\vec{x}_j} ,\cdots,\vec{x}_k}\nonumber\\
+  \vec{s}_{\vec{x}_1,\cdots,\vec{x}_j} ,\vec{x}_{j+2},\cdots,\vec{x}_k}\nonumber\\
   & = (-1)^{\vec{x}_j \vdot \vec{s}_{\vec{x}_1,\cdots,\vec{x}_{j-1}}}
     \ket{\vec{x}_1,\cdots, \vec{x}_j, 
-    \vec{s}_{\vec{x}_1,\cdots,\vec{x}_j} ,\cdots,\vec{x}_k},\nonumber\\
+    \vec{s}_{\vec{x}_1,\cdots,\vec{x}_j} ,\vec{x}_{j+2},\cdots,\vec{x}_k},\nonumber\\
   & \;\text{for } j=k-1,k-2,\cdots ,2,\\
   & g_1 \ket{\vec{x}_1, \vec{s}_{\vec{x}_1}, \vec{x}_3, \cdots,\vec{x}_k} =
   (-1)^{\vec{x}_1 \vdot \vec{s}} \ket{\vec{x}_1, \vec{s}_{\vec{x}_1}, \vec{x}_3, \cdots,\vec{x}_k},
@@ -138,7 +158,7 @@ ensure a superposition of the form
 \]
 is present for $g_j$ to act on. Here $\phi$ are some non-zero phases.
 
-A quantum algorithm to solve rBV problem depends on the following operators
+A quantum algorithm to solve the rBV problem depends on the following operators
 $D_j(j=1,\cdots,k)$, defined recursively by:
 
 \begin{align}
@@ -149,7 +169,7 @@ $D_j(j=1,\cdots,k)$, defined recursively by:
   &D_1 = H^{\otimes n}_1 D^\dagger_k D^\dagger_{k-1}\cdots D^\dagger_2 g_1.
 \end{align}
 
-Here the $H^{\otimes n}_j$ is the $n$ bit Hadamard gate $H^{\otimes n}$ acting
+Here the $H^{\otimes n}_j$ is simply the $n$ bit Hadamard gate $H^{\otimes n}$ acting
 on the $j$th register. Each operator $D_{k-j}$ solve the $j$th level rBV
 problem. Specifically, the first operator $D_k$ does the following:
 \begin{align}
@@ -190,7 +210,7 @@ The second operator $D_{k-1}$ does the following next:
   \ket{\vec{x}_1,\cdots,\vec{x}_{k-1},\vec{x}_{k}}
   \\
   =& H^{\otimes n}_{k-1} \sum_{\vec{x}_1,\cdots,\vec{x}_{k-2}}
-  \ket{\vec{x}_1,\cdots,\vec{x}_{k-1},
+  \ket{\vec{x}_1,\cdots,\vec{x}_{k-2},
   P_{\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-2}}},P_0}
   \\
   =& \sum_{\vec{x}_1,\cdots,\vec{x}_{k-2}}
@@ -266,13 +286,13 @@ the $k$th level rBV problem.
 
 \subsection{Complexity of quantum algorithm}
 \label{sec:Complexity of quantum algorithm}
-The number of steps taken in $D_k$ is $2$. In $D_{k-1}$ is $2+2=2^2$, in
-$D_{k-2}$ is $2+2^2+2=2^3$. In general, in $D_{k-j}$ is
+The number of gates ($n$ bit Hadamard and quantum queries) taken in $D_k$ is
+$2$. In $D_{k-1}$ is $2+2=2^2$, in $D_{k-2}$ is $2+2^2+2=2^3$. In general, in
+$D_{k-j}$ there are
 \begin{equation}
-  2^1 + 2^2 + \cdots + 2^{j-1} + 2 = 2^{j+1}
+  2^1 + 2^2 + \cdots + 2^{j-1} + 2 = 2^{j+1},
 \end{equation}
-
-Hence, the total complexity is:
+$n$ bit Hadamard gates and quantum query gates. Hence, the total complexity is:
 \begin{equation}
   2 + 2^2 + \cdots + 2^k = 2^{k+1}-2 \approx O(2^k)
 \end{equation}
