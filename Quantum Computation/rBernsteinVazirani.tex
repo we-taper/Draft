@@ -12,11 +12,11 @@
 % prevent the annoying warnings, which are caused by the package
 % "physics" loaded in package "physicist-taper".
 \usepackage[log-declarations=false]{xparse}
-\usepackage{physicist-taper}
+\usepackage[final]{physicist-taper}
 
-\title{The Recursive and Non-recursive Bernstein-Vazirani Algorithm}
+\title{The Recursive Bernstein-Vazirani Algorithm}
 \date{\today}
-\author{Taper}
+\author{Hongxiang Chen}
 
 
 \begin{document}
@@ -25,7 +25,7 @@
 \maketitle
 \abstract{
 Based on notes available at:
-% \href{https://courses.cs.washington.edu/courses/cse599d/06wi/lecturenotes7.pdf}
+\url{https://courses.cs.washington.edu/courses/cse599d/06wi/lecturenotes7.pdf}
 }
 \tableofcontents
 
@@ -136,7 +136,7 @@ ensure a superposition of the form
   \sum_{\vec{x}_1,\cdots,\vec{x}_j} \phi(\vec{x}_1,\cdots,\vec{x}_j,\text{(something)})
   \ket{\vec{x}_1,\cdots,\vec{x}_j,\text{(something)}},
 \]
-is always present for $g_j$ to act on. Here $\phi$ are still some non-zero phases.
+is present for $g_j$ to act on. Here $\phi$ are some non-zero phases.
 
 A quantum algorithm to solve rBV problem depends on the following operators
 $D_j(j=1,\cdots,k)$, defined recursively by:
@@ -150,9 +150,8 @@ $D_j(j=1,\cdots,k)$, defined recursively by:
 \end{align}
 
 Here the $H^{\otimes n}_j$ is the $n$ bit Hadamard gate $H^{\otimes n}$ acting
-on the $j$th register.
-
-The first operator $D_k$ does the following:
+on the $j$th register. Each operator $D_{k-j}$ solve the $j$th level rBV
+problem. Specifically, the first operator $D_k$ does the following:
 \begin{align}
   & D_k \sum_{\vec{x}_1,\cdots,\vec{x}_k} \ket{\vec{x}_1,\cdots,\vec{x}_k}\nonumber\\ 
   = & H^{\otimes n}_k \sum_{\vec{x}_1,\cdots,\vec{x}_k}
@@ -222,19 +221,19 @@ D^\dagger_{k-j+1}$ to solve the lower level rBV problem, and use Hadamard gate
 to unload the phase into basis:
 
 \begin{equation}
-\begin{tikzcd}
+\begin{tikzcd}[row sep=large, column sep = large]
   \ket{\cdots,\vec{x}_{k-j},\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-j}},P_0^{\otimes j-1}} 
   \arrow[r, "\text{load phase}", "g_j" below,]
-  \dar[bend left, "D_{k-1}"]
+  \dar[bend left, "D_{k-j}"]
   & 
   (-1)^{\cdots} 
   \ket{\cdots,\vec{x}_{k-j},\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-j}},P_0^{\otimes j-1}} 
   \dar["D^\dagger_k\cdots D^\dagger_{k-j+1}"]
   \\
-  \ket{\cdots,\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-j-1}},P_0^{\otimes j}}
-  \uar[bend left, "D^\dagger_{k-1}"]
+  \ket{\cdots,\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-j-1}},P_0,P_0^{\otimes j-1}}
+  \uar[bend left, "D^\dagger_{k-j}"]
   &
-  (-1)^{\cdots} \ket{\vec{x}_1,\cdots,\vec{x}_{k-1},\vec{x}_{k}}
+  (-1)^{\cdots} \ket{\vec{x}_1,\cdots,\vec{x}_{k-j}, \vec{x}_{k-j+1},\cdots,\vec{x}_{k}}
   \lar["\text{unload phase}" above, "H"]
 \end{tikzcd}
 \end{equation}
@@ -243,32 +242,34 @@ The operators $D^\dagger_k\cdots D^\dagger_{k-j+1}$ solves the lower level
 problem by gradually moving the $s$ number to the end:
 \begin{equation}
 \begin{tikzcd}
-  \ket{\cdots,\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-j}},P_0^{\otimes j-1}}
+  \ket{\cdots,\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-j}},P_0,P_0^{\otimes j-2}}
   \rar["D^\dagger_{k-j+1}"]
   &
   \ket{\cdots,\vec{x}_{k-j+1}, \vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-j+1}},P_0^{\otimes j-2}}
-  \ar[ld]
+  \dar["\cdots"]
   \\
-  \cdots \rar["D_k"]
-  &
   \ket{\vec{x}_1,\cdots,\vec{x}_{k-1},\vec{x}_{k}}
+  &
+  \ket{\cdots,\vec{x}_{k-j+1},\cdots,\vec{x}_{k-1},\vec{s}_{\vec{x}_{k-1}}}
+  \lar["D_k"]
 \end{tikzcd}
 \end{equation}
 
-And finally:
+And finally we note that:
 \begin{equation}
   D_1 \sum_{\vec{x}_1}\ket{\vec{x}_1, \vec{s}_{\vec{x}_1}, P_0^{\otimes k-2}} =
   \ket{\vec{s}, P_0^{\otimes k-1}}.
 \end{equation}
 With a measurement in the computational basis, one can with certainty find the
-number $\vec{s}$.
+number $\vec{s}$. Therefore, the combined operators $D_1D_2\cdots D_k$ solves
+the $k$th level rBV problem.
 
 \subsection{Complexity of quantum algorithm}
 \label{sec:Complexity of quantum algorithm}
-The number of steps taken in $D_k$ is $2$. In $D_{k-2}$ is $2+2=2^2$, in
-$D_{k-3}$ is $2+2^2+2=2^3$. In general, in $D_{k-j}$ is
+The number of steps taken in $D_k$ is $2$. In $D_{k-1}$ is $2+2=2^2$, in
+$D_{k-2}$ is $2+2^2+2=2^3$. In general, in $D_{k-j}$ is
 \begin{equation}
-  \# D_{k-j} = 2^1 + 2^2 + \cdots + 2^{j-1} + 2 = 2^j
+  2^1 + 2^2 + \cdots + 2^{j-1} + 2 = 2^{j+1}
 \end{equation}
 
 Hence, the total complexity is:
