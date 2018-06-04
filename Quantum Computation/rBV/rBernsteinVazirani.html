@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en-UK">
+<head>
+<meta charset="UTF-8" />
+<meta name="generator" content="LaTeX lwarp package" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<title>The Recursive Bernstein-Vazirani Algorithm</title>
+<link rel="stylesheet" type="text/css" href="lwarp_formal.css" />
+</head>
+<body>
+<header>
+
+
+</header>
+<section class="textbody">
+<div class="titlepage">
+
+<h1> The Recursive Bernstein-Vazirani Algorithm</h1>
+
+<div class="author">
+
+<div class="oneauthor">
+
+<p>Hongxiang Chen</p>
+
+
+</div>
+
+</div>
+
+<div class="titledate">
+
+<p>June 4, 2018</p>
+
+
+</div>
+
+</div>
+<div class="abstract">
+
+<div class="abstracttitle">Abstract</div>
+
+<p>Based on notes available at: <a href="https://courses.cs.washington.edu/courses/cse599d/06wi/lecturenotes7.pdf" target="_blank"
+>https://courses.cs.washington.edu/courses/cse599d/06wi/lecturenotes7.pdf</a> </p>
+<h4 id="autosec-4"> Contents</h4><a id="autopage-4"></a>
+
+<nav class="toc">
+
+<p><a href=" rBernsteinVazirani.html#autosec-5" class="tocsection"
+><span class="sectionnumber">1</span>&#x2001;Notation</a></p>
+
+
+<p><a href=" rBernsteinVazirani.html#autosec-18" class="tocsection"
+><span class="sectionnumber">2</span>&#x2001;Tricks</a></p>
+
+
+<p><a href=" rBernsteinVazirani.html#autosec-19" class="tocsubsection"
+><span class="sectionnumber">2.1</span>&#x2001;Hadamard gate</a></p>
+
+
+<p><a href=" rBernsteinVazirani.html#autosec-40" class="tocsubsection"
+><span class="sectionnumber">2.2</span>&#x2001;Phase kickback</a></p>
+
+
+<p><a href=" rBernsteinVazirani.html#autosec-55" class="tocsection"
+><span class="sectionnumber">3</span>&#x2001;The recursive Bernstein-Vazirani</a></p>
+
+
+<p><a href=" rBernsteinVazirani.html#autosec-78" class="tocsubsection"
+><span class="sectionnumber">3.1</span>&#x2001;A quantum algorithm</a></p>
+
+
+<p><a href=" rBernsteinVazirani.html#autosec-163" class="tocsubsection"
+><span class="sectionnumber">3.2</span>&#x2001;Complexity of quantum algorithm</a></p>
+
+
+</nav>
+<h4 id="autosec-5"> <span class="sectionnumber">1&#x2001;</span>Notation</h4><a id="autopage-5"></a>
+
+<a id="sec:Notation"></a>
+
+<p>A <span id="lateximage1" class="lateximagesource"><!--
+~x
+--><img src="lateximages/C942910B80E0BEC8B8E0D4008BB5D5FB.svg" alt="\( \vec {x} \)" style="width:0.57632em" class="lateximage"></span> is a vector of <span id="lateximage2" class="lateximagesource"><!--
+n
+--><img src="lateximages/585DA2E74EF8B708B9EB3125B16E7005.svg" alt="\( n \)" style="width:0.60527em" class="lateximage"></span> binary numbers. A summation <span id="lateximage3" class="lateximagesource"><!--
+P
+~
+x
+--><img src="lateximages/08D5D326746871B30ACA4E436AC99DB6.svg" alt="\( \sum _{\vec {x}} \)" style="width:1.57213em ; vertical-align:-0.30252em " class="lateximage"></span> is a summation over all possible <span id="lateximage4"
+class="lateximagesource"><!--
+n
+--><img src="lateximages/585DA2E74EF8B708B9EB3125B16E7005.svg" alt="\( n \)" style="width:0.60527em" class="lateximage"></span> binary numbers: <span id="lateximage5" class="lateximagesource"><!--
+P       P
+~
+x   =   x∈{0,1}n
+--><img src="lateximages/E5DACC371F8BDC58CA257DEE1E71C7FF.svg" alt="\( \sum _{\vec {x}}=\sum _{x\in \{0,1\}^n} \)" style="width:7.39647em ; vertical-align:-0.47899em " class="lateximage"></span>. A dot product between two vectors is
+<span id="lateximage6" class="lateximagesource"><!--
+            Pn−1
+~x · ~y =    i=0   xi yi mod 2
+--><img src="lateximages/388957248A6F246293DE7F28892F9E9B.svg" alt="\( \vec {x}\vdot \vec {y} = \sum _{i=0}^{n-1} x_i y_i \text { mod }2 \)" style="width:10.88673em ; vertical-align:-0.30252em " class="lateximage"></span>.</p>
+<h4 id="autosec-18"> <span class="sectionnumber">2&#x2001;</span>Tricks</h4><a id="autopage-18"></a>
+
+<a id="sec:Tricks"></a>
+<h5 id="autosec-19"> <span class="sectionnumber">2.1&#x2001;</span>Hadamard gate</h5><a id="autopage-19"></a>
+
+<a id="sec:Hadamard gate"></a>
+
+<p>The Hadamard gate on <span id="lateximage7" class="lateximagesource"><!--
+n
+--><img src="lateximages/585DA2E74EF8B708B9EB3125B16E7005.svg" alt="\( n \)" style="width:0.60527em" class="lateximage"></span> qubits <span id="lateximage8" class="lateximagesource"><!--
+H ⊗n
+--><img src="lateximages/52E835B65E7554C59BEED0E3759C207F.svg" alt="\( H^{\otimes n} \)" style="width:2.09932em" class="lateximage"></span> can be written in the following notation:</p>
+
+
+<div class="displaymathnumbered">
+
+<p><a id="autoid-1"></a> <span id="lateximage9" class="lateximagesource"><!--
+        1 X
+H ⊗n = √ n      (−1)~x·~y |~xi h~y | .   (2.1.1)
+        2 ~x,~y
+--><img src="lateximages/lateximage-9.svg" alt="(2.1.1) \begin{equation} H^{\otimes n} = \frac {1}{\sqrt {2^n}}\sum _{\vec {x},\vec {y}} (-1)^{\vec {x}\vdot \vec {y}} \ket {\vec {x}}\bra {\vec {y}}.   \end{equation}" style=""
+class="lateximage"></span></p>
+
+
+</div>
+
+<p>Define <span id="lateximage10" class="lateximagesource"><!--
+|P~x i
+--><img src="lateximages/3A5BB6CC142473C55D7803F309BCA049.svg" alt="\( \ket {P_{\vec {x}}} \)" style="width:1.82738em ; vertical-align:-0.2521em " class="lateximage"></span> as </p>
+
+
+<div class="displaymathnumbered">
+
+<p><a id="autoid-2"></a> <span id="lateximage11" class="lateximagesource"><!--
+          1 X
+|P~x i = √ n   (−1)~x·~y |~y i .   (2.1.2)
+          2 ~y
+--><img src="lateximages/lateximage-11.svg" alt="(2.1.2) \begin{equation} \ket {P_{\vec {x}}} = \frac {1}{\sqrt {2^n}} \sum _{\vec {y}} (-1)^{\vec {x}\vdot \vec {y}} \ket {\vec {y}}.   \end{equation}" style=""
+class="lateximage"></span></p>
+
+
+</div>
+
+<p>One can verify that </p>
+
+
+<div class="displaymathnumbered">
+
+<p><a id="autoid-3"></a> <span id="lateximage12" class="lateximagesource"><!--
+                         X
+hP~x |P~y i = δ~x,~y ,       |P~x ihP~x | = 1.   (2.1.3)
+                         ~
+                         x
+--><img src="lateximages/lateximage-12.svg" alt="(2.1.3) \begin{equation} \braket {P_{\vec {x}} |P_{\vec {y}}} = \delta _{\vec {x},\vec {y}},\, \sum _{\vec {x}}\ketbra {P_{\vec {x}}} = \id .   \end{equation}" style=""
+class="lateximage"></span></p>
+
+
+</div>
+
+<p>And the Hadamard gate could be written as </p>
+
+
+<div class="displaymathnumbered">
+
+<p><a id="autoid-4"></a> <span id="lateximage13" class="lateximagesource"><!--
+H ⊗n =
+         X                   X
+             |~xi hP~x | =       |P~x i h~x| .   (2.1.4)
+         ~
+         x                   ~
+                             x
+--><img src="lateximages/lateximage-13.svg" alt="(2.1.4) \begin{equation} H^{\otimes n} = \sum _{\vec {x}} \ket {\vec {x}}\bra {P_{\vec {x}}} = \sum _{\vec {x}} \ket {P_{\vec {x}}} \bra {\vec {x}}.   \end{equation}" style=""
+class="lateximage"></span></p>
+
+
+</div>
+
+<p>Therefore the Hadamard gate transfer between the basis where information is recorded in qubit register (<span id="lateximage14" class="lateximagesource"><!--
+|~xi
+--><img src="lateximages/B925FE02D3A14CB5ABBDA557FBF21C25.svg" alt="\( \ket {\vec {x}} \)" style="width:1.2486em ; vertical-align:-0.2521em " class="lateximage"></span>) and the basis where information is recorded in the phase (<span
+id="lateximage15" class="lateximagesource"><!--
+|P~x i
+--><img src="lateximages/3A5BB6CC142473C55D7803F309BCA049.svg" alt="\( \ket {P_{\vec {x}}} \)" style="width:1.82738em ; vertical-align:-0.2521em " class="lateximage"></span>). A special state which will be used often is </p>
+
+
+<div class="displaymathnumbered">
+
+<p><a id="autoid-5"></a> <span id="lateximage16" class="lateximagesource"><!--
+         1 X
+|P0 i = √ n   |~xi .   (2.1.5)
+         2 ~x
+--><img src="lateximages/lateximage-16.svg" alt="(2.1.5) \begin{equation} \ket {P_0} = \frac {1}{\sqrt {2^n}} \sum _{\vec {x}}\ket {\vec {x}}.   \end{equation}" style="" class="lateximage"></span></p>
+
+
+</div>
+<h5 id="autosec-40"> <span class="sectionnumber">2.2&#x2001;</span>Phase kickback</h5><a id="autopage-40"></a>
+
+<a id="sec:Phase kick"></a>
+
+<p>For a classical function <span id="lateximage17" class="lateximagesource"><!--
+f : {0, 1}n → {0, 1}, ~x 7→ f (~x)
+--><img src="lateximages/2F9CD9FF9F37B386D56115E7A19C2501.svg" alt="\( f:\{0,1\}^n\to \{0,1\},\, \vec {x}\mapsto f(\vec {x}) \)" style="width:13.21416em ; vertical-align:-0.2521em " class="lateximage"></span>, its analogous quantum
+gate is <span id="lateximage18" class="lateximagesource"><!--
+Uf : |~x, yi 7→ |~x, y ⊕ f (x)i
+--><img src="lateximages/648EE176FD4BEC9436C05D3586BEA1A8.svg" alt="\( U_f:\ket {\vec {x},y} \mapsto \ket {\vec {x},y\oplus f(x)} \)" style="width:11.27032em ; vertical-align:-0.28851em " class="lateximage"></span>. Quantum
+computation can calculate this in a parallel manner as a phase gate by </p>
+
+
+<div class="displaymathnumbered">
+
+<p><a id="autoid-6"></a> <span id="lateximage19" class="lateximagesource"><!--
+                                  !
+                       1                                       1
+         φ(~x) |~xi ⊗ √ (|0i − |1i) = (−1)f (~x) φ(~x) |~xi ⊗ √ (|0i − |1i),
+     X                               X
+Uf                                                                             (2.2.1)
+     ~
+     x                  2            ~
+                                     x                          2
+--><img src="lateximages/lateximage-19.svg" alt="(2.2.1) \begin{equation} U_f \left (\sum _{\vec {x}} \phi (\vec {x}) \ket {\vec {x}} \otimes \frac {1}{\sqrt {2}} (\ket {0}-\ket {1}) \right ) = \sum _{\vec {x}} (-1)^{f(\vec {x})}
+\phi (\vec {x})\ket {\vec {x}} \otimes \frac {1}{\sqrt {2}} (\ket {0}-\ket {1}), \end{equation}" style="" class="lateximage"></span></p>
+
+
+</div>
+
+<p>where <span id="lateximage20" class="lateximagesource"><!--
+φ(~x)
+--><img src="lateximages/AF4215030070333B8FA1141D676AA565.svg" alt="\( \phi (\vec {x}) \)" style="width:1.9615em ; vertical-align:-0.2521em " class="lateximage"></span> are some arbitrary non-zero phase. If we ignore the ancilla qubit,
+then <span id="lateximage21" class="lateximagesource"><!--
+Uf
+--><img src="lateximages/01D2481E80304CD350016FCD9E6B812C.svg" alt="\( U_f \)" style="width:1.21127em ; vertical-align:-0.28851em " class="lateximage"></span> is acting as a phase <span id="lateximage22" class="lateximagesource"><!--
+(−1)f (~x)
+--><img src="lateximages/A8169E792632450E6828FA06046A7967.svg" alt="\( (-1)^{f(\vec {x})} \)" style="width:3.68315em ; vertical-align:-0.2521em " class="lateximage"></span> on every <span id="lateximage23"
+class="lateximagesource"><!--
+|~xi
+--><img src="lateximages/B925FE02D3A14CB5ABBDA557FBF21C25.svg" alt="\( \ket {\vec {x}} \)" style="width:1.2486em ; vertical-align:-0.2521em " class="lateximage"></span> on “parallel".</p>
+<h4 id="autosec-55"> <span class="sectionnumber">3&#x2001;</span>The recursive Bernstein-Vazirani</h4><a id="autopage-55"></a>
+
+<a id="sec:The recursive Bernstein-Vazirani"></a>
+
+<p>The recursive Bernstein-Vazirani problem (rBV) of level <span id="lateximage24" class="lateximagesource"><!--
+k
+--><img src="lateximages/1C705B2A9F33D1832A497FB135DF6C3A.svg" alt="\( k \)" style="width:0.55672em" class="lateximage"></span> asks us to find an n-bit number <span id="lateximage25" class="lateximagesource"><!--
+~s
+--><img src="lateximages/87517E299CDE9E4312773F1C7A368228.svg" alt="\( \vec {s} \)" style="height:0.72044em" class="lateximage"></span> through a series of oracles provided. The first oracle provided is <span id="lateximage26"
+class="lateximagesource"><!--
+f : {0, 1}nk → {0, 1}, {~x1 , · · · , ~xk } 7→ ~xk · ~s~x1 ,··· ,~xk−1
+--><img src="lateximages/BA6A1E4CE25027F17D9AE9341D97BEF6.svg" alt="\( f:\{0,1\}^{nk}\to \{0,1\},\, \{\vec {x}_1,\cdots , \vec {x}_k\}\mapsto \vec {x}_k\vdot \vec {s}_{\vec {x}_1,\cdots ,\vec {x}_{k-1}} \)" style="width:22.97862em ;
+vertical-align:-0.35104em " class="lateximage"></span>, where we need to find out the <span id="lateximage27" class="lateximagesource"><!--
+n
+--><img src="lateximages/585DA2E74EF8B708B9EB3125B16E7005.svg" alt="\( n \)" style="width:0.60527em" class="lateximage"></span> number <span id="lateximage28" class="lateximagesource"><!--
+~s~x1 ,··· ,~xk−1
+--><img src="lateximages/649BD792C16F1E5D116CA27BD4C61188.svg" alt="\( \vec {s}_{\vec {x}_1,\cdots ,\vec {x}_{k-1}} \)" style="width:4.49667em ; vertical-align:-0.35104em " class="lateximage"></span>. The following oracles are </p>
+
+
+<div class="displaymathnumbered">
+
+<p><a id="autoid-7"></a> <span id="lateximage29" class="lateximagesource"><!--
+gj : {0, 1}n → {0, 1}, ~s~x1 ,··· ,~xk−1 7→ ~xj · ~s~x1 ,··· ,~xj−1 , j = k − 1, k − 2, · · · , 1.   (3.0.1)
+--><img src="lateximages/lateximage-29.svg" alt="(3.0.1) \begin{equation} g_j:   \{0,1\}^n\to \{0,1\},\, \vec {s}_{\vec {x}_1,\cdots ,\vec {x}_{k-1}} \mapsto \vec {x}_j \vdot \vec {s}_{\vec {x}_1,\cdots ,\vec {x}_{j-1}},\,
+j=k-1,k-2,\cdots ,1. \end{equation}" style="" class="lateximage"></span></p>
+
+
+</div>
+
+<p>The final <span id="lateximage30" class="lateximagesource"><!--
+g1
+--><img src="lateximages/EB8A35B9CF87E16711E817E65B0B9E73.svg" alt="\( g_1 \)" style="width:0.93335em ; vertical-align:-0.19608em " class="lateximage"></span> is slightly different because <span id="lateximage31"
+class="lateximagesource"><!--
+g1 (~s~x1 ) = ~s · ~x1
+--><img src="lateximages/5D223DDD0DAE440EF7C80B3F7E912CCE.svg" alt="\( g_1(\vec {s}_{\vec {x}_1})=\vec {s}\vdot \vec {x}_1 \)" style="width:6.70789em ; vertical-align:-0.26083em " class="lateximage"></span>. Here we would step by
+step find out the numbers <span id="lateximage32" class="lateximagesource"><!--
+~s~x1 ,··· ,~xj
+--><img src="lateximages/144C50AE4CD54C996D2F3EE82EDDAF01.svg" alt="\( \vec {s}_{\vec {x}_1,\cdots ,\vec {x}_j} \)" style="width:3.54318em ; vertical-align:-0.35887em " class="lateximage"></span>, until finally we have <span
+id="lateximage33" class="lateximagesource"><!--
+~s
+--><img src="lateximages/87517E299CDE9E4312773F1C7A368228.svg" alt="\( \vec {s} \)" style="height:0.72044em" class="lateximage"></span>. Classically the query complexity is lowered bounded as <span id="lateximage34"
+class="lateximagesource"><!--
+Ω(nk )
+--><img src="lateximages/38FF7BBF6796AD44618814AF488C5D1B.svg" alt="\( \Omega (n^k) \)" style="width:2.61403em ; vertical-align:-0.2521em " class="lateximage"></span>.</p>
+<h5 id="autosec-78"> <span class="sectionnumber">3.1&#x2001;</span>A quantum algorithm</h5><a id="autopage-78"></a>
+
+<a id="sec:A quantum algorithm"></a>
+
+<p>Here we present a simple quantum algorithm to the <span id="lateximage35" class="lateximagesource"><!--
+k
+--><img src="lateximages/1C705B2A9F33D1832A497FB135DF6C3A.svg" alt="\( k \)" style="width:0.55672em" class="lateximage"></span>th level rBV problem. The quantum register are initialised in the state: </p>
+
+
+<div class="displaymathnumbered">
+
+<p><a id="autoid-8"></a> <span id="lateximage36" class="lateximagesource"><!--
+                                       !k
+    ⊗k                            1            X
+|P0 i    ⊗ |−i ⊗ · · · ⊗ |−i =   √                        |~x1 , · · · , ~xk i |−i ⊗ · · · ⊗ |−i .   (3.1.1)
+                                  2n        ~
+                                            x1 ,··· ,~
+                                                     xk
+--><img src="lateximages/lateximage-36.svg" alt="(3.1.1) \begin{equation} \ket {P_0}^{\otimes k}\otimes \ket {-} \otimes \cdots \otimes \ket {-} = \left (\frac {1}{\sqrt {2^n}}\right )^k \sum _{\vec {x}_1,\cdots ,\vec {x}_{k}} \ket
+{\vec {x}_1,\cdots ,\vec {x}_k} \ket {-} \otimes \cdots \otimes \ket {-}. \end{equation}" style="" class="lateximage"></span></p>
+
+
+</div>
+
+<p>Here the first <span id="lateximage37" class="lateximagesource"><!--
+k×n
+--><img src="lateximages/7D2E61F1BA99F155CFEEEDF9C5B735E3.svg" alt="\( k\times n \)" style="width:2.39449em ; vertical-align:-0.08403em " class="lateximage"></span> qubits are grouped into <span id="lateximage38"
+class="lateximagesource"><!--
+k
+--><img src="lateximages/1C705B2A9F33D1832A497FB135DF6C3A.svg" alt="\( k \)" style="width:0.55672em" class="lateximage"></span> qubit registers, each having <span id="lateximage39" class="lateximagesource"><!--
+n
+--><img src="lateximages/585DA2E74EF8B708B9EB3125B16E7005.svg" alt="\( n \)" style="width:0.60527em" class="lateximage"></span> qubits. The rest of qubits are ancilla qubits prepared in the <span id="lateximage40"
+class="lateximagesource"><!--
+                  √
+|−i = (|0i − |1i)/ 2
+--><img src="lateximages/696E31F44DF6DC4BA1DA89E79EE84503.svg" alt="\( \ket {-} = (\ket {0}-\ket {1})/\sqrt {2} \)" style="width:9.01964em ; vertical-align:-0.2521em " class="lateximage"></span> state. Although for simplicity we will
+ignore them in the following calculation, it should be noted that the ancilla qubits are important for the phase kickback trick mentioned before. Also for simplicity, we will ignore all normalisation constant for for the following discussion. Therefore
+the initial state of qubit register is written as: </p>
+
+
+<div class="displaymathnumbered">
+
+<p><a id="autoid-9"></a> <span id="lateximage41" class="lateximagesource"><!--
+   X
+              |~x1 , · · · , ~xk i   (3.1.2)
+~
+x1 ,··· ,~
+         xk
+--><img src="lateximages/lateximage-41.svg" alt="(3.1.2) \begin{equation} \sum _{\vec {x}_1,\cdots ,\vec {x}_{k}} \ket {\vec {x}_1,\cdots ,\vec {x}_k} \end{equation}" style="" class="lateximage"></span></p>
+
+
+</div>
+
+<p>Define the quantum version of oracles as </p>
+
+
+<div class="displaymathnumbered">
+
+<p><a id="autoid-10"></a> <span id="lateximage42" class="lateximagesource"><!--
+f |~x1 , · · · , ~xk i = (−1)~xk ·~s~x1 ,··· ,~xk−1 |~x1 , · · · , ~xk i ,                     (3.1.3)
+gj |~x1 , · · · , ~xj , ~s~x1 ,··· ,~xj , ~xj+2 , · · · , ~xk i
+ = (−1)~xj ·~s~x1 ,··· ,~xj−1 |~x1 , · · · , ~xj , ~s~x1 ,··· ,~xj , ~xj+2 , · · · , ~xk i ,
+ for j = k − 1, k − 2, · · · , 2,                                                              (3.1.4)
+g1 |~x1 , ~s~x1 , ~x3 , · · · , ~xk i = (−1)~x1 ·~s |~x1 , ~s~x1 , ~x3 , · · · , ~xk i ,       (3.1.5)
+--><img src="lateximages/lateximage-42.svg" alt="(3–3.1.5) \{begin}{align} &amp; f\ket {\vec {x}_1,\cdots ,\vec {x}_k} = (-1)^{\vec {x}_k\vdot \vec {s}_{\vec {x}_1,\cdots ,\vec {x}_{k-1}}} \ket {\vec {x}_1,\cdots ,\vec {x}_k},\\
+&amp; g_j \ket {\vec {x}_1,\cdots , \vec {x}_j, \vec {s}_{\vec {x}_1,\cdots ,\vec {x}_j} ,\vec {x}_{j+2},\cdots ,\vec {x}_k}\nonumber \\ &amp; = (-1)^{\vec {x}_j \vdot \vec {s}_{\vec {x}_1,\cdots ,\vec {x}_{j-1}}} \ket {\vec
+{x}_1,\cdots , \vec {x}_j, \vec {s}_{\vec {x}_1,\cdots ,\vec {x}_j} ,\vec {x}_{j+2},\cdots ,\vec {x}_k},\nonumber \\ &amp; \;\text {for } j=k-1,k-2,\cdots ,2,\\ &amp; g_1 \ket {\vec {x}_1, \vec {s}_{\vec {x}_1}, \vec {x}_3, \cdots
+,\vec {x}_k} = (-1)^{\vec {x}_1 \vdot \vec {s}} \ket {\vec {x}_1, \vec {s}_{\vec {x}_1}, \vec {x}_3, \cdots ,\vec {x}_k}, \{end}{align} " style="" class="lateximage"></span></p>
+
+
+</div>
+
+<p>where we have used the phase kickback trick mentioned in section&nbsp;<a href=" rBernsteinVazirani.html#sec:Phase kick">2.2</a> and ignored the ancilla qubits. Notice that all quantum oracles are meaningless phase gate unless a
+superposition of basis <span id="lateximage43" class="lateximagesource"><!--
+|~x1 , · · · , ~xk i
+--><img src="lateximages/3508316EC86EAE4F717C90A8C320CFD6.svg" alt="\( \ket {\vec {x}_1,\cdots ,\vec {x}_k} \)" style="width:5.18239em ; vertical-align:-0.2521em " class="lateximage"></span> are present. In the following, we will always
+ensure a superposition of the form
+
+<p></p>
+
+
+<div class="displaymath">
+
+<p><a id="autoid-11"></a> <span id="lateximage44" class="lateximagesource"><!--
+   X
+              φ(~x1 , · · · , ~xj , (something)) |~x1 , · · · , ~xj , (something)i ,
+~
+x1 ,··· ,~
+         xj
+--><img src="lateximages/lateximage-44.svg" alt="\[   \sum _{\vec {x}_1,\cdots ,\vec {x}_j} \phi (\vec {x}_1,\cdots ,\vec {x}_j,\text {(something)}) \ket {\vec {x}_1,\cdots ,\vec {x}_j,\text {(something)}},   \]" style=""
+class="lateximage"></span></p>
+
+
+</div>
+
+<p>is present for <span id="lateximage45" class="lateximagesource"><!--
+gj
+--><img src="lateximages/B5F73D7280B07D8157821154B52AB625.svg" alt="\( g_j \)" style="width:0.90587em ; vertical-align:-0.28851em " class="lateximage"></span> to act on. Here <span id="lateximage46" class="lateximagesource"><!--
+φ
+--><img src="lateximages/42932989BC1978BCF2EB586E4A9B8D51.svg" alt="\( \phi   \)" style="height:0.89636em ; vertical-align:-0.19608em " class="lateximage"></span> are some non-zero phases.</p>
+
+
+<p>A quantum algorithm to solve the rBV problem depends on the following operators <span id="lateximage47" class="lateximagesource"><!--
+Dj (j = 1, · · · , k)
+--><img src="lateximages/D5D4ABA77B5D421FB19EBC1845F900CF.svg" alt="\( D_j(j=1,\cdots ,k) \)" style="width:7.33151em ; vertical-align:-0.28851em " class="lateximage"></span>, defined recursively by:</p>
+
+
+<div class="displaymathnumbered">
+
+<p><a id="autoid-12"></a> <span id="lateximage48" class="lateximagesource"><!--
+Dk = Hk⊗n f,                         (3.1.6)
+Dk−1 =    ⊗n
+         Hk−1 Dk† gk−1 ,             (3.1.7)
+        ⊗n
+Dk−2 = Hk−2 Dk† Dk−1
+                 †
+                     gk−2 ,          (3.1.8)
+···                                  (3.1.9)
+D1 = H1⊗n Dk† Dk−1
+               †
+                   · · · D2† g1 .   (3.1.10)
+--><img src="lateximages/lateximage-48.svg" alt="(6–3.1.10) \{begin}{align} &amp;D_k = H^{\otimes n}_{k} f, \\ &amp;D_{k-1} = H^{\otimes n}_{k-1} D^\dagger _k g_{k-1}, \\ &amp;D_{k-2} = H^{\otimes n}_{k-2} D^\dagger _k D^\dagger
+_{k-1} g_{k-2}, \\ &amp;\cdots \\ &amp;D_1 = H^{\otimes n}_1 D^\dagger _k D^\dagger _{k-1}\cdots D^\dagger _2 g_1. \{end}{align} " style="" class="lateximage"></span></p>
+
+
+</div>
+
+<p>Here the <span id="lateximage49" class="lateximagesource"><!--
+Hj⊗n
+--><img src="lateximages/26AD287A71128B57E458F625A46A1849.svg" alt="\( H^{\otimes n}_j \)" style="width:2.09932em ; vertical-align:-0.41833em " class="lateximage"></span> is simply the <span id="lateximage50"
+class="lateximagesource"><!--
+n
+--><img src="lateximages/585DA2E74EF8B708B9EB3125B16E7005.svg" alt="\( n \)" style="width:0.60527em" class="lateximage"></span> bit Hadamard gate <span id="lateximage51" class="lateximagesource"><!--
+H ⊗n
+--><img src="lateximages/52E835B65E7554C59BEED0E3759C207F.svg" alt="\( H^{\otimes n} \)" style="width:2.09932em" class="lateximage"></span> acting on the <span id="lateximage52" class="lateximagesource"><!--
+j
+--><img src="lateximages/F45F4B9DF72B12E15796955C0E0309F0.svg" alt="\( j \)" style="height:0.86115em ; vertical-align:-0.19608em " class="lateximage"></span>th register. Each operator <span id="lateximage53"
+class="lateximagesource"><!--
+Dk−j
+--><img src="lateximages/7C724895A1F03CEA3F453E5C0B07CBD6.svg" alt="\( D_{k-j} \)" style="width:2.33575em ; vertical-align:-0.28851em " class="lateximage"></span> solve the <span id="lateximage54" class="lateximagesource"><!--
+j
+--><img src="lateximages/F45F4B9DF72B12E15796955C0E0309F0.svg" alt="\( j \)" style="height:0.86115em ; vertical-align:-0.19608em " class="lateximage"></span>th level rBV problem. Specifically, the first operator <span id="lateximage55"
+class="lateximagesource"><!--
+Dk
+--><img src="lateximages/16260A424B9222F377682C546CD03BEE.svg" alt="\( D_k \)" style="width:1.33102em ; vertical-align:-0.15126em " class="lateximage"></span> does the following: </p>
+
+
+<div class="displaymathnumbered">
+
+<p><a id="autoid-13"></a> <span id="lateximage56" class="lateximagesource"><!--
+           X
+ Dk                   |~x1 , · · · , ~xk i
+        ~
+        x1 ,··· ,~
+                 xk
+
+=Hk⊗n                    (−1)~xk ·~s~x1 ,··· ,~xk−1 |~x1 , · · · , ~xk i
+              X
+                                                                           (3.1.11)
+           ~
+           x1 ,··· ,~
+                    xk
+
+=Hk⊗n
+               X
+                            |~x1 , · · · , ~xk−1 , P~s~x1 ,··· ,~xk−1 i    (3.1.12)
+           ~
+           x1 ,··· ,~
+                    xk−1
+        X
+=                   |~x1 , · · · , ~xk−1 , ~s~x1 ,··· ,~xk−1 i .           (3.1.13)
+    ~
+    x1 ,··· ,~
+             xk−1
+--><img src="lateximages/lateximage-56.svg" alt="(11–3.1.13) \{begin}{align} &amp; D_k \sum _{\vec {x}_1,\cdots ,\vec {x}_k} \ket {\vec {x}_1,\cdots ,\vec {x}_k}\nonumber \\ = &amp; H^{\otimes n}_k \sum _{\vec {x}_1,\cdots ,\vec
+{x}_k} (-1)^{\vec {x}_k\vdot \vec {s}_{\vec {x}_1,\cdots ,\vec {x}_{k-1}}} \ket {\vec {x}_1,\cdots ,\vec {x}_k} \\ = &amp; H_k^{\otimes n} \sum _{\vec {x}_1,\cdots ,\vec {x}_{k-1}} \ket {\vec {x}_1,\cdots ,\vec {x}_{k-1},P_{\vec
+{s}_{\vec {x}_1,\cdots ,\vec {x}_{k-1}}}} \\ = &amp; \sum _{\vec {x}_1,\cdots ,\vec {x}_{k-1}} \ket {\vec {x}_1,\cdots ,\vec {x}_{k-1},\vec {s}_{\vec {x}_1,\cdots ,\vec {x}_{k-1}}}. \{end}{align} " style=""
+class="lateximage"></span></p>
+
+
+</div>
+
+<p>Notice that if there are some arbitrary non-zero phases <span id="lateximage57" class="lateximagesource"><!--
+φ(~x1 , · · · , ~xk )
+--><img src="lateximages/5759385D9A045C2738222209F7ED9378.svg" alt="\( \phi (\vec {x}_1,\cdots ,\vec {x}_k) \)" style="width:5.8953em ; vertical-align:-0.2521em " class="lateximage"></span> in front of <span id="lateximage58"
+class="lateximagesource"><!--
+|~x1 , · · · , ~xk i
+--><img src="lateximages/3508316EC86EAE4F717C90A8C320CFD6.svg" alt="\( \ket {\vec {x}_1,\cdots ,\vec {x}_k} \)" style="width:5.18239em ; vertical-align:-0.2521em " class="lateximage"></span> on the first line, the final result will not
+change except from this arbitrary phase. <span id="lateximage59" class="lateximagesource"><!--
+Dk
+--><img src="lateximages/16260A424B9222F377682C546CD03BEE.svg" alt="\( D_k \)" style="width:1.33102em ; vertical-align:-0.15126em " class="lateximage"></span> can be understood as the following diagram:
+
+<p></p>
+
+
+<div class="displaymathnumbered">
+
+<p><a id="autoid-14"></a> <span id="lateximage60" class="lateximagesource"><!--
+                 Dk
+
+
+|· · · , ~xk i         |· · · , ~s~x1 ,··· ,~xk−1 i .   (3.1.14)
+
+                 Dk†
+--><img src="lateximages/lateximage-60.svg" alt="(display math)" style="" class="lateximage"></span></p>
+
+
+</div>
+
+<p>The second operator <span id="lateximage61" class="lateximagesource"><!--
+Dk−1
+--><img src="lateximages/DAE863FB457608D6600C81DBECBCA2A5.svg" alt="\( D_{k-1} \)" style="width:2.36322em ; vertical-align:-0.23529em " class="lateximage"></span> does the following next: </p>
+
+
+<div class="displaymathnumbered">
+
+<p><a id="autoid-15"></a> <span id="lateximage62" class="lateximagesource"><!--
+                X
+ Dk−1                        |~x1 , · · · , ~xk−1 , ~s~x1 ,··· ,~xk−1 i                                       (3.1.15)
+            ~
+            x1 ,··· ,~
+                     xk−1
+  ⊗n
+      Dk†                           (−1)~xk−1 ·~s~x1 ,··· ,~xk−2 |~x1 , · · · , ~xk−1 , ~s~x1 ,··· ,~xk−1 i
+                        X
+=Hk−1                                                                                                         (3.1.16)
+                    ~
+                    x1 ,··· ,~
+                             xk−1
+  ⊗n
+                          (−1)~xk−1 ·~s~x1 ,··· ,~xk−2 |~x1 , · · · , ~xk−1 , ~xk i
+               X
+=Hk−1                                                                                                         (3.1.17)
+            ~
+            x1 ,··· ,~
+                     xk
+  ⊗n
+                X
+=Hk−1                        |~x1 , · · · , ~xk−2 , P~s~x1 ,··· ,~xk−2 , P0 i                                 (3.1.18)
+            ~
+            x1 ,··· ,~
+                     xk−2
+        X
+=                   |~x1 , · · · , ~xk−2 , ~s~x1 ,··· ,~xk−2 , P0 i                                           (3.1.19)
+    ~
+    x1 ,··· ,~
+             xk−2
+--><img src="lateximages/lateximage-62.svg" alt="(15–3.1.19) \{begin}{align} &amp; D_{k-1} \sum _{\vec {x}_1,\cdots ,\vec {x}_{k-1}} \ket {\vec {x}_1,\cdots ,\vec {x}_{k-1},\vec {s}_{\vec {x}_1,\cdots ,\vec {x}_{k-1}}} \\ =&amp;
+H^{\otimes n}_{k-1} D^\dagger _k \sum _{\vec {x}_1,\cdots ,\vec {x}_{k-1}} (-1)^{\vec {x}_{k-1}\vdot \vec {s}_{\vec {x}_1,\cdots ,\vec {x}_{k-2}}} \ket {\vec {x}_1,\cdots ,\vec {x}_{k-1},\vec {s}_{\vec {x}_1,\cdots ,\vec {x}_{k-1}}}
+\\ =&amp; H^{\otimes n}_{k-1} \sum _{\vec {x}_1,\cdots ,\vec {x}_{k}} (-1)^{\vec {x}_{k-1}\vdot \vec {s}_{\vec {x}_1,\cdots ,\vec {x}_{k-2}}} \ket {\vec {x}_1,\cdots ,\vec {x}_{k-1},\vec {x}_{k}} \\ =&amp; H^{\otimes n}_{k-1} \sum
+_{\vec {x}_1,\cdots ,\vec {x}_{k-2}} \ket {\vec {x}_1,\cdots ,\vec {x}_{k-2}, P_{\vec {s}_{\vec {x}_1,\cdots ,\vec {x}_{k-2}}},P_0} \\ =&amp; \sum _{\vec {x}_1,\cdots ,\vec {x}_{k-2}} \ket {\vec {x}_1,\cdots ,\vec {x}_{k-2}, \vec
+{s}_{\vec {x}_1,\cdots ,\vec {x}_{k-2}},P_0} \{end}{align} " style="" class="lateximage"></span></p>
+
+
+</div>
+
+<p>Similarly, we have the following diagram for <span id="lateximage63" class="lateximagesource"><!--
+Dk−1
+--><img src="lateximages/DAE863FB457608D6600C81DBECBCA2A5.svg" alt="\( D_{k-1} \)" style="width:2.36322em ; vertical-align:-0.23529em " class="lateximage"></span>: </p>
+
+
+<div class="displaymathnumbered">
+
+<p><a id="autoid-16"></a> <span id="lateximage64" class="lateximagesource"><!--
+                                     load phase  ···
+|· · · , ~xk−1 , ~s~x1 ,··· ,~xk−1 i    gk−1 (−1)         |~x1 , · · · , ~xk−1 , ~s~x1 ,··· ,~xk−1 i
+       †
+      Dk−1            Dk−1                                                Dk†                          (3.1.20)
+                                       unload phase
+ |· · · , ~s~x1 ,··· ,~xk−2 , P0 i          H
+                                                      (−1)··· |~x1 , · · · , ~xk−1 , ~xk i
+--><img src="lateximages/lateximage-64.svg" alt="(3.1.20) \begin{equation} \begin {tikzcd} \ket {\cdots ,\vec {x}_{k-1},\vec {s}_{\vec {x}_1,\cdots ,\vec {x}_{k-1}}} \arrow [r, &quot;\text {load phase}&quot;, &quot;g_{k-1}&quot;
+below,] \dar [bend left, &quot;D_{k-1}&quot;] \&amp; (-1)^{\cdots } \ket {\vec {x}_1,\cdots ,\vec {x}_{k-1},\vec {s}_{\vec {x}_1,\cdots ,\vec {x}_{k-1}}} \dar [&quot;D^\dagger _k&quot;] \\ \ket {\cdots ,\vec {s}_{\vec {x}_1,\cdots
+,\vec {x}_{k-2}},P_0} \uar [bend left, &quot;D^\dagger _{k-1}&quot;] \&amp; (-1)^{\cdots } \ket {\vec {x}_1,\cdots ,\vec {x}_{k-1},\vec {x}_{k}} \lar [&quot;\text {unload phase}&quot; above, &quot;H&quot;] \end {tikzcd}
+\end{equation}" style="" class="lateximage"></span></p>
+
+
+</div>
+
+<p>Similarly for <span id="lateximage65" class="lateximagesource"><!--
+Dk−j
+--><img src="lateximages/7C724895A1F03CEA3F453E5C0B07CBD6.svg" alt="\( D_{k-j} \)" style="width:2.33575em ; vertical-align:-0.28851em " class="lateximage"></span>, we use <span id="lateximage66" class="lateximagesource"><!--
+gj
+--><img src="lateximages/B5F73D7280B07D8157821154B52AB625.svg" alt="\( g_j \)" style="width:0.90587em ; vertical-align:-0.28851em " class="lateximage"></span> to load the phase <span id="lateximage67" class="lateximagesource"><!--
+(−1)~xj ·~s···
+--><img src="lateximages/3FDF94C3E9CD54C3833EEA1568D53BD9.svg" alt="\( (-1)^{\vec {x}_j\vdot \vec {s}_{\cdots }} \)" style="width:4.34349em ; vertical-align:-0.2521em " class="lateximage"></span>, and use <span id="lateximage68"
+class="lateximagesource"><!--
+Dk† · · · Dk−j+1
+           †
+--><img src="lateximages/0A1793236F704234FC5300744A18B16A.svg" alt="\( D^\dagger _k\cdots D^\dagger _{k-j+1} \)" style="width:6.20038em ; vertical-align:-0.44145em " class="lateximage"></span> to solve the lower level rBV problem, and
+use Hadamard gate to unload the phase into basis:</p>
+
+
+<div class="displaymathnumbered">
+
+<p><a id="autoid-17"></a> <span id="lateximage69" class="lateximagesource"><!--
+                                                 load phase
+|· · · , ~xk−j , ~s~x1 ,··· ,~xk−j , P0⊗j−1 i        gj         (−1)··· |· · · , ~xk−j , ~s~x1 ,··· ,~xk−j , P0⊗j−1 i
+            †
+           Dk−j            Dk−j                                                            Dk† ···Dk−j+1
+                                                                                                   †
+
+
+
+                                                unload phase
+|· · · , ~s~x1 ,··· ,~xk−j−1 , P0 , P0⊗j−1 i         H
+                                                               (−1)··· |~x1 , · · · , ~xk−j , ~xk−j+1 , · · · , ~xk i
+                                                                                                                  (3.1.21)
+--><img src="lateximages/lateximage-69.svg" alt="(display math)" style="" class="lateximage"></span></p>
+
+
+</div>
+
+<p>The operators <span id="lateximage70" class="lateximagesource"><!--
+Dk† · · · Dk−j+1
+           †
+--><img src="lateximages/0A1793236F704234FC5300744A18B16A.svg" alt="\( D^\dagger _k\cdots D^\dagger _{k-j+1} \)" style="width:6.20038em ; vertical-align:-0.44145em " class="lateximage"></span> solves the lower level problem by gradually
+moving the <span id="lateximage71" class="lateximagesource"><!--
+s
+--><img src="lateximages/4CAD25AD1A2F1F9CEA70AC4B49F8A443.svg" alt="\( s \)" style="width:0.47269em" class="lateximage"></span> number to the end:
+
+<p></p>
+
+
+<div class="displaymathnumbered">
+
+<p><a id="autoid-18"></a> <span id="lateximage72" class="lateximagesource"><!--
+                                                †
+                                               Dk−j+1
+|· · ·   , ~s~x1 ,··· ,~xk−j , P0 , P0⊗j−2 i            |· · · , ~xk−j+1 , ~s~x1 ,··· ,~xk−j+1 , P0⊗j−2 i
+                                                                                 ···                        (3.1.22)
+
+         |~x1 , · · · , ~xk−1 , ~xk i          Dk
+                                                          |· · · , ~xk−j+1 , · · · , ~xk−1 , ~s~xk−1 i
+--><img src="lateximages/lateximage-72.svg" alt="(display math)" style="" class="lateximage"></span></p>
+
+
+</div>
+
+<p>And finally we note that: </p>
+
+
+<div class="displaymathnumbered">
+
+<p><a id="autoid-19"></a> <span id="lateximage73" class="lateximagesource"><!--
+          |~x1 , ~s~x1 , P0⊗k−2 i = |~s, P0⊗k−1 i .
+     X
+D1                                                    (3.1.23)
+     ~
+     x1
+--><img src="lateximages/lateximage-73.svg" alt="(3.1.23) \begin{equation} D_1 \sum _{\vec {x}_1}\ket {\vec {x}_1, \vec {s}_{\vec {x}_1}, P_0^{\otimes k-2}} = \ket {\vec {s}, P_0^{\otimes k-1}}.   \end{equation}" style=""
+class="lateximage"></span></p>
+
+
+</div>
+
+<p>With a measurement in the computational basis, one can with certainty find the number <span id="lateximage74" class="lateximagesource"><!--
+~s
+--><img src="lateximages/87517E299CDE9E4312773F1C7A368228.svg" alt="\( \vec {s} \)" style="height:0.72044em" class="lateximage"></span>. Therefore, the combined operators <span id="lateximage75" class="lateximagesource"><!--
+D1 D2 · · · Dk
+--><img src="lateximages/D8D38B05A1BE43372BD613428DB5C19A.svg" alt="\( D_1D_2\cdots D_k \)" style="width:5.41809em ; vertical-align:-0.15126em " class="lateximage"></span> solves the <span id="lateximage76"
+class="lateximagesource"><!--
+k
+--><img src="lateximages/1C705B2A9F33D1832A497FB135DF6C3A.svg" alt="\( k \)" style="width:0.55672em" class="lateximage"></span>th level rBV problem.</p>
+<h5 id="autosec-163"> <span class="sectionnumber">3.2&#x2001;</span>Complexity of quantum algorithm</h5><a id="autopage-163"></a>
+
+<a id="sec:Complexity of quantum algorithm"></a>
+
+<p>The number of gates (<span id="lateximage77" class="lateximagesource"><!--
+n
+--><img src="lateximages/585DA2E74EF8B708B9EB3125B16E7005.svg" alt="\( n \)" style="width:0.60527em" class="lateximage"></span> bit Hadamard and quantum queries) taken in <span id="lateximage78" class="lateximagesource"><!--
+Dk
+--><img src="lateximages/16260A424B9222F377682C546CD03BEE.svg" alt="\( D_k \)" style="width:1.33102em ; vertical-align:-0.15126em " class="lateximage"></span> is <span id="lateximage79" class="lateximagesource"><!--
+2
+--><img src="lateximages/4E46E47554B5A20DFA341FDACC81B948.svg" alt="\( 2 \)" style="width:0.5042em" class="lateximage"></span>. In <span id="lateximage80" class="lateximagesource"><!--
+Dk−1
+--><img src="lateximages/DAE863FB457608D6600C81DBECBCA2A5.svg" alt="\( D_{k-1} \)" style="width:2.36322em ; vertical-align:-0.23529em " class="lateximage"></span> is <span id="lateximage81" class="lateximagesource"><!--
+2 + 2 = 22
+--><img src="lateximages/5B973C8A322BC07A417CBD19DD6A762F.svg" alt="\( 2+2=2^2 \)" style="width:4.54202em ; vertical-align:-0.0837em " class="lateximage"></span>, in <span id="lateximage82" class="lateximagesource"><!--
+Dk−2
+--><img src="lateximages/768A990E05AC30CA2900F40134105DB5.svg" alt="\( D_{k-2} \)" style="width:2.36322em ; vertical-align:-0.23529em " class="lateximage"></span> is <span id="lateximage83" class="lateximagesource"><!--
+2 + 22 + 2 = 23
+--><img src="lateximages/981739EB0AB3AE09FA0F6AF8234FEBF7.svg" alt="\( 2+2^2+2=2^3 \)" style="width:6.7311em ; vertical-align:-0.0837em " class="lateximage"></span>. In general, in <span id="lateximage84" class="lateximagesource"><!--
+Dk−j
+--><img src="lateximages/7C724895A1F03CEA3F453E5C0B07CBD6.svg" alt="\( D_{k-j} \)" style="width:2.33575em ; vertical-align:-0.28851em " class="lateximage"></span> there are </p>
+
+
+<div class="displaymathnumbered">
+
+<p><a id="autoid-20"></a> <span id="lateximage85" class="lateximagesource"><!--
+21 + 22 + · · · + 2j−1 + 2 = 2j+1 ,   (3.2.1)
+--><img src="lateximages/lateximage-85.svg" alt="(3.2.1) \begin{equation} 2^1 + 2^2 + \cdots + 2^{j-1} + 2 = 2^{j+1}, \end{equation}" style="" class="lateximage"></span></p>
+
+
+</div>
+
+<p><span id="lateximage86" class="lateximagesource"><!--
+n
+--><img src="lateximages/585DA2E74EF8B708B9EB3125B16E7005.svg" alt="\( n \)" style="width:0.60527em" class="lateximage"></span> bit Hadamard gates and quantum query gates. Hence, the total complexity is: </p>
+
+
+<div class="displaymathnumbered">
+
+<p><a id="autoid-21"></a> <span id="lateximage87" class="lateximagesource"><!--
+2 + 22 + · · · + 2k = 2k+1 − 2 ≈ O(2k )   (3.2.2)
+--><img src="lateximages/lateximage-87.svg" alt="(3.2.2) \begin{equation} 2 + 2^2 + \cdots + 2^k = 2^{k+1}-2 \approx O(2^k) \end{equation}" style="" class="lateximage"></span></p>
+
+
+</div>
+
+<p>If <span id="lateximage88" class="lateximagesource"><!--
+k = log2 n
+--><img src="lateximages/128C5FC772B003BFE26E15464B1E123D.svg" alt="\( k=\log _2 n \)" style="width:4.42838em ; vertical-align:-0.24649em " class="lateximage"></span>, then the quantum complexity is <span id="lateximage89"
+class="lateximagesource"><!--
+O(n)
+--><img src="lateximages/16E7D10AD6DC49388C8C562010CED007.svg" alt="\( O(n) \)" style="width:2.18681em ; vertical-align:-0.2521em " class="lateximage"></span> whereas the classical complexity is lower bounded as <span id="lateximage90"
+class="lateximagesource"><!--
+Ω(nlog2 n )
+--><img src="lateximages/0B94F5696EC754283E04857AB2A5E3FC.svg" alt="\( \Omega (n^{\log _2 n}) \)" style="width:4.23265em ; vertical-align:-0.2521em " class="lateximage"></span>.</p>
+
+
+</section>
+
+<footer>
+
+</footer>
+
+</body>
+</html>

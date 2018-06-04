@@ -7,12 +7,44 @@
 % http://creativecommons.org/licenses/by-nc-sa/4.0/).
 \documentclass{article}
 
+% for lwarp package: converting latex to html.
+\usepackage{iftex}
+
+% --- LOAD FONT SELECTION AND ENCODING BEFORE LOADING LWARP ---
+
+\ifPDFTeX
+\usepackage{lmodern}            % pdflatex
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\else
+\usepackage{fontspec}           % XeLaTeX or LuaLaTeX
+\fi
+
+% --- LWARP IS LOADED NEXT ---
+\usepackage[
+%   latexmk,                    % Use latexmk to compile.
+%   mathjax,                    % Use MathJax to display math.
+]{lwarp}
+
+% --- LATEX AND HTML CUSTOMIZATION ---
+\setcounter{tocdepth}{2}        % Include subsections in the \TOC.
+\setcounter{secnumdepth}{2}     % Number down to subsections.
+\setcounter{FileDepth}{-5}       % To place the entire file into one html page
+\booltrue{CombineHigherDepths}  % Combine parts/chapters/sections
+\setcounter{SideTOCDepth}{1}    % Include subsections in the side\TOC
+\HTMLLanguage{en-UK}            % Sets the HTML meta language.
+\CSSFilename{lwarp_formal.css}
+
+% --- OTHER PACKAGES ARE LOADED AFTER LWARP ---
 % My own physics package
 % The following line load the package xparse with additional option to
 % prevent the annoying warnings, which are caused by the package
 % "physics" loaded in package "physicist-taper".
-\usepackage[log-declarations=false]{xparse}
+% \usepackage[log-declarations=false]{xparse}
 \usepackage[final]{physicist-taper}
+
+% for lwarp to work with tikz
+\tikzset{every picture/.style={ampersand replacement=\&}}
 
 \title{The Recursive Bernstein-Vazirani Algorithm}
 \date{\today}
@@ -169,6 +201,7 @@ $D_j(j=1,\cdots,k)$, defined recursively by:
   &D_1 = H^{\otimes n}_1 D^\dagger_k D^\dagger_{k-1}\cdots D^\dagger_2 g_1.
 \end{align}
 
+
 Here the $H^{\otimes n}_j$ is simply the $n$ bit Hadamard gate $H^{\otimes n}$ acting
 on the $j$th register. Each operator $D_{k-j}$ solve the $j$th level rBV
 problem. Specifically, the first operator $D_k$ does the following:
@@ -183,18 +216,21 @@ problem. Specifically, the first operator $D_k$ does the following:
   = & \sum_{\vec{x}_1,\cdots,\vec{x}_{k-1}}
   \ket{\vec{x}_1,\cdots,\vec{x}_{k-1},\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-1}}}.
 \end{align}
+
 Notice that if there are some arbitrary non-zero phases
 $\phi(\vec{x}_1,\cdots,\vec{x}_k)$ in front of
 $\ket{\vec{x}_1,\cdots,\vec{x}_k}$ on the first line, the final result will not
 change except from this arbitrary phase. $D_k$ can be understood as the following
 diagram:
+\displaymathother
 \begin{equation}
 \begin{tikzcd}
-  \ket{\cdots,\vec{x}_k} \arrow[r, bend left, "D_k"] & 
+  \ket{\cdots,\vec{x}_k} \arrow[r, bend left, "D_k"] \& 
    \arrow[l, bend left, "D^\dagger_k"] 
    \ket{\cdots,\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-1}}}.
 \end{tikzcd}
 \end{equation}
+\displaymathnormal
 
 The second operator $D_{k-1}$ does the following next:
 \begin{align}
@@ -218,62 +254,68 @@ The second operator $D_{k-1}$ does the following next:
 \end{align}
 
 Similarly, we have the following diagram for $D_{k-1}$:
+\displaymathnormal
 \begin{equation}
 \begin{tikzcd}
   \ket{\cdots,\vec{x}_{k-1},\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-1}}} 
   \arrow[r, "\text{load phase}", "g_{k-1}" below,]
   \dar[bend left, "D_{k-1}"]
-  & 
+  \& 
   (-1)^{\cdots} \ket{\vec{x}_1,\cdots,\vec{x}_{k-1},\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-1}}}
   \dar["D^\dagger_k"]
   \\
   \ket{\cdots,\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-2}},P_0}
   \uar[bend left, "D^\dagger_{k-1}"]
-  &
+  \&
   (-1)^{\cdots} \ket{\vec{x}_1,\cdots,\vec{x}_{k-1},\vec{x}_{k}}
   \lar["\text{unload phase}" above, "H"]
 \end{tikzcd}
 \end{equation}
+\displaymathother
 
 Similarly for $D_{k-j}$, we use $g_j$ to load the phase 
 $(-1)^{\vec{x}_j\vdot \vec{s}_{\cdots}}$, and use $D^\dagger_k\cdots
 D^\dagger_{k-j+1}$ to solve the lower level rBV problem, and use Hadamard gate
 to unload the phase into basis:
 
+\displaymathother
 \begin{equation}
 \begin{tikzcd}[row sep=large, column sep = large]
   \ket{\cdots,\vec{x}_{k-j},\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-j}},P_0^{\otimes j-1}} 
   \arrow[r, "\text{load phase}", "g_j" below,]
   \dar[bend left, "D_{k-j}"]
-  & 
+  \& 
   (-1)^{\cdots} 
   \ket{\cdots,\vec{x}_{k-j},\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-j}},P_0^{\otimes j-1}} 
   \dar["D^\dagger_k\cdots D^\dagger_{k-j+1}"]
   \\
   \ket{\cdots,\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-j-1}},P_0,P_0^{\otimes j-1}}
   \uar[bend left, "D^\dagger_{k-j}"]
-  &
+  \&
   (-1)^{\cdots} \ket{\vec{x}_1,\cdots,\vec{x}_{k-j}, \vec{x}_{k-j+1},\cdots,\vec{x}_{k}}
   \lar["\text{unload phase}" above, "H"]
 \end{tikzcd}
 \end{equation}
+\displaymathnormal
 
 The operators $D^\dagger_k\cdots D^\dagger_{k-j+1}$ solves the lower level
 problem by gradually moving the $s$ number to the end:
+\displaymathother
 \begin{equation}
 \begin{tikzcd}
   \ket{\cdots,\vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-j}},P_0,P_0^{\otimes j-2}}
   \rar["D^\dagger_{k-j+1}"]
-  &
+  \&
   \ket{\cdots,\vec{x}_{k-j+1}, \vec{s}_{\vec{x}_1,\cdots,\vec{x}_{k-j+1}},P_0^{\otimes j-2}}
   \dar["\cdots"]
   \\
   \ket{\vec{x}_1,\cdots,\vec{x}_{k-1},\vec{x}_{k}}
-  &
+  \&
   \ket{\cdots,\vec{x}_{k-j+1},\cdots,\vec{x}_{k-1},\vec{s}_{\vec{x}_{k-1}}}
   \lar["D_k"]
 \end{tikzcd}
 \end{equation}
+\displaymathnormal
 
 And finally we note that:
 \begin{equation}
