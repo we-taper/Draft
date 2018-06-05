@@ -1,0 +1,66 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physicist-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physicist-taper}
+
+\title{Simons's Algorithm}
+\date{\today}
+\author{Hongxiang Chen}
+
+\begin{document}
+
+\maketitle
+\abstract{
+  Based on Watrous's notes.
+}
+
+\section{Why the probability looks in that way}
+\label{sec:Why the probability looks in that way}
+
+We are asked of the probability of finding $n-1$ linear independent vectors
+$\vec{y}_1,\cdots,\vec{y}_{n-1}$ in the vectors space of dimension $n$ over
+binary numbers satisfying the condition:
+\begin{equation}
+  \vec{s}\vdot\vec{y_i} = 0, \forall i=1,\cdots,n-1
+\end{equation}
+We could assume that all vectors satisfying the above condition appear with equal
+probability.
+
+Since the binary numbers are quite limited, this is a discrete probability and
+we could count this easily. Assuming we have founded $m$ linearly independent
+vectors $\vec{y}_1,\cdots,\vec{y}_m$, without loss of generality, we could
+assume:
+\begin{align}
+  \vec{y}_1 &= (1,0,\cdots,0), \\
+  \vec{y}_2 &= (0,1,0,\cdots,0), \\
+            &\cdots, \nonumber\\
+  \vec{y}_m &= (0,\cdots,0,1,0,\cdots,0)
+\end{align}
+
+Then over all $2^{n-1}$\footnote{Because the condition $\vec{y}\vdot\vec{s}=0$
+reduces the dimension by $1$. Formally, this is the result of Rank–nullity
+theorem over the field $\mathbb{Z}_2$.} possible vectors, $2^m$ vectors can be linearly expressed by the
+above founded vectors. Therefore, the probability of finding the next linearly
+independent vector is $\left(1-\frac{2^m}{2^{n-1}}\right)$. Therefore, overall the probability
+of finding $n-1$ linearly independent vectors are:
+\begin{equation}
+  \prod_{k=1}^{n-2}\left(1-\frac{2^k}{2^{n-1}}\right) = \prod_{k=1}^{n-2}
+  \left(1-\frac{1}{2^k}\right)
+\end{equation}
+This is clearly decreasing number w.r.t $n$, hence in the asymptotic limit the
+probability is:
+\begin{equation}
+  \prod_{k=1}^{\infty}\left(1-\frac{1}{2^k}\right).
+\end{equation}
+\end{document}
