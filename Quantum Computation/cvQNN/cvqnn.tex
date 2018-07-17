@@ -1,0 +1,194 @@
+% The entire content of this work (including the source code
+% for TeX files and the generated PDF documents) by 
+% Hongxiang Chen (nicknamed we.taper, or just Taper) is
+% licensed under a 
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
+% International License (Link to the complete license text:
+% http://creativecommons.org/licenses/by-nc-sa/4.0/).
+\documentclass{article}
+\usepackage{fullpage}
+% My own physics package
+% The following line load the package xparse with additional option to
+% prevent the annoying warnings, which are caused by the package
+% "physics" loaded in package "physicist-taper".
+\usepackage[log-declarations=false]{xparse}
+\usepackage{physicist-taper}
+\makenomenclature % For an index of symbols.
+
+\title{CV QNN}
+\date{\today}
+\author{}
+
+
+\begin{document}
+
+
+\maketitle
+\abstract{
+  Notes of arXiv:1806.06871v1
+}
+\tableofcontents
+
+\section{Continuous Variable Quantum Neural Networks}
+
+\subsection{General continuous variable quantum computation}
+
+
+Continuous variable quantum computation operates on another model of quantum computation. The states could be represented in two different ways. For one *qumode*, it can be represented as:
+
+\begin{enumerate}
+  \item 
+A Fock state, $\ket{n}$, where $n\in \mathbb{N}$. They live in a Hilber
+space, called Fock space of countable infinite dimension. Their amplitudes are
+probabilities, and the transformations are unitary. It is analogus to (but not
+the same as) a state of $n$ bosons \footnote{There seems to be no more degree of freedom when $n$ increases. It is not clear what $\ket{n}$ means physically. TODO: check this.}. For multiple qumodes, the state is represented as $\ket{n_0,n_1,\cdots,n_{i-1}}$.
+\item
+A phase space vector (not a ket) $(x,p)$ where $x$ and $p$ are both real
+numbers. They are expecation value of two conjugate operator $\hat{x}$ and
+$\hat{p}$\footnote{In some sense, $x$ and $p$ could be understood as momentum. TODO: Check this.}. Here the amplitudes $F(x,p)$ are not probabilities but quasiprobability distributions. The transformation in this picture are much more diverse, and will be used as to embede arbitrary classical neural networks. For multiple qumodes, the state is represented as two vectors $(\vec{x}, \vec{p})$ put together.
+\end{enumerate}
+
+\textbf{Note}:
+We note that this infinite-dimensional Fock space cannot be simulated classically. What they do is to cut-off the dimension above a number, so that the Hilbert space is truncted. This creates unnormalised state in simulation. To address this issue, they add a penality in the cost function as:
+
+$$
+P(\{\ket{\psi_{x_i}}\}) = 
+\sum_i \left( |\braket{\psi_{x_i} | \Pi_H | \psi_{x_i}}| - 1\right)^2
+$$
+
+where $\Pi_H$ projects onto the truncted Hilbert space.
+
+\subsection{ General transformation on CV model and embedding classical neural
+network}
+
+The general transformation on $N$ qumodes are devided into two categories: the Gaussian gates and non-Gaussian gates. 
+
+\textbf{ Gaussian}:
+The Gaussian gates could achieves a transformation:
+
+$$ 
+(\vec{x}, \vec{p}) \to M (\vec{x}, \vec{p}) + (\vec{\alpha_r}, \vec{\alpha_i})
+$$
+
+Here $M$ is a sympletic real matrix of size $2N\times 2N$, $\vec{\alpha_r}$
+and $\vec{\alpha_i}$ are real and complex part of a complex vector
+$\vec{\alpha}\in \mathbb{C}^{N}$. In essence, most linear transformations
+($M$) plus affine transformation (displacement, $\vec{\alpha}$) can be
+achieved.
+
+Importantly, $M$ is of size $2N\times 2N$ and has a lot of freedom inside (i.e. its submatrix could be non-sympletic). When we only use the $\vec{x}$ vectors to do quantum computation (i.e. we care only about $\vec{x}$ and avoid computations that mixes $\vec{x}$ and $\vec{p}$), arbitrary real matrix $W$ of size $N\times N$ could be implemented using Gaussian gates. Together with the affine transformation, this means any linear neural network of weight $W$ and bias $\vec{b}$ could be implemented using quantum computations such that (discussed in P.6):
+
+$$
+D\circ U_2 \circ S \circ U_1 \ket{\vec{x}} = \ket{W\vec{x} + \vec{b}}
+$$
+
+This corresponds to the first part of a layer in Fig.1.
+
+\textbf{Non-Gaussian}: The non-Guassian gates achieves a nonlinear function
+\footnote{It is not clear to me what kind of non-linear function could be achieved, TODO check.}:
+$$
+\Phi \ket{\vec{x}} = \ket{\phi(\vec{x})}
+$$
+
+Specifically, the author proposed a gate $V = \exp(i \phi(\hat{x}_i)\otimes \hat{p}_{i'})$, where $\phi(x)$ is a polynomial of a fixed degree, which could approximate any smooth function by Taylor expansion. They used this gate to achieve arbitrary nonlinear transformation:
+$$
+\ket{x_i} \to \ket{\phi(x_i)}
+$$
+
+Together with the Gaussian gates, we have the embedding of arbitrary classical neural network of the form $\Phi(W\vec{x}+\vec{b})$ as a quantum neural networks in Fig.1.
+
+\textbf{ Specific neural networks structure} The paper also discusses how many specific neural network structure could be  implemented as in a quantum neural network. This includes: 
+
+\begin{itemize}
+  \item \textbf{Convnet}: implemented just as a special matrix to do the convolution
+  \item \textbf{RNN}: implemented by reusing the same parameter for the quantum layer. Also, it is very convenient to connect the output of a CV quantum computer back to its input on a optical implementation of CV quantum computer
+  \item \textbf{Residual Network}: implemented as a gate $\ket{\vec{x}} \to \ket{\vec{x} + \phi(\vec{x})}$.
+\end{itemize}
+
+\subsection{ CV-QNN Experiments}
+
+1. Function fitting
+\begin{table}[H]
+  \centering
+  \caption{Experiments}
+  \label{tab:label}
+  \extrarowsep=3mm
+  \begin{tabu}{X[0.5]|X|X|X|X}
+    & Function fitting & Classifying data & Generating image & Auto-encoder 
+    \\
+    Purpose &
+    Produce a circuit which fits the function
+    $\ket{x} \overset{\text{circuit}}{\to} \ket{f(x)}$.&
+    Classify whether the transaction is genuine or fraud. &
+    For $m$ size $N\times N$ images, choose $m$ initial state $\ket{\phi_\alpha}$
+    ($\alpha = 1,\cdots m$), find a circuit that transform $\ket{\phi_\alpha}$
+    into a specific encoding of matrix into states ($\ket{A_\alpha}$) for each
+    image. &
+    Find a circuit which encodes all states with at most two phonons
+    $\ket{\phi}=\alpha\ket{0} + \beta\ket{1} +\gamma\ket{2}$ into a phase space
+    coordinate $(x,p)$.
+    \\
+    Circuit &
+    \includegraphics[width=1.00\linewidth]{A.pdf} &
+    \includegraphics[width=1.00\linewidth]{B.pdf} &
+    \includegraphics[width=1.00\linewidth]{C.pdf} &
+    \includegraphics[width=1.00\linewidth]{D.pdf} 
+    \\
+    Input &
+    $x \overset{\mathcal{D}}{\to} \ket{(\vec{x},0)}$, data encoded as
+    phase space coordinate.&
+    Data are processed after a classical layer, and then encoded as angles of circuit.&
+    Data are quantum states $\ket{\phi_\alpha}$, each one $\alpha$ is supposed
+    to generate a distinct image.&
+    Before training, the data are processed by classical layer and then input
+    into the quantum layer as phase space coordinate. After training, the encoder accepts two angles as
+    the input.
+    \\
+    Output &
+    Output a measured value, which is a real number, interpreted as the function evaluated at $x$. &
+    Output a measured value, which is the number of photons in each mode. By
+    post-selecting on single-photon outputs, the position of this photon will be
+    interpreted as the decision.&
+    Output a quantum state, which should be as closed as possible to the state:
+    $\ket{A_\alpha} \propto \sum_{i,j} \sqrt{a_{ij}^\alpha} \ket{i,j} $. Here
+    $\alpha$ labels the different images. $a_{ij}^\alpha$ is the matrix element of
+    that image $\alpha$.&
+    Output the state $\ket{\psi} = \alpha\ket{0} + \beta\ket{1} +
+    \gamma\ket{2}$.
+    \\
+    Cost function &
+    $\sum_i \left[f(x_i) - \braket{\hat{x}} \right]^2$ plus
+    regularisation terms. Here $\braket{\hat{x}}$ is the expectation value after
+    the quantum circuit.&
+    $\sum_{i\in \text{data}} (1-p_i)^2$, $p_i$ is the probability of correct
+    detection.&
+    $\sum_i |\braket{\psi_i | A_i}|^2$ plus regularisation terms. Requires 
+    tomography! &
+    $\sum_i \left(|\braket{ i| \psi_i }|^2 -1\right)^2$ plus regularisation terms.
+    Requires tomography!
+    \\
+    Result &
+    Fig.5 & Fig.9 & Fig.10 & Fig.11 
+  \end{tabu}
+\end{table}
+
+\section{License}
+The entire content of this work (including the source code
+for TeX files and the generated PDF documents) by 
+Hongxiang Chen (nicknamed we.taper, or just Taper) is
+licensed under a 
+\href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative 
+Commons Attribution-NonCommercial-ShareAlike 4.0 International 
+License}. Permissions beyond the scope of this 
+license may be available at 
+\href{http://www.google.com/recaptcha/mailhide/d?k=015LguzBJigi0rpyuJRqLoig==\&c=p1c-M-mm7ZcjUCkTuZZa9eEPHRVk6paN0694iazlQy8=}
+{[My Email Address(Click)]}.
+
+\bibliography{cite}{}
+\bibliographystyle{alphaurl}
+% \begin{thebibliography}{1}
+% 	\bibitem{book} 
+% \end{thebibliography}
+\printnomenclature
+
+\end{document}
