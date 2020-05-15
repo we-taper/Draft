@@ -1,0 +1,26 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    // Makefile
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "html",
+            "type": "shell",
+            "options": {"cwd": "${fileDirname}"},
+            "command": "make -f ${fileBasenameNoExtension}.makefile html",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "pdf",
+            "type": "shell",
+            "options": {"cwd": "${fileDirname}"},
+            "command": "make -f ${fileBasenameNoExtension}.makefile pdf",
+            "problemMatcher": [],
+        }
+    ]
+}

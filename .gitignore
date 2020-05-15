@@ -196,3 +196,6 @@ TSWLatexianTemp*
 *~[0-9]*
 .DS_Store
 *.pyc
+
+# python
+.ipynb_checkpoints/
